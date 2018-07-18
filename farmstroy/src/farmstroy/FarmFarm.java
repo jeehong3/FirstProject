@@ -5,7 +5,7 @@ public class FarmFarm {
 	
 	public void testMethod() {
 		
-		
+		System.out.println("hello");
 		
 		
 		
