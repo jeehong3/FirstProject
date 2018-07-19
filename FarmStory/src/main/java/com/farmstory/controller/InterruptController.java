@@ -10,27 +10,27 @@
 //import com.farmstory.vo.Ann;
 //import com.farmstory.vo.Interrupt;
 //
-//@Controller
-//public class InterruptController {
-//
-//	@Autowired
+////@Controller
+////public class InterruptController {
+////
+////	@Autowired
 ////	@Qualifier(value = "interruptService")
-//	private InterruptService interruptService;
-//
-//	@PostMapping(value = "/writeI.action")
-//	public String interruptWrite(Interrupt interrupt) {
-//
-//		interruptService.write(interrupt);
-//
-//		return "writeI.action";
-//	}
-//
-//	@PostMapping(value = "/writeA.action")
-//	public String noticeWrite(Ann anno) {
-//
-//		noticeService.write(anno);
-//
-//		return "writeA.action";
-//	}
+////	private InterruptService interruptService;
+////
+////	@PostMapping(value = "/writeI.action")
+////	public String interruptWrite(Interrupt interrupt) {
+////
+////		interruptService.write(interrupt);
+////
+////		return "writeI.action";
+////	}
+////
+////	@PostMapping(value = "/writeA.action")
+////	public String noticeWrite(Ann anno) {
+////
+////		noticeService.write(anno);
+////
+////		return "writeA.action";
+////	}
 //	
-//}
+////}
