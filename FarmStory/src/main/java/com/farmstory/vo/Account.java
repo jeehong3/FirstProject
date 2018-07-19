@@ -1,5 +1,6 @@
 package com.farmstory.vo;
 
+//회원정보를 DB에 저장하기 위한 vo 개체
 public class Account {
 	
 	private String memberId;
