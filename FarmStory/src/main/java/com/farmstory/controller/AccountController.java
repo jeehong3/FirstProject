@@ -15,9 +15,12 @@ public class AccountController {
 	@Qualifier(value = "accountService")
 	private AccountService accountService;
 	
-	@PostMapping(value = "")
-	public void registerMember(Account account) {
+	@PostMapping(value = "/resister.action")
+	public String registerMember(Account account) {
 		
+		accountService.registerMember(account);
+		
+		return "redirect:home.action";
 	}
 
 }

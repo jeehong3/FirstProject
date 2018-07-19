@@ -3,44 +3,44 @@ package com.farmstory.vo;
 //회원정보를 DB에 저장하기 위한 vo 개체
 public class Account {
 	
-	private String memberId;
-	private String memberPw;
-	private String memberName;
-	private String memberEmail;
-	private String memberPhone;
+	private String memId;
+	private String memPw;
+	private String memName;
+	private String memEmail;
+	private String memPhone;
 	
 	
-	public String getMemberId() {
-		return memberId;
+	public String getMemId() {
+		return memId;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
-	public String getMemberPw() {
-		return memberPw;
+	public String getMemPw() {
+		return memPw;
 	}
-	public void setMemberPw(String memberPw) {
-		this.memberPw = memberPw;
+	public void setMemPw(String memPw) {
+		this.memPw = memPw;
 	}
-	public String getMemberName() {
-		return memberName;
+	public String getMemName() {
+		return memName;
 	}
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
+	public void setMemName(String memName) {
+		this.memName = memName;
 	}
-	public String getMemberEmail() {
-		return memberEmail;
+	public String getMemEmail() {
+		return memEmail;
 	}
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
+	public void setMemEmail(String memEmail) {
+		this.memEmail = memEmail;
 	}
-	public String getMemberPhone() {
-		return memberPhone;
+	public String getMemPhone() {
+		return memPhone;
 	}
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
+	public void setMemPhone(String memPhone) {
+		this.memPhone = memPhone;
 	}
 	
-
-
+	
+	
 }

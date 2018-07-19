@@ -7,7 +7,7 @@
 	
 	<insert id="insertMember" parameterType="Account">
 		INSERT INTO MEMBER (MEM_ID,	MEM_PW, MEM_NAME, MEM_EMAIL ,MEM_PHONE)
-		VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberEmail}, #{memberPhone})
+		VALUES (#{memId}, #{memPw}, #{memName}, #{memEmail}, #{memPhone})
 	</insert>
 
 </mapper>  
