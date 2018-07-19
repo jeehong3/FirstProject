@@ -4,21 +4,21 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-<!--
+
 	<bean id="accountMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.farmstory.mapper.AccountMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	<bean id="accountService"
-		class="com.farmstory.service.AccountServiceImpl">
-		<property name="accountDao" ref="accountDao"/>
-	</bean>
-	
 	<bean id="accountDao"
 		class="com.farmstory.dao.MySqlAccountDao">
 		<property name="accountMapper" ref="accountMapper" />
 	</bean>
--->
+	
+	<bean id="accountService"
+		class="com.farmstory.service.AccountServiceImpl">
+		<property name="accountDao" ref="accountDao"/>
+	</bean>
+
 </beans>
