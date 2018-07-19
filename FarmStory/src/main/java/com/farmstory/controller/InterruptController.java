@@ -41,6 +41,7 @@ public class InterruptController {
 //		return "board/interrupt/detail";
 //	}
 //	
+	
 	@GetMapping(value = "/sensor.action")
 	@ResponseBody
 	public String helloArduino(int type, int value) {
