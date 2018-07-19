@@ -30,6 +30,7 @@
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
+
 	
 <!-- /////.....각 기능별 의존성 주입.....////////////////////////////////////////////////////////////////////////////////////////////////////// -->	
 	
@@ -37,6 +38,9 @@
 	
 	<!-- 인증시스템 관리 - 온철훈 -->
 	<import resource="classpath:com/farmstory/config/account-config.xml" />
+	
+	<!-- 마이페이지 관리 -->
+	<import resource="classpath:com/farmstory/config/mypage-config.xml" />
 	
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		

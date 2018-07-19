@@ -85,8 +85,10 @@
 								<ul class="dropdown-menu">
 								
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-								<li><a href="#">식물 정보 등록 [관리자]</a></li>
+								<li><a href="plant-write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
+								
+								<li><a href="plant-list.action">식물 정보</a></li>
 								
 								<li><a href="#">내가 키우는 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
