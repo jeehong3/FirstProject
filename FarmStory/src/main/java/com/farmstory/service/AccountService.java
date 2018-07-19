@@ -6,4 +6,6 @@ public interface AccountService {
 
 	void registerMember(Account account);
 
+	Account findMember(String memId, String memPw);
+
 }

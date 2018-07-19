@@ -8,6 +8,7 @@ public class Account {
 	private String memName;
 	private String memEmail;
 	private String memPhone;
+	private String memType;
 	
 	
 	public String getMemId() {
@@ -40,7 +41,11 @@ public class Account {
 	public void setMemPhone(String memPhone) {
 		this.memPhone = memPhone;
 	}
-	
-	
+	public String getMemType() {
+		return memType;
+	}
+	public void setMemType(String memType) {
+		this.memType = memType;
+	}
 	
 }

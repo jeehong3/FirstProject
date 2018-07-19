@@ -1,40 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <style type="text/css">
-#callModalLogin, #callModalLogout, #callModalRegister {
+#welcome {
 	font-size: 14px;
-	padding-top: 25px;
+	padding-top: 10px;
 }
-/* #navbar-header{
-	height: 30px;
-} */
+
 </style>
 
 <header>
 	<div class="navbar">
-
 		<div id="navbar-header" class="navbar-header">
 			<div class="container">
-<!-- 
-			<ul class="info pull-left">
-				<li><a href="#"><i class="icon-mail-1 contact"></i>
-						info@reen.com</a></li>
-				<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
-			</ul>
--->
-				<!-- /.info -->
-<!-- 
-			<ul class="social pull-right">
-				<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-				<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-				<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-				<li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-				<li><a href="#"><i class="icon-s-behance"></i></a></li>
-				<li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-			</ul>
--->
-				<!-- /.social -->
 
 				<!-- ============================================================= LOGO MOBILE ============================================================= -->
 
@@ -44,26 +24,17 @@
 
 				<!-- ============================================================= LOGO MOBILE : END ============================================================= -->
 
-
-
 				<a class="navbar-toggle btn responsive-menu pull-right"
 					data-toggle="collapse" data-target=".navbar-collapse"><i
 					class='icon-menu-1'></i></a>
-
-				<ul class="pull-right">
-					<li><a id="callModalLogin" class="responsive-menu pull-right"
-						data-toggle="modal" data-target="#login">로그인&nbsp;<i
-							class="icon-login-1"></i>&nbsp;
-					</a></li>
-					<li><a id="callModalLogout" class="responsive-menu pull-right"
-						data-toggle="modal" data-target="#logout">로그아웃&nbsp;<i
-							class="icon-logout-1"></i>&nbsp;
-					</a></li>
-					<li><a id="callModalRegister"
-						class="responsive-menu pull-right" data-toggle="modal"
-						data-target="#register">회원가입&nbsp;<i class="icon-user-1"></i></a>
-					</li>
-				</ul>
+				
+				<c:if test="${not empty loginuser }">
+					<ul class="pull-right">
+						<li><a id="welcome" class="responsive-menu pull-right">
+						<i class="icon-user-1"></i>&nbsp;${loginuser.memName}&nbsp;님 환영합니다&nbsp;
+						</a></li>
+					</ul>
+				</c:if>
 			</div>
 			<!-- /.container -->
 		</div>
@@ -88,11 +59,15 @@
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">팜스토리 소개</a>
-
-							<ul class="dropdown-menu">
-								<li><a href="#">소개 쓰기</a></li>
-								<li><a href="#">소개 수정하기</a></li>
-							</ul> <!-- /.dropdown-menu --></li>
+							
+							<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+								<ul class="dropdown-menu">
+									<li><a href="#">소개 쓰기</a></li>
+									<li><a href="#">소개 수정하기</a></li>
+								</ul> <!-- /.dropdown-menu -->
+							</c:if>
+							
+							</li>	
 						<!-- /.dropdown -->
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -108,6 +83,11 @@
 							data-toggle="dropdown">식물 정보</a>
 							
 								<ul class="dropdown-menu">
+								
+								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+								<li><a href="#">식물 정보 등록 [관리자]</a></li>
+								</c:if>
+								
 								<li><a href="#">내가 키우는 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
@@ -121,18 +101,21 @@
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
-
+						<c:if test="${not empty loginuser }">
 						<li class="dropdown pull-right searchbox"><a href="#"
 							data-toggle="modal"
-							data-target="#logout"><i class="icon-logout-1"></i></a></li>
+							data-target="#logout">Logout&nbsp;<i class="icon-logout-1"></i></a></li>
+						</c:if>
+						
+						<c:if test="${ empty loginuser }">	
+							<li class="dropdown pull-right searchbox"><a href="#"
+							data-toggle="modal"
+							data-target="#register">Sign Up&nbsp;<i class="icon-user-1"></i></a></li>
 							
 							<li class="dropdown pull-right searchbox"><a href="#"
 							data-toggle="modal"
-							data-target="#register"><i class="icon-user-1"></i></a></li>
-
-						
-						<!-- /.dropdown -->
-
+							data-target="#login">Login&nbsp;<i class="icon-login-1"></i></a></li>
+						</c:if>	
 					</ul>
 					<!-- /.nav -->
 
