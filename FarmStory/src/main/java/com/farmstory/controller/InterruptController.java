@@ -17,45 +17,37 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
 public class InterruptController {
-
-	@Autowired
-	@Qualifier("interruptService")
-	private InterruptService interruptService;
-
-	@RequestMapping(value = "/list.action", method = GET)
-	public String showListView(Model model) {
-
-		List<Interrupt> boards = interruptService.findBoards();
-
-		model.addAttribute("boards", boards);
-
-		return "board/interrupt/list";
-	}
-
-	@RequestMapping(value = "/detail.action", method = GET)
-	public String showDetailView(int boardNo, Model model) {
-
-		Interrupt board = (Interrupt) interruptService.getInterruptDetail(boardNo);
-
-		model.addAttribute("board", board);
-		return "board/interrupt/detail";
-	}
-	
-	@GetMapping(value = "/sensorInsert.action")
+//
+//	@Autowired
+//	@Qualifier("interruptService")
+//	private InterruptService interruptService;
+//
+//	@RequestMapping(value = "/list.action", method = GET)
+//	public String showListView(Model model) {
+//
+//		List<Interrupt> boards = interruptService.findBoards();
+//
+//		model.addAttribute("boards", boards);
+//
+//		return "board/interrupt/list";
+//	}
+//
+//	@RequestMapping(value = "/detail.action", method = GET)
+//	public String showDetailView(int boardNo, Model model) {
+//
+//		Interrupt board = (Interrupt) interruptService.getInterruptDetail(boardNo);
+//
+//		model.addAttribute("board", board);
+//		return "board/interrupt/detail";
+//	}
+//	
+	@GetMapping(value = "/sensor.action")
 	@ResponseBody
-	public String helloArduino(int x, String msg) {
+	public String helloArduino(int type, int value) {
 		
-		System.out.printf("X : %d / MESSAGE : %s\n", x, msg);
-		
-//		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//		return String.format(
-//				"data received at %s", f.format(new Date()));
+		System.out.printf("X : %d / MESSAGE : %s\n", type, value);
 		
 		
-		if (x < 300) {
-			return "turnon";
-		} else {
-			return "turnoff";
-		}
+			return null;
 	}
 }
