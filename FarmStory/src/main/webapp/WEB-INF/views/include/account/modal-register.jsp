@@ -49,28 +49,28 @@
 				<h4 class="modal-title">&nbsp;<i class="icon-user-1"></i>&nbsp;회원 가입</h4>
 			</div>
 			<div class="modal-body">
-				<form method="post" action="">
+				<form method="post" action="/farmstory/register.action">
 					<div class="form-group">
-						<input type="text" class="form-control bg-ash" name="Id"
+						<input type="text" class="form-control bg-ash" name="memId"
 							placeholder="아이디를 입력해주세요.">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control bg-ash" name="Pw"
+						<input type="password" class="form-control bg-ash" name="memPw"
 							placeholder="비밀번호를 설정해주세요.">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control bg-ash" name="Name"
+						<input type="text" class="form-control bg-ash" name="memName"
 							placeholder="이름을 알려주세요.">
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control bg-ash" name="Email"
+						<input type="email" class="form-control bg-ash" name="memEmail"
 							placeholder="이메일 주소를 알려주세요.">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control bg-ash" name="Phone"
+						<input type="text" class="form-control bg-ash" name="memPhone"
 							placeholder="휴대전화 번호를 알려주세요.">
 					</div>
-					<button type="button" class="btn btn-default">가입하기</button>
+					<button type="submit" class="btn btn-default">가입하기</button>
 				</form>
 			</div>
 			<div class="modal-footer">
