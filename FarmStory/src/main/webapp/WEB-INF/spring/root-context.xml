@@ -39,9 +39,12 @@
 	<!-- 인증시스템 관리 - 온철훈 -->
 	<import resource="classpath:com/farmstory/config/account-config.xml" />
 	
-	<!-- 마이페이지 관리 -->
-	<import resource="classpath:com/farmstory/config/mypage-config.xml" />
-	
+	<!-- 아두이노를 이용한 센서값 불러오기 -->
+		<!-- <import resource="classpath:com/farmstory/config/sensor-config.xml" /> -->
+		
+	<!-- 나의 화분등록 정보보기 -->
+	<import resource="classpath:com/farmstory/config/registplant-config.xml"/>
+
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		
 </beans>
