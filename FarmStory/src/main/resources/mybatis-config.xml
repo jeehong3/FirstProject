@@ -27,7 +27,7 @@
 	
 	<mappers>
 		<mapper resource="com/farmstory/mapper/account-mapper.xml"/>
-		<mapper resource="com/farmstory/mapper/sensor-mapper.xml"/>
+		<!-- <mapper resource="com/farmstory/mapper/sensor-mapper.xml"/> -->
 	</mappers>
 
 </configuration>
