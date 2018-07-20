@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias type="com.farmstory.vo.Account" alias="Account"/>
 		<typeAlias type="com.farmstory.vo.PlantVal" alias="PlantVal"/>
+		<typeAlias type="com.farmstory.vo.RegistPlant" alias="RegistPlant"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -27,7 +28,8 @@
 	
 	<mappers>
 		<mapper resource="com/farmstory/mapper/account-mapper.xml"/>
-		<mapper resource="com/farmstory/mapper/sensor-mapper.xml"/>
+		<mapper resource="com/farmstory/mapper/registplant-mapper.xml"/>
+		<!-- <mapper resource="com/farmstory/mapper/sensor-mapper.xml"/> -->
 	</mappers>
 
 </configuration>
