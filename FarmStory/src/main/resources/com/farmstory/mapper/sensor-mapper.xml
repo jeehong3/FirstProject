@@ -6,6 +6,7 @@
 <mapper namespace="com.farmstory.mapper.SensorMapper">
 	
 	<insert id="writeSensor" parameterType="PlantVal">
-		INSERT INTO PLANT_VAL (PLV_TYPE, PLV_VAL) VALUES (#{plvType}, #{plvVal})
+		INSERT INTO PLANT_VAL (REG_POTNO, PLV_TYPE, PLV_VAL) VALUES (#{regPotNo}, #{plvType}, #{plvVal})
 	</insert>
+	
 </mapper>  
