@@ -21,15 +21,21 @@ public class MySqlAccountDao implements AccountDao {
 	}
 	
 	@Override
-	public Account selectMember(String memId, String memPw) {
+	public Account selectMember(String userInputId, String userInputPw) {
 		
 		// 넘겨 받은 아이디와 비밀번호 값을
 		// DB에서 조회하기 위해 HashMap으로 저장하여 보낸다.
 		HashMap<String, Object> params = new HashMap<>();
-		params.put("memId", memId);
-		params.put("memPw", memPw);
+		params.put("userInputId", userInputId);
+		params.put("userInputPw", userInputPw);
 		
 		return accountMapper.selectMember(params);
+	}
+	
+	@Override
+	public String selectMemberByPw(String userInputId) {
+		
+		return accountMapper.selectMemberByPw(userInputId);
 	}
 	
 }

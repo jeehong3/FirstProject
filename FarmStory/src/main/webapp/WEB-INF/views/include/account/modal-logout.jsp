@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<style type="text/css">
-
-#modal-dialog-logout {
-	width: 350px;
-	height: 230px;
-}
-
-</style>
-
 <div id="logout" class="modal fade" role="dialog">
 	<div id="modal-dialog-logout" class="modal-dialog">
 		<!-- Modal content-->

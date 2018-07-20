@@ -9,4 +9,6 @@ public interface AccountMapper {
 	void insertMember(Account account);
 	
 	Account selectMember(HashMap<String, Object> params);
+	
+	String selectMemberByPw(String userInputId);
 }
