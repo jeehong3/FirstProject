@@ -36,18 +36,6 @@
 			
 			<!-- ============================================================= SECTION – HERO ============================================================= -->
 			
-			<!-- Account - Register Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp"/>
-			<!-- Account - Register Modal : END   -->
-			
-			<!-- Account - Login Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp"/>
-			<!-- Account - Login Modal : END   -->
-			
-			<!-- Account - Logout Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp"/>
-			<!-- Account - Logout Modal : END   -->
-			
 			<section id="hero">
 				<div id="owl-main" class="owl-carousel height-md owl-inner-nav owl-ui-lg">
 					

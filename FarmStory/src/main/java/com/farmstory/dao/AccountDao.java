@@ -6,6 +6,8 @@ public interface AccountDao {
 
 	void insertMember(Account account);
 
-	Account selectMember(String memId, String memPw);
+	Account selectMember(String userInputId, String userInputPw);
+
+	String selectMemberByPw(String userInputId);
 
 }

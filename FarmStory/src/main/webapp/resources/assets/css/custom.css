@@ -3,3 +3,75 @@
 /*===================================================================================*/
 
 /* Insert your own styles in here! */
+
+/* ==== Header : Start ============================= */
+
+#welcome {
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+/* ==== Header : End ============================= */
+
+/* ==== Register & Login & Logout Modal : Start ============================= */
+
+.modal-header {
+	border-top: 6px solid #3F8DBF;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom: 0;
+	padding: 10px 20px;
+}
+
+.form-group {
+	padding: 0 18px;
+	border-color: #e5e5e5;
+	box-shadow: none;
+}
+
+.modal-footer {
+	padding: 10px 0px;
+	border-top: 0;
+	text-align: center;
+}
+
+.modal-dialog {
+	width: 350px;
+	height: 600px;
+}
+
+.modal-body {
+	padding: 10px 20px;
+}
+
+.btn-default {
+	width: 100%;
+	background-color: #3F8DBF;
+	border: none;
+	color: #fff;
+	margin-top: 3px;
+}
+
+.modalChange {
+	font-size: 15px;
+}
+
+/* --- Login Modal Custom --- */
+#modal-dialog-login {
+	width: 350px;
+	height: 380px;
+}
+
+/* --- Logout Modal Custom --- */
+#modal-dialog-logout {
+	width: 350px;
+	height: 230px;
+}
+
+/* --- Login Check Modal Custom --- */
+#modal-dialog-login-checkId, #modal-dialog-login-checkPw {
+	width: 350px;
+	height: 210px;
+}
+
+/* ==== Register & Login & Logout Modal : End ============================= */
