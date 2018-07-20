@@ -23,6 +23,8 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
+
+
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>	
 	</bean>
 	
@@ -39,9 +41,10 @@
 	<!-- 인증시스템 관리 - 온철훈 -->
 	<import resource="classpath:com/farmstory/config/account-config.xml" />
 	
-	<!-- 마이페이지 관리 -->
-	<import resource="classpath:com/farmstory/config/mypage-config.xml" />
+	<!-- 아두이노를 이용한 센서값 불러오기 -->
+		<import resource="classpath:com/farmstory/config/sensor-config.xml" />
 	
+
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		
 </beans>
