@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!-- Account Modal JavaScript -->
-<jsp:include page="/WEB-INF/views/include/account/account-js.jsp" />
+<jsp:include page="/WEB-INF/views/include/account/account-jstl-js.jsp" />
 
 <header>
 
@@ -79,9 +79,9 @@
 							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">다이어리</a></li>
-								<li><a href="#">다이어리 쓰기</a></li>
-								<li><a href="#">나의 등록 화분</a></li>
+								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
+								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
+								<li><a href="value/findTime.action">나의 등록 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
@@ -92,10 +92,10 @@
 
 
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-									<li><a href="plant-write.action">식물 정보 등록 [관리자]</a></li>
+									<li><a href="/farmstory/plant-write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
 
-								<li><a href="plant-list.action">식물 정보</a></li>
+								<li><a href="/farmstory/plant-list.action">식물 정보</a></li>
 
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->

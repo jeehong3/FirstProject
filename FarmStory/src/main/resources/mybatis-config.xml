@@ -30,6 +30,7 @@
 		<mapper resource="com/farmstory/mapper/account-mapper.xml"/>
 		<mapper resource="com/farmstory/mapper/registplant-mapper.xml"/>
 		<!-- <mapper resource="com/farmstory/mapper/sensor-mapper.xml"/> -->
+		<mapper resource="com/farmstory/mapper/value-mapper.xml"/>
 	</mappers>
 
 </configuration>

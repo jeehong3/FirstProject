@@ -44,6 +44,9 @@
 		
 	<!-- 나의 화분등록 정보보기 -->
 	<import resource="classpath:com/farmstory/config/registplant-config.xml"/>
+	
+	<!-- 나의 화분 정보보기 -->
+	<import resource="classpath:com/farmstory/config/value-config.xml"/>
 
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		

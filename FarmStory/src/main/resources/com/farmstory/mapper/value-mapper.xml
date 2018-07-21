@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.farmstory.mapper.ValueMapper">
+
+	<resultMap type="PlantVal" id="plantVal">
+		<id column="PLV_NO" property="plvNo" />
+		<result column="REG_POTNO" property="regPotNo" />
+		<result column="PLV_DATETIME" property="plvDateTime" />
+		<result column="PLV_TYPE" property="plvType" />
+		<result column="PLV_VAL" property="plvVal" />
+	</resultMap>
+
+	<select id="selectValues" parameterType="String"
+		resultMap="plantVal">
+		SELECT DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d %H:%i') PLV_DATETIME, PLV_TYPE, PLV_VAL
+		FROM PLANT_VAL
+		WHERE DATE(PLV_DATETIME) = #{ PlvDateTime }
+		ORDER BY PLV_DATETIME DESC
+	</select>
+
+	<select id="selectDayValues" parameterType="String"
+		resultMap="plantVal">
+		SELECT DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d') PLV_DATETIME, PLV_TYPE, AVG(PLV_VAL) PLV_VAL
+		FROM PLANT_VAL
+		WHERE DATE(PLV_DATETIME) BETWEEN DATE_ADD(#{ PlvDateTime }, INTERVAL - 6 DAY) AND #{ PlvDateTime }
+		GROUP BY DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d'), PLV_TYPE
+		ORDER BY PLV_DATETIME DESC
+	</select>
+</mapper>  
