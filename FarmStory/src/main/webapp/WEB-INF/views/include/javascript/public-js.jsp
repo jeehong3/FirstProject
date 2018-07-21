@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="/farmstory/resources/assets/js/jquery-3.3.1.min.js"></script>
 <script src="/farmstory/resources/assets/js/jquery.min.js"></script>
 <script src="/farmstory/resources/assets/js/jquery.easing.1.3.min.js"></script>
 <script src="/farmstory/resources/assets/js/jquery.form.js"></script>
@@ -36,13 +35,3 @@
 <link href="/farmstory/resources/assets/css/gray.css"
 	rel="alternate stylesheet" title="Gray color">
 
-<script src="/farmstory/resources/switchstylesheet/switchstylesheet.js"></script>
-
-<script>
-	$(document).ready(function() {
-		$(".changecolor").switchstylesheet({
-			seperator : "color"
-		});
-	});
-</script>
-<!-- For demo purposes – can be removed on production : End -->

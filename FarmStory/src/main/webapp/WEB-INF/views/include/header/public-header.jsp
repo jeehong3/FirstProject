@@ -49,7 +49,7 @@
 		</div>
 		<!-- /.navbar-header -->
 
-		<div class="yamm">
+		<div class="yamm ">
 			<div class="navbar-collapse collapse">
 				<div class="container">
 					<!-- ============================================================= LOGO ============================================================= -->
@@ -92,10 +92,10 @@
 
 
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-									<li><a href="/farmstory/plant-write.action">식물 정보 등록 [관리자]</a></li>
+									<li><a href="/farmstory/plant_write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
 
-								<li><a href="/farmstory/plant-list.action">식물 정보</a></li>
+								<li><a href="/farmstory/plant_list.action">식물 정보</a></li>
 
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->

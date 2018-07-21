@@ -14,11 +14,20 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>REEN</title>
+		<title>팜스토리-식물 정보</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
+		<style type="text/css">
+			#plant-sub-title {
+				font-size: 17px;
+			}
+			#notosans{
+				font: 24px/30px 'Noto Sans KR', sans-serif;
+			}
+		
+		</style>
 	</head>
 	
 	<body>
@@ -29,38 +38,27 @@
 		
 		<!-- ============================================================= HEADER : END ============================================================= -->
 		
-		<main class="js-reveal">
+		
 		<!-- ============================================================= MAIN ============================================================= -->
 		
-				
+		<main>
+			
 			<!-- ============================================================= SECTION â PORTFOLIO ============================================================= -->
-		
-			<!-- Account - Register Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp"/>
-			<!-- Account - Register Modal : END   -->
-			
-			<!-- Account - Login Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp"/>
-			<!-- Account - Login Modal : END   -->
-			
-			<!-- Account - Logout Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp"/>
-			<!-- Account - Logout Modal : END   -->		
 		
 			<section id="portfolio">
 				
 				<div class="container inner">
 					<div class="row">
 						<div class="col-md-8 col-sm-9 center-block text-center">
-							<header>
-								<h1>3 Columns details grid portfolio</h1>
-								<p>Magnis modipsae voloratati andigen daepeditem quiate re porem que aut labor. Laceaque eictemperum quiae sitiorem rest non restibusaes.</p>
+							<header class="notoSansKR medium">
+								<h2>식물은 어떻게 키워야할까?</h2>
+								<p id="plant-sub-title">여기서 식물에 대한 정보를 보고가세요~</p>
 							</header>
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 				</div><!-- /.container -->
 				
-				<div class="container inner-bottom">
+				<div class="container inner-bottom notoSansKR">
 					<div class="row">
 						<div class="col-sm-12 portfolio">
 							
@@ -78,12 +76,12 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work01.jpg" alt=""></a>
+											<a href="/farmstory/plant_detail.action"><img src="/farmstory/resources/assets/images/art/work01.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
 											<div class="info">
-												<h4><a href="plant-detail.action">Appscreen Dashboard</a></h4>
+												<h4><a href="/farmstory/plant_detail.action">Appscreen Dashboard</a></h4>
 												<p>Interactive</p>
 											</div><!-- /.info -->
 										</figcaption>
@@ -95,7 +93,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work02.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work02.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -112,7 +110,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work16.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work16.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -129,7 +127,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work18.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work18.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -146,7 +144,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work09.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work09.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -163,7 +161,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/photograph02.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/photograph02.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -180,7 +178,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work08a.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work08a.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -197,7 +195,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work10.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work10.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -214,7 +212,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work03.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work03.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -231,7 +229,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work20.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work20.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -248,7 +246,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work05.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work05.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -265,7 +263,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work21.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work21.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -282,7 +280,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work17.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work17.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -299,7 +297,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work19.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work19.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -316,7 +314,7 @@
 									<figure>
 									
 										<div class="icon-overlay icn-link">
-											<a href="portfolio-post.html"><img src="assets/images/art/work07.jpg" alt=""></a>
+											<a href="portfolio-post.html"><img src="/farmstory/resources/assets/images/art/work07.jpg" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
@@ -339,39 +337,6 @@
 			<!-- ============================================================= SECTION â PORTFOLIO : END ============================================================= -->
 			
 			
-			<!-- ============================================================= SECTION â SHARE ============================================================= -->
-			
-			<section id="share" class="light-bg">
-				<div class="container">
-					
-					<div class="col-sm-4 reset-padding">
-						<a href="#" class="btn-share-md">
-							<p class="name">Facebook</p>
-							<i class="icon-s-facebook"></i>
-							<p class="counter">1080</p>
-						</a>
-					</div><!-- /.col -->
-					
-					<div class="col-sm-4 reset-padding">
-						<a href="#" class="btn-share-md">
-							<p class="name">Twitter</p>
-							<i class="icon-s-twitter"></i>
-							<p class="counter">1263</p>
-						</a>
-					</div><!-- /.col -->
-					
-					<div class="col-sm-4 reset-padding">
-						<a href="#" class="btn-share-md">
-							<p class="name">Google +</p>
-							<i class="icon-s-gplus"></i>
-							<p class="counter">963</p>
-						</a>
-					</div><!-- /.col -->
-					
-				</div><!-- /.container -->
-			</section>
-			
-			<!-- ============================================================= SECTION â SHARE : END ============================================================= -->
 			
 		</main>
 		
@@ -384,10 +349,11 @@
 		
 		<!-- ============================================================= FOOTER : END ============================================================= -->
 		
-		<!-- JavaScripts placed at the end of the document so the pages load faster -->
+		<!-- ============================================================= JAVASCRIPT ============================================================= -->
 		
 		<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
 		
-		<!-- For demo purposes â can be removed on production : End -->
+		<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
+		
 	</body>
 </html>

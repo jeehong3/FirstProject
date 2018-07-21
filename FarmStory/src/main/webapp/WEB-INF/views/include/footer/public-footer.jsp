@@ -4,12 +4,12 @@
 
 			<div class="col-md-3 col-sm-6 inner">
 				<h4>Who we are</h4>
-				<a href="index.html"><img class="logo img-intext"
+				<a href="/farmstory/home.action"><img class="logo img-intext"
 					src="/farmstory/resources/assets/images/logo-white.svg" alt=""></a>
 				<p>Magnis modipsae voloratati andigen daepeditem quiate re porem
 					que aut labor. Laceaque eictemperum quiae sitiorem rest non
 					restibusaes maio es dem tumquam.</p>
-				<a href="about.html" class="txt-btn">More about us</a>
+				<a href="#" class="txt-btn">More about us</a>
 			</div>
 			<!-- /.col -->
 
@@ -91,14 +91,14 @@
 
 	<div class="footer-bottom">
 		<div class="container inner">
-			<p class="pull-left">© 2017 REEN. All rights reserved.</p>
+			<p class="pull-left">Copyright&copy; 2018. All Rights Reserved by Team Femme Fatale.</p>
 			<ul class="footer-menu pull-right">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="portfolio.html">Portfolio</a></li>
-				<li><a href="blog.html">Blog</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="services.html">Services</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><a href="/farmstory/home.action">Home</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Contact</a></li>
 			</ul>
 			<!-- .footer-menu -->
 		</div>

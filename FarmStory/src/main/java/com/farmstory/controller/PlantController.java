@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PlantController {
 
-	
 //	@Autowired
 //	@Qualifier("plantService")
 //	private PlantService plantService;
@@ -19,7 +18,7 @@ public class PlantController {
 	public String showPlantList(Model model) {
 		
 		
-		return "plant/plant_list";
+		return "plant/plant-list";
 	}
 
 	
@@ -27,7 +26,7 @@ public class PlantController {
 	public String showWrite() {
 		
 		
-		return "plant/plant_write";
+		return "plant/plant-write";
 	}
 	
 	
@@ -35,6 +34,6 @@ public class PlantController {
 	public String showPlantDetail(Model model) {
 		
 		
-		return "plant/plant_detail";
+		return "plant/plant-detail";
 	}
 }
