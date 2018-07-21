@@ -17,9 +17,9 @@
 		$("#loginBtn").on("click", function (event) {
 			event.preventDefault();
 			if($("#inputId").val() == ""){
-				//alert("아이디 입력란이 공백입니다.");
+				alert("아이디 입력란이 공백입니다.");
 			} else if($("#inputPw").val() == ""){
-				//alert("비밀번호 입력란이 공백입니다.");
+				alert("비밀번호 입력란이 공백입니다.");
 			} else{
 				
 				$("form#loginForm").submit();
