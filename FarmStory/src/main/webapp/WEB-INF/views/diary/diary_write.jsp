@@ -25,50 +25,10 @@
 			<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 		
-		 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		 <script type="text/javascript" src="/farmstory/resources/navereditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-		 <script type="text/javascript">
-		$(function() {
-			$('#addImageBtn').on('click', function(event) {
-				event.preventDefault();
-				event.stopPropagation();
-				var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"diaryImage\"></div>");
-			$('#addImage').append(add);
-			});
-		});
-		</script>
-	
-<script type='text/javascript'>
-$(function(){
-    //전역변수선언
-    var editor_object = [];
-     
-    nhn.husky.EZCreator.createInIFrame({
-        oAppRef: editor_object,
-        elPlaceHolder: "smarteditor",
-        sSkinURI: "/farmstory/resources/navereditor/SmartEditor2Skin.html", 
-        htParams : {
-            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseToolbar : true,             
-            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseVerticalResizer : true,     
-            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-            bUseModeChanger : true, 
-        }
-    });
-     
-    //전송버튼 클릭이벤트
-    $("#savebutton").click(function(){
-        //id가 smarteditor인 textarea에 에디터에서 대입
-        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-         
-        // 이부분에 에디터 validation 검증
+		 
 
-        //폼 submit
-        $("#contactform").submit();
-    })
-})
-</script>
+	
+
 	</head>
 	
 	<body>
@@ -107,11 +67,11 @@ $(function(){
 						
 						<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
 						
-						<section id="contact-form">
+						<section id="diary-form-section">
 							
 							<h2>다이어리 등록</h2>
 							
-							<form id="contactform" class="forms" action="diary_write" method="post" enctype="multipart/form-data">
+							<form id="diary-form" action="diary_write.action" method="post" enctype="multipart/form-data">
 								
 								<div class="row">
 									<div class="col-sm-6">
@@ -128,7 +88,7 @@ $(function(){
 								<div class="row">
 									<div id="addImage">
 										<div class="col-sm-6">
-										<input type="file" name="diaImage" id="file" class="form-control">
+										<input type="file" name="diiImage1" id="file" class="form-control">
 										</div><!-- /.col -->
 									</div>
 									 
@@ -136,12 +96,12 @@ $(function(){
 								<br/>
 								<div class="row">
 									<div class="col-sm-20">
-										<textarea name="smarteditor" id="smarteditor" class="form-control" ></textarea>
+										<textarea name="diaContent" id="smarteditor" class="form-control" ></textarea>
 									</div><!-- /.col -->
 								</div><!-- /.row -->
 								
-								<button id="savebutton" class="btn btn-default btn-submit">등록하기</button>
-								<a id="addImageBtn" class="btn btn-default btn-submit">이미지 추가</a>
+								<button id="savebutton" class="btn btn-submit">등록하기</button>
+								<a id="addImageBtn" class="btn btn-submit">이미지 추가</a>
 								
 							</form>
 							
@@ -193,6 +153,50 @@ $(function(){
 		
 		<!-- JavaScripts placed at the end of the document so the pages load faster -->
 		<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
+		<script type="text/javascript" src="/farmstory/resources/navereditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+		<script type='text/javascript'>
+			$(function(){
+				
+			    //전역변수선언
+			    var editor_object = [];
+			     
+			    nhn.husky.EZCreator.createInIFrame({
+			        oAppRef: editor_object,
+			        elPlaceHolder: "smarteditor",
+			        sSkinURI: "/farmstory/resources/navereditor/SmartEditor2Skin.html", 
+			        htParams : {
+			            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseToolbar : true,             
+			            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseVerticalResizer : true,     
+			            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseModeChanger : true, 
+			        }
+			    });
+			     
+			    //전송버튼 클릭이벤트
+			    $("#savebutton").click(function(event){
+			    	
+			    	event.preventDefault();
+			    	event.stopPropagation();
+			    	
+			        //id가 smarteditor인 textarea에 에디터에서 대입
+			        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+			         
+			        // 이부분에 에디터 validation 검증
+			
+			        //폼 submit
+			       $("#diary-form").submit();
+			    });
+			    
+			    $('#addImageBtn').on('click', function(event) {
+					event.preventDefault();
+					event.stopPropagation();
+					var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"diiImage1\"></div>");
+				$('#addImage').append(add);
+				});
+			});
+		</script>
 		
 	</body>
 </html>
