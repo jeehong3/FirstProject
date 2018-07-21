@@ -47,10 +47,10 @@
 				<h4 class="modal-title">&nbsp;<i class="icon-login-1"></i>&nbsp;로그인 오류</h4>
 			</div>
 			<div class="modal-body" align="center">
-				<h4>아이디를 잘못 입력했습니다.</h4>
+				<h4>아이디를 찾을 수 없습니다.</h4>
 			</div>
 			<div class="modal-footer">
-				<a id="wrongIdConfirm" class="btn" data-dismiss="modal" aria-hidden="true">확인</a>
+				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
 			</div>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 				<h4>비밀번호를 잘못 입력했습니다.</h4>
 			</div>
 			<div class="modal-footer">
-				<a id="wrongPwConfirm" class="btn" data-dismiss="modal" aria-hidden="true">확인</a>
+				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
 			</div>
 		</div>
 	</div>
