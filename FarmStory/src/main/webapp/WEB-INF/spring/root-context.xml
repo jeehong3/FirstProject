@@ -47,6 +47,9 @@
 	
 	<!-- 나의 화분 정보보기 -->
 	<import resource="classpath:com/farmstory/config/value-config.xml"/>
+	
+	<!-- 나의 화분 다이어리 -->
+	<import resource="classpath:com/farmstory/config/diary-config.xml"/>
 
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		
