@@ -21,7 +21,7 @@ public class NoticeController {
 
 	@RequestMapping(value = "/notice_list.action", method = GET)
 	String writeBoard(HttpSession session, Notice irt) {
-		irt.setIntTitle((String) session.getAttribute("intTitle"));
+		irt.setNoticeTitle((String) session.getAttribute("noticeTitle"));
 		noticeService.listBoard(irt);
 		return "board/notice_list.action";
 	}

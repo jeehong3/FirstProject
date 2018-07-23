@@ -28,21 +28,7 @@
 </script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$('button[id^=noticeDelete]').on(
-				'click',
-				function(event) {
-					event.preventDefault();
-					var noticeNo = $(this).attr('data-noticeNo')
-					$('#noticeModal a#processNotice').attr(
-							'href',
-							'/janditour/notice_delete.action?noticeNo='
-									+ noticeNo);
-					$('#noticeModal').modal('show');
 
-				});
-
-	});
 </script>
 <style type="text/css">
 #noticeWriteBtn {
