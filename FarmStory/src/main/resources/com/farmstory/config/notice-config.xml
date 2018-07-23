@@ -5,20 +5,20 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="interruptMapper"
+	<bean id="noticeMapper"
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.farmstory.mapper.interrupt-mapper"/>
+		<property name="mapperInterface" value="com.farmstory.mapper.NoticeMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
-	<bean id="interruptDao"
-		class="com.farmstory.dao.InterruptDao">
-		<property name="interruptMapper" ref="interruptMapper" />
+	<bean id="noticeDao"
+		class="com.farmstory.dao.MySqlNoticeDao">
+		<property name="noticeMapper" ref="noticeMapper" />
 	</bean>
 	
-	<bean id="interruptService"
-		class="com.farmstory.service.InterruptServiceImpl">
-		<property name="interruptDao" ref="interruptDao"/>
+	<bean id="noticeService"
+		class="com.farmstory.service.NoticeServiceImpl">
+		<property name="noticeDao" ref="noticeDao"/>
 	</bean>
 
 </beans>
