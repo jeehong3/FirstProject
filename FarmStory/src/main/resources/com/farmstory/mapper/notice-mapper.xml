@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.farmstory.mapper.SensorMapper">
+<mapper namespace="com.farmstory.mapper.NoticeMapper">
 	
-	<insert id="writeSensor" parameterType="PlantVal">
+	<insert id="writeBoard" parameterType="Notice">
 		INSERT INTO PLANT_VAL (PLV_TYPE, PLV_VAL) VALUES (#{plvType}, #{plvVal})
 	</insert>
 </mapper>  

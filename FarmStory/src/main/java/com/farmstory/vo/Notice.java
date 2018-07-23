@@ -3,7 +3,7 @@ package com.farmstory.vo;
 import java.util.Date;
 
 //건의사항 정보를 DB에 저장하기 위한 vo 객체
-public class Interrupt {
+public class Notice {
 
 	private int intNo;
 	private String intTitle;
