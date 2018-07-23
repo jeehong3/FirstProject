@@ -90,7 +90,6 @@
 
 							<ul class="dropdown-menu">
 
-
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 									<li><a href="/farmstory/plant_write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
@@ -104,7 +103,7 @@
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">공지사항</a></li>
+								<li><a href="/farmstory/notice_list.action">공지사항</a></li>
 								<li><a href="#">문의함</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
