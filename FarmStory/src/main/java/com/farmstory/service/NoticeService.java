@@ -5,5 +5,5 @@ import com.farmstory.vo.Notice;
 public interface NoticeService {
 
 	void writeBoard(Notice irt);
-
+ 
 }

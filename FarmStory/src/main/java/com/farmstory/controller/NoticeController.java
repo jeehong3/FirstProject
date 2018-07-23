@@ -19,7 +19,7 @@ public class NoticeController {
 	@Qualifier("noticeService")
 	private NoticeService noticeService;
 
-	@RequestMapping(value = "/write.action", method = POST)
+	@RequestMapping(value = "/notice_list.action", method = POST)
 	String writeBoard(HttpSession session, Notice irt) {
 		irt.setIntTitle((String) session.getAttribute("intTitle"));
 		noticeService.writeBoard(irt);
