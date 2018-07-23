@@ -104,7 +104,7 @@
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">공지사항</a></li>
+								<li><a href="/farmstory/notice_list.action">공지사항</a></li>
 								<li><a href="#">문의함</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
