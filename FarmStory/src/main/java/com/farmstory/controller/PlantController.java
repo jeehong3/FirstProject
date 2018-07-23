@@ -4,43 +4,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class PlantController {
 
-	
 //	@Autowired
 //	@Qualifier("plantService")
 //	private PlantService plantService;
 	
-	@RequestMapping(value="/plant-list.action", method = GET)
-	public String showListView(Model model) {
+	@GetMapping(value = "/plant_list.action")
+	public String showPlantList(Model model) {
 		
 		
 		return "plant/plant-list";
 	}
 
 	
-	@RequestMapping(value="/plant-write.action", method = GET)
-	public String showWriteView() {
+	@GetMapping(value = "/plant_write.action")
+	public String showWrite() {
 		
 		
 		return "plant/plant-write";
 	}
 	
 	
-//	@RequestMapping(value="/plant-write.action", method = POST)
-//	public String Write() {
-//		
-//		
-//		return "redirect:plant-list";
-//	}
-	
-	
-	@RequestMapping(value="/plant-detail.action", method = GET)
-	public String showDetailView(Model model) {
+	@GetMapping(value = "/plant_detail.action")
+	public String showPlantDetail(Model model) {
 		
 		
 		return "plant/plant-detail";

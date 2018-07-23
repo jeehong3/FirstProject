@@ -8,11 +8,23 @@ public class PlantVal {
 
 	private int plvNo;
 	private int regPotNo;
-	private Date plvDateTime;
-	private int plvType;
+	private String plvDateTime;
+	private String plvType;
 	private int plvVal;
 	
 	
+	public String getPlvDateTime() {
+		return plvDateTime;
+	}
+	public void setPlvDateTime(String plvDateTime) {
+		this.plvDateTime = plvDateTime;
+	}
+	public String getPlvType() {
+		return plvType;
+	}
+	public void setPlvType(String plvType) {
+		this.plvType = plvType;
+	}
 	public int getPlvNo() {
 		return plvNo;
 	}
@@ -24,18 +36,6 @@ public class PlantVal {
 	}
 	public void setRegPotNo(int regPotNo) {
 		this.regPotNo = regPotNo;
-	}
-	public Date getPlvDateTime() {
-		return plvDateTime;
-	}
-	public void setPlvDateTime(Date plvDateTime) {
-		this.plvDateTime = plvDateTime;
-	}
-	public int getPlvType() {
-		return plvType;
-	}
-	public void setPlvType(int plvType) {
-		this.plvType = plvType;
 	}
 	public int getPlvVal() {
 		return plvVal;

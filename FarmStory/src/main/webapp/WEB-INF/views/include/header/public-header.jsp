@@ -3,15 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<style type="text/css">
-#welcome {
-	font-size: 14px;
-	padding-top: 10px;
-}
-
-</style>
+<!-- Account Modal JavaScript -->
+<jsp:include page="/WEB-INF/views/include/account/account-jstl-js.jsp" />
 
 <header>
+
+	<!-- Account - Register Modal : START -->
+	<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp" />
+	<!-- Account - Register Modal : END   -->
+
+	<!-- Account - Login Modal : START -->
+	<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp" />
+	<!-- Account - Login Modal : END   -->
+
+	<!-- Account - Logout Modal : START -->
+	<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp" />
+	<!-- Account - Logout Modal : END   -->
+	
 	<div class="navbar">
 		<div id="navbar-header" class="navbar-header">
 			<div class="container">
@@ -27,11 +35,12 @@
 				<a class="navbar-toggle btn responsive-menu pull-right"
 					data-toggle="collapse" data-target=".navbar-collapse"><i
 					class='icon-menu-1'></i></a>
-				
+
 				<c:if test="${not empty loginuser }">
 					<ul class="pull-right">
-						<li><a id="welcome" class="responsive-menu pull-right">
-						<i class="icon-user-1"></i>&nbsp;${loginuser.memName}&nbsp;님 환영합니다&nbsp;
+						<li><a id="welcome" class="responsive-menu pull-right"> <i
+								class="icon-user-1"></i>&nbsp;${loginuser.memName}&nbsp;님
+								환영합니다&nbsp;
 						</a></li>
 					</ul>
 				</c:if>
@@ -40,10 +49,9 @@
 		</div>
 		<!-- /.navbar-header -->
 
-		<div class="yamm">
+		<div class="yamm ">
 			<div class="navbar-collapse collapse">
 				<div class="container">
-
 					<!-- ============================================================= LOGO ============================================================= -->
 
 					<a class="navbar-brand" href="/farmstory/home.action"><img
@@ -52,45 +60,43 @@
 
 					<!-- ============================================================= LOGO : END ============================================================= -->
 
-
 					<!-- ============================================================= MAIN NAVIGATION ============================================================= -->
 
 					<ul class="nav navbar-nav">
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">팜스토리 소개</a>
-							
-							<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+							data-toggle="dropdown">팜스토리 소개</a> <c:if
+								test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 								<ul class="dropdown-menu">
 									<li><a href="#">소개 쓰기</a></li>
 									<li><a href="#">소개 수정하기</a></li>
-								</ul> <!-- /.dropdown-menu -->
-							</c:if>
-							
-							</li>	
+								</ul>
+								<!-- /.dropdown-menu -->
+							</c:if></li>
 						<!-- /.dropdown -->
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">다이어리</a>
+							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">다이어리 쓰기</a></li>
-								<li><a href="#">나의 화분 통계 보기</a></li>
+								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
+								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
+								<li><a href="value/findTime.action">나의 등록 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">식물 정보</a>
-							
-								<ul class="dropdown-menu">
-								
+							data-toggle="dropdown">식물 키우기</a>
+
+							<ul class="dropdown-menu">
+
+
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-								<li><a href="plant-write.action">식물 정보 등록 [관리자]</a></li>
+									<li><a href="/farmstory/plant_write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
-								
-								<li><a href="plant-list.action">식물 정보</a></li>
-								
-								<li><a href="#">내가 키우는 화분</a></li>
+
+								<li><a href="/farmstory/plant_list.action">식물 정보</a></li>
+
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
@@ -104,20 +110,20 @@
 						<!-- /.dropdown -->
 
 						<c:if test="${not empty loginuser }">
-						<li class="dropdown pull-right searchbox"><a href="#"
-							data-toggle="modal"
-							data-target="#logout">Logout&nbsp;<i class="icon-logout-1"></i></a></li>
+							<li class="dropdown pull-right searchbox"><a href="#"
+								data-toggle="modal" data-target="#logout">Logout&nbsp;<i
+									class="icon-logout-1"></i></a></li>
 						</c:if>
-						
-						<c:if test="${ empty loginuser }">	
+
+						<c:if test="${ empty loginuser }">
 							<li class="dropdown pull-right searchbox"><a href="#"
-							data-toggle="modal"
-							data-target="#register">Sign Up&nbsp;<i class="icon-user-1"></i></a></li>
-							
+								data-toggle="modal" data-target="#register">Sign Up&nbsp;<i
+									class="icon-user-1"></i></a></li>
+
 							<li class="dropdown pull-right searchbox"><a href="#"
-							data-toggle="modal"
-							data-target="#login">Login&nbsp;<i class="icon-login-1"></i></a></li>
-						</c:if>	
+								data-toggle="modal" data-target="#login">Login&nbsp;<i
+									class="icon-login-1"></i></a></li>
+						</c:if>
 					</ul>
 					<!-- /.nav -->
 

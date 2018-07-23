@@ -23,8 +23,6 @@
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-
-
 		<property name="configLocation" value="classpath:mybatis-config.xml"/>	
 	</bean>
 	
@@ -38,14 +36,23 @@
 	
 <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->	
 	
-	<!-- 인증시스템 관리 - 온철훈 -->
+	<!-- 인증시스템 관리 -->
 	<import resource="classpath:com/farmstory/config/account-config.xml" />
 	
 	<!-- 아두이노를 이용한 센서값 불러오기 -->
-		<import resource="classpath:com/farmstory/config/sensor-config.xml" />
+		<!-- <import resource="classpath:com/farmstory/config/sensor-config.xml" /> -->
 		
 	<!-- 나의 화분등록 정보보기 -->
-		<import resource="classpath:com/farmstory/config/registplant-config.xml"/>
+	<import resource="classpath:com/farmstory/config/registplant-config.xml"/>
+	
+	<!-- 나의 화분 정보보기 -->
+	<import resource="classpath:com/farmstory/config/value-config.xml"/>
+	
+	<!-- 나의 화분 다이어리 -->
+	<import resource="classpath:com/farmstory/config/diary-config.xml"/>
+	
+	<!-- 식물 정보 관리 -->
+	<import resource="classpath:com/farmstory/config/plant-config.xml" />
 
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->		

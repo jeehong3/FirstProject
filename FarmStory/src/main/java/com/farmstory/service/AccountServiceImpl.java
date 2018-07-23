@@ -24,12 +24,18 @@ public class AccountServiceImpl implements AccountService {
 	}
 	
 	@Override
-	public Account findMember(String memId, String memPw) {
+	public Account findMember(String userInputId, String userInputPw) {
 		
 		// 전달 받은 비밀번호를 암호화하여 다시 저장한다.
-		String hashedPw = Util.getHashedString(memPw, "SHA-256");
+		String hashedPw = Util.getHashedString(userInputPw, "SHA-256");
 		
-		return accountDao.selectMember(memId, hashedPw);
+		return accountDao.selectMember(userInputId, hashedPw);
+	}
+	
+	@Override
+	public String findMemberByPw(String userInputId) {
+		
+		return accountDao.selectMemberByPw(userInputId);
 	}
 
 }

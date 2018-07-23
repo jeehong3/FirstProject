@@ -9,7 +9,7 @@
 		INSERT INTO MEMBER (MEM_ID,	MEM_PW, MEM_NAME, MEM_EMAIL ,MEM_PHONE)
 		VALUES (#{memId}, #{memPw}, #{memName}, #{memEmail}, #{memPhone})
 	</insert>
-<!-- 
+ 
 	<resultMap type="Account" id="memberMap">
 		<id column="MEM_ID" property="memId"/>
 		<id column="MEM_NAME" property="memName"/>
@@ -17,12 +17,18 @@
 		<id column="MEM_PHONE" property="memPhone"/>
 		<id column="MEM_TYPE" property="memType"/>
 	</resultMap>
--->	
-	<select id="selectMember" parameterType="hashmap" resultType="Account">
-		SELECT MEM_ID memId, MEM_NAME memName, MEM_EMAIL memEmail, MEM_PHONE memPhone, MEM_TYPE memType
+
+	<select id="selectMember" parameterType="hashmap" resultMap="memberMap">
+		SELECT MEM_ID, MEM_NAME, MEM_EMAIL, MEM_PHONE, MEM_TYPE
 		FROM MEMBER
-		WHERE MEM_ID = #{memId} AND MEM_PW = #{memPw}
+		WHERE MEM_ID = #{userInputId} AND MEM_PW = #{userInputPw}
 	</select>
 	
-
+	<select id="selectMemberByPw" parameterType="String" resultType="String">
+		SELECT MEM_PW memPw
+		FROM MEMBER
+		WHERE MEM_ID = #{userInputId}
+	</select>
+	
+	
 </mapper>  

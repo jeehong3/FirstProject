@@ -14,7 +14,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>REEN</title>
+		<title>팜스토리</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
@@ -35,18 +35,6 @@
 		<main>
 			
 			<!-- ============================================================= SECTION – HERO ============================================================= -->
-			
-			<!-- Account - Register Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp"/>
-			<!-- Account - Register Modal : END   -->
-			
-			<!-- Account - Login Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp"/>
-			<!-- Account - Login Modal : END   -->
-			
-			<!-- Account - Logout Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp"/>
-			<!-- Account - Logout Modal : END   -->
 			
 			<section id="hero">
 				<div id="owl-main" class="owl-carousel height-md owl-inner-nav owl-ui-lg">
@@ -347,7 +335,9 @@
 		<!-- ============================================================= FOOTER : END ============================================================= -->
 		
 		<!-- ============================================================= JAVASCRIPT ============================================================= -->
+		
 		<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
+		
 		<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
 
 	</body>
