@@ -14,7 +14,8 @@
 		<typeAlias type="com.farmstory.vo.RegistPlant" alias="RegistPlant"/>
 		<typeAlias type="com.farmstory.vo.Diary" alias="Diary"/>
 		<typeAlias type="com.farmstory.vo.DiaryImg" alias="DiaryImg"/>
-		<typeAlias type="com.farmstory.vo.Plant" alias="Plant"/>		
+		<typeAlias type="com.farmstory.vo.Plant" alias="Plant"/>	
+		<typeAlias type="com.farmstory.vo.Cover" alias="Cover"/>		
 	</typeAliases>
 
 	<environments default="development">
@@ -36,6 +37,7 @@
 		<mapper resource="com/farmstory/mapper/value-mapper.xml"/>
 		<mapper resource="com/farmstory/mapper/diary-mapper.xml"/>
 		<mapper resource="com/farmstory/mapper/plant-mapper.xml"/>
+		<mapper resource="com/farmstory/mapper/cover-mapper.xml"/>
 	</mappers>
 
 </configuration>
