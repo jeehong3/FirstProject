@@ -3,7 +3,7 @@ package com.farmstory.dao;
 import com.farmstory.mapper.SensorMapper;
 import com.farmstory.vo.PlantVal;
 
-public class SqlSensorDao implements SensorDao{
+public class MySqlSensorDao implements SensorDao{
 	private SensorMapper sensorMapper;
 	
 	public void setSensorMapper(SensorMapper sensorMapper) {

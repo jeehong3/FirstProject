@@ -1,8 +1,8 @@
-package com.farmstory.service;
+package com.farmstory.dao;
 
 import com.farmstory.vo.Interrupt;
 
-public interface InterruptService {
+public interface InterruptDao {
 
 	void writeBoard(Interrupt irt);
 

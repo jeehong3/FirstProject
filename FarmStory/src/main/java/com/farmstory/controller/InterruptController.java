@@ -1,23 +1,23 @@
 package com.farmstory.controller;
 
-import java.util.List;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-import javax.inject.Qualifier;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.farmstory.service.InterruptService;
-import com.farmstory.service.SensorService;
 import com.farmstory.vo.Interrupt;
-import com.farmstory.vo.PlantVal;
 
 @Controller
+
 public class InterruptController {
+@Autowired
+@Qualifier("interruptService")
+private InterruptService interruptService;
 //
 //	@Autowired
 //	@Qualifier("sensorService")
@@ -68,6 +68,12 @@ public class InterruptController {
 	// }
 	// }
 	//////////////////////////////////////////////////////////////////////////////////
-
+	@RequestMapping(value = "/write.action", method = POST)
+	String writeBoard(HttpSession session,Interrupt irt) {
+	irt.setIntTitle((String) session.getAttribute("intTitle"));
+	interruptService.writeBoard(irt);
+	return null;
+	}
+	
 
 }

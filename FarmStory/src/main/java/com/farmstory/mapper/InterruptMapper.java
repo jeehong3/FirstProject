@@ -1,9 +1,7 @@
-package com.farmstory.service;
+package com.farmstory.mapper;
 
 import com.farmstory.vo.Interrupt;
 
-public interface InterruptService {
-
+public interface InterruptMapper {
 	void writeBoard(Interrupt irt);
-
 }
