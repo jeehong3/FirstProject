@@ -41,6 +41,7 @@
 	
 	<!-- 아두이노를 이용한 센서값 불러오기 -->
 	<import resource="classpath:com/farmstory/config/sensor-config.xml" />
+	<import resource="classpath:com/farmstory/config/notice-config.xml" />
 		
 	<!-- 나의 화분등록 정보보기 -->
 	<import resource="classpath:com/farmstory/config/registplant-config.xml"/>
