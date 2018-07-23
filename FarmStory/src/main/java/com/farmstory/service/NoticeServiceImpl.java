@@ -11,7 +11,7 @@ public class NoticeServiceImpl implements NoticeService  {
 	}
 
 	@Override
-	public void writeBoard(Notice irt) {
+	public void listBoard(Notice irt) {
 		noticeDao.writeBoard(irt);
 		
 	}

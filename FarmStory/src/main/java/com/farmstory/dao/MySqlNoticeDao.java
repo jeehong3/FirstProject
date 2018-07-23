@@ -13,6 +13,6 @@ public class MySqlNoticeDao implements NoticeDao {
 	
 	@Override
 	public void writeBoard(Notice irt) {
-		noticeMapper.writeBoard(irt);
+		noticeMapper.listBoard(irt);
 	}
 }
