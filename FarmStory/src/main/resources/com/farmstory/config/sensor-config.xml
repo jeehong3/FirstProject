@@ -12,7 +12,7 @@
 	</bean>
 	
 	<bean id="sensorDao"
-		class="com.farmstory.dao.SqlSensorDao">
+		class="com.farmstory.dao.MySqlSensorDao">
 		<property name="sensorMapper" ref="sensorMapper" />
 	</bean>
 	
