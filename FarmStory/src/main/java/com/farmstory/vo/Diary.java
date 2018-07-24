@@ -12,7 +12,7 @@ public class Diary {
 	private String diaContent;
 	private int regPotNo;
 	private String memId;
-	
+			
 	public String getMemId() {
 		return memId;
 	}

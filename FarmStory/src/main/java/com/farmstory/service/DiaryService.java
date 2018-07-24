@@ -12,7 +12,7 @@ public interface DiaryService {
 
 	List<Diary> findDiary(String memId);
 
-	List<DiaryImg> findDiaryImg(String memId);
+	List<DiaryImg> findDiaryAllImg(String memId);
 
 
 

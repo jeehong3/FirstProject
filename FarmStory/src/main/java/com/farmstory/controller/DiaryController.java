@@ -78,12 +78,17 @@ public class DiaryController {
 		
 		List<Diary> diary = diaryService.findDiary(memId);
 		
-		List<DiaryImg> diaryImg = diaryService.findDiaryImg(memId);
+		List<DiaryImg> diaryAllImg = diaryService.findDiaryAllImg(memId);
 	
-		model.addAttribute("diary", diary);
-		model.addAttribute("diaryImg", diaryImg);
+		model.addAttribute("diaries", diary);
+		model.addAttribute("diaryAllImg", diaryAllImg);
 		model.addAttribute("memId", memId);
 		
 		return "diary/diary_list";
+	}
+	
+	@GetMapping(value = "/diary_detail.action")
+	public String diary_detail() {
+		return "diary/diary_detail";
 	}
 }
