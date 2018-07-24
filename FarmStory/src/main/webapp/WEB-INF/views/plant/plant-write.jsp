@@ -3,48 +3,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<!DOCTYPE html>
+
 <html lang="ko">
 	<head>
 		<!-- Meta -->
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>REEN</title>
+		<title>팜스토리-식물 정보 등록</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
+		<style type="text/css">
+		/* .writeMeunBtn{
+			margin-left: 15px;
+		} */
+		</style>
 		
 	</head>
 	
 	<body>
 		
 		<!-- ============================================================= HEADER ============================================================= -->
-		<jsp:include page="/WEB-INF/views/include/header/public-header.jsp"/>			
+		
+		<jsp:include page="/WEB-INF/views/include/header/public-header.jsp"/>
+		
 		<!-- ============================================================= HEADER : END ============================================================= -->
 		
 		
 		<!-- ============================================================= MAIN ============================================================= -->
 		
-		
+		<main class="notoSansKR medium">
 			
-			<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
-			
-			<!-- Account - Register Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp"/>
-			<!-- Account - Register Modal : END   -->
-			
-			<!-- Account - Login Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp"/>
-			<!-- Account - Login Modal : END   -->
-			
-			<!-- Account - Logout Modal : START -->
-			<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp"/>
-			<!-- Account - Logout Modal : END   -->
-			
-			<main class="js-reveal">
+			<!-- ============================================================= SECTION â CONTACT FORM ============================================================= -->
 			
 			<section id="contact-form">
 				<div class="container inner">
@@ -52,8 +46,8 @@
 					<div class="row">
 						<div class="col-md-8 col-sm-9 center-block text-center">
 							<header>
-								<h1>Get in touch</h1>
-								<p>Do you want to know more? We’d love to hear from you!</p>
+								<h1>식물 정보 등록</h1>
+								<p>식물에 대한 정보를 아래 빈칸에 입력해주세요.</p>
 							</header>
 						</div><!-- /.col -->
 					</div><!-- /.row -->
@@ -62,37 +56,86 @@
 						<div class="col-sm-12">
 							<div class="row">
 								
-								<div class="col-sm-6 outer-top-md inner-right-sm">
+								<div class="col-sm-12 outer-top-md inner-right-sm">
 									
-									<h2>Leave a Message</h2>
-									
-									<form id="contactform" class="forms" action="contact.php" method="post">
+									<form id="plantInfoForm" class="forms" action="/farmstory/plant_write.action" method="post" enctype="multipart/form-data">
 										
 										<div class="row">
 											<div class="col-sm-6">
-												<input type="text" name="name" class="form-control" placeholder="Name (Required)">
+												<h4>식물 이름</h4><input type="text" name="plaName" class="form-control" placeholder="식물의 이름을 입력해주세요">
 											</div><!-- /.col -->
+										 
+											<div class="col-sm-6">
+												<h4>식물 종류</h4>
+												<select class="selectType" name="plaType">
+													<option value="꽃">꽃</option>
+													<option value="관엽 식물">관엽 식물</option>
+													<option value="활엽 식물">활엽 식물</option>
+													<option value="란">란</option>
+												</select>
+											</div><!-- /.col -->
+												
 										</div><!-- /.row -->
 										
 										<div class="row">
-											<div class="col-sm-6">
-												<input type="email" name="email" class="form-control" placeholder="Email (Required)">
-											</div><!-- /.col -->
-										</div><!-- /.row -->
-										
-										<div class="row">
-											<div class="col-sm-6">
-												<input type="text" name="subject" class="form-control" placeholder="Subject">
+											<div class="col-sm-12">
+												<br><h4>간략 설명</h4><input type="text" name="plaSimple" class="form-control" placeholder="식물의 간략한 정보를 입력해 주세요." >
 											</div><!-- /.col -->
 										</div><!-- /.row -->
 										
 										<div class="row">
 											<div class="col-sm-12">
-												<textarea name="message" class="form-control" placeholder="Enter your message ..."></textarea>
+												<h4>상세 설명</h4><textarea name="plaContent" class="form-control" placeholder="식물의 상세한 정보를 입력해 주세요."></textarea>
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+									 	
+										<h4>적정 온도</h4>
+										<div class="row">
+											<div class="col-sm-6">
+												<h6>최소 온도</h6><input type="number" name="plaMinTem"  class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
+											</div><!-- /.col -->
+											<div class="col-sm-6">
+												<h6>최대 온도</h6><input type="number" name="plaMaxTem"  class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+
+										<h4>적정 습도</h4>
+										<div class="row">
+											<div class="col-sm-6">
+												<h6>최소 습도</h6><input type="number" name="plaMinHum" class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
+											</div><!-- /.col -->
+											<div class="col-sm-6">
+												<h6>최대 습도</h6><input type="number" name="plaMaxHum" class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
 											</div><!-- /.col -->
 										</div><!-- /.row -->
 										
-										<button type="submit" class="btn btn-default btn-submit">Submit message</button>
+										<h4>적정 조도</h4>
+										<div class="row">
+											<div class="col-sm-6">
+												<h6>최소 조도</h6><input type="number" name="plaMinLux" class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
+											</div><!-- /.col -->
+											<div class="col-sm-6">
+												<h6>최대 조도</h6><input type="number" name="plaMaxLux" class="form-control inputNumberKey"  placeholder="숫자만 입력해 주세요.">
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+									
+										<h4>사진 선택</h4>
+										<div class="row">
+											<div class="col-sm-12" >
+												<h6>미리보기 이미지</h6><input type="file" name="thumnailImg" class="form-control">
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+										<br><h6>상세보기 이미지</h6>
+										<div id="fileDiv" class="row">
+											<div class="col-sm-12" >
+												<input type="file" name="plantImg" class="form-control">
+												<a href="#this" name="deleteInput" class="btn pull-right">삭제</a>
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+									
+										<a href="#" class="btn pull-right writeMeunBtn">이전으로</a>
+										<a id="writePlantInfoBtn" href="#" class="btn pull-right writeMeunBtn">정보 등록하기</a>
+										<a href="#this" id="add" class="btn pull-right writeMeunBtn">사진 추가하기</a>
 										
 									</form>
 									
@@ -100,56 +143,28 @@
 									
 								</div><!-- ./col -->
 								
-								<div class="col-sm-6 outer-top-md inner-left-sm border-left">
-									
-									<h2>Contacts</h2>
-									<p>Magnis modipsae voloratati andigen daepeditem quiate re aut labor. Laceaque eictemperum quiae sitiorem rest non restibusaes.</p>
-									
-									<h3>REEN</h3>
-									<ul class="contacts">
-										<li><i class="icon-location contact"></i> 84 Street, City, State 24813</li>
-										<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
-										<li><a href="mailto:info@reen.com"><i class="icon-mail-1 contact"></i> info@reen.com</a></li>
-									</ul><!-- /.contacts -->
-									
-									<div class="social-network">
-										<h3>Social</h3>
-										<ul class="social">
-											<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-											<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-											<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-											<li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-											<li><a href="#"><i class="icon-s-behance"></i></a></li>
-											<li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-										</ul><!-- /.social -->
-									</div><!-- /.social-network -->
-									
-								</div><!-- /.col -->
-								
 							</div><!-- /.row -->
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 					
 				</div><!-- /.container -->
 			</section>
-			</main>
-			<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
+			
+			<!-- ============================================================= SECTION â CONTACT FORM : END ============================================================= -->
 			
 			
-					
+		</main>
+		
 		<!-- ============================================================= MAIN : END ============================================================= -->
 		
 		
-		<!-- ============================================================= FOOTER ============================================================= -->
-		
-		<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp"/>
-		
-		<!-- ============================================================= FOOTER : END ============================================================= -->
-		
-		<!-- JavaScripts placed at the end of the document so the pages load faster -->
+		<!-- ============================================================= JAVASCRIPT ============================================================= -->
 		
 		<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
 		
-		<!-- For demo purposes – can be removed on production : End -->
+		<jsp:include page="/WEB-INF/views/plant/js/plant-jstl-js.jsp"/>
+		
+		<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
+		
 	</body>
 </html>
