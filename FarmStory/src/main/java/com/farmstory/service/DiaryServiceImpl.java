@@ -25,17 +25,21 @@ public class DiaryServiceImpl implements DiaryService{
 			diaryDao.insertDiaryImage(attachment);
 		}
 	}
-
+	
 	@Override
 	public List<Diary> findDiary(String memId) {
 		List<Diary> diary = diaryDao.findDiary(memId);
+		for (Diary d : diary) {
+			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
+			d.setAttachment(attachments);
+		}
 		return diary;
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryImg(String memId) {
+	public List<DiaryImg> findDiaryAllImg(String memId) {
 		
-		List<DiaryImg> diaryImg = diaryDao.findDiaryImg(memId);
-		return diaryImg;
+		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId);
+		return diaryAllImg;
 	}
 }

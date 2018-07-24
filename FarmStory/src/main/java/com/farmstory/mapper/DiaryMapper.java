@@ -14,7 +14,9 @@ public interface DiaryMapper {
 
 	List<Diary> findDiary(String memId);
 
-	List<DiaryImg> findDiaryImg(String memId);
+	List<DiaryImg> findDiaryImg(int diaNo);
+
+	List<DiaryImg> findDiaryAllImg(String memId);
 
 
 }

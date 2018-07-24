@@ -32,9 +32,15 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryImg(String memId) {
-		List<DiaryImg> diaryImg = diaryMapper.findDiaryImg(memId);
+	public List<DiaryImg> findDiaryImg(int diaNo) {
+		List<DiaryImg> diaryImg = diaryMapper.findDiaryImg(diaNo);
 		return diaryImg;
+	}
+
+	@Override
+	public List<DiaryImg> findDiaryAllImg(String memId) {
+		List<DiaryImg> diaryAllImg = diaryMapper.findDiaryAllImg(memId);
+		return diaryAllImg;
 	}
 
 

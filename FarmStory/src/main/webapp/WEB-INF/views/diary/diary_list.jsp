@@ -57,7 +57,7 @@
 									<div id="content" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<div id="owl-popular-posts" class="owl-carousel owl-item-gap-sm">
-												<c:forEach var="diaryImg" items="${ diaryImg }">
+												<c:forEach var="diaryAllImg" items="${ diaryAllImg }">
 												<div class="item">
 													<a href="blog-post.html">
 														<figure>
@@ -67,7 +67,7 @@
 																	<p>Interactive</p>
 																</div><!-- /.info -->
 															</figcaption>
-															<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
+															<img src="/farmstory/resources/upload-image/diary-info/${diaryAllImg.diiImg}" alt="">
 														</figure>
 													</a>
 												</div><!-- /.item -->
@@ -112,7 +112,7 @@
 						
 						<div class="col-md-9 inner-right-sm">
 							<div class="posts sidemeta">
-							<c:forEach var="diary" items="${ diary }">
+							<c:forEach var="diary" items="${ diaries }">
 								<div class="post format-gallery">
 									<div class="date-wrapper">
 										<div class="date">
@@ -128,7 +128,7 @@
 									
 										
 										<div id="owl-work" class="owl-carousel owl-inner-pagination owl-inner-nav post-media">
-											<c:forEach var="diaryImg" items="${ diaryImg }">
+											<c:forEach var="diaryImg" items="${ diary.attachment }">
 											<div class="item">
 												<figure>
 													<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
@@ -138,7 +138,7 @@
 										</div><!-- /.owl-carousel -->
 										
 										<h2 class="post-title">
-											<a href="blog-post.html">${ diary.diaTitle }</a>
+											<a href="/farmstory/diary_detail.action">${ diary.diaTitle }</a>
 										</h2>
 										
 										<ul class="meta">
@@ -172,11 +172,11 @@
 								<h4>Random Posts</h4>
 								
 								<div class="row thumbs gap-xs">
-									<c:forEach var="diaryImg" end="4" items="${ diaryImg }" >
+									<c:forEach var="diaryAllImg" end="4" items="${ diaryAllImg }">
 									<div class="col-xs-6 thumb">
 										<figure class="icon-overlay icn-link">
 											<a href="blog-post.html">
-											<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
+											<img src="/farmstory/resources/upload-image/diary-info/${diaryAllImg.diiImg}" alt="">
 											</a>
 										</figure>
 									</div><!-- /.thumb -->
