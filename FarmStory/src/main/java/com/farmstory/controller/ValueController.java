@@ -39,7 +39,6 @@ public class ValueController {
 	
 	@PostMapping(value = "/findTime.action")
 	public String findValue(String date, PlantVal plantVal, Model model) {
-		System.out.println(date);
 		plantVal.setPlvDateTime(date);
 		ArrayList<PlantVal> vals = valueService.findValues(plantVal.getPlvDateTime());
 		model.addAttribute("vals", vals);
