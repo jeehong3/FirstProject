@@ -1,8 +1,6 @@
 package com.farmstory.dao;
 
 import com.farmstory.mapper.PlantMapper;
-import com.farmstory.vo.Plant;
-import com.farmstory.vo.PlantImg;
 
 public class MySqlPlantDao implements PlantDao  {
 
@@ -10,18 +8,6 @@ public class MySqlPlantDao implements PlantDao  {
 
 	public void setPlantMapper(PlantMapper plantMapper) {
 		this.plantMapper = plantMapper;
-	}
-	
-	@Override
-	public void insertPlantInfo(Plant plant) {
-		
-		plantMapper.insertPlantInfo(plant);
-	}
-	
-	@Override
-	public void insertPlantInfoImages(PlantImg attachment) {
-		
-		plantMapper.insertPlantInfoImages(attachment);
 	}
 	
 }

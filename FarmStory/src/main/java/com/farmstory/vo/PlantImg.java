@@ -7,7 +7,6 @@ public class PlantImg {
 	private int pliNo;
 	private String pliImg;
 	private int plaNo;
-	private int imgIdx;
 	
 	public int getPliNo() {
 		return pliNo;
@@ -26,12 +25,6 @@ public class PlantImg {
 	}
 	public void setPlaNo(int plaNo) {
 		this.plaNo = plaNo;
-	}
-	public int getImgIdx() {
-		return imgIdx;
-	}
-	public void setImgIdx(int imgIdx) {
-		this.imgIdx = imgIdx;
 	}
 	
 	

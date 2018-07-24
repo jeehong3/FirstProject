@@ -2,11 +2,12 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Sensor Reading Page</title>
+<title>Home</title>
 </head>
 <body>
-	<h1>Hello Sensor!</h1>
+	<h1>Hello world!</h1>
 
-	<P>Now Connected Machine a ${potn}.</P>
+	<P>The time on the server is ${potn}.</P>
+	<P>The time on the server is ${value}.</P>
 </body>
 </html>

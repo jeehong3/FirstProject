@@ -5,39 +5,20 @@
 /* Insert your own styles in here! */
 
 /* ==== Fonts-NotoSansKR : Start ============================= */
+
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-.notoSansKR {
-	font: 24px/30px 'Noto Sans KR', sans-serif;
-}
-
-.thin {
-	font-weight: 100
-}
-
-.light {
-	font-weight: 300
-}
-
-.regular {
-	font-weight: 400
-}
-
-.medium {
-	font-weight: 500
-}
-
-.bold {
-	font-weight: 700
-}
-
-.bolder {
-	font-weight: 900
-}
+.notoSansKR { font: 24px/30px 'Noto Sans KR', sans-serif; }
+.thin       { font-weight: 100 }
+.light      { font-weight: 300 }
+.regular    { font-weight: 400 }
+.medium     { font-weight: 500 }
+.bold       { font-weight: 700 }
+.bolder     { font-weight: 900 }
 
 /* ==== Fonts-NotoSansKR : End ============================= */
 
 /* ==== Header : Start ============================= */
+
 #welcome {
 	font-size: 14px;
 	padding-top: 10px;
@@ -49,6 +30,7 @@
 /* ==== Header : End ============================= */
 
 /* ==== Register & Login & Logout Modal : Start ============================= */
+
 .modal-header {
 	border-top: 6px solid #3F8DBF;
 	border-top-left-radius: 6px;
@@ -109,17 +91,3 @@
 }
 
 /* ==== Register & Login & Logout Modal : End ============================= */
-
-/* ==== Plant List : Start ============================= */
-.plant-sub-title {
-	font-size: 17px;
-}
-
-/* ==== Plant List : End ============================= */
-
-/* ==== Plant Write&Update : Start ============================= */
-.writeMeunBtn {
-	margin-left: 15px;
-}
-
-/* ==== Plant Write&Update : End ============================= */
