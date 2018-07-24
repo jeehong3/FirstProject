@@ -8,6 +8,10 @@ import com.farmstory.vo.Cover;
 public class MysqlCoverDao implements CoverDao{
 
 	private CoverMapper CoverMapper;
+	public void setCoverMapper(CoverMapper coverMapper) {
+		CoverMapper = coverMapper;
+	}
+	
 	
 	@Override
 	public List<Cover> selectCoverList() {
@@ -39,6 +43,5 @@ public class MysqlCoverDao implements CoverDao{
 		
 	}
 
-	
 
 }

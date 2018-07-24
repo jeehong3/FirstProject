@@ -64,9 +64,9 @@
 
 					<ul class="nav navbar-nav">
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">팜스토리 소개</a> <c:if
-								test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+						<li class="dropdown"><a href="/farmstory/cover-list.action" class="dropdown-toggle"
+							data-toggle="dropdown">팜스토리 소개</a> 
+							<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 								<ul class="dropdown-menu">
 									<li><a href="#">소개 쓰기</a></li>
 									<li><a href="#">소개 수정하기</a></li>
