@@ -5,29 +5,29 @@ import java.util.Date;
 //건의사항 정보를 DB에 저장하기 위한 vo 객체
 public class Notice {
 
-	private int noticeNo;
-	private String noticeTitle;
-	private String noticeContent;
+	private int intNo;
+	private String intTitle;
+	private String intContent;
 	private String memId;
-	private Date noticeDate;
+	private Date intDate;
 	
-	public int getNoticeNo() {
-		return noticeNo;
+	public int getIntNo() {
+		return intNo;
 	}
-	public void setNoticeNo(int noticeNo) {
-		this.noticeNo = noticeNo;
+	public void setIntNo(int intNo) {
+		this.intNo = intNo;
 	}
-	public String getNoticeTitle() {
-		return noticeTitle;
+	public String getIntTitle() {
+		return intTitle;
 	}
-	public void setNoticeTitle(String noticeTitle) {
-		this.noticeTitle = noticeTitle;
+	public void setIntTitle(String intTitle) {
+		this.intTitle = intTitle;
 	}
-	public String getNoticeContent() {
-		return noticeContent;
+	public String getIntContent() {
+		return intContent;
 	}
-	public void setNoticeContent(String noticeContent) {
-		this.noticeContent = noticeContent;
+	public void setIntContent(String intContent) {
+		this.intContent = intContent;
 	}
 	public String getMemId() {
 		return memId;
@@ -35,12 +35,10 @@ public class Notice {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public Date getNoticeDate() {
-		return noticeDate;
+	public Date getIntDate() {
+		return intDate;
 	}
-	public void setNoticeDate(Date noticeDate) {
-		this.noticeDate = noticeDate;
+	public void setIntDate(Date intDate) {
+		this.intDate = intDate;
 	}
-	
-	
 }

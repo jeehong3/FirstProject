@@ -12,7 +12,6 @@
 		FROM NOTICE W
 		WHERE NOT_NO
 	</select>
-	
 	<resultMap type="Notice" id="boardMap">
 		<id column="NOT_NO" property="noticeNo" />
 		<result column="NOT_TITLE" property="noticeTitle" />

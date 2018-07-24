@@ -28,7 +28,21 @@
 </script> -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
+	$(function() {
+		$('button[id^=noticeDelete]').on(
+				'click',
+				function(event) {
+					event.preventDefault();
+					var noticeNo = $(this).attr('data-noticeNo')
+					$('#noticeModal a#processNotice').attr(
+							'href',
+							'/janditour/notice_delete.action?noticeNo='
+									+ noticeNo);
+					$('#noticeModal').modal('show');
 
+				});
+
+	});
 </script>
 <style type="text/css">
 #noticeWriteBtn {
@@ -48,7 +62,7 @@
 							<h1>공지사항</h1>
 							<div class="under-border"></div>
 							<br>
-							<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+							<c:if test="${not empty loginuser and loginuser.memDiv eq '1'}">
 								<div align="center">
 									<a id="noticeWriteBtn" href="/janditour/notice_write.action"
 										class="btn buttonTransparent">공지사항 등록</a>
@@ -109,7 +123,7 @@
 										<td align="center"><b>제목</b></td>
 										<td align="center"><b>날짜</b></td>
 										<c:if
-											test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+											test="${not empty loginuser and loginuser.memDiv eq '1'}">
 											<td align="center"><b>삭제</b></td>
 										</c:if>
 									</tr>
@@ -141,7 +155,7 @@
 												</ul>
 											</td>
 											<c:if
-												test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+												test="${not empty loginuser and loginuser.memDiv eq '1'}">
 												<td class="bookingTd">
 													<ul class="list-inline listingsInfo text-left">
 														<li>

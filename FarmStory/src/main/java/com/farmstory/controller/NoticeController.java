@@ -20,11 +20,11 @@ public class NoticeController {
 	@Qualifier("noticeService")
 	private NoticeService noticeService;
 
-	@RequestMapping(value = "notice_list.action", method = GET)
+	@RequestMapping(value = "/notice_list.action", method = GET)
 	String writeBoard(HttpSession session, Notice irt) {
-		irt.setNoticeTitle((String) session.getAttribute("loginuser"));
+		irt.setIntTitle((String) session.getAttribute("intTitle"));
 		noticeService.listBoard(irt);
-		return "board/notice_list";
+		return "board/notice_list.action";
 	}
 
 }
