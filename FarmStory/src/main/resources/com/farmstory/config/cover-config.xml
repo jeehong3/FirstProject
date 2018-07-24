@@ -7,15 +7,15 @@
 
 	<bean id="coverService" 
 	class="com.farmstory.service.CoverServiceImpl">
-		<property name="CoverDao"  ref="CoverDao"/>
+		<property name="coverDao"  ref="coverDao"/>
 	</bean>
 
-	<bean id="CoverDao" 
+	<bean id="coverDao" 
 	class="com.farmstory.dao.MysqlCoverDao">
 		<property name="coverMapper"  ref="coverMapper"/>
 	</bean>
 
-	<bean id="CoverMapper"
+	<bean id="coverMapper"
 	class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.farmstory.mapper.CoverMapper"/>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
