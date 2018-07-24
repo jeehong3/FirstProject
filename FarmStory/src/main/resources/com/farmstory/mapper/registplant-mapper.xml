@@ -5,6 +5,13 @@
   
 <mapper namespace="com.farmstory.mapper.RegistPlantMapper">
 	
+	<select id="selectShowplant" resultType="Plant">
+	
+		SELECT PLANTNAME plaName 
+		FROM PLANT
+		
+	</select>
+	
 	<insert id="insertRegistPlant" parameterType="RegistPlant">
 	
 		INSERT INTO REGISTPLANT (MEM_ID, PLA_NO)
