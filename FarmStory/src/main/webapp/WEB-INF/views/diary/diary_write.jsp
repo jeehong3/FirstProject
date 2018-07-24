@@ -99,7 +99,7 @@
 										<textarea name="diaContent" id="smarteditor" class="form-control" ></textarea>
 									</div><!-- /.col -->
 								</div><!-- /.row -->
-								
+								<input type="hidden" name="memId" value="${loginuser.memId}">
 								<button id="savebutton" class="btn btn-submit">등록하기</button>
 								<a id="addImageBtn" class="btn btn-submit">이미지 추가</a>
 								

@@ -57,7 +57,7 @@
 									<div id="content" class="panel-collapse collapse in">
 										<div class="panel-body">
 											<div id="owl-popular-posts" class="owl-carousel owl-item-gap-sm">
-												
+												<c:forEach var="diaryImg" items="${ diaryImg }">
 												<div class="item">
 													<a href="blog-post.html">
 														<figure>
@@ -67,108 +67,12 @@
 																	<p>Interactive</p>
 																</div><!-- /.info -->
 															</figcaption>
-															<img src="assets/images/art/work03.jpg" alt="">
+															<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
 														</figure>
 													</a>
 												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Simpli Nota</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work04.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Vinyl Records</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work07.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Astor & Yancy</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work09.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Signwall</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work16.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Tri Fold Brochure</h4>
-																	<p>Print</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work10.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>Embroidered</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work05a.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
-												
-												<div class="item">
-													<a href="blog-post.html">
-														<figure>
-															<figcaption class="text-overlay">
-																<div class="info">
-																	<h4>El Corcho</h4>
-																	<p>Identity</p>
-																</div><!-- /.info -->
-															</figcaption>
-															<img src="assets/images/art/work12.jpg" alt="">
-														</figure>
-													</a>
-												</div><!-- /.item -->
+												</c:forEach>
+										
 												
 											</div><!-- /.owl-carousel -->
 										</div><!-- /.panel-body -->
@@ -207,60 +111,34 @@
 					<div class="row">
 						
 						<div class="col-md-9 inner-right-sm">
-							
 							<div class="posts sidemeta">
-								
+							<c:forEach var="diary" items="${ diary }">
 								<div class="post format-gallery">
-									
 									<div class="date-wrapper">
 										<div class="date">
-											<span class="day">23</span>
-											<span class="month">May</span>
+											<span class="day">${ diary.diaDate }</span>
+											<!-- <span class="month">May</span> -->
 										</div><!-- /.date -->
 									</div><!-- /.date-wrapper -->
-									
 									<div class="format-wrapper">
 										<a href="#" data-filter=".format-gallery"><i class="icon-picture"></i></a>
 									</div><!-- /.format-wrapper -->
 									
 									<div class="post-content">
+									
 										
 										<div id="owl-work" class="owl-carousel owl-inner-pagination owl-inner-nav post-media">
-											
+											<c:forEach var="diaryImg" items="${ diaryImg }">
 											<div class="item">
 												<figure>
-													<img src="assets/images/art/work06-lg.jpg" alt="">
+													<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
 												</figure>
 											</div><!-- /.item -->
-											
-											<div class="item">
-												<figure>
-													<img src="assets/images/art/work02-lg.jpg" alt="">
-												</figure>
-											</div><!-- /.item -->
-											
-											<div class="item">
-												<figure>
-													<img src="assets/images/art/work08a-lg.jpg" alt="">
-												</figure>
-											</div><!-- /.item -->
-											
-											<div class="item">
-												<figure>
-													<img src="assets/images/art/work09-lg.jpg" alt="">
-												</figure>
-											</div><!-- /.item -->
-											
-											<div class="item">
-												<figure>
-													<img src="assets/images/art/work16-lg.jpg" alt="">
-												</figure>
-											</div><!-- /.item -->
-											
+											</c:forEach>
 										</div><!-- /.owl-carousel -->
 										
 										<h2 class="post-title">
-											<a href="blog-post.html">Learn how to successfully design brand identities</a>
+											<a href="blog-post.html">${ diary.diaTitle }</a>
 										</h2>
 										
 										<ul class="meta">
@@ -269,202 +147,13 @@
 											<li class="likes"><a href="#">73</a></li>
 										</ul><!-- /.meta -->
 										
-										<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut repore autem labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu oreprerum.</p>
+										<p>${ diary.diaContent }</p>
 										
 										<a href="blog-post.html" class="btn">Read more</a>
 										
 									</div><!-- /.post-content --> 
-									
 								</div><!-- /.post -->
-								
-								<div class="post format-quote">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">21</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-quote"><i class="icon-quote"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										<blockquote>
-											<p>Been putting off creating my portfolio for several years, then I found REEN and about 30 minutes later ... I have an awesome looking portfolio. Totally love it �� keep up the good work!</p>
-											<footer><cite>Bill Jobs</cite></footer>
-										</blockquote>
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post -->
-								
-								<div class="post format-standard">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">14</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-standard"><i class="icon-edit"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										
-										<h2 class="post-title">
-											<a href="blog-post.html">The ultimate guide for designers to start freelancing</a>
-										</h2>
-										
-										<ul class="meta">
-											<li class="categories"><a href="#">Business</a></li>
-											<li class="comments"><a href="#">14</a></li>
-											<li class="likes"><a href="#">30</a></li>
-										</ul><!-- /.meta -->
-										
-										<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut repore autem labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu oreprerum.</p>
-										
-										<a href="blog-post.html" class="btn">Read more</a>
-										
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post -->
-								
-								<div class="post format-image">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">10</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-image"><i class="icon-picture-1"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										
-										<figure class="icon-overlay icn-link post-media">
-											<a href="blog-post.html"><img src="assets/images/art/photograph04-lg.jpg" alt=""></a>
-										</figure><!-- /.post-media -->
-										
-										<h2 class="post-title">
-											<a href="blog-post.html">The girl and the summerlight</a>
-										</h2>
-										
-										<ul class="meta">
-											<li class="categories"><a href="#">Photography</a></li>
-											<li class="comments"><a href="#">63</a></li>
-											<li class="likes"><a href="#">114</a></li>
-										</ul><!-- /.meta -->
-										
-										<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut repore autem labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu oreprerum.</p>
-										
-										<a href="blog-post.html" class="btn">Read more</a>
-										
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post -->
-								
-								<div class="post format-video">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">07</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-video"><i class="icon-video-1"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										
-										<div class="video-container post-media">
-											<iframe src="http://player.vimeo.com/video/65468064?title=0&amp;byline=0&amp;color=1abb9c" width="750" height="422" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-										</div><!-- /.post-media -->
-										
-										<h2 class="post-title">
-											<a href="blog-post.html">Pure geometry in motion</a>
-										</h2>
-										
-										<ul class="meta">
-											<li class="categories"><a href="#">Motion&nbsp;Graphics</a></li>
-											<li class="comments"><a href="#">25</a></li>
-											<li class="likes"><a href="#">84</a></li>
-										</ul><!-- /.meta -->
-										
-										<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut repore autem labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu oreprerum.</p>
-										
-										<a href="blog-post.html" class="btn">Read more</a>
-										
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post -->
-								
-								<div class="post format-audio">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">05</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-audio"><i class="icon-music-1"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										
-										<div class="post-media">
-											<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/14132147&amp;color=1abb9c&amp;auto_play=false&amp;hide_related=false&amp;show_artwork=true"></iframe>
-										</div><!-- /.post-media -->
-										
-										<h2 class="post-title">
-											<a href="blog-post.html">Music and design workflow</a>
-										</h2>
-										
-										<ul class="meta">
-											<li class="categories"><a href="#">Audio</a></li>
-											<li class="comments"><a href="#">14</a></li>
-											<li class="likes"><a href="#">48</a></li>
-										</ul><!-- /.meta -->
-										
-										<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut repore autem labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu oreprerum.</p>
-										
-										<a href="blog-post.html" class="btn">Read more</a>
-										
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post -->
-								
-								<div class="post format-link">
-									
-									<div class="date-wrapper">
-										<div class="date">
-											<span class="day">01</span>
-											<span class="month">May</span>
-										</div><!-- /.date -->
-									</div><!-- /.date-wrapper -->
-									
-									<div class="format-wrapper">
-										<a href="#" data-filter=".format-link"><i class="icon-popup"></i></a>
-									</div><!-- /.format-wrapper -->
-									
-									<div class="post-content">
-										<h2 class="post-title">
-											<a href="http://www.wrapbootstrap.com" target="_blank">Super-Awesome Bootstrap Website Templates</a>
-										</h2>
-										<a href="http://www.wrapbootstrap.com" target="_blank">www.wrapbootstrap.com</a>
-									</div><!-- /.post-content --> 
-									
-								</div><!-- /.post --> 
-								
+								</c:forEach>
 							</div><!-- /.posts -->
 							
 							<ul class="pagination">
@@ -483,42 +172,16 @@
 								<h4>Random Posts</h4>
 								
 								<div class="row thumbs gap-xs">
-									
+									<c:forEach var="diaryImg" end="4" items="${ diaryImg }" >
 									<div class="col-xs-6 thumb">
 										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/work17.jpg" alt=""></a>
+											<a href="blog-post.html">
+											<img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt="">
+											</a>
 										</figure>
 									</div><!-- /.thumb -->
+									</c:forEach>
 									
-									<div class="col-xs-6 thumb">
-										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/photograph02.jpg" alt=""></a>
-										</figure>
-									</div><!-- /.thumb -->
-									
-									<div class="col-xs-6 thumb">
-										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/work18.jpg" alt=""></a>
-										</figure>
-									</div><!-- /.thumb -->
-									
-									<div class="col-xs-6 thumb">
-										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/work21.jpg" alt=""></a>
-										</figure>
-									</div><!-- /.thumb -->
-									
-									<div class="col-xs-6 thumb">
-										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/work23.jpg" alt=""></a>
-										</figure>
-									</div><!-- /.thumb -->
-									
-									<div class="col-xs-6 thumb">
-										<figure class="icon-overlay icn-link">
-											<a href="blog-post.html"><img src="assets/images/art/work22.jpg" alt=""></a>
-										</figure>
-									</div><!-- /.thumb -->
 									
 								</div><!-- /.row -->
 							</div><!-- /.widget -->
@@ -618,38 +281,7 @@
 		<!-- ============================================================= FOOTER : END ============================================================= -->
 		
 		<!-- JavaScripts placed at the end of the document so the pages load faster -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.easing.1.3.min.js"></script>
-		<script src="assets/js/jquery.form.js"></script>
-		<script src="assets/js/jquery.validate.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/aos.js"></script>
-		<script src="assets/js/owl.carousel.min.js"></script>
-		<script src="assets/js/jquery.isotope.min.js"></script>
-		<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-		<script src="assets/js/jquery.easytabs.min.js"></script>
-		<script src="assets/js/viewport-units-buggyfill.js"></script>
-		<script src="assets/js/selected-scroll.js"></script>
-		<script src="assets/js/scripts.js"></script>
-		<script src="assets/js/custom.js"></script>
+		<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
 		
-		<!-- For demo purposes �� can be removed on production -->
-		<link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
-		<link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-		<link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">
-		<link href="assets/css/pink.css" rel="alternate stylesheet" title="Pink color">
-		<link href="assets/css/purple.css" rel="alternate stylesheet" title="Purple color">
-		<link href="assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-		<link href="assets/css/navy.css" rel="alternate stylesheet" title="Navy color">
-		<link href="assets/css/gray.css" rel="alternate stylesheet" title="Gray color">
-		
-		<script src="switchstylesheet/switchstylesheet.js"></script>
-		
-		<script>
-			$(document).ready(function(){ 
-				$(".changecolor").switchstylesheet( { seperator:"color"} );
-			});
-		</script>
-		<!-- For demo purposes �� can be removed on production : End -->
 	</body>
 </html>

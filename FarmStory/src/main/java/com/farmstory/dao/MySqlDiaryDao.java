@@ -1,6 +1,9 @@
 package com.farmstory.dao;
 
+import java.util.List;
+
 import com.farmstory.mapper.DiaryMapper;
+import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
 import com.farmstory.vo.DiaryImg;
 
@@ -21,5 +24,18 @@ public class MySqlDiaryDao implements DiaryDao{
 	public void insertDiaryImage(DiaryImg attachment) {
 		diaryMapper.insertDiaryImage(attachment);
 	}
+
+	@Override
+	public List<Diary> findDiary(String memId) {
+		List<Diary> diary = diaryMapper.findDiary(memId);
+		return diary;
+	}
+
+	@Override
+	public List<DiaryImg> findDiaryImg(String memId) {
+		List<DiaryImg> diaryImg = diaryMapper.findDiaryImg(memId);
+		return diaryImg;
+	}
+
 
 }
