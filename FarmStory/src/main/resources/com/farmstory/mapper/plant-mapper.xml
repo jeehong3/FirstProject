@@ -22,5 +22,5 @@
 		INSERT INTO PLANT_IMG (PLA_NO, PLI_IMG, IMG_IDX)
 		VALUE (#{plaNo},#{pliImg}, #{imgIdx})
 	</insert>
-
+	
 </mapper> 
