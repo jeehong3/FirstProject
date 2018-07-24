@@ -1,5 +1,7 @@
 package com.farmstory.dao;
 
+import java.util.List;
+
 import com.farmstory.mapper.PlantMapper;
 import com.farmstory.vo.Plant;
 import com.farmstory.vo.PlantImg;
@@ -22,6 +24,12 @@ public class MySqlPlantDao implements PlantDao  {
 	public void insertPlantInfoImages(PlantImg attachment) {
 		
 		plantMapper.insertPlantInfoImages(attachment);
+	}
+	
+	@Override
+	public List<Plant> selectPlantInfosWithThumnailImages(){
+		
+		return plantMapper.selectPlantInfosWithThumnailImages();
 	}
 	
 }
