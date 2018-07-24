@@ -13,12 +13,14 @@ import com.farmstory.service.NoticeService;
 import com.farmstory.vo.Notice;
 
 @Controller
+@RequestMapping(value = "/board")
 public class NoticeController {
+	
 	@Autowired
 	@Qualifier("noticeService")
 	private NoticeService noticeService;
 
-	@RequestMapping(value = "board/notice_list.action", method = GET)
+	@RequestMapping(value = "notice_list.action", method = GET)
 	String writeBoard(HttpSession session, Notice irt) {
 		irt.setNoticeTitle((String) session.getAttribute("loginuser"));
 		noticeService.listBoard(irt);

@@ -8,8 +8,8 @@
 
 
 	<select id="listBoard" resultMap="boardMap">
-		SELECT NOT_TITLE, NOT_NO, NOT_CONTENT
-		FROM NOTICE
+        SELECT NOT_TITLE, NOT_CONTENT, NOT_DATE,MEM_ID 
+		FROM NOTICE W
 		WHERE NOT_NO
 	</select>
 	
@@ -20,10 +20,5 @@
 		<result column="NOT_DATE" property="noticeDate" />
 		<result column="MEM_ID" property="memberId" />
 	</resultMap>
-	
-		<select id="findBoards" resultMap="boardMap">
-		SELECT B.NOT_TITLE, B.ID, W.*
-		FROM RCP_BRD W, BOARD_TYPE B
-		WHERE W.BOARD_NO = B.BOARD_NO
-	</select>
+
 </mapper>  
