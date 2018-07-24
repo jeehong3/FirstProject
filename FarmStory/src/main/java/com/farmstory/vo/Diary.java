@@ -11,7 +11,14 @@ public class Diary {
 	private String diaTitle;
 	private String diaContent;
 	private int regPotNo;
+	private String memId;
 	
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
 	private List<DiaryImg> attachment; 
 	
 	

@@ -4,9 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +18,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.farmstory.common.Util;
 import com.farmstory.service.DiaryService;
+import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
 import com.farmstory.vo.DiaryImg;
 
@@ -31,8 +35,9 @@ public class DiaryController {
 	}
 	
 	@PostMapping(value = "/diary_write.action")
-	public String diary_write(MultipartHttpServletRequest req, Diary diary) {
-	
+	public String diary_write(MultipartHttpServletRequest req, Diary diary, Model model, String memId) {
+		
+		diary.setMemId(memId);
 		//이미지 삽입
 				DiaryImg imageFile = null;
 				List<MultipartFile> imgFiles = req.getFiles("diiImage1");
@@ -63,7 +68,22 @@ public class DiaryController {
 				}
 				diary.setAttachment(files);
 				diaryService.writeDiary(diary);
-
+			
 				return "redirect:/home.action";
+	}
+	
+	@GetMapping(value = "/diary_list.action")
+	public String diary_list(Model model, HttpSession session,
+			@RequestParam(value = "memId") String memId) {
+		
+		List<Diary> diary = diaryService.findDiary(memId);
+		
+		List<DiaryImg> diaryImg = diaryService.findDiaryImg(memId);
+	
+		model.addAttribute("diary", diary);
+		model.addAttribute("diaryImg", diaryImg);
+		model.addAttribute("memId", memId);
+		
+		return "diary/diary_list";
 	}
 }

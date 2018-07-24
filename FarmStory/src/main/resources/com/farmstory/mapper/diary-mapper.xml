@@ -9,12 +9,91 @@
 	<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
 			SELECT LAST_INSERT_ID()
 	</selectKey>
-	INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT)
-	VALUES (#{diaDate}, #{diaTitle}, #{diaContent})
+	INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
+	VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
 	</insert>
 	
 	<insert id="insertDiaryImage" parameterType="DiaryImg">
 	INSERT INTO DIARY_IMG (DII_IMG, DIA_NO)
 	VALUES (#{diiImg}, #{diaNo})
 	</insert>
+	
+	<select id="findDiary" parameterType="String" resultType="Diary">
+	SELECT
+		B.*
+	FROM
+	(
+		SELECT
+			A.*
+		FROM
+		(
+			SELECT D.DIA_DATE diaDate, D.DIA_TITLE diaTitle, D.DIA_CONTENT diaContent, D.MEM_ID memId
+			FROM DIARY D 
+			JOIN MEMBER M
+			ON D.MEM_ID = M.MEM_ID
+			WHERE D.MEM_ID = #{memId}
+			)A
+		)B
+	</select>
+	
+	<select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
+	SELECT
+		B.*
+	FROM
+	(
+		SELECT
+			A.*
+		FROM
+		(
+			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId GROUP BY I.DIA_NO diaNo
+			FROM DIARY_IMG I  
+			JOIN DIARY D
+			ON I.DIA_NO = D.DIA_NO
+			<!-- WHERE D.MEM_ID = #{memId} -->
+			WHERE I.DIA_NO = #{diaNo}
+			)A
+		)B
+	</select>
+
+	<!-- <select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
+	SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+	FROM DIARY_IMG I  
+	LEFT JOIN DIARY D
+	ON I.DIA_NO = D.DIA_NO
+	WHERE D.MEM_ID = #{memId};
+	</select> -->
+
+		<!-- SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+		FROM DIARY_IMG I  
+		INNER JOIN DIARY D
+		ON I.DIA_NO = D.DIA_NO
+		WHERE D.MEM_ID = 'ksh'; -->
+
+	<!-- <select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
+		SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+		FROM DIARY_IMG I  
+		JOIN DIARY D
+		ON I.DIA_NO = D.DIA_NO
+		WHERE D.MEM_ID = #{memId}
+	</select> -->
+	
+	<!-- <select id="findDiaryImg" resultType="DiaryImg">
+	SELECT
+		A.*
+	FROM
+	(
+		SELECT
+			B.*
+		FROM
+		(
+			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg
+			FROM DIARY_IMG I  
+			JOIN DIARY D
+			ON I.DIA_NO = D.DIA_NO
+			WHERE I.DIA_NO = D.DIA_NO
+			
+			)B
+		)A
+	</select> -->
+
 </mapper>  
