@@ -122,7 +122,7 @@
 										<h4>사진 선택</h4>
 										<div class="row">
 											<div class="col-sm-12" >
-												<h6>미리보기 이미지</h6><input type="file" name="thumnailImg" class="form-control">
+												<h6>미리보기 이미지</h6><input type="file" name="plantImg" class="form-control">
 											</div><!-- /.col -->
 										</div><!-- /.row -->
 										<br><h6>상세보기 이미지</h6>
