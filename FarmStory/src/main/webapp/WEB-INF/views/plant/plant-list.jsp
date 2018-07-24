@@ -8,7 +8,6 @@
 <html lang="ko">
 	<head>
 		<!-- Meta -->
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
@@ -20,13 +19,9 @@
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
 		<style type="text/css">
-			#plant-sub-title {
-				font-size: 17px;
-			}
-			#notosans{
-				font: 24px/30px 'Noto Sans KR', sans-serif;
-			}
-		
+			.plant-sub-title {
+	font-size: 17px;
+}
 		</style>
 	</head>
 	
@@ -41,7 +36,7 @@
 		
 		<!-- ============================================================= MAIN ============================================================= -->
 		
-		<main>
+		<main class="notoSansKR">
 			
 			<!-- ============================================================= SECTION â PORTFOLIO ============================================================= -->
 		
@@ -51,8 +46,8 @@
 					<div class="row">
 						<div class="col-md-8 col-sm-9 center-block text-center">
 							<header class="notoSansKR medium">
-								<h2>식물은 어떻게 키워야할까?</h2>
-								<p id="plant-sub-title">여기서 식물에 대한 정보를 보고가세요~</p>
+								<h2>어떻게 키워야할까?</h2>
+								<p class="plant-sub-title">여기서 식물에 대한 정보를 보고가세요~</p>
 							</header>
 						</div><!-- /.col -->
 					</div><!-- /.row -->
@@ -63,11 +58,11 @@
 						<div class="col-sm-12 portfolio">
 							
 							<ul class="filter text-center">
-								<li><a href="#" data-filter="*" class="active">All</a></li>
-								<li><a href="#" data-filter=".identity">Identity</a></li>
-								<li><a href="#" data-filter=".interactive">Interactive</a></li>
-								<li><a href="#" data-filter=".print">Print</a></li>
-								<li><a href="#" data-filter=".photography">Photography</a></li>
+								<li><a href="#" data-filter="*" class="active">전체</a></li>
+								<li><a href="#" data-filter=".identity">꽃</a></li>
+								<li><a href="#" data-filter=".interactive">관엽 식물</a></li>
+								<li><a href="#" data-filter=".print">활엽 식물</a></li>
+								<li><a href="#" data-filter=".photography">란</a></li>
 							</ul><!-- /.filter -->
 							
 							<ul class="isotope items col-3 gap">
