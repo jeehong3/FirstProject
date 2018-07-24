@@ -10,10 +10,17 @@
 
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/views/include/header/public-header.jsp"/>
+
+
+
+
+
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -125,7 +132,12 @@
 		<!-- /.panel-body -->
 	</div>
 	
-	
+	<div class="graphBox">
+
+<canvas id="lineCanvas" width="384" height="210"></canvas>
+
+</div>
+
 	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp"/>
 	
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
