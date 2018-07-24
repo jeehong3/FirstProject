@@ -5,17 +5,17 @@
   
 <mapper namespace="com.farmstory.mapper.RegistPlantMapper">
 	
-	<select id="selectShowplant" resultType="Plant">
+	<select id="selectShowPlant" resultType="Plant">
 	
-		SELECT PLANTNAME plaName 
+		SELECT PLA_NAME plaName, PLA_NO plaNo 
 		FROM PLANT
 		
 	</select>
 	
 	<insert id="insertRegistPlant" parameterType="RegistPlant">
 	
-		INSERT INTO REGISTPLANT (MEM_ID, PLA_NO)
-		VALUES (#{memId}, #{plaNo})	
+		INSERT INTO REGISTPLANT (MEM_ID, PLA_NO, REG_POTNO)
+		VALUES (#{memId}, 1, #{regPotNo})	
 		
 	</insert>
 	
