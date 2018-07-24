@@ -83,7 +83,6 @@
 								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="/farmstory/plant_regist.action">나의 화분 등록하기</a></li>
 								<li><a href="/farmstory/value/findTime.action">나의 등록 화분</a></li>
-								
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
