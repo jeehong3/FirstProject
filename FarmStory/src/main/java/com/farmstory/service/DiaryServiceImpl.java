@@ -34,6 +34,7 @@ public class DiaryServiceImpl implements DiaryService{
 
 	@Override
 	public List<DiaryImg> findDiaryImg(String memId) {
+		
 		List<DiaryImg> diaryImg = diaryDao.findDiaryImg(memId);
 		return diaryImg;
 	}

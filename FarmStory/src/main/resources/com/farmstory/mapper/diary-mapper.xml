@@ -34,16 +34,33 @@
 			WHERE D.MEM_ID = #{memId}
 			)A
 		)B
-
+	</select>
+	
+	<select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
+	SELECT
+		B.*
+	FROM
+	(
+		SELECT
+			A.*
+		FROM
+		(
+			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+			FROM DIARY_IMG I  
+			LEFT JOIN DIARY D
+			ON I.DIA_NO = D.DIA_NO
+			WHERE D.MEM_ID = #{memId} AND I.DIA_NO = 49;
+			)A
+		)B
 	</select>
 
-	<select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
+	<!-- <select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
 	SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
 	FROM DIARY_IMG I  
 	LEFT JOIN DIARY D
 	ON I.DIA_NO = D.DIA_NO
 	WHERE D.MEM_ID = #{memId};
-	</select>
+	</select> -->
 
 		<!-- SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
 		FROM DIARY_IMG I  

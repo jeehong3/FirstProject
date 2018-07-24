@@ -77,6 +77,7 @@ public class DiaryController {
 			@RequestParam(value = "memId") String memId) {
 		
 		List<Diary> diary = diaryService.findDiary(memId);
+		
 		List<DiaryImg> diaryImg = diaryService.findDiaryImg(memId);
 	
 		model.addAttribute("diary", diary);
