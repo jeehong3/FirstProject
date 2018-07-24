@@ -69,8 +69,8 @@
 												<h4>식물 종류</h4>
 												<select class="selectType" name="plaType">
 													<option value="꽃">꽃</option>
-													<option value="관엽식물">관엽식물</option>
-													<option value="활엽식물">활엽식물</option>
+													<option value="관엽 식물">관엽 식물</option>
+													<option value="활엽 식물">활엽 식물</option>
 													<option value="란">란</option>
 												</select>
 											</div><!-- /.col -->
@@ -120,6 +120,12 @@
 										</div><!-- /.row -->
 									
 										<h4>사진 선택</h4>
+										<div class="row">
+											<div class="col-sm-12" >
+												<h6>미리보기 이미지</h6><input type="file" name="thumnailImg" class="form-control">
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+										<br><h6>상세보기 이미지</h6>
 										<div id="fileDiv" class="row">
 											<div class="col-sm-12" >
 												<input type="file" name="plantImg" class="form-control">
