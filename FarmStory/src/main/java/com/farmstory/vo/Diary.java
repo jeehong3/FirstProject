@@ -1,6 +1,7 @@
 package com.farmstory.vo;
 
 import java.sql.Date;
+import java.util.List;
 
 //다이어리 정보를 DB에 저장하기 위한 vo 객체
 public class Diary {
@@ -11,6 +12,15 @@ public class Diary {
 	private String diaContent;
 	private int regPotNo;
 	
+	private List<DiaryImg> attachment; 
+	
+	
+	public List<DiaryImg> getAttachment() {
+		return attachment;
+	}
+	public void setAttachment(List<DiaryImg> attachment) {
+		this.attachment = attachment;
+	}
 	public int getDiaNo() {
 		return diaNo;
 	}

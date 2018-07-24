@@ -12,6 +12,11 @@
 		<typeAlias type="com.farmstory.vo.Account" alias="Account"/>
 		<typeAlias type="com.farmstory.vo.PlantVal" alias="PlantVal"/>
 		<typeAlias type="com.farmstory.vo.RegistPlant" alias="RegistPlant"/>
+		<typeAlias type="com.farmstory.vo.Diary" alias="Diary"/>
+		<typeAlias type="com.farmstory.vo.DiaryImg" alias="DiaryImg"/>
+		<typeAlias type="com.farmstory.vo.Plant" alias="Plant"/>
+		<typeAlias type="com.farmstory.vo.PlantImg" alias="PlantImg"/>
+		<typeAlias type="com.farmstory.vo.Notice" alias="notice"/>			
 	</typeAliases>
 
 	<environments default="development">
@@ -29,8 +34,11 @@
 	<mappers>
 		<mapper resource="com/farmstory/mapper/account-mapper.xml"/>
 		<mapper resource="com/farmstory/mapper/registplant-mapper.xml"/>
-		<!-- <mapper resource="com/farmstory/mapper/sensor-mapper.xml"/> -->
+		<mapper resource="com/farmstory/mapper/sensor-mapper.xml"/>
+		<mapper resource="com/farmstory/mapper/notice-mapper.xml"/>
 		<mapper resource="com/farmstory/mapper/value-mapper.xml"/>
+		<mapper resource="com/farmstory/mapper/diary-mapper.xml"/>
+		<mapper resource="com/farmstory/mapper/plant-mapper.xml"/>
 	</mappers>
 
 </configuration>

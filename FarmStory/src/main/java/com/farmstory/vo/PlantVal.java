@@ -1,13 +1,10 @@
 package com.farmstory.vo;
 
-import java.util.Date;
-
-
 //식물통계 정보를 DB에 저장하기 위한 vo 객체
 public class PlantVal {
 
 	private int plvNo;
-	private int regPotNo;
+	private String regPotNo;
 	private String plvDateTime;
 	private String plvType;
 	private int plvVal;
@@ -31,10 +28,10 @@ public class PlantVal {
 	public void setPlvNo(int plvNo) {
 		this.plvNo = plvNo;
 	}
-	public int getRegPotNo() {
+	public String getRegPotNo() {
 		return regPotNo;
 	}
-	public void setRegPotNo(int regPotNo) {
+	public void setRegPotNo(String regPotNo) {
 		this.regPotNo = regPotNo;
 	}
 	public int getPlvVal() {

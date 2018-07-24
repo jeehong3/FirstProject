@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.farmstory.mapper.NoticeMapper">
+
+
+
+	<select id="listBoard" resultMap="boardMap">
+		SELECT NOT_TITLE, NOT_NO, NOT_CONTENT
+		FROM NOTICE
+		WHERE NOT_NO
+	</select>
+	<resultMap type="Notice" id="boardMap">
+		<id column="NOT_NO" property="noticeNo" />
+		<result column="NOT_TITLE" property="noticeTitle" />
+		<result column="NOT_CONTENT" property="noticeContent" />
+		<result column="NOT_DATE" property="noticeDate" />
+		<result column="MEM_ID" property="memberId" />
+	</resultMap>
+</mapper>  

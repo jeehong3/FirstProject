@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.farmstory.mapper.PlantMapper">
+	
+	<insert id="insertPlantInfo" parameterType="Plant">
+		INSERT INTO PLANT (PLA_NAME, PLA_TYPE, PLA_SIMPLE, PLA_CONTENT,
+						   PLA_MINTEM, PLA_MAXTEM, PLA_MINHUM, PLA_MAXHUM,
+					 	   PLA_MINLUX, PLA_MAXLUX )
+		VALUE (#{plaName}, #{plaType}, #{plaSimple}, #{plaContent},
+			   #{plaMinTem}, #{plaMaxTem}, #{plaMinHum}, #{plaMaxHum},
+			   #{plaMinLux}, #{plaMaxLux})
+		<selectKey keyProperty="plaNo" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>	   
+	</insert>
+	
+	<insert id="insertPlantInfoImages" parameterType="PlantImg">
+		INSERT INTO PLANT_IMG (PLA_NO, PLI_IMG, IMG_IDX)
+		VALUE (#{plaNo},#{pliImg}, #{imgIdx})
+	</insert>
+	
+</mapper> 

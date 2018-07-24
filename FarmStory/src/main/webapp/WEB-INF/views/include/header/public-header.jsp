@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!-- Account Modal JavaScript -->
-<jsp:include page="/WEB-INF/views/include/account/account-js.jsp" />
+<jsp:include page="/WEB-INF/views/include/account/account-jstl-js.jsp" />
 
 <header>
 
@@ -49,7 +49,7 @@
 		</div>
 		<!-- /.navbar-header -->
 
-		<div class="yamm">
+		<div class="yamm ">
 			<div class="navbar-collapse collapse">
 				<div class="container">
 					<!-- ============================================================= LOGO ============================================================= -->
@@ -79,8 +79,8 @@
 							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">다이어리</a></li>
-								<li><a href="#">다이어리 쓰기</a></li>
+								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
+								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="value/findTime.action">나의 등록 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
@@ -90,12 +90,11 @@
 
 							<ul class="dropdown-menu">
 
-
 								<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-									<li><a href="plant-write.action">식물 정보 등록 [관리자]</a></li>
+									<li><a href="/farmstory/plant_write.action">식물 정보 등록 [관리자]</a></li>
 								</c:if>
 
-								<li><a href="plant-list.action">식물 정보</a></li>
+								<li><a href="/farmstory/plant_list.action">식물 정보</a></li>
 
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
@@ -104,7 +103,7 @@
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">공지사항</a></li>
+								<li><a href="/farmstory/notice_list.action">공지사항</a></li>
 								<li><a href="#">문의함</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
