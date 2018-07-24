@@ -23,4 +23,16 @@
 		VALUE (#{plaNo},#{pliImg}, #{imgIdx})
 	</insert>
 	
+	<select id="selectPlantInfosWithThumnailImages" resultType="Plant">
+		SELECT P.PLA_NO plaNo, P.PLA_NAME plaName, P.PLA_TYPE plaType, P.PLA_SIMPLE plaSimple,
+			   P.PLA_CONTENT plaContent,
+			   P.PLA_MINTEM plaMinTem, P.PLA_MAXTEM plaMaxTem, P.PLA_MINHUM plaMinTem, P.PLA_MAXHUM plaMaxHum,
+			   P.PLA_MINLUX plaMinLux, P.PLA_MAXLUX plaMaxLux, I.PLI_IMG pliImg
+		FROM PLANT P
+		JOIN PLANT_IMG I
+		ON P.PLA_NO = I.PLA_NO
+		WHERE I.IMG_IDX = 1
+		ORDER BY P.PLA_NO DESC
+	</select>
+	
 </mapper> 

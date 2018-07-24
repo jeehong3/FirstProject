@@ -3,6 +3,7 @@ package com.farmstory.controller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +32,9 @@ public class PlantController {
 	@GetMapping(value = "/plant_list.action")
 	public String showPlantList(Model model) {
 		
+		List<Plant> plantInfos = plantService.findPlantInfosWithThumnailImages();
+		
+		model.addAttribute("plantInfos", plantInfos);
 		
 		return "plant/plant-list";
 	}

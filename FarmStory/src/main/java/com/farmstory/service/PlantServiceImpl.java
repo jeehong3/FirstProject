@@ -19,11 +19,18 @@ public class PlantServiceImpl implements PlantService {
 		
 		plantDao.insertPlantInfo(plant);
 		
+		// 등록하는 이미지들을 DB에 순차적으로 저장한다.  
 		List<PlantImg> imgAttachments = plant.getAttachments();
 		for (PlantImg attachment : imgAttachments) {
 			attachment.setPlaNo(plant.getPlaNo());
 			plantDao.insertPlantInfoImages(attachment);
 		}
+	}
+	
+	@Override
+	public List<Plant> findPlantInfosWithThumnailImages(){
+		
+		return plantDao.selectPlantInfosWithThumnailImages();
 	}
 	
 }

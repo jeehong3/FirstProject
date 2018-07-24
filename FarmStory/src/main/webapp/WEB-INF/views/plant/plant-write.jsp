@@ -69,8 +69,8 @@
 												<h4>식물 종류</h4>
 												<select class="selectType" name="plaType">
 													<option value="꽃">꽃</option>
-													<option value="관엽 식물">관엽 식물</option>
-													<option value="활엽 식물">활엽 식물</option>
+													<option value="관엽식물">관엽 식물</option>
+													<option value="활엽식물">활엽 식물</option>
 													<option value="란">란</option>
 												</select>
 											</div><!-- /.col -->
