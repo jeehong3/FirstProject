@@ -57,9 +57,8 @@
 	
 	<!-- 소개 페이지 관리 -->
 	
-	<!--  
 	<import resource="classpath:com/farmstory/config/cover-config.xml" />
-	-->
+
 	
 
 
