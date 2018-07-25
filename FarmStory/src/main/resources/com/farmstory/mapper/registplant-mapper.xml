@@ -10,13 +10,19 @@
 		SELECT PLA_NAME plaName, PLA_NO plaNo 
 		FROM PLANT
 		
-	</select>
+			</select>
 	
 	<insert id="insertRegistPlant" parameterType="RegistPlant">
 	
 		INSERT INTO REGISTPLANT (MEM_ID, PLA_NO, REG_POTNO)
-		VALUES (#{memId}, 1, #{regPotNo})	
+		VALUES (#{memId}, #{plaNo}, #{regPotNo})	
 		
 	</insert>
+	
+	<select id="searchPlant" parameterType="string" resultType="Plant">
+		SELECT PLA_NAME plaName, PLA_NO plaNo 
+		FROM PLANT
+		WHERE PLA_NAME LIKE CONCAT('%',#{plaName},'%') 
+	</select>
 	
 </mapper>  

@@ -10,4 +10,6 @@ public interface RegistPlantMapper {
 	void insertRegistPlant (RegistPlant registPlant);
 
 	ArrayList<Plant> selectShowPlant();
+
+	ArrayList<Plant> searchPlant(String plaName);
 }
