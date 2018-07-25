@@ -175,7 +175,7 @@ $(document).ready(function(){
 	  </c:if>
 	  </c:forEach>
 	  var plot1 = $.jqplot('graphDiv1', [array1], {
-	      title:'실시간 온도', 
+	      title:'일간 온도', 
 	      axes:{
 	        xaxis:{
 	          renderer:$.jqplot.DateAxisRenderer, 
@@ -193,7 +193,7 @@ $(document).ready(function(){
 	  </c:if>
 	  </c:forEach>
 	  var plot2 = $.jqplot('graphDiv2', [array1], {
-	      title:'실시간 습도', 
+	      title:'일간 습도', 
 	      axes:{
 	        xaxis:{
 	          renderer:$.jqplot.DateAxisRenderer, 
@@ -211,7 +211,7 @@ $(document).ready(function(){
 	  </c:if>
 	  </c:forEach>
 	  var plot3 = $.jqplot('graphDiv3', [array3], {
-	      title:'실시간 조도', 
+	      title:'일간 조도', 
 	      axes:{
 	        xaxis:{
 	          renderer:$.jqplot.DateAxisRenderer, 
@@ -229,7 +229,7 @@ $(document).ready(function(){
 	  </c:if>
 	  </c:forEach>
 	  var plot4 = $.jqplot('graphDiv4', [array4], {
-	      title:'실시간 압력', 
+	      title:'일간 압력', 
 	      axes:{
 	        xaxis:{
 	          renderer:$.jqplot.DateAxisRenderer, 
