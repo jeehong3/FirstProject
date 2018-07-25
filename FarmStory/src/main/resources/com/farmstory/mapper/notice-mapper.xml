@@ -5,7 +5,7 @@
   
 <mapper namespace="com.farmstory.mapper.NoticeMapper">
 	
-	<insert id="writeBoard" parameterType="Notice">
-		INSERT INTO PLANT_VAL (PLV_TYPE, PLV_VAL) VALUES (#{plvType}, #{plvVal})
-	</insert>
+	<select id="listBoard" parameterType="Notice">
+		SELECT NOT_NO noticeNo, NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM NOTICE
+	</select>
 </mapper>  

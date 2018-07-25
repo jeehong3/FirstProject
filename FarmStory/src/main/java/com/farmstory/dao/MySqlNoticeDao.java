@@ -10,9 +10,11 @@ public class MySqlNoticeDao implements NoticeDao {
 	public void setNoticeMapper(NoticeMapper noticeMapper) {
 		this.noticeMapper = noticeMapper;
 	}
-	
+
 	@Override
-	public void writeBoard(Notice irt) {
-		noticeMapper.writeBoard(irt);
+	public void listBoard(Notice not) {
+		noticeMapper.listBoard(not);
 	}
+
+	
 }

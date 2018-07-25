@@ -4,6 +4,7 @@ import com.farmstory.vo.Notice;
 
 public interface NoticeDao {
 
-	void writeBoard(Notice irt);
+
+	void listBoard(Notice not);
 
 }

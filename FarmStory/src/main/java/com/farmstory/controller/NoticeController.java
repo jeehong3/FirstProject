@@ -1,7 +1,7 @@
 package com.farmstory.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,16 @@ import com.farmstory.service.NoticeService;
 import com.farmstory.vo.Notice;
 
 @Controller
-
+@RequestMapping(value = "board/")
 public class NoticeController {
 	@Autowired
 	@Qualifier("noticeService")
 	private NoticeService noticeService;
 
-	@RequestMapping(value = "/notice_list.action", method = POST)
-	String writeBoard(HttpSession session, Notice irt) {
-		irt.setIntTitle((String) session.getAttribute("intTitle"));
-		noticeService.writeBoard(irt);
-		return null;
+	@RequestMapping(value = "/notice_list.action", method = GET)
+	String listBoard(HttpSession session, Notice not) {
+		noticeService.listBoard(not);
+		return "notice_list";
 	}
 
 }
