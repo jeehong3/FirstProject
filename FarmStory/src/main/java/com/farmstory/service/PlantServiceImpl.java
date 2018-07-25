@@ -33,4 +33,16 @@ public class PlantServiceImpl implements PlantService {
 		return plantDao.selectPlantInfosWithThumnailImages();
 	}
 	
+	@Override
+	public Plant findPlantInfoByPlaNo(int plaNo) {
+		
+		return plantDao.selectPlantInfoByPlaNo(plaNo);
+	}
+	
+	@Override
+	public List<PlantImg> findImagesPlantInfoByPlaNo(int plaNo) {
+		
+		return plantDao.selectImagesPlantInfoByPlaNo(plaNo);
+	}
+	
 }

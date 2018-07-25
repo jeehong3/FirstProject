@@ -129,7 +129,7 @@
 										<div id="fileDiv" class="row">
 											<div class="col-sm-12" >
 												<input type="file" name="plantImg" class="form-control">
-												<a href="#this" name="deleteInput" class="btn pull-right">삭제</a>
+												<a href="#this" name="deleteInput" class="btn pull-right writeMeunBtn">삭제</a>
 											</div><!-- /.col -->
 										</div><!-- /.row -->
 									

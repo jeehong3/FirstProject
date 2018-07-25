@@ -12,4 +12,8 @@ public interface PlantMapper {
 	void insertPlantInfoImages(PlantImg attachment);
 	
 	List<Plant> selectPlantInfosWithThumnailImages();
+	
+	Plant selectPlantInfoByPlaNo(int plaNo);
+	
+	List<PlantImg> selectImagesPlantInfoByPlaNo(int plaNo);
 }

@@ -13,4 +13,8 @@ public interface PlantDao {
 
 	List<Plant> selectPlantInfosWithThumnailImages();
 
+	Plant selectPlantInfoByPlaNo(int plaNo);
+
+	List<PlantImg> selectImagesPlantInfoByPlaNo(int plaNo);
+
 }

@@ -80,7 +80,7 @@
 							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/diary_list.action?memId=${loginuser.memId}">다이어리</a></li>
+								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
 								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
 								<li><a href="/farmstory/value/findTime.action">나의 등록 화분</a></li>
@@ -101,7 +101,7 @@
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown"><a href="/farmstory/notice_list.action" class="dropdown-toggle"
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">

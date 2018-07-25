@@ -67,18 +67,18 @@
 							
 							<ul class="isotope items col-3 gap">
 							
-							<c:forEach var="plant" items="${ plantInfos }">
-								<li class="item thumb ${ plant.plaType }">
+							<c:forEach var="plantInfos" items="${ plantInfos }">
+								<li class="item thumb ${ plantInfos.plaType }">
 									<figure>
 										
 										<div class="icon-overlay icn-link">
-											<a href="/farmstory/plant_detail.action"><img src="/farmstory/resources/upload-image/plant-info/${ plant.pliImg }" alt=""></a>
+											<a href="/farmstory/plant_detail.action?plaNo=${ plantInfos.plaNo }"><img src="/farmstory/resources/upload-image/plant-info/${ plantInfos.pliImg }" alt=""></a>
 										</div><!-- /.icon-overlay -->
 										
 										<figcaption class="bordered no-top-border">
 											<div class="info">
-												<h4><a href="/farmstory/plant_detail.action"></a>[${ plant.plaType }] ${ plant.plaName }</h4>
-												<p>${ plant.plaSimple }</p>
+												<h4><a href="/farmstory/plant_detail.action?plaNo=${ plantInfos.plaNo }">[${ plantInfos.plaType }] ${ plantInfos.plaName }</a></h4>
+												<p>${ plantInfos.plaSimple }</p>
 											</div><!-- /.info -->
 										</figcaption>
 										

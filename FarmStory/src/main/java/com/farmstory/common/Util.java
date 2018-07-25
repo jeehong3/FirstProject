@@ -204,5 +204,37 @@ public class Util {
 	    		fileName.substring(dotIndex + 1).toUpperCase(), 
 	    		thumbFile);
 	}
+	
+	public static void imageResize(
+			String imgOriginalPath, String imgOriginFileName, int dw, int dh) throws Exception {
+
+ 
+			// 저장된 원본파일로부터 BufferedImage 객체를 생성합니다.
+    	    BufferedImage srcImg = ImageIO.read(new File(imgOriginalPath, imgOriginFileName));
+
+    	    // 원본 이미지의 너비와 높이 입니다.
+    	    int ow = srcImg.getWidth();
+    	    int oh = srcImg.getHeight();
+    	    
+    	    // 원본 너비를 기준으로 하여 사이즈 조정할 이미지의 비율로 높이를 계산한다.
+    	    int nw = ow;
+    	    int nh = (ow * dh) / dw;
+    	    
+    	    // 계산된 높이가 원본보다 높다면 crop이 안되므로
+    	    // 원본 높이를 기준으로 사이즈 조정할 이미지의 비율로 너비를 계산한다.
+    	    if(nh > oh) {
+    	        nw = (oh * dw) / dh;
+    	        nh = oh;
+    	    }
+    	    
+    	    // 계산된 크기로 원본이미지를 가운데에서 crop 한다.
+    	    BufferedImage cropImg = Scalr.crop(srcImg, (ow-nw)/2, (oh-nh)/2, nw, nh);
+    	    // crop된 이미지로 사이즈 조정된 이미지를 생성한다.
+    	    BufferedImage resizeImage = Scalr.resize(cropImg, dw, dh);
+    	    // 사이즈 조정된 이미지의 이름을 변경한다.
+    	    String resizeFileName = "resize_" + imgOriginFileName;
+    	    // 사이즈 조정된 이미지를 경로에 저장한다.
+            ImageIO.write(resizeImage, "jpg", new File(imgOriginalPath, resizeFileName));
+	}
 
 }

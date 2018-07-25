@@ -9,7 +9,7 @@
 		// 사진 파일 업로드 폼을 추가하는 스크립트이다.
 		$("#add").on("click", function(e) {
 			e.preventDefault();
-			//e.stopPropagation();
+			e.stopPropagation();
 			fn_fileAdd();
 		});
 		
@@ -22,7 +22,7 @@
 		// 사진 파일 업로드 폼을 추가하는 함수이다.
 		function fn_fileAdd() {
 			/* var str = "<input type='file' name='file_"+(g_count++)+"'/><a href='#this' name='delete' class='btn'>삭제하기</a></p>"; */
-			var str = $("<div class='col-sm-12'><input type='file' class='form-control' name='plantImg'><a href='#this' name='deleteInput' class='btn pull-right'>삭제</a></div>");
+			var str = $("<div class='col-sm-12'><input type='file' class='form-control' name='plantImg'><a href='#this' name='deleteInput' class='btn pull-right writeMeunBtn'>삭제</a></div>");
 			$("#fileDiv").append(str);
 
 			$("a[name='deleteInput']").on("click", function(e) {

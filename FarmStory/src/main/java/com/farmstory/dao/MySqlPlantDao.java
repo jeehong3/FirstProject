@@ -32,4 +32,16 @@ public class MySqlPlantDao implements PlantDao  {
 		return plantMapper.selectPlantInfosWithThumnailImages();
 	}
 	
+	@Override
+	public Plant selectPlantInfoByPlaNo(int plaNo) {
+		
+		return plantMapper.selectPlantInfoByPlaNo(plaNo);
+	}
+	
+	@Override
+	public List<PlantImg> selectImagesPlantInfoByPlaNo(int plaNo) {
+		
+		return plantMapper.selectImagesPlantInfoByPlaNo(plaNo);
+	}
+	
 }

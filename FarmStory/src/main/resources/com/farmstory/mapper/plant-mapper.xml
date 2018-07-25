@@ -10,9 +10,9 @@
 		INSERT INTO PLANT (PLA_NAME, PLA_TYPE, PLA_SIMPLE, PLA_CONTENT,
 						   PLA_MINTEM, PLA_MAXTEM, PLA_MINHUM, PLA_MAXHUM,
 					 	   PLA_MINLUX, PLA_MAXLUX )
-		VALUE (#{plaName}, #{plaType}, #{plaSimple}, #{plaContent},
-			   #{plaMinTem}, #{plaMaxTem}, #{plaMinHum}, #{plaMaxHum},
-			   #{plaMinLux}, #{plaMaxLux})
+		VALUE (#{ plaName }, #{ plaType }, #{ plaSimple }, #{ plaContent },
+			   #{ plaMinTem }, #{ plaMaxTem }, #{ plaMinHum }, #{ plaMaxHum },
+			   #{ plaMinLux }, #{ plaMaxLux })
 		<selectKey keyProperty="plaNo" resultType="int" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>	   
@@ -20,7 +20,7 @@
 	
 	<insert id="insertPlantInfoImages" parameterType="PlantImg">
 		INSERT INTO PLANT_IMG (PLA_NO, PLI_IMG, IMG_IDX)
-		VALUE (#{plaNo},#{pliImg}, #{imgIdx})
+		VALUE (#{ plaNo },#{ pliImg }, #{ imgIdx })
 	</insert>
 	
 	<select id="selectPlantInfosWithThumnailImages" resultType="Plant">
@@ -33,6 +33,35 @@
 		ON P.PLA_NO = I.PLA_NO
 		WHERE I.IMG_IDX = 1
 		ORDER BY P.PLA_NO DESC
+	</select>
+	
+	<resultMap type="Plant" id="plantInfoMap">
+		<id column="PLA_NO" property="plaNo"/>
+		<id column="PLA_NAME" property="plaName"/>
+		<id column="PLA_TYPE" property="plaType"/>
+		<id column="PLA_SIMPLE" property="plaSimple"/>
+		<id column="PLA_CONTENT" property="plaContent"/>
+		<id column="PLA_MINTEM" property="plaMinTem"/>
+		<id column="PLA_MAXTEM" property="plaMaxTem"/>
+		<id column="PLA_MINHUM" property="plaMinHum"/>
+		<id column="PLA_MAXHUM" property="plaMaxHum"/>
+		<id column="PLA_MINLUX" property="plaMinLux"/>
+		<id column="PLA_MAXLUX" property="plaMaxLux"/>
+	</resultMap>
+	
+	<select id="selectPlantInfoByPlaNo" resultMap="plantInfoMap">
+		SELECT PLA_NO, PLA_NAME, PLA_TYPE, PLA_CONTENT,
+			   PLA_MINTEM, PLA_MAXTEM,
+			   PLA_MINHUM, PLA_MAXHUM,
+			   PLA_MINLUX, PLA_MAXLUX
+		FROM PLANT
+		WHERE PLA_NO = #{ plaNo }
+	</select>
+	
+	<select id="selectImagesPlantInfoByPlaNo" resultType="PlantImg">
+		SELECT PLI_IMG pliImg
+		FROM PLANT_IMG
+		WHERE PLA_NO = #{ plaNo } AND IMG_IDX > 1
 	</select>
 	
 </mapper> 
