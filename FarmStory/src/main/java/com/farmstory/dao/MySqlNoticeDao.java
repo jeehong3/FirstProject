@@ -18,6 +18,16 @@ public class MySqlNoticeDao implements NoticeDao {
 		return noticeMapper.listBoard();
 	}
 
+	@Override
+	public void insertBoard() {
+		noticeMapper.insertBoard();
+	}
+
+	@Override
+	public void deleteBoard() {
+		noticeMapper.deleteBoard();
+	}
+
 
 	
 }

@@ -8,5 +8,9 @@ public interface NoticeMapper {
 
 	List<Notice> listBoard();
 
+	void insertBoard();
+
+	void deleteBoard();
+
 	
 }
