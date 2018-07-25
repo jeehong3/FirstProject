@@ -2,10 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.farmstory.mapper.NoticeMapper">
-	
+
 	<select id="listBoard" parameterType="Notice">
-		SELECT NOT_NO noticeNo, NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM NOTICE
+		SELECT NOT_NO noticeNo,
+		NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM
+		NOTICE WHERE NOT_NO = #{noticeNo}
 	</select>
 </mapper>  

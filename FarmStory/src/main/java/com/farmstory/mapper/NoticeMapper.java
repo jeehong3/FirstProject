@@ -1,8 +1,12 @@
 package com.farmstory.mapper;
 
+import java.util.List;
+
 import com.farmstory.vo.Notice;
 
 public interface NoticeMapper {
 
-	void listBoard(Notice not);
+	List<Notice> listBoard();
+
+	
 }

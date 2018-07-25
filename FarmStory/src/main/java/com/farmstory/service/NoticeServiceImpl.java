@@ -1,9 +1,11 @@
 package com.farmstory.service;
 
+import java.util.List;
+
 import com.farmstory.dao.NoticeDao;
 import com.farmstory.vo.Notice;
 
-public class NoticeServiceImpl implements NoticeService  {
+public class NoticeServiceImpl implements NoticeService {
 	private NoticeDao noticeDao;
 
 	public void setNoticeDao(NoticeDao noticeDao) {
@@ -11,8 +13,19 @@ public class NoticeServiceImpl implements NoticeService  {
 	}
 
 	@Override
-	public void listBoard(Notice not) {
-		noticeDao.listBoard(not);
+	public List<Notice> listBoard() {
+		return noticeDao.listBoard();
+
+	}
+
+	@Override
+	public void insertBoard(Notice not) {
+		noticeDao.insertBoard();
+	}
+
+	@Override
+	public void deleteBoard(Notice not) {
+		noticeDao.deleteBoard();
 	}
 
 }

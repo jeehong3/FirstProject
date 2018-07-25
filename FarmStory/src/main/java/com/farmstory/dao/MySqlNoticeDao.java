@@ -1,5 +1,7 @@
 package com.farmstory.dao;
 
+import java.util.List;
+
 import com.farmstory.mapper.NoticeMapper;
 import com.farmstory.vo.Notice;
 
@@ -12,9 +14,10 @@ public class MySqlNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public void listBoard(Notice not) {
-		noticeMapper.listBoard(not);
+	public List<Notice> listBoard() {
+		return noticeMapper.listBoard();
 	}
+
 
 	
 }

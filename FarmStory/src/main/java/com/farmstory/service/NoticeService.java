@@ -1,10 +1,19 @@
 package com.farmstory.service;
 
+import java.util.List;
+
 import com.farmstory.vo.Notice;
 
 public interface NoticeService {
 
-	void listBoard(Notice not);
+
+	List<Notice> listBoard();
+
+	void insertBoard(Notice not);
+
+	void deleteBoard(Notice not);
+
+	
 
 
 }
