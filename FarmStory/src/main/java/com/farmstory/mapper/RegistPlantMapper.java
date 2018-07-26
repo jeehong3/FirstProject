@@ -12,4 +12,6 @@ public interface RegistPlantMapper {
 	ArrayList<Plant> selectShowPlant();
 
 	ArrayList<Plant> searchPlant(String plaName);
+
+	int potNoTest(String regPotNo);
 }

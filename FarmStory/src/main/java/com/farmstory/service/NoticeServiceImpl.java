@@ -20,12 +20,12 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void insertBoard(Notice not) {
-		noticeDao.insertBoard();
+		noticeDao.insertBoard(not);
 	}
 
 	@Override
-	public void deleteBoard(Notice not) {
-		noticeDao.deleteBoard();
+	public void deleteBoard(int noticeNo) {
+		noticeDao.deleteBoard(noticeNo);
 	}
 
 }

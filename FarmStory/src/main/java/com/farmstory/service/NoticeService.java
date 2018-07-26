@@ -11,7 +11,7 @@ public interface NoticeService {
 
 	void insertBoard(Notice not);
 
-	void deleteBoard(Notice not);
+	void deleteBoard(int noticeNo);
 
 	
 

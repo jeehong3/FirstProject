@@ -30,6 +30,12 @@ public class RegistPlantServiceImpl implements RegistPlantService {
 	public ArrayList<Plant> searchPlant(String plaName) {
 		return registPlantDao.searchPlant(plaName);
 	}
+
+	@Override
+	public int potNoTest(String regPotNo) {
+		
+		return registPlantDao.potNoTest(regPotNo);
+	}
 	
 
 	

@@ -5,8 +5,8 @@
 
 <mapper namespace="com.farmstory.mapper.NoticeMapper">
 
-	<select id="listBoard" parameterType="Notice">
-		SELECT NOT_NO noticeNo,
+	<select id="listBoard" resultType="Notice">
+		SELECT NOT_NO noticeNo ,
 		NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM
 		NOTICE WHERE NOT_NO = #{noticeNo}
 	</select>
@@ -16,7 +16,9 @@
 		NOT_TITLE, NOT_CONTENT, MEM_ID) VALUES
 		(#{noticeTitle},#{noticeContent},#{memberId} )
 	</insert>
+	
 
+	
 	<delete id="deleteBoard" parameterType="Notice">
 		DELETE FROM NOTICE
 		WHERE

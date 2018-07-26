@@ -25,4 +25,10 @@
 		WHERE PLA_NAME LIKE CONCAT('%',#{plaName},'%') 
 	</select>
 	
+	
+	<select id="potNoTest" parameterType="string" resultType="Integer">
+		SELECT COUNT(*) FROM REGISTPLANT
+		WHERE
+		REG_POTNO = #{regPotNo}
+	</select>
 </mapper>  
