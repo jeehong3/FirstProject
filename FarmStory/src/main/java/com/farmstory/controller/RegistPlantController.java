@@ -3,6 +3,8 @@ package com.farmstory.controller;
 import static org.springframework.web.bind.annotation.RequestMethod.*; 
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -49,7 +51,7 @@ public class RegistPlantController {
 			registPlantService.registPlant(registplant);
 		
 			
-		return "redirect:plant-regist.action";
+		return "redirect:plant_regist.action";
 	}
 	
 	@RequestMapping(value="/search_plant.action", method=POST)
@@ -60,5 +62,16 @@ public class RegistPlantController {
 		
 	return plants;
 }
-	
+	@RequestMapping(value="/potNo-test.action", method=POST)
+	@ResponseBody
+	public Map<Object, Object> potNoTest(String regPotNo) {
+		
+		int count = 0;
+        Map<Object, Object> map = new HashMap<Object, Object>();
+ 
+        count = registPlantService.potNoTest(regPotNo);
+        map.put("cnt", count);
+ 
+        return map;
+	}
 }
