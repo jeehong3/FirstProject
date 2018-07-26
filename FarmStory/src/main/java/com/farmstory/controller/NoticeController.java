@@ -25,21 +25,21 @@ public class NoticeController {
 
 	@RequestMapping(value = "/notice_list.action", method = GET)
 	String listBoard(Model model) {
-		List<Notice> notice = noticeService.listBoard();
-		model.addAttribute("notice",notice);
+		List<Notice> notices = noticeService.listBoard();
+		model.addAttribute("notices",notices);
 		return "board/notice_list";
 	}
 	
 	@RequestMapping(value = "/notice_insert.action", method=POST)
 	String insertBoard(Notice not, HttpSession session) {
 		noticeService.insertBoard(not);
-		return "redirect:board/notice_list";
+		return "redirect:notice_list.action";
 	}
 	
-	@RequestMapping(value = "",method = GET)
+	@RequestMapping(value = "/notice_delete.action",method = GET)
 	String deleteBoard(int noticeNo) {
 		noticeService.deleteBoard(noticeNo);
-		return "redirect:board/notice_list";
+		return "redirect:notice_list.action";
 	}
 
 }

@@ -7,8 +7,9 @@
 
 	<select id="listBoard" resultType="Notice">
 		SELECT NOT_NO noticeNo ,
-		NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM
-		NOTICE WHERE NOT_NO = #{noticeNo}
+		NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId, NOT_DATE noticeDate
+		FROM NOTICE
+		ORDER BY NOT_NO DESC
 	</select>
 
 	<insert id="insertBoard" parameterType="Notice">
