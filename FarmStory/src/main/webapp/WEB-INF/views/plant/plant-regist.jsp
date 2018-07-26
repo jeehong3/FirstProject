@@ -50,7 +50,7 @@
 
 	<main class="js-reveal">
 
-	<section id="contact-form">
+	<section id="register-plant-form">
 		<div class="container inner">
 
 			<div class="row">
@@ -71,7 +71,7 @@
 
 							<h2>상세내용을 등록하세요</h2>
 
-							<form id="plantRegistform" class="forms"
+							<form id="plantRegistform" 
 								action="plant_regist.action" method="post">
 
 								<%-- 	<input type="hidden" name="plaNo" class="form-control"
@@ -87,10 +87,11 @@
 
 								<div class="row">
 									<div class="col-sm-8">
-										<input type="text" name="regPotNo" class="form-control"
+										<input type="text" name="regPotNo" class="form-control" id="regPotNo"
 											placeholder="제품번호를 등록해주세요" required>
-
 									</div>
+									
+									<button id="potNoTest" class="btn btn-default" style="width:100px">중복확인</button>
 								</div>
 								<!-- /.row -->
 
@@ -98,10 +99,10 @@
 									<div class="col-sm-8">
 										
 										<input type="hidden" name="plaNo" id="searched-no"
-											placeholder="키우고 싶은 식물을 선택해주세요" required>
+											placeholder="식물번호 가져오는 히든 input" >
 											
 										<input type="text" name="plaName" class="form-control" id="searched-name"
-											placeholder="키우고 싶은 식물을 선택해주세요" required>
+											placeholder="키우고 싶은 식물을 검색 해주세요" required>
 
 
 									</div>
@@ -116,7 +117,8 @@
 									</a> -->
 								</div>
 
-								<button type="submit" class="btn btn-default btn-submit" id="finished">등록하기</button>
+								<button class="btn btn-default btn-submit" id="finished" 
+										onclick="plant_regist.action">등록하기</button>
 
 							</form>
 
@@ -191,9 +193,9 @@
 
 	<script type="text/javascript">
 		$(function() {
-
+			var testNo = 0;
 			$('#searchplant').on('click',function(event) {
-								event.preventDefault();								
+								event.preventDefault();		
 								var plaName = $('#plantRegistform').find('[name=plaName]').val();
 								$.ajax({
 											url : "search_plant.action",
@@ -212,6 +214,7 @@
 															+ '</span>');
 													li.append(radio);
 													ul.append(li);
+													testNo = testNo + 1;
 													}
 												
 											},
@@ -219,7 +222,7 @@
 
 											}
 										});
-							});
+							});//식물검색 닫음
 
 			$('#search-finished').on('click', function(event) {
 
@@ -232,7 +235,57 @@
 				$('#searched-no').val(span.attr('data-plano'))
 			});
 			
-		});
+			//potNo중복 검사
+			$('#potNoTest').on('click',function(event){
+				
+				event.preventDefault();
+				event.stopPropagation();
+				
+				var regPotNo = $("#regPotNo").val();
+				
+				
+				if(regPotNo.length < 4){
+						alert("제품번호는 4글자 이상입니다")
+						$('#regPotNo').val("");
+						return;
+				}else{
+					
+				$.ajax({
+					url : "potNo-test.action",
+					method : "POST",
+					data : {
+						"regPotNo" : regPotNo
+					},
+					success : function(data, status, xhr) {
+						
+						if(data.cnt > 0){
+							alert("중복되는 제품번호입니다.")
+						
+							} else {
+
+								alert("사용가능한 제품번호입니다.")
+								testNo = testNo + 1;
+							}
+						},
+						error : function(xhr, status, err) {
+						}
+					}); //potNo 중복검사 ajax 닫음
+				}//4자리 이하 입력 불가 닫음
+			});//potNo중복검사 닫음
+
+				$('#finished').on('click', function(event) {
+
+					if (testNo >= 2) {
+					alert("등록에 성공하셨습니다");
+						$("#finished").submit();				
+						
+				} else{
+					alert('중복검사 또는 식물을 선택하세요');
+					return false;
+				}	
+			})//등록버튼 이벤트 닫음
+
+		});//스크립트 닫음
 	</script>
 </body>
 </html>

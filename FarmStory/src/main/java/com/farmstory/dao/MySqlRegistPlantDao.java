@@ -36,6 +36,12 @@ public class MySqlRegistPlantDao implements RegistPlantDao {
 	public ArrayList<Plant> searchPlant(String plaName) {
 		return registPlantMapper.searchPlant(plaName);
 	}
+
+
+	@Override
+	public int potNoTest(String regPotNo) {
+		return registPlantMapper.potNoTest(regPotNo);
+	}
 	
 	
 }

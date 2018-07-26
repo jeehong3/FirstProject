@@ -16,4 +16,6 @@ public interface RegistPlantDao {
 
 	ArrayList<Plant> searchPlant(String plaName);
 
+	int potNoTest(String regPotNo);
+
 }
