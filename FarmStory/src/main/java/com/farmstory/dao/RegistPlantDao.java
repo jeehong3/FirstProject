@@ -14,4 +14,6 @@ public interface RegistPlantDao {
 
 	ArrayList<Plant> showPlant();
 
+	ArrayList<Plant> searchPlant(String plaName);
+
 }

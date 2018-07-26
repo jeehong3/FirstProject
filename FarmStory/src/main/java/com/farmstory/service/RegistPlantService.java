@@ -11,4 +11,6 @@ public interface RegistPlantService {
 
 	ArrayList<Plant> showPlant();
 
+	ArrayList<Plant> searchPlant(String plaName);
+
 }

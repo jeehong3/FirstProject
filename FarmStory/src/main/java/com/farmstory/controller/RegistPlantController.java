@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.farmstory.service.RegistPlantService;
 import com.farmstory.vo.Account;
@@ -50,4 +51,14 @@ public class RegistPlantController {
 			
 		return "redirect:plant-regist.action";
 	}
+	
+	@RequestMapping(value="/search_plant.action", method=POST)
+	@ResponseBody
+	public ArrayList<Plant> searchPlant(String plaName) {
+		
+		ArrayList<Plant> plants = registPlantService.searchPlant(plaName);
+		
+	return plants;
+}
+	
 }
