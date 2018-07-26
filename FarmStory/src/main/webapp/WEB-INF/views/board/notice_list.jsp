@@ -74,6 +74,7 @@
 	<!-- ============================================================= HEADER ============================================================= -->
 
 	<jsp:include page="/WEB-INF/views/include/header/public-header.jsp" />
+	<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 	<!-- ============================================================= HEADER : END ============================================================= -->
 
 
@@ -166,7 +167,7 @@
 					</div>
 					<div class="modal-body">
 						<a id="processNotice" class="btn buttonCustomPrimary"
-							href="/janditour/notice_delete.action?noticeNo=${ notice.noticeNo }">처리완료</a>
+							href="/farmstory/notice_delete.action?noticeNo=${ notice.noticeNo }">처리완료</a>
 					</div>
 				</div>
 			</div>
@@ -444,46 +445,17 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
-
+<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.easing.1.3.min.js"></script>
-	<script src="assets/js/jquery.form.js"></script>
-	<script src="assets/js/jquery.validate.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/aos.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/jquery.isotope.min.js"></script>
-	<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-	<script src="assets/js/jquery.easytabs.min.js"></script>
-	<script src="assets/js/viewport-units-buggyfill.js"></script>
-	<script src="assets/js/selected-scroll.js"></script>
-	<script src="assets/js/scripts.js"></script>
-	<script src="assets/js/custom.js"></script>
+
 
 
 
 	<!-- For demo purposes – can be removed on production -->
-	<link href="assets/css/green.css" rel="alternate stylesheet"
-		title="Green color">
-	<link href="assets/css/blue.css" rel="alternate stylesheet"
-		title="Blue color">
-	<link href="assets/css/red.css" rel="alternate stylesheet"
-		title="Red color">
-	<link href="assets/css/pink.css" rel="alternate stylesheet"
-		title="Pink color">
-	<link href="assets/css/purple.css" rel="alternate stylesheet"
-		title="Purple color">
-	<link href="assets/css/orange.css" rel="alternate stylesheet"
-		title="Orange color">
-	<link href="assets/css/navy.css" rel="alternate stylesheet"
-		title="Navy color">
-	<link href="assets/css/gray.css" rel="alternate stylesheet"
-		title="Gray color">
 
-	<script src="switchstylesheet/switchstylesheet.js"></script>
+
 
 	<script>
 		$(document).ready(function() {
