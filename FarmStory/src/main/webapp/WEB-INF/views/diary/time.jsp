@@ -192,7 +192,7 @@ $(document).ready(function(){
 	  	array2.push(['${ val.plvDateTime }', ${ val.plvVal }]);
 	  </c:if>
 	  </c:forEach>
-	  var plot2 = $.jqplot('graphDiv2', [array1], {
+	  var plot2 = $.jqplot('graphDiv2', [array2], {
 	      title:'실시간 습도', 
 	      axes:{
 	        xaxis:{

@@ -15,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>팜스토리-식물 정보</title>
+<title>팜스토리-소개목록 페이지</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
@@ -30,7 +30,27 @@
 }
 </style>
 </head>
-
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(function() { //jQuery의 main 함수
+		$('#write').on('click', function(event) {
+			<c:choose>
+				<c:when test="${ADMIN}">
+				alert('관리자만 글을 작성할 수 있습니다.');
+				location.href = '/farmstroy/home.action';
+				</c:when>
+				<c:otherwise>
+				location.href = '/farmstory/cover_write.action';
+				</c:otherwise>
+			</c:choose>			
+		});
+	});
+	$(function(){
+		$('#list').on('click',function(event){
+			location.href ='/farmstory/cover_detail.action'
+		});
+	});
+</script>
 <body>
 
 	<!-- ============================================================= HEADER ============================================================= -->
@@ -50,8 +70,8 @@
 			<div class="row">
 				<div class="col-md-8 col-sm-9 center-block text-center">
 					<header class="notoSansKR medium">
-						<h2>스마트팜 소개</h2>
-						<p id="plant-sub-title">스마트팜에 대해서 소개를 합니다.</p>
+						<h2>스마트팜 소개 목록</h2>
+						<p id="plant-sub-title">스마트팜 소개 목록입니다..</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -65,26 +85,35 @@
 				<div class="col-sm-12 portfolio">
 
 					<table class="table listingsTable" style="border-radius: 30px">
+						<tr style="background-color: white; height: 25px">
+							<th style="width: 80px"><div align="center">
+									<strong>소개 번호</strong>
+								</div></th>
+							<th style="width: 100px"><div align="center">
+									<strong>소개 이미지</strong>
+								</div></th>
+							<th style="width: 300px"><div align="center">
+									<strong>소개 제목</strong>
+								</div></th>
+
+						</tr>
 						<c:forEach var="cover" items="${ coverList }">
-							<tr style="background-color: white; height: 30px">
-								<td colspan="2"><a
-									href="cover_detail.action?trnNo=${ cover.trnNo }"> ${ cover.trnTitle }
-								</a></td>
-							</tr>
-							<tr style="background-color: white; height: 30px">
-								<td colspan="2"><img
-									src="/janditour/resources/upload-image/cover-info/${cover.trnPic}"
-									style="width: 80px; height: 50px"></a></td>
-							</tr>
-							<tr style="background-color: white; height: 30px">
-								<td>${cover.covLcontent}</td>
-								<td>${cover.covRocntent}</td>
+							<tr align="center" style="background-color: white; height: 30px">
+								<td>${cover.covNo }</td>
+								<td><img
+									src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
+									style="width: 80px; height: 50px"></td>
+								<td><a href="cover_detailm.action?covNo=${ cover.covNo }">
+										${ cover.covTitle } </a></td>
 							</tr>
 						</c:forEach>
 					</table>
-					<a id="link_register" href="javascript:">소개 등록</a> <input
-						type="hidden" value="test" />
 
+
+					<a id="write" href="#">소개 등록</a> <input
+						type="hidden" value="test" />
+					<a id="list" href="#">소개 목록</a>
+					
 				</div>
 				<!-- /.col -->
 			</div>
