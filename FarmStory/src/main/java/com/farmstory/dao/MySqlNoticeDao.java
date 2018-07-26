@@ -19,13 +19,14 @@ public class MySqlNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public void insertBoard() {
-		noticeMapper.insertBoard();
+	public void insertBoard(Notice not) {
+		noticeMapper.insertBoard(not);
 	}
-
+ 
 	@Override
-	public void deleteBoard() {
-		noticeMapper.deleteBoard();
+	public void deleteBoard(int noticeNo) {
+		noticeMapper.deleteBoard(noticeNo);
+		
 	}
 
 

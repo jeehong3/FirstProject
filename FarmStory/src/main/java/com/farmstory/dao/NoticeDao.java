@@ -8,9 +8,9 @@ public interface NoticeDao {
 
 	List<Notice> listBoard();
 
-	void insertBoard();
+	void insertBoard(Notice not);
 
-	void deleteBoard();
+	void deleteBoard(int noticeNo);
 
 
 
