@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.farmstory.service.ValueService;
 import com.farmstory.vo.PlantVal;
@@ -44,6 +45,15 @@ public class ValueController {
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
 		return "diary/time";
+	}
+	
+	@GetMapping(value = "/mFindTime.action")
+	@ResponseBody
+	public ArrayList<PlantVal> mfindValue(String date, PlantVal plantVal, Model model) {
+		System.out.println(date);
+		plantVal.setPlvDateTime(date);
+		ArrayList<PlantVal> vals = valueService.findValues(plantVal.getPlvDateTime());
+		return vals;
 	}
 	
 	@GetMapping(value = "/findDay.action")
