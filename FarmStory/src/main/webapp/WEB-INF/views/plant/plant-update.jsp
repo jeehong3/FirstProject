@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>팜스토리-식물 정보 등록</title>
+<title>팜스토리-식물 정보 수정</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
@@ -40,8 +40,10 @@
 			<div class="row">
 				<div class="col-md-8 col-sm-9 center-block text-center">
 					<header>
-						<h1>식물 정보 등록</h1>
-						<p>식물에 대한 정보를 아래 빈칸에 입력해주세요.</p>
+						<h1>식물 정보 수정</h1>
+						<p>
+							등록한 식물 정보 수정해주세요.<br>사진 수정시 새로 다시 등록하게 됩니다.
+						</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -54,24 +56,25 @@
 
 						<div class="col-sm-12 outer-top-md inner-right-sm">
 
-							<form id="plantInfoForm" class="forms"
-								action="/farmstory/plant_write.action" method="post"
+							<form id="modifyPlantInfoForm" class="forms"
+								action="/farmstory/plant_update.action?plaNo=${ plant.plaNo }&lastImgIdx=${ lastImgIdx }" method="post"
 								enctype="multipart/form-data">
 
 								<div class="row">
 									<div class="col-sm-6">
 										<h4>식물 이름</h4>
 										<input type="text" name="plaName" class="form-control"
-											placeholder="식물의 이름을 입력해주세요">
+											placeholder="식물의 이름을 입력해주세요" value="${ plant.plaName }">
 									</div>
 									<!-- /.col -->
 
 									<div class="col-sm-6">
 										<h4>식물 종류</h4>
-										<select class="selectType" name="plaType">
+										<select class="selectType" name="plaType"
+											data-select="${ plant.plaType }">
 											<option value="꽃">꽃</option>
-											<option value="관엽식물">관엽 식물</option>
-											<option value="활엽식물">활엽 식물</option>
+											<option value="관엽식물">관엽식물</option>
+											<option value="활엽식물">활엽식물</option>
 											<option value="란">란</option>
 										</select>
 									</div>
@@ -85,7 +88,8 @@
 										<br>
 										<h4>간략 설명</h4>
 										<input type="text" name="plaSimple" class="form-control"
-											placeholder="식물의 간략한 정보를 입력해 주세요.">
+											placeholder="식물의 간략한 정보를 입력해 주세요."
+											value="${ plant.plaSimple }">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -95,7 +99,7 @@
 									<div class="col-sm-12">
 										<h4>상세 설명</h4>
 										<textarea name="plaContent" class="form-control"
-											placeholder="식물의 상세한 정보를 입력해 주세요."></textarea>
+											placeholder="식물의 상세한 정보를 입력해 주세요.">${ plant.plaContent }</textarea>
 									</div>
 									<!-- /.col -->
 								</div>
@@ -107,14 +111,14 @@
 										<h6>최소 온도</h6>
 										<input type="number" name="plaMinTem"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMinTem }">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 온도</h6>
 										<input type="number" name="plaMaxTem"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMaxTem }">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -126,14 +130,14 @@
 										<h6>최소 습도</h6>
 										<input type="number" name="plaMinHum"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMinHum }">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 습도</h6>
 										<input type="number" name="plaMaxHum"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMinHum }">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -145,44 +149,77 @@
 										<h6>최소 조도</h6>
 										<input type="number" name="plaMinLux"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMinLux }">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 조도</h6>
 										<input type="number" name="plaMaxLux"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
-									</div>
-									<!-- /.col -->
-								</div>
-								<!-- /.row -->
-
-								<h4>등록할 사진 선택</h4>
-								<div class="row">
-									<div class="col-sm-12">
-										<h6>목록페이지 사진 선택</h6>
-										<input type="file" name="plantImg" class="form-control">
+											placeholder="숫자만 입력해 주세요." value="${ plant.plaMaxLux }">
 									</div>
 									<!-- /.col -->
 								</div>
 								<!-- /.row -->
 								<br>
+								<h4>등록된 사진들</h4>
+								<div id="owl-popular-posts" class="owl-carousel owl-item-gap-sm">
+									<c:forEach var="oldImages" items="${ oldImages }" varStatus="status">
+										<div class="item">
+											 <figure>
+												<figcaption class="text-overlay">
+												<c:choose>
+													<c:when test="${ oldImages.imgIdx eq '1'}">
+														<div class="info">
+															<h4>목록페이지 사진</h4>
+															<p><a id="modifyThumnail" href="#" class="btn" data-index="${ status.index }">수정하기</a></p>
+														</div>
+													</c:when>
+													<c:otherwise>
+														<div class="info">
+															<h4>상세페이지 사진</h4>
+															<p><a href="#" class="btn oldImgDelete" data-index="${ status.index }">삭제하기</a></p>
+														</div>
+													</c:otherwise>
+												</c:choose>
+												<!-- /.info -->
+												</figcaption>
+												<img
+													src="/farmstory/resources/upload-image/plant-info/${ oldImages.pliImg }"
+													alt="">
+											</figure>
+										</div>
+										<!-- /.item -->
+										<input id="oldImgFileName${ status.index }" type="hidden" name="oldImgFileName" value="${ oldImages.pliImg }">
+										<input id="oldImgIdx${ status.index }" type="hidden" name="oldImgIdx" value="${ oldImages.imgIdx }">
+									</c:forEach>
+								</div>
+								<br>
+								<div id="fileAddAndModifyDiv">
+								 	<h4>목록페이지 사진 수정</h4>
+									<div class="row">
+										<div class="col-sm-12">
+											<h6>목록페이지 표시용 사진 선택</h6>
+											<input type="file" name="thumnailImg" class="form-control">
+										</div>
+									</div>
+								<h4>상세페이지 사진 추가 등록</h4>
 								<h6>상세페이지 사진 선택</h6>
 								<div id="fileDiv" class="row">
 									<div class="col-sm-12">
-										<input type="file" name="plantImg" class="form-control"><br>
+										<input type="file" name="plantImg" class="form-control">
+										<a href="#this" name="deleteInput"
+											class="btn pull-right writeMeunBtn">삭제</a>
 									</div>
-									
-									<!-- /.col -->
 								</div>
-								<!-- /.row -->
-
-								<a id="backBtn" href="#" class="btn pull-right writeMeunBtn">이전으로</a> <a
-									id="writePlantInfoBtn" href="#"
-									class="btn pull-right writeMeunBtn">정보 등록하기</a> <a href="#this"
+								</div>
+								<input id="plantInfoNumber" type="hidden" name="plaNo" value="${ plant.plaNo }">
+								<a id="backBtn" href="#" class="btn pull-right writeMeunBtn">이전으로</a><a
+									id="modifyBtn" href="#"
+									class="btn pull-right writeMeunBtn">정보 수정하기</a> <a href="#this"
+									id="modifyAndAddNewImg" class="btn pull-right writeMeunBtn">사진 수정 추가</a>
+									<a href="#this"
 									id="add" class="btn pull-right writeMeunBtn">사진 추가하기</a>
-
 							</form>
 
 							<div id="response"></div>

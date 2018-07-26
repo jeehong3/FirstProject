@@ -101,11 +101,11 @@
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
-						<li class="dropdown"><a href="/farmstory/notice_list.action" class="dropdown-toggle"
+						<li class="dropdown"><a href="/farmstory/board/notice_list.action" class="dropdown-toggle"
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/notice_list.action">공지사항</a></li>
+								<li><a href="/farmstory/board/notice_list.action">공지사항</a></li>
 								<li><a href="#">문의함</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->

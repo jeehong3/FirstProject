@@ -17,4 +17,18 @@ public interface PlantDao {
 
 	List<PlantImg> selectImagesPlantInfoByPlaNo(int plaNo);
 
+	void deletePlantInfoByPlaNo(int plaNo);
+
+	void deleteImagesPlantInfoByPlaNo(int plaNo);
+
+	List<PlantImg> selectModifyImagesPlantInfoByPlaNo(int plaNo);
+
+	int selectLastImgIdxValueByPlaNo(int plaNo);
+
+	void updatePlantInfo(Plant plant);
+
+	void updateThumnailImagePlantInfo(PlantImg plantImg);
+
+	void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg);
+	
 }
