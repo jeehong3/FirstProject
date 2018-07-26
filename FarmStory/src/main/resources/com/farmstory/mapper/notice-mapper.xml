@@ -10,4 +10,16 @@
 		NOT_TITLE noticeTitle, NOT_CONTENT noticeContent, MEM_ID memberId FROM
 		NOTICE WHERE NOT_NO = #{noticeNo}
 	</select>
+
+	<insert id="insertBoard" parameterType="Notice">
+		INSERT INTO NOTICE (
+		NOT_TITLE, NOT_CONTENT, MEM_ID) VALUES
+		(#{noticeTitle},#{noticeContent},#{memberId} )
+	</insert>
+
+	<delete id="deleteBoard" parameterType="Notice">
+		DELETE FROM NOTICE
+		WHERE
+		NOT_NO = #{noticeNo}
+	</delete>
 </mapper>  

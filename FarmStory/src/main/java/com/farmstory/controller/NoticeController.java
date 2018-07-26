@@ -24,7 +24,7 @@ public class NoticeController {
 	private NoticeService noticeService;
 
 	@RequestMapping(value = "/notice_list.action", method = GET)
-	String listBoard(HttpSession session, Notice not, Model model) {
+	String listBoard(Notice not, Model model) {
 		List<Notice> boards = noticeService.listBoard();
 		model.addAttribute("boards",boards);
 		return "board/notice_list";
