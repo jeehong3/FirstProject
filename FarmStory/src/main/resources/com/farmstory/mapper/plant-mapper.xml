@@ -109,7 +109,7 @@
 	</update>
 	
 	<delete id="deleteOldImageFileByPlaNoAndImgIdx" parameterType="PlantImg">
-		DELETE FROM PLA_IMG
+		DELETE FROM PLANT_IMG
 		WHERE PLA_NO = #{ plaNo } AND IMG_IDX = #{ imgIdx }
 	</delete>
 	

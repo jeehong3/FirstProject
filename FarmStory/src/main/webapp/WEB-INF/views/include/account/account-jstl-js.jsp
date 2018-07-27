@@ -13,6 +13,9 @@
 		<c:if test="${loginCheck eq 'wrongPw'}">
 			$("#wrongPw").modal("show");
 		</c:if>
+		<c:if test="${ checkedLogin eq 'empty'}">
+			$("#checkedLogin").modal("show");			
+		</c:if>
 
 		$("#loginBtn").on("click", function (event) {
 			event.preventDefault();

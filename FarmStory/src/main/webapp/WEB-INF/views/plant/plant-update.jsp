@@ -191,7 +191,7 @@
 										</div>
 										<!-- /.item -->
 										<input id="oldImgFileName${ status.index }" type="hidden" name="oldImgFileName" value="${ oldImages.pliImg }">
-										<input id="oldImgIdx${ status.index }" type="hidden" name="oldImgIdx" value="${ oldImages.imgIdx }">
+										<input id="oldImgIdx${ status.index }" type="hidden" name="imgIdx" value="${ oldImages.imgIdx }">
 									</c:forEach>
 								</div>
 								<br>

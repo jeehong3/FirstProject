@@ -89,14 +89,14 @@
 			event.preventDefault();
 			var index = $(this).data("index");
 			var oldImgFileName = $("#oldImgFileName" + index).val();
-			var oldImgIdx = $("#oldImgIdx" + index).val();
+			var imgIdx = $("#oldImgIdx" + index).val();
 			var plaNo = $("#plantInfoNumber").val();
 		
 		 	$.ajax({
 				"url" : "/farmstory/plant_delete_old_img.action",
 				"method" : "POST",
 				"data" : { "oldImgFileName" : oldImgFileName,
-						   "oldImgIdx" : oldImgIdx},
+						   "imgIdx" : imgIdx},
 				"success" : function(data, status, xhr) {
 					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
 					
@@ -104,7 +104,7 @@
 				"error" : function (xhr, status, err) {
 					alert("오류 발생!!");
 				}
-			}); 
+			});
 		});
 		
 		// 사진 파일 업로드 폼을 추가하는 스크립트이다.
