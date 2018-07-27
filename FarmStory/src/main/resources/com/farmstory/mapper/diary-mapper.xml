@@ -26,10 +26,11 @@
 		JOIN MEMBER M
 		ON D.MEM_ID = M.MEM_ID
 		WHERE D.MEM_ID = #{memId}
-		ORDER BY D.DIA_NO DESC
+		
 		<if test='diaTitle != null and diaTitle != ""'>
 			AND D.DIA_TITLE LIKE CONCAT('%', #{ diaTitle }, '%')
 		</if>
+		ORDER BY D.DIA_NO DESC
 		LIMIT #{ from } , #{ to }
 
 		<!-- WHERE B.IDX >= #{from} and B.IDX <![CDATA[ < ]]> #{to} -->
@@ -90,12 +91,12 @@
 	WHERE DIA_NO = #{diaNo}
 	</update>
 	
-	<select id="findDiaryMonth" parameterType="int" resultType="Diary">
+	<!-- <select id="findDiaryMonth" parameterType="int" resultType="Diary">
 		SELECT D.DIA_NO diaNo, MONTH('DIA_DATE diaDate'), D.DIA_TITLE diaTitle,
 		D.DIA_CONTENT diaContent, D.MEM_ID memId
 		FROM DIARY D
 		JOIN MEMBER M
 		ON D.MEM_ID = M.MEM_ID
 		WHERE DIA_DATE LIKE '%' || MONTH || '%'
-	</select>
+	</select> -->
 </mapper>  
