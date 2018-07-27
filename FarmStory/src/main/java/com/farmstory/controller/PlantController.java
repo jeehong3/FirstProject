@@ -290,16 +290,40 @@ public class PlantController {
         return "redirect:/plant_detail.action?plaNo=" + plaNo;
 	}
 	
+//	@ResponseBody
+//	@PostMapping(value = "/plant_delete_old_img.action")
+//	public Map<Object, Object> deleteOldImgFile(PlantImg plantImg,
+//			@RequestParam(value = "plaNo") int plaNo, 
+//			@RequestParam(value = "oldImgIdx") int oldImgIdx, String oldImgFileName){
+//		
+//		Map<Object, Object> map = new HashMap<Object, Object>();
+//		
+//		plantImg.setPlaNo(plaNo);
+//		plantImg.setImgIdx(oldImgIdx);
+//		plantService.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
+//		
+//		String fileUploadPath = "/resources/upload-image/plant-info";
+//		
+//		File oldUploadFile = new File(fileUploadPath +"/"+ oldImgFileName);
+//		// 파일의 존재여부를 확인하여 삭제를 실행한다.
+//		if(oldUploadFile.exists()) {
+//			oldUploadFile.delete();
+//			System.out.println("기존 업로드 파일 삭제 완료(resize)");
+//		}
+//		
+//		List<PlantImg> oldImages = plantService.findModifyImagesPlantInfoByPlaNo(plaNo);
+//		map.put("oldImages", oldImages);
+//		
+//        return map;
+//	}
+	
 	@ResponseBody
 	@PostMapping(value = "/plant_delete_old_img.action")
-	public Map<Object, Object> deleteOldImgFile(PlantImg plantImg,
-			@RequestParam(value = "plaNo") int plaNo, 
-			@RequestParam(value = "oldImgIdx") int oldImgIdx, String oldImgFileName){
+	public String deleteOldImgFile(PlantImg plantImg, String oldImgFileName
+			){
 		
-		Map<Object, Object> map = new HashMap<Object, Object>();
-		
-		plantImg.setPlaNo(plaNo);
-		plantImg.setImgIdx(oldImgIdx);
+		//plantImg.setPlaNo(plaNo);
+		//plantImg.setImgIdx(imgIdx);
 		plantService.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
 		
 		String fileUploadPath = "/resources/upload-image/plant-info";
@@ -311,9 +335,21 @@ public class PlantController {
 			System.out.println("기존 업로드 파일 삭제 완료(resize)");
 		}
 		
-		List<PlantImg> oldImages = plantService.findModifyImagesPlantInfoByPlaNo(plaNo);
-		map.put("oldImages", oldImages);
-		
-        return map;
+        return "success";
 	}
+	
+	@GetMapping(value = "/mobile_plant_list.action")
+	@ResponseBody
+	public List<Plant> showPlantListForMobile(int x, String y) {
+		
+		System.out.printf("[X : %d][Y : %s]", x, y);
+		System.out.println();
+		
+		List<Plant> plantInfos = plantService.findPlantInfosWithThumnailImages();
+		
+		//객체를 반환하고 @ResponseBody를 설정한 경우
+		//이 객체를 JSON 문자열로 자동 변환 -> JacksonMapper
+		return plantInfos;  
+	}
+	
 }
