@@ -139,7 +139,7 @@
 							aria-hidden="true">&times;</button>
 						<h4 class="modal-title">처리하시겠습니까?</h4>
 					</div>
-					<div class="modal-body">
+					<div class="modal-dialog-login">
 						<a id="processNotice" class="btn buttonCustomPrimary1"
 							href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글
 							삭제</a>
