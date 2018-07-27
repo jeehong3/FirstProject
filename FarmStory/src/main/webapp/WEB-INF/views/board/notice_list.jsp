@@ -130,7 +130,7 @@
 	</section>
 
 	<c:forEach var="notice" items="${ notices }">
-		<div class="modal fade bookingModal modalBook" id="noticeModal"
+		<div class="modal fade bookingModal modalBook " id="noticeModal"
 			tabindex="-1">
 			<div class="modal-dialog" align="center">
 				<div class="modal-content">
@@ -141,7 +141,8 @@
 					</div>
 					<div class="modal-body">
 						<a id="processNotice" class="btn buttonCustomPrimary1"
-							href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글 삭제</a>
+							href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글
+							삭제</a>
 					</div>
 				</div>
 			</div>
@@ -152,26 +153,25 @@
 	<!-- ============================================================= SECTION – HERO ============================================================= -->
 
 	<section id="hero" class="dark-bg img-bg img-bg-soft"
-		style="background-image: url(assets/images/art/slider02.jpg);">
+		style="background-image: url(/images/art/slider02.jpg);">
 		<div class="container inner-top-md inner-bottom-sm">
 			<div class="row">
 
 				<div class="col-md-8 inner-right inner-bottom-xs">
 					<header>
-						<h1>Get in touch</h1>
-						<p>Do you want to know more? We’d love to hear from you!</p>
+						<h1>건의</h1>
+						<p>건의사항이 있나요? 우리는 당신의 의견을 듣고 싶어요!</p>
 					</header>
 				</div>
 				<!-- /.col -->
 
 				<div class="col-md-4">
-					<h3 style="margin-top: 8px;">REEN</h3>
+					<h3 style="margin-top: 8px;">팜 스토리</h3>
 					<ul class="contacts">
-						<li><i class="icon-location contact"></i> 84 Street, City,
-							State 24813</li>
-						<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
-						<li><a href="mailto:info@reen.com"><i
-								class="icon-mail-1 contact"></i> info@reen.com</a></li>
+						<li><i class="icon-location contact"></i>서울광역시 구로구 구로동 주호타워
+							29층</li>
+						<li><i class="icon-mobile contact"></i> +82 02-123-4567</li>
+						<li><i class="icon-mail-1 contact"></i> Email@Email.com</li>
 					</ul>
 					<!-- /.contacts -->
 				</div>
@@ -201,14 +201,13 @@
 						<h2>건의사항 작성</h2>
 					</c:if>
 
-					<form id="contactform1" class="forms11" action="notice_insert.action"
-						method="post">
+					<form id="contactform1" class="forms11"
+						action="notice_insert.action" method="post">
 
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="text" name="memberId" value="${ loginuser.memId }"
-									class="form-control" readonly="readonly"
-									placeholder="Name (Required)">
+									class="form-control" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -217,8 +216,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="email" value="${ loginuser.memEmail }"
-									class="form-control" readonly="readonly"
-									placeholder="Email (Required)">
+									class="form-control" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -227,7 +225,7 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="text" name="noticeTitle" class="form-control"
-									placeholder="Subject">
+									placeholder="제목을 적어주세요." required="required">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -236,14 +234,14 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<textarea name="noticeContent" class="form-control"
-									placeholder="Enter your message ..."></textarea>
+									placeholder="내용을 적어주세요"></textarea>
 							</div>
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
 
-						<button type="submit" class="btn btn-default btn-submit111">작성 내용 보내기
-							</button>
+						<button type="submit" class="btn btn-default btn-submit111">작성
+							내용 보내기</button>
 
 					</form>
 
@@ -287,7 +285,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human03.jpg">
+									<img src="/farmstory/resources/images/art/human03.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -320,7 +318,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human01.jpg">
+									<img src="/farmstory/resources/images/art/human01.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -358,7 +356,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human05.jpg">
+									<img src="/farmstory/resources/images/art/human05.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -391,7 +389,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human04.jpg">
+									<img src="/farmstory/resources/images/art/human04.jpg">
 
 								</div>
 								<!-- /.member-image -->
