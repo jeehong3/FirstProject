@@ -17,38 +17,8 @@
 
 <title>운영게시판</title>
 
-<!-- Core CSS -->
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/main.css" rel="stylesheet">
+<jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
-<!-- AddOn/Plugin CSS -->
-<link href="assets/css/green.css" rel="stylesheet" title="Color">
-<link href="assets/css/owl.carousel.css" rel="stylesheet">
-<link href="assets/css/owl.transitions.css" rel="stylesheet">
-<link href="assets/css/animate.min.css" rel="stylesheet">
-<link href="assets/css/aos.css" rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="assets/css/custom.css" rel="stylesheet">
-
-<!-- Fonts -->
-<link href="http://fonts.googleapis.com/css?family=Lato:400,900,300,700"
-	rel="stylesheet">
-<link
-	href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic"
-	rel="stylesheet">
-
-<!-- Icons/Glyphs -->
-<link href="assets/fonts/fontello.css" rel="stylesheet">
-
-<!-- Favicon -->
-<link rel="shortcut icon" href="assets/images/favicon.ico">
-
-<!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
-<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -59,7 +29,7 @@
 					var noticeNo = $(this).attr('data-noticeNo')
 					$('#noticeModal a#processNotice').attr(
 							'href',
-							'/farmstory/notice_delete.action?noticeNo='
+							'/farmstory/board/notice_delete.action?noticeNo='
 									+ noticeNo);
 					$('#noticeModal').modal('show');
 
@@ -74,7 +44,7 @@
 	<!-- ============================================================= HEADER ============================================================= -->
 
 	<jsp:include page="/WEB-INF/views/include/header/public-header.jsp" />
-	<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
+
 	<!-- ============================================================= HEADER : END ============================================================= -->
 
 
@@ -106,45 +76,49 @@
 									</c:if>
 								</tr>
 
-								<c:forEach var="notice" items="${ notice }">
-									<tr class="rowItem">
-										<td class="dateTd" align="center">${notice.memberId}</td>
+								<c:forEach var="notice" items="${ notices }">
+									<c:if
+										test="${ notice.memberId eq 'ADMIN' or notice.memberId eq 'admin'}">
+										<tr class="rowItem">
+											<td class="dateTd" align="center">${ notice.memberId }</td>
 
-										<td class="packageTd">
-											<ul class="list-inline listingsInfo">
-												<li>
-													<h4>
-														<a id="search-content" href="#" data-toggle="collapse"
-															data-target="#contentSearch${notice.noticeNo}">${notice.noticeTitle}</a>
-													</h4> <%
+											<td class="packageTd">
+												<ul class="list-inline listingsInfo">
+													<li>
+														<h4>
+															<a id="search-content" href="#" data-toggle="collapse"
+																data-target="#contentSearch${ notice.noticeNo}">${ notice.noticeTitle}</a>
+														</h4> <%
  	pageContext.setAttribute("newLineChar", "\n");
  %>
-													<h4 id="contentSearch${notice.noticeNo}" class="collapse">${fn:replace(notice.noticeContent, newLineChar, "<br/>")}</h4>
-												</li>
-											</ul>
-										</td>
-
-										<td class="bookingTd">
-											<ul class="list-inline listingsInfo text-left">
-												<li><fmt:formatDate value="${ notice.noticeDate }"
-														var="noticeDate" pattern="yyyy-MM-dd" />
-													<h4 style="margin-left: 110px; font-size: 17px">${noticeDate}</h4>
-												</li>
-											</ul>
-										</td>
-										<c:if
-											test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-											<td class="bookingTd">
-												<ul class="list-inline listingsInfo text-left">
-													<li>
-														<button id="noticeDelete${notice.noticeNo}"
-															style="margin-left: 100px;"
-															data-noticeNo="${notice.noticeNo}">처리</button>
+														<h4 id="contentSearch${ notice.noticeNo }"
+															class="collapse">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
 													</li>
 												</ul>
 											</td>
-										</c:if>
-									</tr>
+
+											<td class="bookingTd">
+												<ul class="list-inline listingsInfo text-left">
+													<li><fmt:formatDate value="${ notice.noticeDate }"
+															var="noticeDate" pattern="yyyy-MM-dd" />
+														<h4 style="margin-left: 110px; font-size: 17px">${noticeDate}</h4>
+													</li>
+												</ul>
+											</td>
+											<c:if
+												test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+												<td class="bookingTd">
+													<ul class="list-inline listingsInfo text-left">
+														<li>
+															<button id="noticeDelete${notice.noticeNo}"
+																style="margin-left: 100px;"
+																data-noticeNo="${notice.noticeNo}">처리</button>
+														</li>
+													</ul>
+												</td>
+											</c:if>
+										</tr>
+									</c:if>
 								</c:forEach>
 							</table>
 						</div>
@@ -155,8 +129,8 @@
 		</div>
 	</section>
 
-	<c:forEach var="notice" items="${ notice }">
-		<div class="modal fade bookingModal modalBook" id="noticeModal"
+	<c:forEach var="notice" items="${ notices }">
+		<div class="modal fade bookingModal modalBook " id="noticeModal"
 			tabindex="-1">
 			<div class="modal-dialog" align="center">
 				<div class="modal-content">
@@ -166,8 +140,9 @@
 						<h4 class="modal-title">처리하시겠습니까?</h4>
 					</div>
 					<div class="modal-body">
-						<a id="processNotice" class="btn buttonCustomPrimary"
-							href="/farmstory/notice_delete.action?noticeNo=${ notice.noticeNo }">처리완료</a>
+						<a id="processNotice" class="btn buttonCustomPrimary1"
+							href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글
+							삭제</a>
 					</div>
 				</div>
 			</div>
@@ -178,26 +153,25 @@
 	<!-- ============================================================= SECTION – HERO ============================================================= -->
 
 	<section id="hero" class="dark-bg img-bg img-bg-soft"
-		style="background-image: url(assets/images/art/slider02.jpg);">
+		style="background-image: url(/images/art/slider02.jpg);">
 		<div class="container inner-top-md inner-bottom-sm">
 			<div class="row">
 
 				<div class="col-md-8 inner-right inner-bottom-xs">
 					<header>
-						<h1>Get in touch</h1>
-						<p>Do you want to know more? We’d love to hear from you!</p>
+						<h1>건의</h1>
+						<p>건의사항이 있나요? 우리는 당신의 의견을 듣고 싶어요!</p>
 					</header>
 				</div>
 				<!-- /.col -->
 
 				<div class="col-md-4">
-					<h3 style="margin-top: 8px;">REEN</h3>
+					<h3 style="margin-top: 8px;">팜 스토리</h3>
 					<ul class="contacts">
-						<li><i class="icon-location contact"></i> 84 Street, City,
-							State 24813</li>
-						<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
-						<li><a href="mailto:info@reen.com"><i
-								class="icon-mail-1 contact"></i> info@reen.com</a></li>
+						<li><i class="icon-location contact"></i>서울광역시 구로구 구로동 주호타워
+							29층</li>
+						<li><i class="icon-mobile contact"></i> +82 02-123-4567</li>
+						<li><i class="icon-mail-1 contact"></i> Email@Email.com</li>
 					</ul>
 					<!-- /.contacts -->
 				</div>
@@ -219,16 +193,21 @@
 				<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
 
 				<section id="contact-form">
+					<c:if
+						test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+						<h2>공지사항 작성</h2>
+					</c:if>
+					<c:if test="${not empty loginuser and loginuser.memType eq 'USER'}">
+						<h2>건의사항 작성</h2>
+					</c:if>
 
-					<h2>Leave a Message</h2>
-
-					<form id="contactform" class="forms" action="contact.php"
-						method="post">
+					<form id="contactform1" class="forms11"
+						action="notice_insert.action" method="post">
 
 						<div class="row">
 							<div class="col-sm-6">
-								<input type="text" name="name" class="form-control"
-									placeholder="Name (Required)">
+								<input type="text" name="memberId" value="${ loginuser.memId }"
+									class="form-control" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -236,8 +215,8 @@
 
 						<div class="row">
 							<div class="col-sm-6">
-								<input type="email" name="email" class="form-control"
-									placeholder="Email (Required)">
+								<input type="email" value="${ loginuser.memEmail }"
+									class="form-control" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -245,8 +224,8 @@
 
 						<div class="row">
 							<div class="col-sm-6">
-								<input type="text" name="subject" class="form-control"
-									placeholder="Subject">
+								<input type="text" name="noticeTitle" class="form-control"
+									placeholder="제목을 적어주세요." required="required">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -254,15 +233,15 @@
 
 						<div class="row">
 							<div class="col-sm-12">
-								<textarea name="message" class="form-control"
-									placeholder="Enter your message ..."></textarea>
+								<textarea name="noticeContent" class="form-control"
+									placeholder="내용을 적어주세요"></textarea>
 							</div>
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
 
-						<button type="submit" class="btn btn-default btn-submit">Submit
-							message</button>
+						<button type="submit" class="btn btn-default btn-submit111">작성
+							내용 보내기</button>
 
 					</form>
 
@@ -306,7 +285,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human03.jpg">
+									<img src="/farmstory/resources/images/art/human03.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -339,7 +318,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human01.jpg">
+									<img src="/farmstory/resources/images/art/human01.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -377,7 +356,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human05.jpg">
+									<img src="/farmstory/resources/images/art/human05.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -410,7 +389,7 @@
 									</div>
 									<!-- /.text-overlay -->
 
-									<img src="assets/images/art/human04.jpg">
+									<img src="/farmstory/resources/images/art/human04.jpg">
 
 								</div>
 								<!-- /.member-image -->
@@ -445,7 +424,7 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
-<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp"/>
+	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->
@@ -457,13 +436,6 @@
 
 
 
-	<script>
-		$(document).ready(function() {
-			$(".changecolor").switchstylesheet({
-				seperator : "color"
-			});
-		});
-	</script>
 	<!-- For demo purposes – can be removed on production : End -->
 </body>
 </html>
