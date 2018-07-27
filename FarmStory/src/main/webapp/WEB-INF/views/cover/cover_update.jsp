@@ -50,8 +50,8 @@
 			<div class="row">
 				<div class="col-md-8">
 					<header>
-						<h1>스마트팜 소개</h1>
-						<p>스마트팜에 대해서 소개를 합니다.</p>
+						<h1>스마트팜-소개 수정</h1>
+						<p>스마트팜-소개 부분을 수정합니다.</p>
 					</header>
 				</div>
 			</div>
@@ -66,15 +66,17 @@
 
 				<section id="cover-form-section">
 
-					<h2>다이어리 등록</h2>
+					<h2>소개 등록</h2>
 
-					<form id="cover-form" action="cover_write.action" method="post"
+					<form id="cover-form" action="cover_update.action" method="post"
 						enctype="multipart/form-data">
+
+						<input type="hidden" name="covNo" value="${ cover.covNo }">
 
 						<div class="row">
 							<div class="col-sm-6">
 								<input type="text" name="covTitle" class="form-control"
-									value="${ cover.covTitle }" placeholder="제목을 입력해주세요">
+									value="${cover.covTitle }"  placeholder="제목을 입력해주세요">
 							</div>
 							<!-- /.col -->
 						</div>
@@ -83,8 +85,7 @@
 						<div class="row">
 							<div id="addImage">
 								<div class="col-sm-6">
-									<input type="file" name="covImage1" id="file"
-										class="form-control">
+									<input type="file" name="cover_image" id="file" class="form-control">
 								</div>
 								<!-- /.col -->
 							</div>
@@ -92,24 +93,44 @@
 						</div>
 						<!-- /.row -->
 						<br />
+						<%////////////////////////////////////////////////// %>
+						<!-- 왼쪽 소개내용 -->
 						<div class="row">
-							<div class="col-sm-20">
-								<textarea name="covContent" id="smarteditor"
+						  <div class="col-sm-20">
+								<textarea name="covLcontent" id="leftSmartEditor"
 									class="form-control">${cover.covLcontent}</textarea>
-								<textarea name="covContent" id="smarteditor"
-									class="form-control">${cover.covRocntent}</textarea>
 							</div>
+							<!-- /.col -->
+						</div>
+						
+						<div class="row">
+						  <div class="col-sm-20">							</div>
+							<!-- /.col -->
+						</div>
+						<%////////////////////////////////////////////////// %>
+						<!-- 오른쪽 소개내용 -->
+						<div class="row">
+						  <div class="col-sm-20">
+								<textarea name="covRcontent" id="rightSmartEditor"
+									class="form-control">${cover.covRcontent}</textarea>
+							</div>
+							<!-- /.col -->
+						</div>
+						
+						<div class="row">
+						  <div class="col-sm-20">							</div>
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
 
 						<button id="savebutton" class="btn btn-submit">등록하기</button>
-
+                        <button id="listbutton" class="btn btn-submit">리스트이동</button>
 					</form>
 
 					<div id="response"></div>
 
 				</section>
+
 
 				<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
 
@@ -151,7 +172,8 @@
 		</div>
 		<!-- /.row -->
 	</div>
-	<!-- /.container --> </main>
+	<!-- /.container --> 
+	</main>
 
 	<!-- ============================================================= MAIN : END ============================================================= -->
 
@@ -175,7 +197,21 @@
 			     
 			    nhn.husky.EZCreator.createInIFrame({
 			        oAppRef: editor_object,
-			        elPlaceHolder: "smarteditor",
+			        elPlaceHolder: "leftSmartEditor",
+			        sSkinURI: "/farmstory/resources/navereditor/SmartEditor2Skin.html", 
+			        htParams : {
+			            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseToolbar : true,             
+			            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseVerticalResizer : true,     
+			            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+			            bUseModeChanger : true, 
+			        }
+			    });
+			    
+			    nhn.husky.EZCreator.createInIFrame({
+			        oAppRef: editor_object,
+			        elPlaceHolder: "rightSmartEditor",
 			        sSkinURI: "/farmstory/resources/navereditor/SmartEditor2Skin.html", 
 			        htParams : {
 			            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -188,25 +224,33 @@
 			    });
 			     
 			    //전송버튼 클릭이벤트
-			    $("#savebutton").click(function(event){
+			    $("#updatebutton").click(function(event){
 			    	
 			    	event.preventDefault();
 			    	event.stopPropagation();
 			    	
 			        //id가 smarteditor인 textarea에 에디터에서 대입
-			        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
+			        editor_object.getById["leftSmartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
+			        editor_object.getById["rightSmartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
 			         
 			        // 이부분에 에디터 validation 검증
 			
 			        //폼 submit
-			       $("#cover-form").submit();
+			       $("#update-form").submit();
 			    });
 			    
+			    //리스트 이동버튼
+			    $("#listbutton").click(function(event){
+			    	event.preventDefault();
+			    	event.stopPropagation();
+			    	
+			    	location.href = '/farmstory/cover_list.action';
+			    });
 			    $('#addImageBtn').on('click', function(event) {
 					event.preventDefault();
 					event.stopPropagation();
-					var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"covImage1\"></div>");
-				$('#addImage').append(add);
+					var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"covImage\"></div>");
+				$('#coverImage').append(add);
 				});
 			});
 		</script>

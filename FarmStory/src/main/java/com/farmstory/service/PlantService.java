@@ -15,4 +15,18 @@ public interface PlantService {
 
 	List<PlantImg> findImagesPlantInfoByPlaNo(int plaNo);
 
+	void deletePlantInfoWithImages(int plaNo);
+
+	List<PlantImg> findModifyImagesPlantInfoByPlaNo(int plaNo);
+
+	int findLastImgIdxValueByPlaNo(int plaNo);
+
+	void modifyPlantInfo(Plant plant);
+
+	void modifyThumnailImagePlantInfo(PlantImg plantImg);
+
+	void writeNewImagesPlantInfo(PlantImg plantImg);
+
+	void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg);
+
 }

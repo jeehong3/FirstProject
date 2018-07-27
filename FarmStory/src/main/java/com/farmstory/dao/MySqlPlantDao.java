@@ -44,4 +44,46 @@ public class MySqlPlantDao implements PlantDao  {
 		return plantMapper.selectImagesPlantInfoByPlaNo(plaNo);
 	}
 	
+	@Override
+	public void deletePlantInfoByPlaNo(int plaNo) {
+		
+		plantMapper.deletePlantInfoByPlaNo(plaNo);
+	}
+	
+	@Override
+	public void deleteImagesPlantInfoByPlaNo(int plaNo) {
+		
+		plantMapper.deleteImagesPlantInfoByPlaNo(plaNo);
+	}
+	
+	@Override
+	public List<PlantImg> selectModifyImagesPlantInfoByPlaNo(int plaNo){
+		
+		return plantMapper.selectModifyImagesPlantInfoByPlaNo(plaNo);
+	}
+	
+	@Override
+	public int selectLastImgIdxValueByPlaNo(int plaNo) {
+		
+		return plantMapper.selectLastImgIdxValueByPlaNo(plaNo);
+	}
+	
+	@Override
+	public void updatePlantInfo(Plant plant) {
+		
+		plantMapper.updatePlantInfo(plant);
+	}
+	
+	@Override
+	public void updateThumnailImagePlantInfo(PlantImg plantImg) {
+		
+		plantMapper.updateThumnailImagePlantInfo(plantImg);
+	}
+	
+	@Override
+	public void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg) {
+		
+		plantMapper.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
+	}
+	
 }

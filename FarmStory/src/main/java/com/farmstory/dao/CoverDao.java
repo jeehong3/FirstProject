@@ -6,20 +6,24 @@ import com.farmstory.vo.Cover;
 
 public interface CoverDao {
 
-	//¼Ò°³ ¸ñ·Ï
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½
 	List<Cover> selectCoverList();
 	
-	//¼Ò°³ ¾²±â
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void insertCover(Cover cover);
 	
-	//¼Ò°³ º¸±â
-	List<Cover> selectCoverInfoByCovNo(int covNo);
+	//ï¿½Ò°ï¿½ ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	List<Cover> selectCoverInfoByCovNo();
 	
-	//¼Ò°³ ¼öÁ¤
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	Cover selectCovermInfoByCovNo(int covNo);
+	
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void updateCover(Cover cover);
 	
-	//¼Ò°³ »èÁ¦
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void deleteCover(int covNo);
+
 
 
 

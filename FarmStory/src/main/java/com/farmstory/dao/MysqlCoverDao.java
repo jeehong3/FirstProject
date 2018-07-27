@@ -13,39 +13,47 @@ public class MysqlCoverDao implements CoverDao {
 		this.coverMapper = coverMapper;
 	}
     
-	//¼Ò°³ ¸ñ·Ï
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public List<Cover> selectCoverList() {
 		List<Cover> Coverlist = coverMapper.selectCoverList();
 		return Coverlist;
 	}
 	
-	//¼Ò°³ ¾²±â
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void insertCover(Cover cover) {
 		coverMapper.insertCover(cover);
 		
 	}
 	
-	//¼Ò°³ º¸±â
+	//ï¿½Ò°ï¿½ ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
-	public List<Cover> selectCoverInfoByCovNo(int covNo) {
-		List<Cover> Coverlist = coverMapper.selectCoverInfoByCovNo(covNo);
+	public List<Cover> selectCoverInfoByCovNo() {
+		List<Cover> Coverlist = coverMapper.selectCoverInfoByCovNo();
 		return Coverlist;
 	}
 
-	//¼Ò°³ ¼öÁ¤
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public Cover selectCovermInfoByCovNo(int covNo) {
+		Cover Coverlist = coverMapper.selectCovermInfoByCovNo(covNo);
+		return Coverlist;
+	}
+	
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void updateCover(Cover cover) {
 		coverMapper.updateCover(cover);
 		
 	}
 
-	//¼Ò°³ »èÁ¦
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void deleteCover(int covNo) {
 		coverMapper.deleteCover(covNo);
 		
 	}
+
 
 }

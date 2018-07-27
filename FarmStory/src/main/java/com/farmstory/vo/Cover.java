@@ -1,12 +1,18 @@
 package com.farmstory.vo;
 
-//웹 소개페이지를 DB에 저장하기 위한 vo 객체
+//�쎒 �냼媛쒗럹�씠吏�瑜� DB�뿉 ���옣�븯湲� �쐞�븳 vo 媛앹껜
 public class Cover {
 
 	private int covNo;
 	private String covTitle;
 	private String covLcontent;
-	private String covRocntent;
+	private String covRcontent;
+	public String getCovRcontent() {
+		return covRcontent;
+	}
+	public void setCovRcontent(String covRcontent) {
+		this.covRcontent = covRcontent;
+	}
 	private String covImg;
 	
 	public int getCovNo() {
@@ -27,12 +33,7 @@ public class Cover {
 	public void setCovLcontent(String covLcontent) {
 		this.covLcontent = covLcontent;
 	}
-	public String getCovRocntent() {
-		return covRocntent;
-	}
-	public void setCovRocntent(String covRocntent) {
-		this.covRocntent = covRocntent;
-	}
+	
 	public String getCovImg() {
 		return covImg;
 	}

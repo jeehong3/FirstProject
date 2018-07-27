@@ -30,7 +30,42 @@
 }
 </style>
 </head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
 
+	$(function() { //jQuery의 main 함수
+		$('#update').on('click',function(event) {
+							<c:choose>
+							<c:when test="${ADMIN}">
+							alert('관리자만 글을 작성할 수 있습니다.');
+							location.href = '/farmstroy/home/action';
+							</c:when>
+							<c:otherwise>
+							location.href = '/farmstory/cover_update.action?covNo=${cover.covNo}';
+							</c:otherwise>
+							</c:choose>
+						});
+	});
+	$(function() {
+		$('#list').on('click', function(event) {
+			location.href = '/farmstory/cover_list.action'
+		});
+	});
+	$(function() {
+		$('#delete')
+				.on('click',function(event) {
+							<c:choose>
+							<c:when test="${ADMIN}">
+							alert('관리자만 글을 삭제할 수 있습니다..');
+							location.href = '/farmstroy/home.action';
+							</c:when>
+							<c:otherwise>
+							location.href = '/farmstory/cover_delete.action?covNo=${cover.covNo}'
+							</c:otherwise>
+							</c:choose>
+						});
+	});
+</script>
 <body>
 
 	<!-- ============================================================= HEADER ============================================================= -->
@@ -65,7 +100,6 @@
 				<div class="col-sm-12 portfolio">
 
 					<table class="table listingsTable" style="border-radius: 30px">
-						<c:forEach var="cover" items="${ coverList }">
 							<tr style="background-color: white; height: 30px">
 								<td colspan="2">${ cover.covTitle }</td>
 							</tr>
@@ -77,10 +111,12 @@
 							<tr style="background-color: white; height: 30px">
 								<td>${cover.covLcontent}</td>
 								<td>${cover.covRcontent}</td>
-						</c:forEach>
 					</table>
-
-
+					<!-- <input id="trnWriter" type="button" value="여행기 등록" style="width:300px;height:25px" /> -->
+					<a id="update" href="#">글수정</a> 
+					<a id="list" href="#">목록보기</a> 
+					<a id="delete" href="#">삭제</a>
+						<input type="hidden" value="test" />
 
 				</div>
 				<!-- /.col -->

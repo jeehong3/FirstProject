@@ -1,5 +1,6 @@
 package com.farmstory.vo;
 
+import java.util.List;
 
 //식물 이미지 정보를 DB에 저장하기 위한 vo 객체
 public class PlantImg {
@@ -8,6 +9,8 @@ public class PlantImg {
 	private String pliImg;
 	private int plaNo;
 	private int imgIdx;
+	
+	private List<PlantImg> attachments;
 	
 	public int getPliNo() {
 		return pliNo;
@@ -32,6 +35,12 @@ public class PlantImg {
 	}
 	public void setImgIdx(int imgIdx) {
 		this.imgIdx = imgIdx;
+	}
+	public List<PlantImg> getAttachments() {
+		return attachments;
+	}
+	public void setAttachments(List<PlantImg> attachments) {
+		this.attachments = attachments;
 	}
 	
 	

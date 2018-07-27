@@ -48,6 +48,98 @@
 			event.preventDefault();
 			$("form#plantInfoForm").submit();
 		});
+		
+		$("a#backBtn").on("click", function(event) {
+			history.back();
+		});
 
 	/* =================== Plant Write&Update : End  ====================================================== */
+	
+	/* =================== Plant Modify&Delete : Start  ====================================================== */
+	
+		$("#deleteInfoBtn").on("click", function(event) {
+			event.preventDefault();
+			location.href="/farmstory/plant_delete.action?plaNo=${ plant.plaNo }";
+		});
+	
+		$("#modifyInfoBtn").on("click", function(event) {
+			event.preventDefault();
+			location.href="/farmstory/plant_update.action?plaNo=${ plant.plaNo }";
+		});
+		
+		$("a#modifyBtn").on("click", function(event) {
+			event.preventDefault();
+			$("form#modifyPlantInfoForm").submit();
+		});
+	
+		var select = $("select[name=plaType]");
+		var group = select.attr("data-select");
+		select.find("option").each(function(idx, option) {
+			if ($(this).text() == group) {
+				$(this).attr("selected", "selected");
+			}
+		});
+		
+		$("#modifyThumnail").on("click", function(event) {
+			event.preventDefault();
+			alert("목록페이지 사진은 아래에서 파일을 선택하여 변경해주세요.");
+		});
+		
+		$("a.oldImgDelete").on("click", function(event) {
+			event.preventDefault();
+			var index = $(this).data("index");
+			var oldImgFileName = $("#oldImgFileName" + index).val();
+			var oldImgIdx = $("#oldImgIdx" + index).val();
+			var plaNo = $("#plantInfoNumber").val();
+		
+		 	$.ajax({
+				"url" : "/farmstory/plant_delete_old_img.action",
+				"method" : "POST",
+				"data" : { "oldImgFileName" : oldImgFileName,
+						   "oldImgIdx" : oldImgIdx},
+				"success" : function(data, status, xhr) {
+					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
+					
+				},
+				"error" : function (xhr, status, err) {
+					alert("오류 발생!!");
+				}
+			}); 
+		});
+		
+		// 사진 파일 업로드 폼을 추가하는 스크립트이다.
+		$("#modifyAndAddImg").on("click", function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			fn_fileAddAndModify();
+		});
+		
+		// 사진 파일 업로드 폼을 추가하는 함수이다.
+		function fn_fileAddAndModify() {
+			var str = $(
+					+"<div id='modifyAndAddForm'>"
+					+   "<h4>미리보기 사진 수정</h4>"
+					+     "<div class='row'>"
+					+ 		  "<div class='col-sm-12'>"
+					+			  "<h6>미리보기용 사진 추가</h6>"
+					+			  "<input type='file' name='thumnailImg' class='form-control'>"
+					+	  "</div>"
+					+	  "</div>"
+					+	  "<h4>추가 사진 등록</h4>"
+					+	  "<h6>상세페이지 사진 추가</h6>"
+					+	  "<div id='fileDiv' class='row'>"
+					+		  "<div class='col-sm-12'>"
+					+			  "<input type='file' name='plantImg' class='form-control'>"
+					+		  "</div>"
+					+	  "</div>"
+					+"</div>");
+			$("#fileAddAndModifyDiv").append(str);
+		}
+		
+		$("#").on("click", function(e) {
+			e.preventDefault();
+			$("#modifyAndAddForm").remove();
+		});
+	
+	/* =================== Plant Modify&Delete : End  ====================================================== */
 </script>
