@@ -9,6 +9,8 @@ public interface CoverDao {
 	//�Ұ� ���
 	List<Cover> selectCoverList();
 	
+	List<Cover> selectTop3CoverList();
+	
 	//�Ұ� ����
 	void insertCover(Cover cover);
 	

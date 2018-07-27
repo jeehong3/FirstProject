@@ -23,6 +23,17 @@
 		FROM COVER
 		ORDER BY COV_NO DESC
 	</select>
+	
+	<!-- 가장 최근 쓴 것만 보여줍니다. -->
+	<select id="selectTop3CoverList" resultType="Cover">
+		SELECT
+			COV_NO covNo, COV_TITLE covTitle,
+			COV_LCONTENT covLcontent, COV_RCONTENT covRcontent,
+			COV_IMG covImg
+		FROM COVER
+		ORDER BY COV_NO DESC
+        LIMIT 0, 3
+	</select>
 
 	<!-- 상세 보여주기 부분 소비자 -->
 	<select id="selectCoverInfoByCovNo" resultType="Cover">

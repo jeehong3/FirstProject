@@ -6,22 +6,25 @@ import com.farmstory.vo.Cover;
 
 public interface CoverMapper {
     
-	//�Ұ� ���
+	//소개 목록
 	List<Cover> selectCoverList();
 	
-	//�Ұ� ����
+	//소비사용 소개 보기
+	List<Cover> selectTop3CoverList();
+	
+	//소개 쓰기
 	void insertCover(Cover cover);
 	
-	//�Ұ� �Һ��� ����
+	//소비자용 소개 샘플 
 	List<Cover> selectCoverInfoByCovNo();
 	
-	//�Ұ� ������ ����
+	//소개 상세보기
 	Cover selectCovermInfoByCovNo(int covNo);
 	
-	//�Ұ� ����
+	//소개 수정
 	void updateCover(Cover cover);
 	
-	//�Ұ� ����
+	//소개 삭제
 	void deleteCover(int covNo);
 
 

@@ -1,19 +1,20 @@
 package com.farmstory.vo;
 
-//�쎒 �냼媛쒗럹�씠吏�瑜� DB�뿉 ���옣�븯湲� �쐞�븳 vo 媛앹껜
+//팜스토리 소개 목록 vo 설정
 public class Cover {
 
 	private int covNo;
 	private String covTitle;
 	private String covLcontent;
 	private String covRcontent;
+	private String covImg;
+	
 	public String getCovRcontent() {
 		return covRcontent;
 	}
 	public void setCovRcontent(String covRcontent) {
 		this.covRcontent = covRcontent;
 	}
-	private String covImg;
 	
 	public int getCovNo() {
 		return covNo;

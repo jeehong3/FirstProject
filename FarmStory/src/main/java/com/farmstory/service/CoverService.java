@@ -8,6 +8,8 @@ public interface CoverService {
     
 	//�Ұ� ���
 	List<Cover> viewCoverList();
+	
+	List<Cover> viewTop3CoverList();
 
 	//�Ұ� ����
 	void writecover(Cover cover);

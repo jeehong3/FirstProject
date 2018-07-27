@@ -21,6 +21,13 @@ public class CoverServiceImpl implements CoverService{
 		return Covers;
 	}
 	
+	@Override
+	public List<Cover> viewTop3CoverList() {
+		
+		List<Cover> Covers = coverDao.selectTop3CoverList();
+		return Covers;
+	}
+	
 	//�Ұ��ۼ�
 	@Override
 	public void writecover(Cover cover) {

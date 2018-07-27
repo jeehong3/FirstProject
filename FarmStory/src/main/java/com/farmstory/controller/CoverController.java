@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -44,7 +45,8 @@ public class CoverController {
 					Model model) {
 			        
 			  //List<Cover> coverList = coverService.findCoverBycovNo();
-			  List<Cover> coverList = coverService.viewCoverList();
+			  //List<Cover> coverList = coverService.viewCoverList();
+			  List<Cover> coverList = coverService.viewTop3CoverList();
 		      
 		      model.addAttribute("coverList", coverList);
 		      
@@ -116,6 +118,17 @@ public class CoverController {
 	      model.addAttribute("cover", cover);
 		  
 		  return "cover/cover_detailm";
+		  
+	  }
+	  
+	  @GetMapping(value="/ajax_cover_detailm.action")
+	  @ResponseBody
+	  public Cover showajaxcovermdetail(
+			  @RequestParam(defaultValue="-1") int covNo) {
+		        
+	      Cover cover = coverService.findCoverBycovNom(covNo);
+	      
+		  return cover;
 		  
 	  }
 	  
