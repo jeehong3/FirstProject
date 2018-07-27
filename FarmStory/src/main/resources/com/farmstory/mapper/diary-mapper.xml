@@ -2,96 +2,100 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.farmstory.mapper.DiaryMapper">
 
 	<insert id="insertDiary" parameterType="Diary">
-	<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
+		<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
 			SELECT LAST_INSERT_ID()
-	</selectKey>
-	INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
-	VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
+		</selectKey>
+		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
+		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
 	</insert>
-	
+
 	<insert id="insertDiaryImage" parameterType="DiaryImg">
-	INSERT INTO DIARY_IMG (DII_IMG, DIA_NO)
-	VALUES (#{diiImg}, #{diaNo})
+		INSERT INTO DIARY_IMG (DII_IMG, DIA_NO)
+		VALUES (#{diiImg}, #{diaNo})
 	</insert>
-	
+
 	<!-- 여기서 DIA_NO를 조회 -->
-	<select id="findDiary" parameterType="String" resultType="Diary">
-	SELECT
-		B.*
-	FROM
-	(
-		SELECT
-			A.*
-		FROM
-		(
-			SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle, D.DIA_CONTENT diaContent, D.MEM_ID memId
-			FROM DIARY D 
-			JOIN MEMBER M
-			ON D.MEM_ID = M.MEM_ID
-			WHERE D.MEM_ID = #{memId}
-			)A
-		)B
+	<select id="findDiary" parameterType="hashmap" resultType="Diary">
+		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle,
+		D.DIA_CONTENT diaContent, D.MEM_ID memId
+		FROM DIARY D
+		JOIN MEMBER M
+		ON D.MEM_ID = M.MEM_ID
+		WHERE D.MEM_ID = #{memId}
+		ORDER BY D.DIA_NO DESC
+		<if test='diaTitle != null and diaTitle != ""'>
+			AND D.DIA_TITLE LIKE CONCAT('%', #{ diaTitle }, '%')
+		</if>
+		LIMIT #{ from } , #{ to }
+
+		<!-- WHERE B.IDX >= #{from} and B.IDX <![CDATA[ < ]]> #{to} -->
+		<!-- WHERE ROWNUM BETWEEN 0 AND 3 -->
+
 	</select>
-	
+
 	<select id="findDiaryImg" parameterType="int" resultType="DiaryImg">
-			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
-			FROM DIARY_IMG I  
-			JOIN DIARY D
-			ON I.DIA_NO = D.DIA_NO
-			WHERE D.DIA_NO = #{diaNo}
-	</select>
-	
-	<select id="findDiaryAllImg" parameterType="String" resultType="DiaryImg">
-			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
-			FROM DIARY_IMG I  
-			JOIN DIARY D
-			ON I.DIA_NO = D.DIA_NO
-			WHERE D.MEM_ID = #{memId}
-	</select>
-
-	<!-- <select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
-	SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
-	FROM DIARY_IMG I  
-	LEFT JOIN DIARY D
-	ON I.DIA_NO = D.DIA_NO
-	WHERE D.MEM_ID = #{memId};
-	</select> -->
-
-		<!-- SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
-		FROM DIARY_IMG I  
-		INNER JOIN DIARY D
-		ON I.DIA_NO = D.DIA_NO
-		WHERE D.MEM_ID = 'ksh'; -->
-
-	<!-- <select id="findDiaryImg" parameterType="String" resultType="DiaryImg">
 		SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
-		FROM DIARY_IMG I  
+		FROM DIARY_IMG I
+		JOIN DIARY D
+		ON I.DIA_NO = D.DIA_NO
+		WHERE D.DIA_NO = #{diaNo}
+	</select>
+
+	<select id="findDiaryAllImg" parameterType="String" resultType="DiaryImg">
+		SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+		FROM DIARY_IMG I
 		JOIN DIARY D
 		ON I.DIA_NO = D.DIA_NO
 		WHERE D.MEM_ID = #{memId}
-	</select> -->
-	
-	<!-- <select id="findDiaryImg" resultType="DiaryImg">
-	SELECT
-		A.*
-	FROM
-	(
-		SELECT
-			B.*
-		FROM
-		(
-			SELECT I.DIA_NO diaNo, I.DII_IMG diiImg
-			FROM DIARY_IMG I  
-			JOIN DIARY D
-			ON I.DIA_NO = D.DIA_NO
-			WHERE I.DIA_NO = D.DIA_NO
-			
-			)B
-		)A
-	</select> -->
+	</select>
 
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(*) FROM DIARY
+	</select>
+	
+	<select id="findDiaryByDiaryNo" parameterType="String" resultType="Diary">
+		SELECT DIA_NO diaNo, DIA_DATE diaDate, DIA_TITLE diaTitle, DIA_CONTENT diaContent
+		FROM DIARY
+		WHERE DIA_NO = #{diaNo}
+	</select>
+	
+	<select id="findDiaryImgByDiaryNo" parameterType="String" resultType="DiaryImg">
+		SELECT DIA_NO diaNo, DII_IMG diiImg
+		FROM DIARY_IMG
+		WHERE DIA_NO = #{diaNo}
+	</select>
+	
+	<delete id="deleteDiaryImg" parameterType="String">
+	DELETE FROM DIARY_IMG WHERE DIA_NO = #{diaNo}
+	</delete>
+	
+	<delete id="deleteDiary" parameterType="String">
+	DELETE FROM DIARY WHERE DIA_NO = #{diaNo}
+	</delete>
+	
+	<!-- <delete id="deleteDiaryImgByAjax" parameterType="String">
+	DELETE FROM DIARY_IMG WHERE DIA_NO = #{diaNo}
+	</delete> -->
+	
+	<delete id="deleteImgForUpdate" parameterType="int">
+	DELETE FROM DIARY_IMG WHERE DIA_NO = #{diaNo}
+	</delete>
+	
+	<update id="updateDiary" parameterType="Diary">
+	UPDATE DIARY SET DIA_NO = #{diaNo}, DIA_DATE = #{diaDate}, DIA_TITLE = #{diaTitle}, DIA_CONTENT = #{diaContent}
+	WHERE DIA_NO = #{diaNo}
+	</update>
+	
+	<select id="findDiaryMonth" parameterType="int" resultType="Diary">
+		SELECT D.DIA_NO diaNo, MONTH('DIA_DATE diaDate'), D.DIA_TITLE diaTitle,
+		D.DIA_CONTENT diaContent, D.MEM_ID memId
+		FROM DIARY D
+		JOIN MEMBER M
+		ON D.MEM_ID = M.MEM_ID
+		WHERE DIA_DATE LIKE '%' || MONTH || '%'
+	</select>
 </mapper>  

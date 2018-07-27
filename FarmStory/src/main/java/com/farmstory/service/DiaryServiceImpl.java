@@ -27,8 +27,8 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 	
 	@Override
-	public List<Diary> findDiary(String memId) {
-		List<Diary> diary = diaryDao.findDiary(memId);
+	public List<Diary> findDiary(int from, int to, String memId, String diaTitle) {
+		List<Diary> diary = diaryDao.findDiary(from, to, memId, diaTitle);
 		for (Diary d : diary) {
 			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
 			d.setAttachment(attachments);
@@ -42,4 +42,54 @@ public class DiaryServiceImpl implements DiaryService{
 		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId);
 		return diaryAllImg;
 	}
+
+	@Override
+	public int getCount() {
+		int count = diaryDao.selectCount();
+		return count;
+	}
+
+	@Override
+	public Diary findDiaryByDiaryNo(String diaNo) {
+		Diary diary = diaryDao.findDiaryByDiaryNo(diaNo);
+		return diary;
+	}
+
+	@Override
+	public List<DiaryImg> findDiaryImgByDiaryNo(String diaNo) {
+		List<DiaryImg> diaryImg = diaryDao.findDiaryImgByDiaryNo(diaNo);
+		return diaryImg;
+	}
+
+	@Override
+	public void deleteDiary(String diaNo) {
+		diaryDao.deleteDiary(diaNo);
+	}
+
+	@Override
+	public void deleteDiaryImgByAjax(String diaNo) {
+		diaryDao.deleteDiaryImgByAjax(diaNo);
+	}
+
+	@Override
+	public void deleteImgForUpdate(int diaNo) {
+		diaryDao.deleteImgForUpdate(diaNo);
+	}
+
+	@Override
+	public void updateDiary(Diary diary) {
+		diaryDao.updateDiary(diary);		
+		List<DiaryImg> imgAttachments = diary.getAttachment();
+		for (DiaryImg attachment : imgAttachments) {
+			attachment.setDiaNo(diary.getDiaNo());
+			diaryDao.insertDiaryImage(attachment);
+		}		
+	}
+
+	@Override
+	public List<Diary> findDiaryMonth(int diaNo) {
+		List<Diary> diary = diaryDao.findDiaryMonth(diaNo);
+		return diary;
+	}
+
 }

@@ -12,7 +12,14 @@ public class Diary {
 	private String diaContent;
 	private int regPotNo;
 	private String memId;
+	private String monthCheck;
 			
+	public String getMonthCheck() {
+		return monthCheck;
+	}
+	public void setMonthCheck(String monthCheck) {
+		this.monthCheck = monthCheck;
+	}
 	public String getMemId() {
 		return memId;
 	}

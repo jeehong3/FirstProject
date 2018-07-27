@@ -10,10 +10,25 @@ public interface DiaryService {
 
 	void writeDiary(Diary diary);
 
-	List<Diary> findDiary(String memId);
+	List<Diary> findDiary(int from, int to, String memId, String diaTitle);
 
 	List<DiaryImg> findDiaryAllImg(String memId);
 
+	int getCount();
+
+	Diary findDiaryByDiaryNo(String diaNo);
+
+	List<DiaryImg> findDiaryImgByDiaryNo(String diaNo);
+
+	void deleteDiary(String diaNo);
+
+	void deleteDiaryImgByAjax(String diaNo);
+
+	void deleteImgForUpdate(int diaNo);
+
+	void updateDiary(Diary diary);
+
+	List<Diary> findDiaryMonth(int diaNo);
 
 
 }
