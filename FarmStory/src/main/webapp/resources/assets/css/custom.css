@@ -46,11 +46,12 @@
 #header-meun-bar {
 	font-size: 10px;
 }
+
 /* ==== Header : End ============================= */
 
 /* ==== Register & Login & Logout Modal : Start ============================= */
 .modal-header {
-	border-top: 6px solid #3F8DBF;
+	border-top: 6px solid #7abb29;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	border-bottom: 0;
@@ -80,7 +81,7 @@
 
 .btn-default {
 	width: 100%;
-	background-color: #3F8DBF;
+	background-color: #7abb29;
 	border: none;
 	color: #fff;
 	margin-top: 3px;
