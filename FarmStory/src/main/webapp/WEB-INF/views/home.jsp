@@ -8,13 +8,12 @@
 <html lang="ko">
 	<head>
 		<!-- Meta -->
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>팜스토리</title>
+		<title>Farm Story</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
@@ -97,7 +96,7 @@
 					<div class="row">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/art/product01.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
@@ -111,7 +110,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 col-sm-push-6 inner-left-xs">
-							<figure><img src="/farmstory/resources/assets/images/art/product02.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 col-sm-pull-6 inner-top-xs inner-right-xs">
@@ -125,7 +124,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/art/product03.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">

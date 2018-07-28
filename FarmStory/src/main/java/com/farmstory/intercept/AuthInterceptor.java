@@ -20,7 +20,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 		// 반환할 redirect값을 true로 초기화한다.
 		boolean redirect = true;
 		// 로그인 여부를 체크한다.
-		if (url.contains("findTime.action") && account == null || 
+		if (url.contains("my_flowerpot_list.action") && account == null || 
 			url.contains("plant_regist.action") && account == null ||
 			url.contains("diary_write.action") && account == null ||
 			url.contains("diary_list.action") && account == null) {

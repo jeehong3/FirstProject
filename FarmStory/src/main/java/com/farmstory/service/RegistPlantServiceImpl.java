@@ -36,7 +36,10 @@ public class RegistPlantServiceImpl implements RegistPlantService {
 		
 		return registPlantDao.potNoTest(regPotNo);
 	}
-	
 
-	
+	@Override
+	public ArrayList<RegistPlant> findRegistFlowerpotByMemId(String memId) {
+		return registPlantDao.selectRegistFlowerpotByMemId(memId);
+	}
+
 }

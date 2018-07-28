@@ -6,6 +6,9 @@ public class RegistPlant {
 	private int regPotNo;
 	private String memId;
 	private int plaNo;
+	private String plaName;
+	private String pliImg;
+	
 	
 	public int getRegPotNo() {
 		return regPotNo;
@@ -24,6 +27,18 @@ public class RegistPlant {
 	}
 	public void setPlaNo(int plaNo) {
 		this.plaNo = plaNo;
+	}
+	public String getPlaName() {
+		return plaName;
+	}
+	public void setPlaName(String plaName) {
+		this.plaName = plaName;
+	}
+	public String getPliImg() {
+		return pliImg;
+	}
+	public void setPliImg(String pliImg) {
+		this.pliImg = pliImg;
 	}
 	
 }
