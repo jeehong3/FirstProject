@@ -6,6 +6,15 @@
 <!-- Account Modal JavaScript -->
 <jsp:include page="/WEB-INF/views/include/account/account-jstl-js.jsp" />
 
+<style>
+
+#logo, #logoM {
+	
+	height: 60px;
+}
+
+</style>
+
 <header>
 
 	<!-- Account - Register Modal : START -->
@@ -26,8 +35,8 @@
 
 				<!-- ============================================================= LOGO MOBILE ============================================================= -->
 
-				<a class="navbar-brand" href="/farmstory/home.action"><img
-					src="/farmstory/resources/assets/images/logo.svg" class="logo"
+				<a  class="navbar-brand" href="/farmstory/home.action"><img id="logoM"
+					src="/farmstory/resources/assets/images/farmstory-logo.gif" class=""
 					alt=""></a>
 
 				<!-- ============================================================= LOGO MOBILE : END ============================================================= -->
@@ -40,7 +49,7 @@
 					<ul class="pull-right">
 						<li><a id="welcome" class="responsive-menu pull-right"> <i
 								class="icon-user-1"></i>&nbsp;${loginuser.memName}&nbsp;님
-								환영합니다&nbsp;
+								환영합니다!&nbsp;&nbsp;&nbsp;
 						</a></li>
 					</ul>
 				</c:if>
@@ -54,8 +63,8 @@
 				<div class="container">
 					<!-- ============================================================= LOGO ============================================================= -->
 
-					<a class="navbar-brand" href="/farmstory/home.action"><img
-						src="/farmstory/resources/assets/images/logo.svg" class="logo"
+					<a  class="navbar-brand" href="/farmstory/home.action"><img id="logo"
+						src="/farmstory/resources/assets/images/farmstory-logo.gif" 
 						alt=""></a>
 
 					<!-- ============================================================= LOGO : END ============================================================= -->

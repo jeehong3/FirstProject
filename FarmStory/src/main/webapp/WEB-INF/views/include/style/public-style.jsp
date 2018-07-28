@@ -3,8 +3,9 @@
 	rel="stylesheet">
 <link href="/farmstory/resources/assets/css/main.css" rel="stylesheet">
 
+
 <!-- AddOn/Plugin CSS -->
-<link href="/farmstory/resources/assets/css/blue.css" rel="stylesheet"
+<link href="/farmstory/resources/assets/css/farmstory.css" rel="stylesheet"
 	title="Color">
 <link href="/farmstory/resources/assets/css/owl.carousel.css"
 	rel="stylesheet">
