@@ -32,7 +32,7 @@
 	rel="stylesheet">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="/farmstory/resources/assets/images/favicon.ico">
+<link rel="shortcut icon" href="/farmstory/resources/assets/images/farmstory-favicon.ico">
 
 <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
 <!--[if lt IE 9]>

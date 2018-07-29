@@ -32,19 +32,19 @@
 
 	<!-- ============================================================= MAIN ============================================================= -->
 
-	<main> 
-	
-	<!-- ============================================================= SECTION – HERO ============================================================= -->
+	<main> <!-- ============================================================= SECTION – HERO ============================================================= -->
 
 	<section class="light-bg img-bg img-bg-softer"
 		style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
 		<div id="modifyTitle" class="container inner">
-		
+
 			<div class="row">
 				<div class="col-md-8 center-block text-center">
 					<header>
 						<h1>식물 정보 수정</h1>
-						<p>등록한 식물 정보 수정해주세요.<br>사진 정보도 수정이 가능합니다.</p>
+						<p>
+							등록한 식물 정보 수정해주세요.<br>사진 정보도 수정이 가능합니다.
+						</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -54,12 +54,12 @@
 	</section>
 
 	<!-- ============================================================= SECTION – HERO : END ============================================================= -->
-	
+
 	<!-- ============================================================= SECTION â CONTACT FORM ============================================================= -->
 
-	<section >
+	<section>
 		<div id="modifyForm" class="container inner">
-		
+
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="row">
@@ -67,8 +67,8 @@
 						<div class="col-sm-12 outer-top-md inner-right-sm">
 
 							<form id="modifyPlantInfoForm" class="forms"
-								action="/farmstory/plant_update.action?plaNo=${ plant.plaNo }&lastImgIdx=${ lastImgIdx }" method="post"
-								enctype="multipart/form-data">
+								action="/farmstory/plant_update.action?plaNo=${ plant.plaNo }&lastImgIdx=${ lastImgIdx }"
+								method="post" enctype="multipart/form-data">
 
 								<div class="row">
 									<div class="col-sm-6">
@@ -173,48 +173,58 @@
 								<!-- /.row -->
 								<br>
 								<h4>등록된 사진들</h4>
-								<div id="owl-popular-posts" class="owl-carousel owl-item-gap-sm">
-									<c:forEach var="oldImages" items="${ oldImages }" varStatus="status">
-										<div class="item old-images">
-											 <figure>
-												<figcaption class="text-overlay">
-												<c:choose>
-													<c:when test="${ oldImages.imgIdx eq '1'}">
-														<div class="info">
-															<h4>목록페이지 사진</h4>
-															<p><a id="modifyThumnail" href="#" class="btn" data-index="${ status.index }">수정하기</a></p>
-														</div>
-													</c:when>
-													<c:otherwise>
-														<div class="info">
-															<h4>상세페이지 사진</h4>
-															<p><a href="#" class="btn oldImgDelete" data-index="${ status.index }">삭제하기</a></p>
-														</div>
-													</c:otherwise>
-												</c:choose>
-												<!-- /.info -->
-												</figcaption>
-												<img
-													src="/farmstory/resources/upload-image/plant-info/${ oldImages.pliImg }"
-													alt="">
-											</figure>
-										</div>
-										<!-- /.item -->
-										<input id="oldImgFileName${ status.index }" type="hidden" name="oldImgFileName" value="${ oldImages.pliImg }">
-										<input id="oldImgIdx${ status.index }" type="hidden" name="oldImgIdx" value="${ oldImages.imgIdx }">
-									</c:forEach>
+								<div class="oldImageFiles">
+									<div id="owl-popular-posts"
+										class="owl-carousel owl-item-gap-sm">
+										<c:forEach var="oldImages" items="${ oldImages }"
+											varStatus="status">
+											<div class="item">
+												<figure>
+													<figcaption class="text-overlay">
+														<c:choose>
+															<c:when test="${ oldImages.imgIdx eq '1'}">
+																<div class="info">
+																	<h4>목록페이지 사진</h4>
+																	<p>
+																		<a id="modifyThumnail" href="#" class="btn"
+																			data-index="${ status.index }">수정하기</a>
+																	</p>
+																</div>
+															</c:when>
+															<c:otherwise>
+																<div class="info">
+																	<h4>상세페이지 사진</h4>
+																	<p>
+																		<a href="#" class="btn oldImgDelete"
+																			data-index="${ status.index }">삭제하기</a>
+																	</p>
+																</div>
+															</c:otherwise>
+														</c:choose>
+														<!-- /.info -->
+													</figcaption>
+													<img
+														src="/farmstory/resources/upload-image/plant-info/${ oldImages.pliImg }"
+														alt="">
+												</figure>
+											</div>
+											<!-- /.item -->
+											<input id="oldImgFileName${ status.index }" type="hidden"
+												name="oldImgFileName" value="${ oldImages.pliImg }">
+											<input id="oldImgIdx${ status.index }" type="hidden"
+												name="oldImgIdx" value="${ oldImages.imgIdx }">
+										</c:forEach>
+									</div>
 								</div>
 								<br>
-								<div id="fileAddAndModifyDiv">
-								</div>
-								<input id="plantInfoNumber" type="hidden" name="plaNo" value="${ plant.plaNo }">
-								<a id="backBtn" href="#" class="btn pull-right writeMeunBtn">이전으로</a><a
-									id="modifyBtn" href="#"
-									class="btn pull-right writeMeunBtn">정보 수정하기</a>
-									<a href="#this"
-									id="add" class="btn pull-right writeMeunBtn">상세페이지 사진 추가선택</a>
-									<a href="#this"
-									id="modifyAndAddImg" class="btn pull-right writeMeunBtn">사진 수정하기</a>
+								<div id="fileAddAndModifyDiv"></div>
+								<input id="plantInfoNumber" type="hidden" name="plaNo"
+									value="${ plant.plaNo }"> <a id="backBtn" href="#"
+									class="btn pull-right writeMeunBtn">이전으로</a><a id="modifyBtn"
+									href="#" class="btn pull-right writeMeunBtn">정보 수정하기</a> <a
+									href="#this" id="add" class="btn pull-right writeMeunBtn">상세페이지
+									사진 추가선택</a> <a href="#this" id="modifyAndAddImg"
+									class="btn pull-right writeMeunBtn">사진 수정하기</a>
 							</form>
 
 							<div id="response"></div>

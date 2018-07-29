@@ -3,8 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<div id="owl-popular-posts" class="owl-carousel owl-item-gap-sm">
 <c:forEach var="oldImages" items="${ oldImages }" varStatus="status">
-	<div class="item old-images">
+	<div class="item">
 		<figure>
 			<figcaption class="text-overlay">
 				<c:choose>
@@ -40,3 +41,4 @@
 	<input id="oldImgIdx${ status.index }" type="hidden" name="oldImgIdx"
 		value="${ oldImages.imgIdx }">
 </c:forEach>
+</div>
