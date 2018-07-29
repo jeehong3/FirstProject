@@ -32,7 +32,7 @@
 
 	<!-- ============================================================= MAIN ============================================================= -->
 
-	<main class="notoSansKR"> <!-- ============================================================= SECTION â PORTFOLIO POST ============================================================= -->
+	<main> <!-- ============================================================= SECTION â PORTFOLIO POST ============================================================= -->
 
 	<section id="portfolio-post">
 		<div class="container inner-top-md">
@@ -72,8 +72,7 @@
 					</header>
 				</div>
 				<!-- /.col -->
-				<c:if
-					test="${ not empty loginuser and loginuser.memType eq 'ADMIN' }">
+				<c:if test="${ not empty loginuser and loginuser.memType eq 'ADMIN' }">
 					<div align="center">
 						<a id="modifyInfoBtn" class="btn">수정하기</a>
 						<a class="btn" data-toggle="modal" data-target="#deleteConfirm">삭제하기</a>

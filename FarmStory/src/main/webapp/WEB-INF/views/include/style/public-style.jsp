@@ -28,6 +28,8 @@
 <!-- Icons/Glyphs -->
 <link href="/farmstory/resources/assets/fonts/fontello.css"
 	rel="stylesheet">
+<link href="/farmstory/resources/assets/fonts/godo.css"
+	rel="stylesheet">
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="/farmstory/resources/assets/images/favicon.ico">

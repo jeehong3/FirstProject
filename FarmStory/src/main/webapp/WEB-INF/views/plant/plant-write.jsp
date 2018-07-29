@@ -32,13 +32,15 @@
 
 	<!-- ============================================================= MAIN ============================================================= -->
 
-	<main class="notoSansKR medium"> <!-- ============================================================= SECTION â CONTACT FORM ============================================================= -->
+	<main> 
+	
+	<!-- ============================================================= SECTION – HERO ============================================================= -->
 
-	<section id="contact-form">
-		<div class="container inner">
-
+	<section class="light-bg img-bg img-bg-softer"
+		style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+		<div id="registerTitle" class="container inner">
 			<div class="row">
-				<div class="col-md-8 col-sm-9 center-block text-center">
+				<div class="col-md-8 center-block text-center">
 					<header>
 						<h1>식물 정보 등록</h1>
 						<p>식물에 대한 정보를 아래 빈칸에 입력해주세요.</p>
@@ -46,8 +48,17 @@
 				</div>
 				<!-- /.col -->
 			</div>
-			<!-- /.row -->
+			<!-- ./row -->
+		</div>
+	</section>
 
+	<!-- ============================================================= SECTION – HERO : END ============================================================= -->
+
+
+	<!-- ============================================================= SECTION â CONTACT FORM ============================================================= -->
+
+	<section>
+		<div id="registerForm" class="container inner">
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="row">
@@ -173,13 +184,13 @@
 									<div class="col-sm-12">
 										<input type="file" name="plantImg" class="form-control"><br>
 									</div>
-									
+
 									<!-- /.col -->
 								</div>
 								<!-- /.row -->
 
-								<a id="backBtn" href="#" class="btn pull-right writeMeunBtn">이전으로</a> <a
-									id="writePlantInfoBtn" href="#"
+								<a id="backBtn" href="#" class="btn pull-right writeMeunBtn">이전으로</a>
+								<a id="writePlantInfoBtn" href="#"
 									class="btn pull-right writeMeunBtn">정보 등록하기</a> <a href="#this"
 									id="add" class="btn pull-right writeMeunBtn">사진 추가하기</a>
 

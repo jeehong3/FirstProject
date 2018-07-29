@@ -42,8 +42,8 @@
 						<div class="container">
 							<div class="caption vertical-center text-center">
 								
-								<h1 class="fadeInDown-1 light-color">공기정화식물은 <br>어떻게 키울까?</h1>
-								<p class="fadeInDown-2 light-color">당신을 위한 식물 정보 가이드 팜스토리와 함께 키우세요.</p>
+								<h1 class="fadeInDown-1 light-color">공기 정화 식물은<br> 어떻게 키울까?</h1>
+								<p class="fadeInDown-2 light-color">당신을 위한 식물 정보 가이드<br> 팜스토리와 함께 키우세요.</p>
 								<div class="fadeInDown-3">
 									<a href="/farmstory/plant_list.action" class="btn btn-large">식물 정보 보기</a>
 								</div><!-- /.fadeIn -->
@@ -56,8 +56,8 @@
 						<div class="container">
 							<div class="caption vertical-center text-right">
 								
-								<h1 class="fadeInLeft-1 light-color">구매한 화분을 <br>등록해보세요</h1>
-								<p class="fadeInLeft-2 light-color">당신이 식물을 키우는 일이 보다 쉬워집니다.<br>매일 상태를 알려주는 서비스를 이용해보세요.</p>
+								<h1 class="fadeInLeft-1 light-color">구매한 화분을<br> 등록해보세요</h1>
+								<p class="fadeInLeft-2 light-color">식물을 키우는 일이 보다 쉬워집니다.<br>매일 상태를 알려주는 서비스를 이용해보세요.</p>
 								<div class="fadeInLeft-3">
 									<a href="/farmstory/plant_regist.action" class="btn btn-large">나의 화분 등록하기</a>
 								</div><!-- /.fadeIn -->
@@ -72,8 +72,8 @@
 						<div class="container">
 							<div class="caption vertical-top text-center" style="padding-top: 200px;">
 								
-								<h2 class="fadeInDown-1 light-color">내가 키우는 식물을 나만의 다이어리로 남기세요.</h2>
-								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요</p>
+								<h1 class="fadeInDown-1 light-color">나만의 다이어리로 남기세요</h1>
+								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요.</p>
 								<div class="fadeInDown-3">
 									<a href="/farmstory/diary_write.action" class="btn btn-large">다이어리 쓰기</a>
 								</div><!-- /.fadeIn -->

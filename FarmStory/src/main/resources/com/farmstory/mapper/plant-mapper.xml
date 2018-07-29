@@ -75,7 +75,7 @@
 	</delete>
 	
 	<select id="selectModifyImagesPlantInfoByPlaNo" resultType="PlantImg">
-		SELECT PLI_IMG pliImg, IMG_IDX imgIdx
+		SELECT PLI_IMG pliImg, IMG_IDX imgIdx, PLI_NO pliNo
 		FROM PLANT_IMG
 		WHERE PLA_NO = #{ plaNo }
 	</select>
@@ -108,7 +108,7 @@
 		WHERE PLA_NO = #{ plaNo } AND IMG_IDX = 1;
 	</update>
 	
-	<delete id="deleteOldImageFileByPlaNoAndImgIdx" parameterType="PlantImg">
+	<delete id="deleteOldImageFileByPlaNoAndImgIdx" parameterType="hashmap">
 		DELETE FROM PLANT_IMG
 		WHERE PLA_NO = #{ plaNo } AND IMG_IDX = #{ imgIdx }
 	</delete>

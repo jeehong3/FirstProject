@@ -41,7 +41,7 @@ public class PlantController {
 		
 		model.addAttribute("plantInfos", plantInfos);
 		
-		return "plant/plant-list";
+		return "diary/diary-list-1";
 	}
 
 	
@@ -290,45 +290,21 @@ public class PlantController {
         return "redirect:/plant_detail.action?plaNo=" + plaNo;
 	}
 	
-//	@ResponseBody
-//	@PostMapping(value = "/plant_delete_old_img.action")
-//	public Map<Object, Object> deleteOldImgFile(PlantImg plantImg,
-//			@RequestParam(value = "plaNo") int plaNo, 
-//			@RequestParam(value = "oldImgIdx") int oldImgIdx, String oldImgFileName){
-//		
-//		Map<Object, Object> map = new HashMap<Object, Object>();
-//		
-//		plantImg.setPlaNo(plaNo);
-//		plantImg.setImgIdx(oldImgIdx);
-//		plantService.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
-//		
-//		String fileUploadPath = "/resources/upload-image/plant-info";
-//		
-//		File oldUploadFile = new File(fileUploadPath +"/"+ oldImgFileName);
-//		// 파일의 존재여부를 확인하여 삭제를 실행한다.
-//		if(oldUploadFile.exists()) {
-//			oldUploadFile.delete();
-//			System.out.println("기존 업로드 파일 삭제 완료(resize)");
-//		}
-//		
-//		List<PlantImg> oldImages = plantService.findModifyImagesPlantInfoByPlaNo(plaNo);
-//		map.put("oldImages", oldImages);
-//		
-//        return map;
-//	}
 	
 	@ResponseBody
-	@PostMapping(value = "/plant_delete_old_img.action")
-	public String deleteOldImgFile(PlantImg plantImg, String oldImgFileName
-			){
+	@GetMapping(value = "/plant_delete_old_img.action")
+	public String deleteOldImgFile(String oldImgFileName,
+			@RequestParam(value = "plaNo") int plaNo, 
+			@RequestParam(value = "oldImgIdx") int oldImgIdx){
 		
-		//plantImg.setPlaNo(plaNo);
-		//plantImg.setImgIdx(imgIdx);
-		plantService.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
+		HashMap<String, Object> params = new HashMap<>();
+		params.put("plaNo", plaNo);
+		params.put("imgIdx", oldImgIdx);
 		
-		String fileUploadPath = "/resources/upload-image/plant-info";
+		plantService.deleteOldImageFileByPlaNoAndImgIdx(params);
+		String fileUploadPath = "/resources/upload-image/plant-info/";
 		
-		File oldUploadFile = new File(fileUploadPath +"/"+ oldImgFileName);
+		File oldUploadFile = new File(fileUploadPath + oldImgFileName);
 		// 파일의 존재여부를 확인하여 삭제를 실행한다.
 		if(oldUploadFile.exists()) {
 			oldUploadFile.delete();
@@ -337,6 +313,18 @@ public class PlantController {
 		
         return "success";
 	}
+	
+	@GetMapping(value = "/plant_refresh_old_img.action")
+	public String deleteOldImgFile(@RequestParam(value = "plaNo") int plaNo, Model model){
+		
+		List<PlantImg> oldImages = plantService.findModifyImagesPlantInfoByPlaNo(plaNo);
+		
+		model.addAttribute("oldImages", oldImages);
+		
+        return "plant/plant-refresh-old-images";
+	}
+	
+	
 	
 	@GetMapping(value = "/mobile_plant_list.action")
 	@ResponseBody

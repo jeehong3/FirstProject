@@ -87,9 +87,9 @@ public class PlantServiceImpl implements PlantService {
 	}
 	
 	@Override
-	public void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg) {
+	public void deleteOldImageFileByPlaNoAndImgIdx(HashMap<String, Object> params) {
 		
-		plantDao.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
+		plantDao.deleteOldImageFileByPlaNoAndImgIdx(params);
 	}
 	
 }

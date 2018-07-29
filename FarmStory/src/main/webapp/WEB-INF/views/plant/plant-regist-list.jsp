@@ -42,7 +42,9 @@
 				<div class="col-md-8 col-sm-9 center-block text-center">
 					<header>
 						<h1>나의 화분 목록</h1>
-						<p>내가 등록한 화분입니다. <br>화분에 대한 정보와 다이어리를 작성해보세요.</p>
+						<p>
+							등록한 화분 목록입니다.<br> 화분에 대한 다이어리를 작성해보세요.
+						</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -51,22 +53,24 @@
 
 			<div class="row inner-top-sm">
 				<div id="owl-latest-works" class="owl-carousel owl-item-gap">
-				
+
 					<c:forEach var="myFlowerpots" items="${ myFlowerpots }">
-					<div class="item">
-						<a href="#">
-							<figure>
-								<figcaption class="text-overlay">
-									<div class="info">
-										<h4>${ myFlowerpots.plaName }</h4>
-										<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
-									</div>
-									<!-- /.info -->
-								</figcaption>
-								<img src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }" alt="">
-							</figure>
-						</a>
-					</div>
+						<div class="item">
+								<figure>
+									<figcaption class="text-overlay">
+										<div class="info">
+											<h4>${ myFlowerpots.plaName }</h4>
+											<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
+											<a id="modifyPotBtn" href="#" class="btn">수정</a>
+											<a id="deletePotBtn" href="#" class="btn">삭제</a>
+										</div>
+										<!-- /.info -->
+									</figcaption>
+									<img src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }" alt="">
+								</figure>
+							<a id="myDiaryBtn" href="/farmstory/diary_write.action" class="btn">다이어리 쓰기</a>
+							<a id="flowerPotInfoBtn" href="/farmstory/value/findTime.action" class="btn">화분정보 보기</a>
+						</div>
 					</c:forEach>
 					<!-- /.item -->
 				</div>
@@ -91,9 +95,11 @@
 
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 
-	<!-- JavaScripts placed at the end of the document so the pages load faster -->
+	<!-- ============================================================= JAVASCRIPT ============================================================= -->
 
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
+
+	<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
 
 </body>
 </html>

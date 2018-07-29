@@ -1,5 +1,6 @@
 package com.farmstory.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.farmstory.vo.Plant;
@@ -29,6 +30,6 @@ public interface PlantMapper {
 	
 	void updateThumnailImagePlantInfo(PlantImg plantImg);
 	
-	void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg);
+	void deleteOldImageFileByPlaNoAndImgIdx(HashMap<String, Object> params);
 	
 }
