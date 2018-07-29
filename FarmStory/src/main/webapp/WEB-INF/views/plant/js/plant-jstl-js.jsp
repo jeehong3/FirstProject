@@ -99,9 +99,9 @@
 						   "oldImgIdx" : oldImgIdx,
 						   "plaNo" : plaNo},
 				"success" : function(data, status, xhr) {
-					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
 					//$("div.old-images").remove();
-					$("#owl-popular-posts").load("/plant_refresh_old_img.action?plaNo=" + plaNo);
+					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
+					$("div.oldImageFiles").load("/farmstory/plant_refresh_old_img.action?plaNo=" + plaNo);
 					
 				},
 				"error" : function (xhr, status, err) {
