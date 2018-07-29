@@ -12,7 +12,21 @@ public class Diary {
 	private String diaContent;
 	private int regPotNo;
 	private String memId;
+	private String diaCategory;
+	private String diaBookName;
 	
+	public String getDiaBookName() {
+		return diaBookName;
+	}
+	public void setDiaBookName(String diaBookName) {
+		this.diaBookName = diaBookName;
+	}
+	public String getDiaCategory() {
+		return diaCategory;
+	}
+	public void setDiaCategory(String diaCategory) {
+		this.diaCategory = diaCategory;
+	}
 	public String getMemId() {
 		return memId;
 	}

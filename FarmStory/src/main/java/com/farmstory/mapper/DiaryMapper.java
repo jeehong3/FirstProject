@@ -37,4 +37,6 @@ public interface DiaryMapper {
 
 	List<Diary> findDiaryMonth(String memId);
 
+	List<Diary> findDiaryCategory(String memId);
+
 }

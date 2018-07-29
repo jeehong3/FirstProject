@@ -28,4 +28,6 @@ public interface DiaryService {
 
 	void updateDiary(Diary diary);
 
+	List<Diary> findDiaryCategory(String memId);
+
 }

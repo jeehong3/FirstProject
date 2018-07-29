@@ -32,5 +32,7 @@ public interface DiaryDao {
 
 	void updateDiary(Diary diary);
 
+	List<Diary> findDiaryCategory(String memId);
+
 
 }

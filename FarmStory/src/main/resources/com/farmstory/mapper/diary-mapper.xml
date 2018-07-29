@@ -6,8 +6,8 @@
 <mapper namespace="com.farmstory.mapper.DiaryMapper">
 
 	<insert id="insertDiary" parameterType="Diary">
-		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
-		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
+		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID, DIA_CATEGORY, DIA_BOOKNAME)
+		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId}, #{diaCategory}, #{diaBookName})
 		<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -20,7 +20,7 @@
 
 	<!-- 여기서 DIA_NO를 조회 -->
 	<select id="findDiary" parameterType="hashmap" resultType="Diary">
-		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle,
+		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle, D.DIA_CATEGORY diaCategory
 		D.DIA_CONTENT diaContent, D.MEM_ID memId
 		FROM DIARY D
 		JOIN MEMBER M
@@ -89,5 +89,13 @@
 	UPDATE DIARY SET DIA_NO = #{diaNo}, DIA_DATE = #{diaDate}, DIA_TITLE = #{diaTitle}, DIA_CONTENT = #{diaContent}
 	WHERE DIA_NO = #{diaNo}
 	</update>
+	
+	<select id="findDiaryCategory" parameterType="String" resultType="Diary">
+	SELECT D.DIA_TITLE diaTitle,D.MEM_ID memId, D.DIA_CATEGORY diaCategory, D.DIA_BOOKNAME diaBookName
+		FROM DIARY D
+		JOIN MEMBER M
+		ON D.MEM_ID = M.MEM_ID
+		WHERE D.MEM_ID = #{memId}	
+	</select>
 	
 </mapper>  

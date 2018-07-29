@@ -71,31 +71,36 @@
 							<ul class="filter text-center">
 								<li><a href="#" data-filter="*" class="active">전체</a></li>
 								<li><a href="#" data-filter=".꽃">꽃</a></li>
-								<li><a href="#" data-filter=".관엽식물">관엽 식물</a></li>
-								<li><a href="#" data-filter=".활엽식물">활엽 식물</a></li>
+								<li><a href="#" data-filter=".관엽식물">관엽식물</a></li>
+								<li><a href="#" data-filter=".활엽식물">활엽식물</a></li>
 								<li><a href="#" data-filter=".란">란</a></li>
+								<!-- <li><a href="#" data-filter=".관엽식물">관엽 식물</a></li>
+								<li><a href="#" data-filter=".활엽식물">활엽 식물</a></li>
+								<li><a href="#" data-filter=".란">란</a></li> -->
 							</ul><!-- /.filter -->
 							
 							<ul class="isotope items col-4 gap">
 							
-							<c:forEach var="plantInfos" items="${ plantInfos }">
-								<li class="item thumb ${ plantInfos.plaType }">
+						   		<c:forEach var="diary" items="${ diaries }">
+								<li class="item thumb ${ diary.diaCategory }">
 									<figure>
-										
+										<%-- <c:forEach var="diaryImg" items="${ diary.attachment }">
 										<div class="icon-overlay icn-link">
-											<a href="/farmstory/plant_detail.action?plaNo=${ plantInfos.plaNo }"><img src="/farmstory/resources/upload-image/plant-info/${ plantInfos.pliImg }" alt=""></a>
+											<a href=""><img src="/farmstory/resources/upload-image/diary-info/${diaryImg.diiImg}" alt=""></a>
 										</div><!-- /.icon-overlay -->
-										
+										</c:forEach> --%>
 										<figcaption class="bordered no-top-border">
+										
 											<div class="info">
-												<h4><a href="/farmstory/plant_detail.action?plaNo=${ plantInfos.plaNo }"> ${ plantInfos.plaName }</a></h4>
-												<p>${ plantInfos.plaName }</p>
+												<h4><a href=""> ${ diary.diaBookName }</a></h4>
+												<p><%-- ${ plantInfos.plaName } --%></p>
 											</div><!-- /.info -->
+										
 										</figcaption>
 										
 									</figure>
 								</li><!-- /.item -->
-							</c:forEach>
+								</c:forEach>
 								
 								
 							</ul><!-- /.items -->

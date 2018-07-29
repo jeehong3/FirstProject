@@ -90,5 +90,11 @@ public class MySqlDiaryDao implements DiaryDao{
 		diaryMapper.updateDiary(diary);
 	}
 
+	@Override
+	public List<Diary> findDiaryCategory(String memId) {
+		List<Diary> diary = diaryMapper.findDiaryCategory(memId);
+		return diary;
+	}
+
 
 }

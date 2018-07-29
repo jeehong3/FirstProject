@@ -86,5 +86,15 @@ public class DiaryServiceImpl implements DiaryService{
 		}		
 	}
 
+	@Override
+	public List<Diary> findDiaryCategory(String memId) {
+		List<Diary> diary = diaryDao.findDiaryCategory(memId);
+		for (Diary d : diary) {
+			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
+			d.setAttachment(attachments);
+		}
+		return diary;
+	}
+
 
 }

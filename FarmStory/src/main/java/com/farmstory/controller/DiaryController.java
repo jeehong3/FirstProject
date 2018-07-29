@@ -23,10 +23,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.farmstory.common.Util;
 import com.farmstory.service.DiaryService;
+import com.farmstory.service.RegistPlantService;
 import com.farmstory.ui.ThePager;
 import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
 import com.farmstory.vo.DiaryImg;
+import com.farmstory.vo.RegistPlant;
 
 @Controller
 public class DiaryController {
@@ -35,13 +37,18 @@ public class DiaryController {
 	@Qualifier(value = "diaryService")
 	private DiaryService diaryService;
 	
+	@Autowired
+	@Qualifier(value="registPlantService")
+	private RegistPlantService registPlantService;
+	
 	@GetMapping(value = "/diary_write.action")
 	public String diary_show() {
 		return "diary/diary_write";
 	}
 	
 	@PostMapping(value = "/diary_write.action")
-	public String diary_write(MultipartHttpServletRequest req, Diary diary, Model model, String memId) {
+	public String diary_write(MultipartHttpServletRequest req, Diary diary, Model model,
+			String memId) {
 		
 		diary.setMemId(memId);
 		//이미지 삽입
@@ -74,13 +81,31 @@ public class DiaryController {
 				}
 				diary.setAttachment(files);
 				diaryService.writeDiary(diary);
+				//registPlantService.registPlant(registplant);
 			
-				return "redirect:/home.action";
+				return "redirect:/diary_list.action";
 	}
 	
 	@GetMapping(value = "/diary_list.action")
+	public String diary_list(Model model, HttpSession session) {
+		
+		String memId = ((Account)session.getAttribute("loginuser")).getMemId();
+	
+		//////////////////////////////////////////////////////////////////////////////
+		List<Diary> diary = diaryService.findDiaryCategory(memId);
+	
+		ArrayList<RegistPlant> myFlowerpots = registPlantService.findRegistFlowerpotByMemId(memId);
+		model.addAttribute("myFlowerpots", myFlowerpots);
+		
+		model.addAttribute("diaries", diary);
+		model.addAttribute("memId", memId);
+		
+		return "diary/diary-list-1";
+	}
+	
+	/*@GetMapping(value = "/diary_list.action")
 	public String diary_list(Model model, HttpSession session,
-			/*@RequestParam(value = "memId") String memId,*/
+			@RequestParam(value = "memId") String memId,
 			@RequestParam(value = "pageno", defaultValue = "1") int pageNo,
 			String diaTitle) {
 		
@@ -106,13 +131,16 @@ public class DiaryController {
 	
 		//SimpleDateFormat diaDate = new SimpleDateFormat("dd-MMM-yyyy", new Locale("en", "US"));
 		
+		ArrayList<RegistPlant> myFlowerpots = registPlantService.findRegistFlowerpotByMemId(memId);
+		model.addAttribute("myFlowerpots", myFlowerpots);
+		
 		model.addAttribute("diaries", diary);
 		model.addAttribute("pager", pager);
 		model.addAttribute("diaryAllImg", diaryAllImg);
 		model.addAttribute("memId", memId);
 		
-		return "diary/diary_list";
-	}
+		return "diary/diary-list-1";
+	}*/
 	
 	@GetMapping(value = "/diary_detail.action")
 	public String diary_detail(
