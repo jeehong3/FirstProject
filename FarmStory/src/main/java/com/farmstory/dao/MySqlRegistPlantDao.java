@@ -43,5 +43,10 @@ public class MySqlRegistPlantDao implements RegistPlantDao {
 		return registPlantMapper.potNoTest(regPotNo);
 	}
 	
+	@Override
+	public ArrayList<RegistPlant> selectRegistFlowerpotByMemId(String memId){
+	 	return registPlantMapper.selectRegistFlowerpotByMemId(memId);
+	}
+	
 	
 }

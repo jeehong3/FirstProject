@@ -1,5 +1,6 @@
 package com.farmstory.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.farmstory.vo.Plant;
@@ -27,6 +28,6 @@ public interface PlantService {
 
 	void writeNewImagesPlantInfo(PlantImg plantImg);
 
-	void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg);
+	void deleteOldImageFileByPlaNoAndImgIdx(HashMap<String, Object> params);
 
 }

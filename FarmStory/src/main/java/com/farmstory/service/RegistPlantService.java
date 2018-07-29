@@ -15,4 +15,6 @@ public interface RegistPlantService {
 
 	int potNoTest(String regPotNo);
 
+	ArrayList<RegistPlant> findRegistFlowerpotByMemId(String memId);
+
 }

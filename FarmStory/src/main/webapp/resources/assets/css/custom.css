@@ -5,37 +5,14 @@
 /* Insert your own styles in here! */
 
 /* ==== Fonts-NotoSansKR : Start ============================= */
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
-.notoSansKR {
-	font: 24px/30px 'Noto Sans KR', sans-serif;
-}
-
-.thin {
-	font-weight: 100
-}
-
-.light {
-	font-weight: 300
-}
-
-.regular {
-	font-weight: 400
-}
-
-.medium {
-	font-weight: 500
-}
-
-.bold {
-	font-weight: 700
-}
-
-.bolder {
-	font-weight: 900
+body, main, h1, h2, h4, .btn{
+	font-family: 'godoM';
 }
 
 /* ==== Fonts-NotoSansKR : End ============================= */
+
+
 
 /* ==== Header : Start ============================= */
 #welcome {
@@ -56,6 +33,11 @@
 	border-top-right-radius: 6px;
 	border-bottom: 0;
 	padding: 10px 20px;
+	font-family: 'godoM';
+}
+.modal-title{
+	font-family: 'godoM';
+	color: #7abb29;
 }
 
 .form-group {
@@ -73,10 +55,12 @@
 .modal-dialog {
 	width: 350px;
 	height: 600px;
+	font-family: 'godoM';
 }
 
 .modal-body {
 	padding: 10px 20px;
+	font-family: 'godoM';
 }
 
 .btn-default {
@@ -85,6 +69,7 @@
 	border: none;
 	color: #fff;
 	margin-top: 3px;
+	font-family: 'godoM';
 }
 
 .modalChange {
@@ -121,6 +106,15 @@
 /* ==== Plant Write&Update : Start ============================= */
 .writeMeunBtn {
 	margin-left: 15px;
+}
+
+#registerTitle, #modifyTitle {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+#registerForm, #modifyForm {
+	padding-top: 0px;
 }
 
 /* ==== Plant Write&Update : End ============================= */

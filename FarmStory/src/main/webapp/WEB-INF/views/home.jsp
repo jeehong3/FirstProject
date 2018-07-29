@@ -8,13 +8,12 @@
 <html lang="ko">
 	<head>
 		<!-- Meta -->
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>팜스토리</title>
+		<title>Farm Story</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
@@ -43,8 +42,8 @@
 						<div class="container">
 							<div class="caption vertical-center text-center">
 								
-								<h1 class="fadeInDown-1 light-color">공기정화식물은 <br>어떻게 키울까?</h1>
-								<p class="fadeInDown-2 light-color">당신을 위한 식물 정보 가이드 팜스토리와 함께 키우세요.</p>
+								<h1 class="fadeInDown-1 light-color">공기 정화 식물은<br> 어떻게 키울까?</h1>
+								<p class="fadeInDown-2 light-color">당신을 위한 식물 정보 가이드<br> 팜스토리와 함께 키우세요.</p>
 								<div class="fadeInDown-3">
 									<a href="/farmstory/plant_list.action" class="btn btn-large">식물 정보 보기</a>
 								</div><!-- /.fadeIn -->
@@ -57,8 +56,8 @@
 						<div class="container">
 							<div class="caption vertical-center text-right">
 								
-								<h1 class="fadeInLeft-1 light-color">구매한 화분을 <br>등록해보세요</h1>
-								<p class="fadeInLeft-2 light-color">당신이 식물을 키우는 일이 보다 쉬워집니다.<br>매일 상태를 알려주는 서비스를 이용해보세요.</p>
+								<h1 class="fadeInLeft-1 light-color">구매한 화분을<br> 등록해보세요</h1>
+								<p class="fadeInLeft-2 light-color">식물을 키우는 일이 보다 쉬워집니다.<br>매일 상태를 알려주는 서비스를 이용해보세요.</p>
 								<div class="fadeInLeft-3">
 									<a href="/farmstory/plant_regist.action" class="btn btn-large">나의 화분 등록하기</a>
 								</div><!-- /.fadeIn -->
@@ -73,8 +72,8 @@
 						<div class="container">
 							<div class="caption vertical-top text-center" style="padding-top: 200px;">
 								
-								<h2 class="fadeInDown-1 light-color">내가 키우는 식물을 나만의 다이어리로 남기세요.</h2>
-								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요</p>
+								<h1 class="fadeInDown-1 light-color">나만의 다이어리로 남기세요</h1>
+								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요.</p>
 								<div class="fadeInDown-3">
 									<a href="/farmstory/diary_write.action" class="btn btn-large">다이어리 쓰기</a>
 								</div><!-- /.fadeIn -->
@@ -97,7 +96,7 @@
 					<div class="row">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/art/product01.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
@@ -111,7 +110,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 col-sm-push-6 inner-left-xs">
-							<figure><img src="/farmstory/resources/assets/images/art/product02.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 col-sm-pull-6 inner-top-xs inner-right-xs">
@@ -125,7 +124,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/art/product03.jpg" alt=""></figure>
+							<figure><img src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">

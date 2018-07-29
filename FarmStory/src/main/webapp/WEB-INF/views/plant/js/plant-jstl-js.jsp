@@ -89,16 +89,19 @@
 			event.preventDefault();
 			var index = $(this).data("index");
 			var oldImgFileName = $("#oldImgFileName" + index).val();
-			var imgIdx = $("#oldImgIdx" + index).val();
+			var oldImgIdx = $("#oldImgIdx" + index).val();
 			var plaNo = $("#plantInfoNumber").val();
 		
 		 	$.ajax({
 				"url" : "/farmstory/plant_delete_old_img.action",
-				"method" : "POST",
+				"method" : "GET",
 				"data" : { "oldImgFileName" : oldImgFileName,
-						   "imgIdx" : imgIdx},
+						   "oldImgIdx" : oldImgIdx,
+						   "plaNo" : plaNo},
 				"success" : function(data, status, xhr) {
 					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
+					//$("div.old-images").remove();
+					$("#owl-popular-posts").load("/plant_refresh_old_img.action?plaNo=" + plaNo);
 					
 				},
 				"error" : function (xhr, status, err) {
@@ -116,23 +119,7 @@
 		
 		// 사진 파일 업로드 폼을 추가하는 함수이다.
 		function fn_fileAddAndModify() {
-			var str = $(
-					+"<div id='modifyAndAddForm'>"
-					+   "<h4>미리보기 사진 수정</h4>"
-					+     "<div class='row'>"
-					+ 		  "<div class='col-sm-12'>"
-					+			  "<h6>미리보기용 사진 추가</h6>"
-					+			  "<input type='file' name='thumnailImg' class='form-control'>"
-					+	  "</div>"
-					+	  "</div>"
-					+	  "<h4>추가 사진 등록</h4>"
-					+	  "<h6>상세페이지 사진 추가</h6>"
-					+	  "<div id='fileDiv' class='row'>"
-					+		  "<div class='col-sm-12'>"
-					+			  "<input type='file' name='plantImg' class='form-control'>"
-					+		  "</div>"
-					+	  "</div>"
-					+"</div>");
+			var str = $("<h4>목록페이지 사진 수정</h4><div class='row'><div class='col-sm-12'><h6>목록페이지 사진 선택</h6><input type='file' name='thumnailImg' class='form-control'></div></div><br><h4>상세페이지 사진 추가 등록</h4><h6>상세페이지 사진 선택</h6><div id='fileDiv' class='row'><div class='col-sm-12'><input type='file' name='plantImg' class='form-control'><br></div></div></div>");
 			$("#fileAddAndModifyDiv").append(str);
 		}
 		

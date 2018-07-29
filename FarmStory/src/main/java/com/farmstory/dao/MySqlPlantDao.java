@@ -1,5 +1,6 @@
 package com.farmstory.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.farmstory.mapper.PlantMapper;
@@ -81,9 +82,9 @@ public class MySqlPlantDao implements PlantDao  {
 	}
 	
 	@Override
-	public void deleteOldImageFileByPlaNoAndImgIdx(PlantImg plantImg) {
+	public void deleteOldImageFileByPlaNoAndImgIdx(HashMap<String, Object> params) {
 		
-		plantMapper.deleteOldImageFileByPlaNoAndImgIdx(plantImg);
+		plantMapper.deleteOldImageFileByPlaNoAndImgIdx(params);
 	}
 	
 }
