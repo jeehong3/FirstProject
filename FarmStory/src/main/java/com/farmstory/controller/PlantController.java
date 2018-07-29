@@ -178,7 +178,7 @@ public class PlantController {
 
 	@PostMapping(value = "/plant_update.action")
 	public String modifyPlantInfo(Plant plant, PlantImg plantImg, MultipartHttpServletRequest mtfRequest,
-			@RequestParam(value = "lastImgIdx") int lastImgIdx, @RequestParam(value = "plaNo") int plaNo) {
+			@RequestParam(value = "lastImgIdx") int lastImgIdx, @RequestParam(value = "plaNo") int plaNo, Model model) {
 		String returnUrl = "";
 		String[] oldImgFileNames = mtfRequest.getParameterValues("oldImgFileName");
 
@@ -193,7 +193,7 @@ public class PlantController {
 		if (thumnail == null) {
 			// DB에 수정된 데이터를 입력한다.
 			plantService.modifyPlantInfo(plant);
-			returnUrl = "redirect:/plant_detail.action?plaNo=" + plaNo;
+			returnUrl = "redirect:plant_detail.action?plaNo="+ plaNo;
 		} else {
 			// 수정할 미리보기 사진파일이 있을 경우 실행된다.
 			if (!thumnail.isEmpty()) {
@@ -298,9 +298,9 @@ public class PlantController {
 
 			// DB에 수정된 데이터를 입력한다.
 			plantService.modifyPlantInfo(plant);
-			returnUrl = "redirect:/plant_detail.action?plaNo=" + plaNo;
+			returnUrl = "redirect:plant_detail.action?plaNo="+ plaNo;
 		}
-
+		
 		return returnUrl;
 	}
 

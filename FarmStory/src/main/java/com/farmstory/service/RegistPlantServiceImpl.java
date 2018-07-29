@@ -41,5 +41,11 @@ public class RegistPlantServiceImpl implements RegistPlantService {
 	public ArrayList<RegistPlant> findRegistFlowerpotByMemId(String memId) {
 		return registPlantDao.selectRegistFlowerpotByMemId(memId);
 	}
+	
+	@Override
+	public void deleteMyFlowerpotByRegPotNo(String regPotNo) {
+		
+		registPlantDao.deleteMyFlowerpotByRegPotNo(regPotNo);
+	}
 
 }

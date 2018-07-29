@@ -101,6 +101,11 @@ body, main, h1, h2, h4, .btn{
 	font-size: 17px;
 }
 
+#modal-dialog-ok {
+	width: 350px;
+	height: 280px;
+}
+
 /* ==== Plant List : End ============================= */
 
 /* ==== Plant Write&Update : Start ============================= */

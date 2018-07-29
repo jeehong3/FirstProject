@@ -90,7 +90,27 @@
 			</section>
 			
 			<!-- ============================================================= SECTION â PORTFOLIO : END ============================================================= -->
-			
+			<div id="modifyOk" class="modal fade" role="dialog">
+			<div id="modal-dialog-ok" class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">
+							&nbsp;<i class="icon-login-1"></i>&nbsp;확인 메시지
+						</h4>
+					</div>
+					<div class="modal-body" align="center">
+						<h4>
+							정보 수정이 완료되었습니다.
+						</h4>
+					</div>
+					<div class="modal-footer">
+						<a class="btn" data-dismiss="modal" aria-hidden="true">확인</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		</main>
 		
 		<!-- ============================================================= MAIN : END ============================================================= -->

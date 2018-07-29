@@ -40,4 +40,9 @@
 		ON P.PLA_NO = I.PLA_NO
 		WHERE R.MEM_ID = #{memId} AND I.IMG_IDX = 1
 	</select>
+	
+	<delete id="deleteMyFlowerpotByRegPotNo" parameterType="RegistPlant">
+		DELETE FROM REGISTPLANT
+		WHERE REG_POTNO = #{regPotNo}
+	</delete>
 </mapper>  

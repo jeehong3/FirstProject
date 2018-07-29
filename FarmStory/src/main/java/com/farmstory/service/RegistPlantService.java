@@ -17,4 +17,6 @@ public interface RegistPlantService {
 
 	ArrayList<RegistPlant> findRegistFlowerpotByMemId(String memId);
 
+	void deleteMyFlowerpotByRegPotNo(String regPotNo);
+
 }

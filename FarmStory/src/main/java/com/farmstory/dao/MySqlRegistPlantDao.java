@@ -48,5 +48,9 @@ public class MySqlRegistPlantDao implements RegistPlantDao {
 	 	return registPlantMapper.selectRegistFlowerpotByMemId(memId);
 	}
 	
-	
+	@Override
+	public void deleteMyFlowerpotByRegPotNo(String regPotNo) {
+		
+		registPlantMapper.deleteMyFlowerpotByRegPotNo(regPotNo);
+	}
 }
