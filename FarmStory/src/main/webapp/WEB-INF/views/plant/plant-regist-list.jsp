@@ -20,6 +20,8 @@
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
+
+
 </head>
 
 <body>
@@ -54,23 +56,29 @@
 			<div class="row inner-top-sm">
 				<div id="owl-latest-works" class="owl-carousel owl-item-gap">
 
-					<c:forEach var="myFlowerpots" items="${ myFlowerpots }">
+					<c:forEach var="myFlowerpots" items="${ myFlowerpots }"
+						varStatus="status">
 						<div class="item">
-								<figure>
-									<figcaption class="text-overlay">
-										<div class="info">
-											<h4>${ myFlowerpots.plaName }</h4>
-											<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
-											<a id="modifyPotBtn" href="#" class="btn">수정</a>
-											<a id="deletePotBtn" href="#" class="btn">삭제</a>
-										</div>
-										<!-- /.info -->
-									</figcaption>
-									<img src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }" alt="">
-								</figure>
-							<a id="myDiaryBtn" href="/farmstory/diary_write.action" class="btn">다이어리 쓰기</a>
-							<a id="flowerPotInfoBtn" href="/farmstory/value/findTime.action" class="btn">화분정보 보기</a>
+							<figure>
+								<figcaption class="text-overlay">
+									<div class="info">
+										<h4>${ myFlowerpots.plaName }</h4>
+										<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
+										<a class="btn">수정</a> <a class="btn deletePotBtn"
+											data-index="${ status.index }">삭제</a>
+									</div>
+									<!-- /.info -->
+								</figcaption>
+								<img
+									src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }"
+									alt="">
+							</figure>
+							<a id="myDiaryBtn" href="/farmstory/diary_write.action"
+								class="btn">다이어리 쓰기</a> <a id="flowerPotInfoBtn"
+								href="/farmstory/value/findTime.action" class="btn">화분정보 보기</a>
 						</div>
+						<input id="myPotNo${ status.index }" type="hidden" name="regPotNo"
+							value="${ myFlowerpots.regPotNo }">
 					</c:forEach>
 					<!-- /.item -->
 				</div>
@@ -79,6 +87,8 @@
 			<!-- /.row -->
 		</div>
 		<!-- /.container -->
+
+		
 	</section>
 
 	<!-- ============================================================= SECTION â LATEST WORKS : END ============================================================= -->
@@ -100,6 +110,31 @@
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
 
 	<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
+	<script type="text/javascript">
+		$("a.deletePotBtn").on("click", function(event) {
+			event.preventDefault();
+			var index = $(this).data("index");
+			var regPotNo = $("#myPotNo" + index).val();
 
+			if (confirm("지금까지 작성한 다이어리도 함께 삭제 됩니다. 정말로 삭제하시겠습니까?")) {
+				$.ajax({
+					"url" : "/farmstory/my_flowerpot_delete.action",
+					"method" : "GET",
+					"data" : {
+						"regPotNo" : regPotNo
+					},
+					"success" : function(data, status, xhr) {
+						location.href = "/farmstory/my_flowerpot_list.action";
+						alert("[ " + regPotNo + " ]" + "번 화분이 삭제되었습니다.");
+					},
+					"error" : function(xhr, status, err) {
+						alert("오류 발생!!");
+					}
+				});
+
+			}
+
+		});
+	</script>
 </body>
 </html>

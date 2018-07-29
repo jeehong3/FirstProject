@@ -56,7 +56,9 @@
 	/* =================== Plant Write&Update : End  ====================================================== */
 	
 	/* =================== Plant Modify&Delete : Start  ====================================================== */
-	
+		<c:if test="${updateComplete eq 'modifyOk'}">
+			$("#modifyOk").modal("show");
+		</c:if>
 		$("#deleteInfoBtn").on("click", function(event) {
 			event.preventDefault();
 			location.href="/farmstory/plant_delete.action?plaNo=${ plant.plaNo }";
@@ -91,23 +93,25 @@
 			var oldImgFileName = $("#oldImgFileName" + index).val();
 			var oldImgIdx = $("#oldImgIdx" + index).val();
 			var plaNo = $("#plantInfoNumber").val();
-		
-		 	$.ajax({
-				"url" : "/farmstory/plant_delete_old_img.action",
-				"method" : "GET",
-				"data" : { "oldImgFileName" : oldImgFileName,
-						   "oldImgIdx" : oldImgIdx,
-						   "plaNo" : plaNo},
-				"success" : function(data, status, xhr) {
-					//$("div.old-images").remove();
-					alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
-					$("div.oldImageFiles").load("/farmstory/plant_refresh_old_img.action?plaNo=" + plaNo);
-					
-				},
-				"error" : function (xhr, status, err) {
-					alert("오류 발생!!");
-				}
-			});
+			
+			if (confirm("사진을 삭제하시겠습니까?")) {
+			 	$.ajax({
+					"url" : "/farmstory/plant_delete_old_img.action",
+					"method" : "GET",
+					"data" : { "oldImgFileName" : oldImgFileName,
+							   "oldImgIdx" : oldImgIdx,
+							   "plaNo" : plaNo},
+					"success" : function(data, status, xhr) {
+						//$("div.oldImageFiles").load("/farmstory/plant_refresh_old_img.action?plaNo=" + plaNo);
+						location.href = "/farmstory/plant_update.action?plaNo=" + plaNo;
+						//alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
+						
+					},
+					"error" : function (xhr, status, err) {
+						alert("오류 발생!!");
+					}
+				});
+			}
 		});
 		
 		// 사진 파일 업로드 폼을 추가하는 스크립트이다.

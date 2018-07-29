@@ -89,7 +89,7 @@
 							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
+								<li><a href="/farmstory/diary_book_list.action">다이어리 북</a></li>
 								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
 								<li><a href="/farmstory/my_flowerpot_list.action">나의 등록 화분</a></li>

@@ -76,7 +76,7 @@ public class RegistPlantController {
 	}
 	
 	@RequestMapping(value="/my_flowerpot_list.action", method=GET)
-	public String showMyFlowerpot(Model model, HttpSession session) {
+	public String showMyFlowerpots(Model model, HttpSession session) {
 		
 		Account account = (Account) session.getAttribute("loginuser");
 		String memId = account.getMemId();
@@ -87,4 +87,14 @@ public class RegistPlantController {
 		
 	return "plant/plant-regist-list";
 }
+	
+	@RequestMapping(value="/my_flowerpot_delete.action", method=GET)
+	@ResponseBody
+	public String deleteMyFlowerpot(String regPotNo) {
+		
+		registPlantService.deleteMyFlowerpotByRegPotNo(regPotNo);
+
+	return "success";
+}
+	
 }

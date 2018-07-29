@@ -20,4 +20,6 @@ public interface RegistPlantDao {
 
 	ArrayList<RegistPlant> selectRegistFlowerpotByMemId(String memId);
 
+	void deleteMyFlowerpotByRegPotNo(String regPotNo);
+
 }
