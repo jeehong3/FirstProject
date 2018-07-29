@@ -35,6 +35,6 @@ public interface DiaryMapper {
 
 	void updateDiary(Diary diary);
 
-	List<Diary> findDiaryMonth(int diaNo);
+	List<Diary> findDiaryMonth(String memId);
 
 }

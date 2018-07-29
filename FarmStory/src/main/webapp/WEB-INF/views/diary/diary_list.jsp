@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="en" scope="request"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,7 +15,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>REEN</title>
+<title>Farm Story</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
@@ -106,60 +107,63 @@
 
 	<section id="blog" class="light-bg">
 		<div class="container inner-top-sm inner-bottom classic-blog">
-		<form id="monthSearchForm" action="diaryMonthCheck.action">
+		<form id="monthSearchForm" action="/farmstory/diaryMonthCheck.action">
 			<div class="row inner-bottom-xs">
-			<%-- <c:forEach var="diary" items="${ diary }"> --%>
 				<div class="col-sm-12">
 					<ul class="format-filter text-center">
-						<li><a class="active" href="#" data-filter="*" title="All"
+						<li><a href="#" class="active1" data-filter="*" title="All"
 							data-rel="tooltip" data-placement="top"><i class="icon-th"></i></a></li>
-						<li><a id="m1" href="#" data-filter=".format-standard"
+						<li><a href="#" id="monthSearch" data-filter=".01"
 							title="1월" data-rel="tooltip" data-placement="top"><i
 								class="icon-edit"></i></a></li>
-						<li><a id="m2" href="#" data-filter=".format-image" title="2월"
+						<li><a href="#" id="monthSearch" data-filter=".02" title="2월"
 							data-rel="tooltip" data-placement="top"><i
 								class="icon-picture-1"></i></a></li>
-						<li><a id="m3" href="#" data-filter=".format-gallery" title="3월"
+						<li><a id="monthSearch" href="#" data-filter=".03" title="3월"
 							data-rel="tooltip" data-placement="top"><i
 								class="icon-picture"></i></a></li>
-						<li><a id="m4" href="#" data-filter=".format-video" title="4월"
+						<li><a id="monthSearch" href="#" data-filter=".04" title="4월"
 							data-rel="tooltip" data-placement="top"><i
 								class="icon-video-1"></i></a></li>
-						<li><a id="m5" href="#" data-filter=".format-audio" title="5월"
+						<li><a id="monthSearch" href="#" data-filter=".05" title="5월"
 							data-rel="tooltip" data-placement="top"><i
 								class="icon-music-1"></i></a></li>
-						<li><a id="m6" href="#" data-filter=".format-quote" title="6월"
+						<li><a id="monthSearch" href="#" data-filter=".06" title="6월"
 							data-rel="tooltip" data-placement="top"><i class="icon-quote"></i></a></li>
-						<li><a id="m7" href="#" data-filter=".format-link" title="7월"
-							data-rel="tooltip" data-placement="top"><i class="icon-popup"></i></a></li>
+						<li><a id="monthSearch" href="#" data-filter=".07" title="7월"
+							data-rel="tooltip" data-placement="top"><i class="icon-quote"></i></a></li>
 					</ul>
 					<!-- /.format-filter -->
 				</div>
-				<%-- </c:forEach> --%>
-				<input type="hidden" name="diaNo" value="${ diary.diaNo }">
+				<input type="hidden" name="memId" value="${ loginuser.memId }">
 				<!-- /.col -->
 			</div>
 		</form>
 			<!-- /.row -->
-
+	
 			<div class="row">
-
 				<div class="col-md-9 inner-right-sm">
 					<div class="posts sidemeta">
-						<c:forEach var="diary" items="${ diaries }">
-							<div class="post format-gallery">
+						<c:forEach var="diary" items="${ diaries }" varStatus="status">
+						<div>
+						<%-- <c:forEach var="diaryMonth" items="${ diaryMonth }"> --%>
+						<div class="post <fmt:formatDate value="${diary.diaDate}" type="date" pattern="MM" />">
 								<div class="date-wrapper">
 									<div class="date">
-										<span class="day">${ diary.diaDate }</span>
+										<span class="day"><c:set var="diaDate" value="<%= new java.util.Date() %>" />
+										<fmt:formatDate value="${diary.diaDate}" type="date" pattern="MM-dd" />
+										</span>
 										<!-- <span class="month">May</span> -->
 									</div>
 									<!-- /.date -->
 								</div>
 								<!-- /.date-wrapper -->
+								
 								<div class="format-wrapper">
-									<a href="#" data-filter=".format-gallery"><i
+									<a href="#" data-filter="."><i
 										class="icon-picture"></i></a>
 								</div>
+			
 								<!-- /.format-wrapper -->
 								<div class="post-content">
 									<div id="owl-work"
@@ -188,13 +192,14 @@
 										<li class="likes"><a href="#">73</a></li>
 									</ul>
 									<!-- /.meta -->
-
 									<p>${ diary.diaContent }</p>
 
 									<a href="/farmstory/diary_detail.action?diaNo=${ diary.diaNo }" class="btn">Read more</a>
 
 								</div>
 								<!-- /.post-content -->
+							</div>
+							<%-- </c:forEach> --%>
 							</div>
 							<!-- /.post -->
 						</c:forEach>
@@ -253,8 +258,9 @@
 					</div>
 				</div>
 					<!-- /.pagination -->
-
+			
 				</div>
+				
 				<!-- /.col -->
 
 				<aside class="col-md-3">
@@ -325,83 +331,12 @@
 
 						<a href="#" class="txt-btn">All archives</a>
 					</div>
-					<!-- /.widget -->
-
-					<div class="sidebox widget">
-						<h4>Featured</h4>
-
-						<figure>
-
-							<div class="icon-overlay icn-link">
-								<a href="blog-post.html"><img
-									src="assets/images/art/work01.jpg" alt=""></a>
-							</div>
-							<!-- /.icon-overlay -->
-
-							<figcaption class="bordered no-top-border">
-								<div class="info">
-									<h4>
-										<a href="blog-post.html">Appscreen Dashboard</a>
-									</h4>
-									<p>Interactive</p>
-								</div>
-								<!-- /.info -->
-							</figcaption>
-
-						</figure>
-					</div>
-					<!-- /.widget -->
-
-					<div class="sidebox widget">
-						<h4>Custom Text</h4>
-						<p>Magnis modipsae que lib voloratati andigen daepeditem
-							reporemni labor. Laceaque quiae sitiorem rest non restibusaes es
-							tumquam core posae volor remped modis volor.</p>
-						<p>Conecus iure posae volor remped modiatis aut accabora incim
-							explabo eictemperum quiae sitiorem.</p>
-						<a href="#" class="txt-btn">Check out more</a>
-					</div>
-					<!-- /.widget -->
-
-					<div class="sidebox widget">
-						<h4>Tags</h4>
-
-						<div class="tagcloud">
-							<a href="#" style="font-size: 12pt;">Beautiful</a> <a href="#"
-								style="font-size: 20pt;">REEN</a> <a href="#"
-								style="font-size: 10pt;">Quality</a> <a href="#"
-								style="font-size: 14pt;">Website</a> <a href="#"
-								style="font-size: 16pt;">Template</a> <a href="#"
-								style="font-size: 12pt;">Professional</a> <a href="#"
-								style="font-size: 20pt;">Design</a> <a href="#"
-								style="font-size: 10pt;">Multipurpose</a> <a href="#"
-								style="font-size: 16pt;">Portfolio</a> <a href="#"
-								style="font-size: 10pt;">Customization</a> <a href="#"
-								style="font-size: 19pt;">Bootstrap</a> <a href="#"
-								style="font-size: 9pt;">Mobile</a> <a href="#"
-								style="font-size: 14pt;">Features</a> <a href="#"
-								style="font-size: 9pt;">Styles</a> <a href="#"
-								style="font-size: 13pt;">Responsive</a> <a href="#"
-								style="font-size: 9pt;">Font Icons</a> <a href="#"
-								style="font-size: 22pt;">Love</a> <a href="#"
-								style="font-size: 10pt;">Digital</a> <a href="#"
-								style="font-size: 18pt;">Awesome</a> <a href="#"
-								style="font-size: 12pt;">Passion</a> <a href="#"
-								style="font-size: 13pt;">Typography</a> <a href="#"
-								style="font-size: 13pt;">Clean</a> <a href="#"
-								style="font-size: 9pt;">Easy to use</a> <a href="#"
-								style="font-size: 20pt;">Buy it</a> <a href="#"
-								style="font-size: 12pt;">Success</a>
-						</div>
-						<!-- /.tag-cloud -->
-					</div>
-					<!-- /.widget -->
 
 				</aside>
 
 			</div>
 			<!-- /.row -->
-
+	
 		</div>
 		<!-- /.container -->
 	</section>
@@ -438,46 +373,24 @@
 									
 						});
 		
-		$('#monthSearch').on(
+		/* $('#monthSearchForm a[id=monthSearch]').on(
 				'click',
 				function(event) {
 					event.preventDefault();
-					var data = $("#monthSearchForm").serialize();
+					//var data = $("#monthSearchForm").serialize();
 					$.ajax({
 						"url" : "diaryMonthCheck.action",
-						"data" : data,
+						"data" : {
+							"data" : data
+						},
 						"success" : function(data, status, xhr) {
-							if(data =="01"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="02"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="03"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="04"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="05"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="06"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="07"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="08"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="09"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="10"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="11"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}else if(data =="12"){
-								location.href="/farmstory/diary_list.action?diaNo="+data;
-							}
+							alert("검색 성공");
 						},
 						"error" : function(request, status, error) {
 							alert("검색 실패");
 						}
 					});
-				});
+				}); */
 		
 		/* $('#review')
 		.on(

@@ -6,11 +6,11 @@
 <mapper namespace="com.farmstory.mapper.DiaryMapper">
 
 	<insert id="insertDiary" parameterType="Diary">
+		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
+		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
 		<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
-		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID)
-		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId})
 	</insert>
 
 	<insert id="insertDiaryImage" parameterType="DiaryImg">
@@ -25,8 +25,7 @@
 		FROM DIARY D
 		JOIN MEMBER M
 		ON D.MEM_ID = M.MEM_ID
-		WHERE D.MEM_ID = #{memId}
-		
+		WHERE D.MEM_ID = #{memId}	
 		<if test='diaTitle != null and diaTitle != ""'>
 			AND D.DIA_TITLE LIKE CONCAT('%', #{ diaTitle }, '%')
 		</if>
@@ -91,12 +90,4 @@
 	WHERE DIA_NO = #{diaNo}
 	</update>
 	
-	<!-- <select id="findDiaryMonth" parameterType="int" resultType="Diary">
-		SELECT D.DIA_NO diaNo, MONTH('DIA_DATE diaDate'), D.DIA_TITLE diaTitle,
-		D.DIA_CONTENT diaContent, D.MEM_ID memId
-		FROM DIARY D
-		JOIN MEMBER M
-		ON D.MEM_ID = M.MEM_ID
-		WHERE DIA_DATE LIKE '%' || MONTH || '%'
-	</select> -->
 </mapper>  

@@ -5,29 +5,19 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ko">
 	<head>
 		<!-- Meta -->
-		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>REEN</title>
+		<title>Farm Story - My Diary</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
-		<!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-		
-		 
-
-	
 
 	</head>
 	

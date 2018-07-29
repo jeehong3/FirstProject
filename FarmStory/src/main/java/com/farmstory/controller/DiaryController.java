@@ -1,8 +1,10 @@
 package com.farmstory.controller;	
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -102,6 +104,8 @@ public class DiaryController {
 		
 		List<DiaryImg> diaryAllImg = diaryService.findDiaryAllImg(memId);
 	
+		//SimpleDateFormat diaDate = new SimpleDateFormat("dd-MMM-yyyy", new Locale("en", "US"));
+		
 		model.addAttribute("diaries", diary);
 		model.addAttribute("pager", pager);
 		model.addAttribute("diaryAllImg", diaryAllImg);
@@ -188,12 +192,12 @@ public class DiaryController {
 				return "redirect:diary_detail.action?diaNo=" + diaNo;
 	}
 	
-	@GetMapping(value = "/diaryMonthCheck.action")
+	/*@GetMapping(value = "/diaryMonthCheck.action")
 	@ResponseBody
-	public String diaryMonthCheck(int diaNo, Model model) {
-		List<Diary> diary = diaryService.findDiaryMonth(diaNo);
-		model.addAttribute("diary", diary);
-		return "success";
-	}
+	public String diaryMonthCheck(String memId, Model model) {
+		List<Diary> diaryMonth = diaryService.findDiaryMonth(memId);
+		
+		return "diaryMonth";
+	}*/
 	
 }

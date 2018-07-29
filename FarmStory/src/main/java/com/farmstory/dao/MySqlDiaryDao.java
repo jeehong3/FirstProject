@@ -90,10 +90,5 @@ public class MySqlDiaryDao implements DiaryDao{
 		diaryMapper.updateDiary(diary);
 	}
 
-	@Override
-	public List<Diary> findDiaryMonth(int diaNo) {
-		List<Diary> diary = diaryMapper.findDiaryMonth(diaNo);
-		return diary;
-	}
 
 }

@@ -28,7 +28,4 @@ public interface DiaryService {
 
 	void updateDiary(Diary diary);
 
-	List<Diary> findDiaryMonth(int diaNo);
-
-
 }

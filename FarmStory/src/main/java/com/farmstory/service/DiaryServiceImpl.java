@@ -86,10 +86,5 @@ public class DiaryServiceImpl implements DiaryService{
 		}		
 	}
 
-	@Override
-	public List<Diary> findDiaryMonth(int diaNo) {
-		List<Diary> diary = diaryDao.findDiaryMonth(diaNo);
-		return diary;
-	}
 
 }
