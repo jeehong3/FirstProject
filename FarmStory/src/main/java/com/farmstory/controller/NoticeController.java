@@ -27,7 +27,7 @@ public class NoticeController {
 	String listBoard(Model model) {
 		List<Notice> notices = noticeService.listBoard();
 		model.addAttribute("notices",notices);
-		return "board/notice_list";
+		return "board/notice-list";
 	}
 	
 	@RequestMapping(value = "/notice_insert.action", method=POST)

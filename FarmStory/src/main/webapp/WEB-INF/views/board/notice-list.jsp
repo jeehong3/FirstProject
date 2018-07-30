@@ -33,10 +33,10 @@
 }
 
 #suggestSection {
-    padding: 5px 0px 5px 5px;
-    margin-top: 5px;
-    border-top: 2px solid #efefef;
-    font-size: 12px;
+	padding: 5px 0px 5px 5px;
+	margin-top: 5px;
+	border-top: 2px solid #efefef;
+	font-size: 12px;
 }
 </style>
 </head>
@@ -76,7 +76,7 @@
 		<!-- ============================================================= SECTION – MAP ============================================================= -->
 
 		<div id="noticeSection" class="recentActivitySection">
-			<div class="container inner">
+			<div class="container">
 
 				<div class="row">
 					<div class="col-xs-12 ">
@@ -105,10 +105,13 @@
 														<li>
 															<h4>
 																<a id="search-content" data-toggle="collapse"
-																	data-target="#contentSearch${ notice.noticeNo}" style="margin-left: 60px; font-size: 17px">${ notice.noticeTitle}</a>
-															</h4> <%pageContext.setAttribute("newLineChar", "\n");%>
+																	data-target="#contentSearch${ notice.noticeNo}"
+																	style="margin-left: 80px; font-size: 17px">${ notice.noticeTitle}</a>
+															</h4> <%
+ 	pageContext.setAttribute("newLineChar", "\n");
+ %>
 															<h4 id="contentSearch${ notice.noticeNo }"
-																class="collapse" style="margin-left: 60px;">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
+																class="collapse" style="margin-left: 80px;">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
 														</li>
 													</ul>
 												</td>
@@ -117,7 +120,7 @@
 													<ul class="list-inline listingsInfo text-left">
 														<li><fmt:formatDate value="${ notice.noticeDate }"
 																var="noticeDate" pattern="yyyy-MM-dd" />
-															<h4 style="margin-left: 110px; font-size: 17px">${noticeDate}</h4>
+															<h4 style="margin-left: 230px; font-size: 17px">${noticeDate}</h4>
 														</li>
 													</ul>
 												</td>
@@ -165,105 +168,23 @@
 			</div>
 		</c:forEach>
 	</div>
-<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-					
-	<div id="suggestSection" class="container inner">
-		<div class="row">
+	<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 
-			<div class="col-md-8 inner-right inner-bottom-md">
-
-				<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
-
-				<section id="contact-form">
-					<form id="noticeForm" class="forms11"
-						action="notice_insert.action" method="post">
-						<h2>공지사항 작성</h2>
-
-						<div class="row">
-							<div class="col-sm-6">
-								<h4>게시자</h4>
-								<input type="text" name="memberId" value="${ loginuser.memId }"
-									class="form-control" readonly="readonly">
-							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
-
-						<div class="row">
-							<div class="col-sm-6">
-								<h4>제목</h4>
-								<input type="text" name="noticeTitle" class="form-control"
-									placeholder="제목을 적어주세요." required="required">
-							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
-
-						<div class="row">
-							<div class="col-sm-12">
-								<h4>내용</h4>
-								<textarea name="noticeContent" class="form-control"
-									placeholder="내용을 적어주세요"></textarea>
-							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
-
-						<button type="submit" class="btn btn-default btn-submit111">공지사항 등록</button>
-
-					</form>
-
-					<div id="response"></div>
-
-				</section>
-
-				<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
-
-			</div>
-			<!-- ./col -->
-
-		</div>
-		<!-- /.row -->
-	</div>
-	<!-- ============================================================= SECTION – MAP : END ============================================================= -->
-</c:if>
-
-<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-	<!-- ============================================================= SECTION – HERO ============================================================= -->
-	<div class="건의사항">
-		<section class="light-bg img-bg img-bg-softer"
-			style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
-			<div id="suggestTitle" class="container inner">
-				<div class="row">
-					<div class="col-md-8 center-block text-center">
-						<header>
-							<h1>건의 사항</h1>
-							<p>건의사항이 있나요? 우리는 당신의 의견을 듣고 싶어요!</p>
-						</header>
-					</div>
-					<!-- /.col -->
-				</div>
-				<!-- ./row -->
-			</div>
-		</section>
-
-		<!-- ============================================================= SECTION – HERO : END ============================================================= -->
-
-		<div class="container inner">
+		<div id="suggestSection" class="container inner">
 			<div class="row">
 
 				<div class="col-md-8 inner-right inner-bottom-md">
 
 					<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
-					
+
 					<section id="contact-form">
-						<h2>건의사항 작성</h2>
-						<form id="suggestForm" class="forms11"
+						<form id="noticeForm" class="forms11"
 							action="notice_insert.action" method="post">
+							<h2>공지사항 작성</h2>
 
 							<div class="row">
 								<div class="col-sm-6">
-									<h4>아이디</h4>
+									<h4>게시자</h4>
 									<input type="text" name="memberId" value="${ loginuser.memId }"
 										class="form-control" readonly="readonly">
 								</div>
@@ -301,8 +222,8 @@
 							</div>
 							<!-- /.row -->
 
-							<button type="submit" class="btn btn-default btn-submit111">작성
-								내용 보내기</button>
+							<button type="submit" class="btn btn-default btn-submit111">공지사항
+								등록</button>
 
 						</form>
 
@@ -318,10 +239,102 @@
 			</div>
 			<!-- /.row -->
 		</div>
-		<!-- /.container -->
-	</div>
-</c:if>	
-	</main>
+		<!-- ============================================================= SECTION – MAP : END ============================================================= -->
+	</c:if> <!-- ============================================================= SECTION – HERO ============================================================= -->
+	<c:if test="${not empty loginuser and loginuser.memType eq 'USER'}">
+		<div class="건의사항">
+			<section class="light-bg img-bg img-bg-softer"
+				style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+				<div id="suggestTitle" class="container inner">
+					<div class="row">
+						<div class="col-md-8 center-block text-center">
+							<header>
+								<h1>건의 사항</h1>
+								<p>건의사항이 있나요? 우리는 당신의 의견을 듣고 싶어요!</p>
+								<p>회원만 의견을 주실 수 있어요.</p>
+							</header>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- ./row -->
+				</div>
+			</section>
+
+			<!-- ============================================================= SECTION – HERO : END ============================================================= -->
+
+			<div class="container inner">
+				<div class="row">
+
+					<div class="col-md-8 inner-right inner-bottom-md">
+
+						<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
+
+						<section id="contact-form">
+							<h2>건의사항 작성</h2>
+							<form id="suggestForm" class="forms11"
+								action="notice_insert.action" method="post">
+
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>아이디</h4>
+										<input type="text" name="memberId"
+											value="${ loginuser.memId }" class="form-control"
+											readonly="readonly">
+									</div>
+									<!-- /.col -->
+								</div>
+								<!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>이메일</h4>
+										<input type="email" value="${ loginuser.memEmail }"
+											class="form-control" readonly="readonly">
+									</div>
+									<!-- /.col -->
+								</div>
+								<!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-6">
+										<h4>제목</h4>
+										<input type="text" name="noticeTitle" class="form-control"
+											placeholder="제목을 적어주세요." required="required">
+									</div>
+									<!-- /.col -->
+								</div>
+								<!-- /.row -->
+
+								<div class="row">
+									<div class="col-sm-12">
+										<h4>내용</h4>
+										<textarea name="noticeContent" class="form-control"
+											placeholder="내용을 적어주세요"></textarea>
+									</div>
+									<!-- /.col -->
+								</div>
+								<!-- /.row -->
+
+								<button type="submit" class="btn btn-default btn-submit111">작성
+									내용 보내기</button>
+
+							</form>
+
+							<div id="response"></div>
+
+						</section>
+
+						<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
+
+					</div>
+					<!-- ./col -->
+
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.container -->
+		</div>
+	</c:if> </main>
 
 	<!-- ============================================================= MAIN : END ============================================================= -->
 
