@@ -14,7 +14,10 @@ public class SensorServiceImpl implements SensorService {
 	@Override
 	public void writeSensor(PlantVal plantVal) {
 		sensorDao.writeSensor(plantVal);
-		
+		int value5 = plantVal.getPlvChk();
+		if(value5 == 1) {
+		sensorDao.writeAlarm(plantVal);
+		}
 	}
 	
 }

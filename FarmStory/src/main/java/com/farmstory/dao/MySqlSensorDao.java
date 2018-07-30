@@ -13,6 +13,10 @@ public class MySqlSensorDao implements SensorDao{
 	public void writeSensor(PlantVal plantval) {
 		sensorMapper.writeSensor(plantval);
 	}
+	@Override
+	public void writeAlarm(PlantVal plantVal) {
+		sensorMapper.writeAlarm(plantVal);
+	}
 	
 	
 

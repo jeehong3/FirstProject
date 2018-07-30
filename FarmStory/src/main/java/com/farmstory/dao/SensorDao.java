@@ -6,4 +6,6 @@ public interface SensorDao {
 
 	public void writeSensor(PlantVal plantVal);
 
+	public void writeAlarm(PlantVal plantVal);
+
 }

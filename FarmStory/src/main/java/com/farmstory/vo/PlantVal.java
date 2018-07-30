@@ -8,7 +8,8 @@ public class PlantVal {
 	private String plvDateTime;
 	private String plvType;
 	private int plvVal;
-	
+	private int plvChk;
+	private String memberId; 
 	
 	public String getPlvDateTime() {
 		return plvDateTime;
@@ -39,6 +40,18 @@ public class PlantVal {
 	}
 	public void setPlvVal(int plvVal) {
 		this.plvVal = plvVal;
+	}
+	public int getPlvChk() {
+		return plvChk;
+	}
+	public void setPlvChk(int plvChk) {
+		this.plvChk = plvChk;
+	}
+	public String getMemberId() {
+		return memberId;
+	}
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 	
 	
