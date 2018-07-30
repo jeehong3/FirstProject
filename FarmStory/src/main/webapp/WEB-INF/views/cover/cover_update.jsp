@@ -226,15 +226,32 @@
 			    //전송버튼 클릭이벤트
 			    $("#updatebutton").click(function(event){
 			    	
-			    	event.preventDefault();
+/* 			    	event.preventDefault();
 			    	event.stopPropagation();
 			    	
 			        //id가 smarteditor인 textarea에 에디터에서 대입
 			        editor_object.getById["leftSmartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
-			        editor_object.getById["rightSmartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
+			        editor_object.getById["rightSmartEditor"].exec("UPDATE_CONTENTS_FIELD", []); */
 			         
 			        // 이부분에 에디터 validation 검증
-			
+			        
+                    if(editor_object.getById && editor_object.getById){
+						//id가 smarteditor인 textarea에 에디터에서 대입
+						event.preventDefault();
+						event.stopPropagation();
+						
+						editor_object.getById["leftSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+						editor_object.getById["rightSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+                        }
+
+                        }else(){
+                        	event.preventDefault();
+    						event.stopPropagation();
+                        	
+                        } 
+			        
 			        //폼 submit
 			       $("#update-form").submit();
 			    });

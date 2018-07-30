@@ -78,7 +78,24 @@
 								<c:forEach var="cover" items="${ coverList }">
 								<div class="tab-content" id="tab-${ cover.covNo }">
 									<div class="row">
+									<c:if test="${ empty cover.covLcontent and not empty cover.covRcontent }">
+										<div class="col-md-5 col-md-offset-1 col-sm-6 inner-right-xs">
+												<figure>
+												<img
+													src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
+													style="width: 270px; height: 350px">
+											</figure>
+										</div><!-- /.col -->
 										
+										<div class="col-md-5 col-sm-6 inner-top-xs inner-left-xs">
+											<h3>
+												<span data-cover="title">${ cover.covTitle }</span>
+											</h3>
+											<p data-cover="rcontent">${ cover.covRcontent }</p>
+										</div><!-- /.col -->
+									</c:if>
+									
+									<c:if test="${ not empty cover.covLcontent and not empty cover.covRcontent }">
 										<div class="col-md-4 col-md-push-3 col-md-offset-1 col-sm-6 inner-left-xs inner-right-xs aos-init aos-animate" data-aos="fade-up">
 											<figure>
 												<img
@@ -89,28 +106,38 @@
 
 										<div class="col-md-3 col-md-pull-4 col-sm-6 inner-top-xs aos-init aos-animate" data-aos="fade-up">
 											<h3>
-												<span data-cover="title"></span>
+												<span data-cover="title">${ cover.covTitle }</span>
 											</h3>
-											<p data-cover="lcontent">Magnis modipsae lib voloratati
-												andigen daepedor quiate aut labor. Laceaque quiae sitiorem
-												resti est lore tumquam core posae volor uso remped modis
-												volor. Doloreiur qui commolu ptatemp dolupta orem retibusam
-												emnis et consent it accullignis orum lomnus.</p>
+											<p data-cover="lcontent">${ cover.covLcontent }</p>
 
 										</div>
 										<!-- /.col -->
 
 										<div class="col-md-3 col-sm-6 inner-top-xs aos-init aos-animate" data-aos="fade-up">
 											<h3>
-												<span data-cover="title"></span>
+												<span data-cover="title">${ cover.covTitle }</span>
 											</h3>
-											<p data-cover="rcontent">Magnis modipsae que lib
-												voloratati andigen daepedor quiate ut reporemni aut labor.
-												Laceaque quiae sitiorem ut restibusaes es tumquam core posae
-												volor remped modis volor. Doloreiur qui commolu ptatemp
-												dolupta orem retibusam emnis et consent accullignis lomnus.</p>
+											<p data-cover="rcontent">${ cover.covRcontent }</p>
 										</div>
-
+									</c:if>
+									
+									<c:if test="${ not empty cover.covLcontent and empty cover.covRcontent }">
+										<div class="col-md-5 col-md-push-5 col-md-offset-1 col-sm-6 col-sm-push-6 inner-left-xs">
+												<figure>
+													<img
+														src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
+														style="width: 270px; height: 350px">
+												</figure>
+											</div><!-- /.col -->
+											
+											<div class="col-md-5 col-md-pull-5 col-sm-6 col-sm-pull-6 inner-top-xs inner-right-xs">
+												<h3>
+												<span data-cover="title">${ cover.covTitle }</span>
+											</h3>
+											<p data-cover="lcontent">${ cover.covLcontent }</p>
+											</div><!-- /.col -->
+									</c:if>
+									
 									</div><!-- /.row -->
 								</div><!-- /.tab-content -->
 								</c:forEach>

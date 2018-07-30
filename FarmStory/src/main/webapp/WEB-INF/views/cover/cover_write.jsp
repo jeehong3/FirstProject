@@ -261,26 +261,46 @@
 		$("#savebutton").click(
 					function(event) {
 
-						event.preventDefault();
+/* 						event.preventDefault();
 						event.stopPropagation();
 
 						//id가 smarteditor인 textarea에 에디터에서 대입
 						editor_object.getById["leftSmartEditor"].exec(
 								"UPDATE_CONTENTS_FIELD", []);
 						editor_object.getById["rightSmartEditor"].exec(
-								"UPDATE_CONTENTS_FIELD", []);
+								"UPDATE_CONTENTS_FIELD", []); */
 
 						// 이부분에 에디터 validation 검증
+ 						
+						
+                        if(editor_object.getById && editor_object.getById){
+						//id가 smarteditor인 textarea에 에디터에서 대입
+						event.preventDefault();
+						event.stopPropagation();
+						
+						editor_object.getById["leftSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+						editor_object.getById["rightSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+                        }
 
+                        }else{
+                        	event.preventDefault();
+    						event.stopPropagation();
+                        	
+                        } 
+						
 						//폼 submit
 						$("#cover-form").submit();
 					});
 
 			//리스트 이동버튼
-/* 			$("#list").click(function(event) {
-				event.preventDefualt();
-				$("list_form").submit();
-			}); */
+
+		$("#listbutton").click(function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+				location.href='/farmstory/cover_list.action';
+			});
 			$('#addImageBtn')
 					.on(
 							'click',
