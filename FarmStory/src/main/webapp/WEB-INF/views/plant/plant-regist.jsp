@@ -7,19 +7,22 @@
 <html lang="ko">
 <head>
 <!-- Meta -->
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>REEN</title>
+<title>FARM STORY - Register Flowerpot</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
-
+<style type="text/css">
+#modal-dialog-search{
+	 
+}
+</style>
 
 </head>
 
@@ -32,31 +35,16 @@
 
 	<!-- ============================================================= MAIN ============================================================= -->
 
-
-
-	<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
-
-	<!-- Account - Register Modal : START -->
-	<jsp:include page="/WEB-INF/views/include/account/modal-register.jsp" />
-	<!-- Account - Register Modal : END   -->
-
-	<!-- Account - Login Modal : START -->
-	<jsp:include page="/WEB-INF/views/include/account/modal-login.jsp" />
-	<!-- Account - Login Modal : END   -->
-
-	<!-- Account - Logout Modal : START -->
-	<jsp:include page="/WEB-INF/views/include/account/modal-logout.jsp" />
-	<!-- Account - Logout Modal : END   -->
-
 	<main class="js-reveal">
 
+	<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
 	<section id="register-plant-form">
 		<div class="container inner">
 
 			<div class="row">
 				<div class="col-md-8 col-sm-9 center-block text-center">
 					<header>
-						<h1>제품 등록하기</h1>
+						<h1>화분 등록하기</h1>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -79,7 +67,7 @@
 
 								<div class="row">
 									<div class="col-sm-4">
-										<input type="text" name="memId" class="form-control"
+									<input type="text" name="memId" class="form-control"
 											value="${loginuser.memId}" readonly>
 									</div>
 								</div>
@@ -97,7 +85,6 @@
 
 								<div class="row">
 									<div class="col-sm-8">
-										
 										<input type="hidden" name="plaNo" id="searched-no"
 											placeholder="식물번호 가져오는 히든 input" >
 											
@@ -129,13 +116,13 @@
 
 						<div class="col-sm-6 outer-top-md inner-left-sm border-left">
 
-							<h2>제품번호란??</h2>
+							<h2>화분번호란?</h2>
 							<p>화분 구매시 주어지는 고유값입니다. 정확하게 입력을 하셔야 화분의 기능을 최대로 활용이 가능합니다.</p>
 
 							<h3>건의사항</h3>
 							<ul class="contacts">
-								<li>궁금한 것이 있으시다면??</li>
-								<li class="red"><a href="/board/notice_list.action"><i
+								<li>궁금한 것이 있으시다면?</li>
+								<li class="red"><a href="/farmstory/board/notice_list.action"><i
 										class="icon-mail-1 contact"></i> 건의사항 가기</a></li>
 							</ul>
 							<!-- /.contacts -->
@@ -162,11 +149,11 @@
 	<!-- ============================================================= MAIN : END ============================================================= -->
 
 	<div id="SearchPlant" class="modal fade " role="dialog">
-		<div id="modal-dialog-login" class="modal-dialog SearchPlant">
+		<div id="modal-dialog-search" class="modal-dialog SearchPlant">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title">
-					&nbsp;<i class="icon-login-1"></i>&nbsp;검색
+					&nbsp;<i class="icon-search"></i>&nbsp;검색
 				</h4>
 			</div>
 			<!-- Modal content-->
@@ -174,8 +161,10 @@
 				<div class="modal-body">
 					<ul id="searched-plants">
 					</ul>
-					<button class="btn btn-default" id="search-finished">완료</button>
 				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-default" id="search-finished">완료</button>
 			</div>
 		</div>
 	</div>

@@ -84,17 +84,7 @@
 								<!-- /.dropdown-menu -->
 							</c:if></li>
 						<!-- /.dropdown -->
-
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown">나의 화분</a>
-
-							<ul class="dropdown-menu">
-								<li><a href="/farmstory/diary_book_list.action">다이어리 북</a></li>
-								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
-								<li><a href="/farmstory/my_flowerpot_list.action">나의 화분</a></li>
-							</ul> <!-- /.dropdown-menu --></li>
-						<!-- /.dropdown -->
-
+						
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">식물 키우기</a>
 
@@ -109,8 +99,25 @@
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
-						<li class="dropdown"><a href="/farmstory/board/notice_list.action" class="dropdown-toggle"
-							data-toggle="dropdown">고객센터</a>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">나의 화분</a>
+
+							<ul class="dropdown-menu">
+								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
+								<li><a href="/farmstory/my_flowerpot_list.action">나의 화분</a></li>
+							</ul> <!-- /.dropdown-menu --></li>
+						<!-- /.dropdown -->
+						
+						<li class="dropdown"><a href="/farmstory/diary_book_list.action" class="dropdown-toggle"
+							data-toggle="dropdown">다이어리</a>
+							
+							<ul class="dropdown-menu">
+								<li><a href="/farmstory/diary_book_list.action">나의 다이어리 북</a></li>
+							</ul> <!-- /.dropdown-menu --></li>
+						<!-- /.dropdown -->
+
+
+						<li class="dropdown"><a href="/farmstory/board/notice_list.action" >고객센터</a>
 
 						<c:if test="${not empty loginuser }">
 							<li class="dropdown pull-right searchbox"><a href="#"

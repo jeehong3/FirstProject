@@ -13,7 +13,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>Farm Story - Plant</title>
+		<title>FARM STORY - Plant</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
@@ -36,12 +36,11 @@
 			<!-- ============================================================= SECTION â PORTFOLIO ============================================================= -->
 		
 			<section id="portfolio">
-				
 				<div class="container inner">
 					<div class="row">
 						<div class="col-md-8 col-sm-9 center-block text-center">
 							<header>
-								<h2>어떻게 키워야할까?</h2>
+								<h1>어떻게 키워야할까?</h1>
 								<p>여기서 식물에 대한 정보를 보고가세요.</p>
 							</header>
 						</div><!-- /.col -->
@@ -55,8 +54,8 @@
 							<ul class="filter text-center">
 								<li><a href="#" data-filter="*" class="active">전체</a></li>
 								<li><a href="#" data-filter=".꽃">꽃</a></li>
-								<li><a href="#" data-filter=".관엽식물">관엽 식물</a></li>
-								<li><a href="#" data-filter=".활엽식물">활엽 식물</a></li>
+								<li><a href="#" data-filter=".관엽식물">관엽식물</a></li>
+								<li><a href="#" data-filter=".활엽식물">활엽식물</a></li>
 								<li><a href="#" data-filter=".란">란</a></li>
 							</ul><!-- /.filter -->
 							

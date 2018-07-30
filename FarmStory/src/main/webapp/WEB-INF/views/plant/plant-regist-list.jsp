@@ -15,12 +15,19 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Farm Story - My Flowerpot</title>
+<title>FARM STORY - My Flowerpot</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
-
+<style type="text/css">
+#owl-latest-works {
+	padding: 25px 0px 5px 5px;
+	margin-top: 5px;
+	border-top: 2px solid #efefef;
+	font-size: 12px;
+}
+</style>
 
 </head>
 
@@ -37,7 +44,7 @@
 
 	<main> <!-- ============================================================= SECTION â LATEST WORKS ============================================================= -->
 
-	<section id="latest-works" class="light-bg">
+	<section id="latest-works" class="white-bg">
 		<div class="container inner">
 
 			<div class="row">
@@ -60,7 +67,7 @@
 						varStatus="status">
 						<div class="item">
 							<figure>
-							 	<figcaption class="text-overlay">
+								<figcaption class="text-overlay">
 									<div class="info">
 										<h4>${ myFlowerpots.plaName }</h4>
 										<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
@@ -73,9 +80,11 @@
 									src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }"
 									alt="">
 							</figure>
-							<a id="myDiaryBtn" href="/farmstory/diary_write.action?regPotNo=${ myFlowerpots.regPotNo }&plaName=${ myFlowerpots.plaName }"
+							<a id="myDiaryBtn"
+								href="/farmstory/diary_write.action?regPotNo=${ myFlowerpots.regPotNo }&plaName=${ myFlowerpots.plaName }"
 								class="btn">다이어리 쓰기</a> <a id="flowerPotInfoBtn"
-								href="/farmstory/value/findTime.action?regPotNo=${ myFlowerpots.regPotNo }" class="btn">화분정보 보기</a>
+								href="/farmstory/value/findTime.action?regPotNo=${ myFlowerpots.regPotNo }"
+								class="btn">화분정보 보기</a>
 						</div>
 						<input id="myPotNo${ status.index }" type="hidden" name="regPotNo"
 							value="${ myFlowerpots.regPotNo }">
@@ -88,7 +97,7 @@
 		</div>
 		<!-- /.container -->
 
-		
+
 	</section>
 
 	<!-- ============================================================= SECTION â LATEST WORKS : END ============================================================= -->
@@ -128,7 +137,7 @@
 						alert("[ " + regPotNo + " ]" + "번 화분이 삭제되었습니다.");
 					},
 					"error" : function(xhr, status, err) {
-						alert("오류 발생!!");
+						alert("삭제에 실패하였습니다. 관리자에게 문의하세요.");
 					}
 				});
 
