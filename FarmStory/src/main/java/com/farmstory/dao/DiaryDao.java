@@ -12,11 +12,27 @@ public interface DiaryDao {
 
 	void insertDiaryImage(DiaryImg attachment);
 
-	List<Diary> findDiary(String memId);
+	List<Diary> findDiary(int from, int to, String memId, String diaTitle);
 
 	List<DiaryImg> findDiaryImg(int diaNo);
 
 	List<DiaryImg> findDiaryAllImg(String memId);
+
+	int selectCount();
+
+	Diary findDiaryByDiaryNo(String diaNo);
+
+	List<DiaryImg> findDiaryImgByDiaryNo(String diaNo);
+
+	void deleteDiary(String diaNo);
+
+	void deleteDiaryImgByAjax(String diaNo);
+
+	void deleteImgForUpdate(int diaNo);
+
+	void updateDiary(Diary diary);
+
+	List<Diary> findDiaryCategory(String memId);
 
 
 }

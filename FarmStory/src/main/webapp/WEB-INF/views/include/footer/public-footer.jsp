@@ -1,59 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<style>
+
+#footerLogo {
+	
+	height: 100px;
+}
+
+</style>
 <footer class="dark-bg">
 	<div class="container inner">
 		<div class="row">
 
 			<div class="col-md-3 col-sm-6 inner">
-				<h4>Who we are</h4>
-				<a href="/farmstory/home.action"><img class="logo img-intext"
-					src="/farmstory/resources/assets/images/logo-white.svg" alt=""></a>
-				<p>Magnis modipsae voloratati andigen daepeditem quiate re porem
-					que aut labor. Laceaque eictemperum quiae sitiorem rest non
-					restibusaes maio es dem tumquam.</p>
-				<a href="#" class="txt-btn">More about us</a>
+				<a href="/farmstory/home.action"><img id="footerLogo" class=""
+					src="/farmstory/resources/assets/images/farmstory-logo-white.png" alt=""></a>
+				<p>팜스토리는 당신의 식물을 보다 쉽게 키울 수 있도록 도와주는 서비스입니다.</p>
+				<a href="/farmstory/cover_detail.action" class="txt-btn">자세히 확인하기</a>
 			</div>
 			<!-- /.col -->
 
-			<div class="col-md-3 col-sm-6 inner">
-				<h4>Latest works</h4>
-
-				<div class="row thumbs gap-xs">
-
-					<div class="col-xs-6 thumb">
-						<figure class="icon-overlay icn-link">
-							<a href="portfolio-post.html"><img
-								src="/farmstory/resources/assets/images/art/work02.jpg" alt=""></a>
-						</figure>
-					</div>
-					<!-- /.thumb -->
-
-					<div class="col-xs-6 thumb">
-						<figure class="icon-overlay icn-link">
-							<a href="portfolio-post.html"><img
-								src="/farmstory/resources/assets/images/art/work03.jpg" alt=""></a>
-						</figure>
-					</div>
-					<!-- /.thumb -->
-
-					<div class="col-xs-6 thumb">
-						<figure class="icon-overlay icn-link">
-							<a href="portfolio-post.html"><img
-								src="/farmstory/resources/assets/images/art/work07.jpg" alt=""></a>
-						</figure>
-					</div>
-					<!-- /.thumb -->
-
-					<div class="col-xs-6 thumb">
-						<figure class="icon-overlay icn-link">
-							<a href="portfolio-post.html"><img
-								src="/farmstory/resources/assets/images/art/work01.jpg" alt=""></a>
-						</figure>
-					</div>
-					<!-- /.thumb -->
-
-				</div>
-				<!-- /.row -->
-			</div>
-			<!-- /.col -->
 
 
 			<div class="col-md-3 col-sm-6 inner">
@@ -94,11 +61,10 @@
 			<p class="pull-left">Copyright&copy; 2018. All Rights Reserved by Team Femme Fatale.</p>
 			<ul class="footer-menu pull-right">
 				<li><a href="/farmstory/home.action">Home</a></li>
-				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">Blog</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="/farmstory/cover_detail.action">Introduce</a></li>
+				<li><a href="/farmstory/diary_list.action">My Diary</a></li>
+				<li><a href="/farmstory/plant_list.action">Plant</a></li>
+				<li><a href="/farmstory/board/notice_list.action">Notice</a></li>
 			</ul>
 			<!-- .footer-menu -->
 		</div>

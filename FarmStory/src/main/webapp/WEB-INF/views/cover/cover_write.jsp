@@ -50,8 +50,8 @@
 			<div class="row">
 				<div class="col-md-8">
 					<header>
-						<h1>스마트팜 소개</h1>
-						<p>스마트팜에 대해서 소개를 합니다.</p>
+						<h1>스마트팜 소개 작성 페이지</h1>
+						<p>스마트팜 소개 작성하는 곳입니다.(관리자)</p>
 					</header>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 
 				<section id="cover-form-section">
 
-					<h2>다이어리 등록</h2>
+					<h2>소개 등록</h2>
 
 					<form id="cover-form" action="cover_write.action" method="post"
 						enctype="multipart/form-data">
@@ -83,7 +83,7 @@
 						<div class="row">
 							<div id="addImage">
 								<div class="col-sm-6">
-									<input type="file" name="covImage1" id="file"
+									<input type="file" name="cover_image" id="file"
 										class="form-control">
 								</div>
 								<!-- /.col -->
@@ -92,19 +92,42 @@
 						</div>
 						<!-- /.row -->
 						<br />
+						<%
+							//////////////////////////////////////////////////
+						%>
+						<!-- 왼쪽 소개내용 -->
 						<div class="row">
 							<div class="col-sm-20">
-								<textarea name="covContent" id="smarteditor"
-									class="form-control"></textarea>
-								<textarea name="covContent" id="smarteditor"
+								<textarea name="covLcontent" id="leftSmartEditor"
 									class="form-control"></textarea>
 							</div>
+							<!-- /.col -->
+						</div>
+
+						<div class="row">
+							<div class="col-sm-20"></div>
+							<!-- /.col -->
+						</div>
+						<%
+							//////////////////////////////////////////////////
+						%>
+						<!-- 오른쪽 소개내용 -->
+						<div class="row">
+							<div class="col-sm-20">
+								<textarea name="covRcontent" id="rightSmartEditor"
+									class="form-control"></textarea>
+							</div>
+							<!-- /.col -->
+						</div>
+
+						<div class="row">
+							<div class="col-sm-20"></div>
 							<!-- /.col -->
 						</div>
 						<!-- /.row -->
 
 						<button id="savebutton" class="btn btn-submit">등록하기</button>
-
+						<button id="listbutton" class="btn btn-submit">리스트이동</button>
 					</form>
 
 					<div id="response"></div>
@@ -115,8 +138,11 @@
 
 
 				<!-- ============================================================= SECTION – CONTACTS ============================================================= -->
-
-				<section id="contacts" class="inner-top-md inner-bottom-sm">
+				<%
+					//////////////////////////////////////////////////
+				%>
+				<!-- 왼쪽 섹션 -->
+				<section id="covLcontent" class="inner-top-md inner-bottom-sm">
 
 					<h2>Contacts</h2>
 					<p>
@@ -141,7 +167,34 @@
 					<!-- /.row -->
 
 				</section>
+				<%
+					//////////////////////////////////////////////////
+				%>
+				<section id="covRcontent" class="inner-top-md inner-bottom-sm">
+					<!-- 오른쪽 섹션 -->
+					<h2>covRcontent</h2>
+					<p>
+						Magnis modipsae voloratati andigen daepeditem quiate re aut labor.
+						<br>Laceaque eictemperum quiae sitiorem rest non restibusaes.
+					</p>
 
+					<div class="row">
+						<div class="col-sm-6">
+							<h3>REEN</h3>
+							<ul class="contacts">
+								<li><i class="icon-location contact"></i> 84 Street, City,
+									State 24813</li>
+								<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
+								<li><a href="mailto:info@reen.com"><i
+										class="icon-mail-1 contact"></i> info@reen.com</a></li>
+							</ul>
+							<!-- /.contacts -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+
+				</section>
 				<!-- ============================================================= SECTION – CONTACTS : END ============================================================= -->
 
 			</div>
@@ -168,48 +221,77 @@
 		src="/farmstory/resources/navereditor/js/HuskyEZCreator.js"
 		charset="utf-8"></script>
 	<script type='text/javascript'>
-			$(function(){
-				
-			    //전역변수선언
-			    var editor_object = [];
-			     
-			    nhn.husky.EZCreator.createInIFrame({
-			        oAppRef: editor_object,
-			        elPlaceHolder: "smarteditor",
-			        sSkinURI: "/farmstory/resources/navereditor/SmartEditor2Skin.html", 
-			        htParams : {
-			            // 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-			            bUseToolbar : true,             
-			            // 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-			            bUseVerticalResizer : true,     
-			            // 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-			            bUseModeChanger : true, 
-			        }
-			    });
-			     
-			    //전송버튼 클릭이벤트
-			    $("#savebutton").click(function(event){
-			    	
-			    	event.preventDefault();
-			    	event.stopPropagation();
-			    	
-			        //id가 smarteditor인 textarea에 에디터에서 대입
-			        editor_object.getById["smarteditor"].exec("UPDATE_CONTENTS_FIELD", []);
-			         
-			        // 이부분에 에디터 validation 검증
-			
-			        //폼 submit
-			       $("#cover-form").submit();
-			    });
-			    
-			    $('#addImageBtn').on('click', function(event) {
-					event.preventDefault();
-					event.stopPropagation();
-					var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"covImage1\"></div>");
-				$('#addImage').append(add);
-				});
-			});
-		</script>
+		$(function() {
+
+			//전역변수선언
+			var editor_object = [];
+
+			nhn.husky.EZCreator
+					.createInIFrame({
+						oAppRef : editor_object,
+						elPlaceHolder : "leftSmartEditor",
+						sSkinURI : "/farmstory/resources/navereditor/SmartEditor2Skin.html",
+						htParams : {
+							// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseToolbar : true,
+							// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseVerticalResizer : true,
+							// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseModeChanger : true,
+						}
+					});
+
+			nhn.husky.EZCreator
+					.createInIFrame({
+						oAppRef : editor_object,
+						elPlaceHolder : "rightSmartEditor",
+						sSkinURI : "/farmstory/resources/navereditor/SmartEditor2Skin.html",
+						htParams : {
+							// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseToolbar : true,
+							// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseVerticalResizer : true,
+							// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseModeChanger : true,
+						}
+					});
+
+			//전송버튼 클릭이벤트
+
+		$("#savebutton").click(
+					function(event) {
+
+						event.preventDefault();
+						event.stopPropagation();
+
+						//id가 smarteditor인 textarea에 에디터에서 대입
+						editor_object.getById["leftSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+						editor_object.getById["rightSmartEditor"].exec(
+								"UPDATE_CONTENTS_FIELD", []);
+
+						// 이부분에 에디터 validation 검증
+
+						//폼 submit
+						$("#cover-form").submit();
+					});
+
+			//리스트 이동버튼
+/* 			$("#list").click(function(event) {
+				event.preventDefualt();
+				$("list_form").submit();
+			}); */
+			$('#addImageBtn')
+					.on(
+							'click',
+							function(event) {
+								event.preventDefault();
+								event.stopPropagation();
+								var add = $("<div class=\"col-sm-6\"><input type=\"file\" class=\"form-control\" id=\"file\" name=\"covImage\"></div>");
+								$('#coverImage').append(add);
+							});
+		});
+	</script>
 
 </body>
 </html>

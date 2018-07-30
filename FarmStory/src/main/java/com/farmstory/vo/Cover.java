@@ -1,13 +1,20 @@
 package com.farmstory.vo;
 
-//웹 소개페이지를 DB에 저장하기 위한 vo 객체
+//팜스토리 소개 목록 vo 설정
 public class Cover {
 
 	private int covNo;
 	private String covTitle;
 	private String covLcontent;
-	private String covRocntent;
+	private String covRcontent;
 	private String covImg;
+	
+	public String getCovRcontent() {
+		return covRcontent;
+	}
+	public void setCovRcontent(String covRcontent) {
+		this.covRcontent = covRcontent;
+	}
 	
 	public int getCovNo() {
 		return covNo;
@@ -27,12 +34,7 @@ public class Cover {
 	public void setCovLcontent(String covLcontent) {
 		this.covLcontent = covLcontent;
 	}
-	public String getCovRocntent() {
-		return covRocntent;
-	}
-	public void setCovRocntent(String covRocntent) {
-		this.covRocntent = covRocntent;
-	}
+	
 	public String getCovImg() {
 		return covImg;
 	}

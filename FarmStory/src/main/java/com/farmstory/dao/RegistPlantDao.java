@@ -18,4 +18,8 @@ public interface RegistPlantDao {
 
 	int potNoTest(String regPotNo);
 
+	ArrayList<RegistPlant> selectRegistFlowerpotByMemId(String memId);
+
+	void deleteMyFlowerpotByRegPotNo(String regPotNo);
+
 }

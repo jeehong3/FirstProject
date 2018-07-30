@@ -13,7 +13,7 @@ public class CoverServiceImpl implements CoverService{
 		this.coverDao = coverDao;
 	}
 
-	//¼Ò°³ ¸ñ·Ï
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	public List<Cover> viewCoverList() {
 		
@@ -21,23 +21,36 @@ public class CoverServiceImpl implements CoverService{
 		return Covers;
 	}
 	
-	//¼Ò°³ÀÛ¼º
+	@Override
+	public List<Cover> viewTop3CoverList() {
+		
+		List<Cover> Covers = coverDao.selectTop3CoverList();
+		return Covers;
+	}
+	
+	//ï¿½Ò°ï¿½ï¿½Û¼ï¿½
 	@Override
 	public void writecover(Cover cover) {
 		
 		coverDao.insertCover(cover);
 	}
 	
-	//¼Ò°³º¸±â
+	//ï¿½Ò°ï¿½ ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
-	public List<Cover> findCoverBycovNo(int covNo) {
+	public List<Cover> findCoverBycovNo() {
 		
-		List<Cover> cover = coverDao.selectCoverInfoByCovNo(covNo);
+		List<Cover> Covers = coverDao.selectCoverInfoByCovNo();
 		
-		return cover;
+		return Covers;
 	}
 	
-	//¼Ò°³¼öÁ¤
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public Cover findCoverBycovNom(int covNo) {
+		Cover cover = coverDao.selectCovermInfoByCovNo(covNo);
+		return cover;
+	}
+	//ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void modifyCoverInfo(Cover cover) {
 		
@@ -45,7 +58,7 @@ public class CoverServiceImpl implements CoverService{
 		
 	}
 	
-	//¼Ò°³»èÁ¦
+	//ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public void deleteCoverInfo(int covNo) {
 		

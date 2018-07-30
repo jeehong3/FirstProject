@@ -6,19 +6,26 @@ import com.farmstory.vo.Cover;
 
 public interface CoverMapper {
     
-	//家俺 格废
+	//靻岅皽 氇╇
 	List<Cover> selectCoverList();
 	
-	//家俺 静扁
+	//靻岆箘靷毄 靻岅皽 氤搓赴
+	List<Cover> selectTop3CoverList();
+	
+	//靻岅皽 鞊瓣赴
 	void insertCover(Cover cover);
 	
-	//家俺 焊扁
-	List<Cover> selectCoverInfoByCovNo(int covNo);
+	//靻岆箘鞛愳毄 靻岅皽 靸橅攲 
+	List<Cover> selectCoverInfoByCovNo();
 	
-	//家俺 荐沥
+	//靻岅皽 靸侅劯氤搓赴
+	Cover selectCovermInfoByCovNo(int covNo);
+	
+	//靻岅皽 靾橃爼
 	void updateCover(Cover cover);
 	
-	//家俺 昏力
+	//靻岅皽 靷牅
 	void deleteCover(int covNo);
+
 
 }

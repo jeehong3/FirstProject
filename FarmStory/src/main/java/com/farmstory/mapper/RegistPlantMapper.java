@@ -14,4 +14,9 @@ public interface RegistPlantMapper {
 	ArrayList<Plant> searchPlant(String plaName);
 
 	int potNoTest(String regPotNo);
+	
+	ArrayList<RegistPlant> selectRegistFlowerpotByMemId(String memId);
+	
+	void deleteMyFlowerpotByRegPotNo(String regPotNo);
+	
 }

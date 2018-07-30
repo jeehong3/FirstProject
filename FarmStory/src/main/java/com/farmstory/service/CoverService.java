@@ -6,21 +6,27 @@ import com.farmstory.vo.Cover;
 
 public interface CoverService {
     
-	//¼Ò°³ ¸ñ·Ï
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½
 	List<Cover> viewCoverList();
+	
+	List<Cover> viewTop3CoverList();
 
-	//¼Ò°³ ¾²±â
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void writecover(Cover cover);
 
-	//¼Ò°³ º¸±â
-	List<Cover> findCoverBycovNo(int covNo);
+	//ï¿½Ò°ï¿½ ï¿½Òºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	List<Cover> findCoverBycovNo();
+	
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	Cover findCoverBycovNom(int covNo);
     
-	//¼Ò°³ ¼öÁ¤
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void modifyCoverInfo(Cover cover);
 	
-	//¼Ò°³ »èÁ¦
+	//ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void deleteCoverInfo(String covNo);
 
 	void deleteCoverInfo(int covNo);
+
 
 }

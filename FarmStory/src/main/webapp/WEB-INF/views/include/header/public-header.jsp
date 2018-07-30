@@ -6,6 +6,15 @@
 <!-- Account Modal JavaScript -->
 <jsp:include page="/WEB-INF/views/include/account/account-jstl-js.jsp" />
 
+<style>
+
+#logo, #logoM {
+	
+	height: 60px;
+}
+
+</style>
+
 <header>
 
 	<!-- Account - Register Modal : START -->
@@ -26,8 +35,8 @@
 
 				<!-- ============================================================= LOGO MOBILE ============================================================= -->
 
-				<a class="navbar-brand" href="/farmstory/home.action"><img
-					src="/farmstory/resources/assets/images/logo.svg" class="logo"
+				<a  class="navbar-brand" href="/farmstory/home.action"><img id="logoM"
+					src="/farmstory/resources/assets/images/farmstory-logo.gif" class=""
 					alt=""></a>
 
 				<!-- ============================================================= LOGO MOBILE : END ============================================================= -->
@@ -40,7 +49,7 @@
 					<ul class="pull-right">
 						<li><a id="welcome" class="responsive-menu pull-right"> <i
 								class="icon-user-1"></i>&nbsp;${loginuser.memName}&nbsp;님
-								환영합니다&nbsp;
+								환영합니다!&nbsp;&nbsp;&nbsp;
 						</a></li>
 					</ul>
 				</c:if>
@@ -54,8 +63,8 @@
 				<div class="container">
 					<!-- ============================================================= LOGO ============================================================= -->
 
-					<a class="navbar-brand" href="/farmstory/home.action"><img
-						src="/farmstory/resources/assets/images/logo.svg" class="logo"
+					<a  class="navbar-brand" href="/farmstory/home.action"><img id="logo"
+						src="/farmstory/resources/assets/images/farmstory-logo.gif" 
 						alt=""></a>
 
 					<!-- ============================================================= LOGO : END ============================================================= -->
@@ -80,10 +89,10 @@
 							data-toggle="dropdown">나의 화분</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/diary_list.action">다이어리</a></li>
+								<li><a href="/farmstory/diary_book_list.action">다이어리 북</a></li>
 								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
-								<li><a href="/farmstory/value/findTime.action">나의 등록 화분</a></li>
+								<li><a href="/farmstory/my_flowerpot_list.action">나의 등록 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
@@ -101,11 +110,11 @@
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
-						<li class="dropdown"><a href="/farmstory/notice_list.action" class="dropdown-toggle"
+						<li class="dropdown"><a href="/farmstory/board/notice_list.action" class="dropdown-toggle"
 							data-toggle="dropdown">고객센터</a>
 
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/notice_list.action">공지사항</a></li>
+								<li><a href="/farmstory/board/notice_list.action">공지사항</a></li>
 								<li><a href="#">문의함</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->

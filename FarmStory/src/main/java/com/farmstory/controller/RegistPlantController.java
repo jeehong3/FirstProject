@@ -51,7 +51,7 @@ public class RegistPlantController {
 			registPlantService.registPlant(registplant);
 		
 			
-		return "redirect:plant_regist.action";
+		return "redirect:my_flowerpot_list.action";
 	}
 	
 	@RequestMapping(value="/search_plant.action", method=POST)
@@ -74,4 +74,27 @@ public class RegistPlantController {
  
         return map;
 	}
+	
+	@RequestMapping(value="/my_flowerpot_list.action", method=GET)
+	public String showMyFlowerpots(Model model, HttpSession session) {
+		
+		Account account = (Account) session.getAttribute("loginuser");
+		String memId = account.getMemId();
+		//db에서 등록한 화분의 정보를 가져오는 구문
+		ArrayList<RegistPlant> myFlowerpots = registPlantService.findRegistFlowerpotByMemId(memId);
+		//jsp로 보내주는 model
+		model.addAttribute("myFlowerpots", myFlowerpots);
+		
+	return "plant/plant-regist-list";
+}
+	
+	@RequestMapping(value="/my_flowerpot_delete.action", method=GET)
+	@ResponseBody
+	public String deleteMyFlowerpot(String regPotNo) {
+		
+		registPlantService.deleteMyFlowerpotByRegPotNo(regPotNo);
+
+	return "success";
+}
+	
 }

@@ -13,16 +13,11 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
-		<title>팜스토리-식물 정보</title>
+		<title>Farm Story - Plant</title>
 		
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
-		<style type="text/css">
-			#plant-sub-title {
-				font-size: 17px;
-			}
-		</style>
 	</head>
 	
 	<body>
@@ -36,7 +31,7 @@
 		
 		<!-- ============================================================= MAIN ============================================================= -->
 		
-		<main class="notoSansKR">
+		<main>
 			
 			<!-- ============================================================= SECTION â PORTFOLIO ============================================================= -->
 		
@@ -45,15 +40,15 @@
 				<div class="container inner">
 					<div class="row">
 						<div class="col-md-8 col-sm-9 center-block text-center">
-							<header class="notoSansKR medium">
+							<header>
 								<h2>어떻게 키워야할까?</h2>
-								<p id="plant-sub-title">여기서 식물에 대한 정보를 보고가세요~</p>
+								<p>여기서 식물에 대한 정보를 보고가세요.</p>
 							</header>
 						</div><!-- /.col -->
 					</div><!-- /.row -->
 				</div><!-- /.container -->
 				
-				<div class="container inner-bottom notoSansKR">
+				<div class="container inner-bottom">
 					<div class="row">
 						<div class="col-sm-12 portfolio">
 							
@@ -95,7 +90,27 @@
 			</section>
 			
 			<!-- ============================================================= SECTION â PORTFOLIO : END ============================================================= -->
-			
+			<div id="modifyOk" class="modal fade" role="dialog">
+			<div id="modal-dialog-ok" class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">
+							&nbsp;<i class="icon-login-1"></i>&nbsp;확인 메시지
+						</h4>
+					</div>
+					<div class="modal-body" align="center">
+						<h4>
+							정보 수정이 완료되었습니다.
+						</h4>
+					</div>
+					<div class="modal-footer">
+						<a class="btn" data-dismiss="modal" aria-hidden="true">확인</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		</main>
 		
 		<!-- ============================================================= MAIN : END ============================================================= -->

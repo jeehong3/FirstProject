@@ -13,39 +13,54 @@ public class MysqlCoverDao implements CoverDao {
 		this.coverMapper = coverMapper;
 	}
     
-	//¼Ò°³ ¸ñ·Ï
+	//ì†Œê°œ ëª©ë¡
 	@Override
 	public List<Cover> selectCoverList() {
 		List<Cover> Coverlist = coverMapper.selectCoverList();
 		return Coverlist;
 	}
 	
-	//¼Ò°³ ¾²±â
+	//ì†Œê°œ ëª©ë¡ ì†Œë¹„ì
+	@Override
+	public List<Cover> selectTop3CoverList() {
+		List<Cover> Coverlist = coverMapper.selectTop3CoverList();
+		return Coverlist;
+	}
+	
+	//ì†Œê°œ ì“°ê¸°
 	@Override
 	public void insertCover(Cover cover) {
 		coverMapper.insertCover(cover);
 		
 	}
 	
-	//¼Ò°³ º¸±â
+	//ì†Œê°œ ëª©ë¡ ì†Œì§€ë°” ì´ì „ ë²„ì „
 	@Override
-	public List<Cover> selectCoverInfoByCovNo(int covNo) {
-		List<Cover> Coverlist = coverMapper.selectCoverInfoByCovNo(covNo);
+	public List<Cover> selectCoverInfoByCovNo() {
+		List<Cover> Coverlist = coverMapper.selectCoverInfoByCovNo();
 		return Coverlist;
 	}
 
-	//¼Ò°³ ¼öÁ¤
+	//ì†Œê°œ ìƒì„¸ë³´ê¸°
+	@Override
+	public Cover selectCovermInfoByCovNo(int covNo) {
+		Cover Coverlist = coverMapper.selectCovermInfoByCovNo(covNo);
+		return Coverlist;
+	}
+	
+	//ì†Œê°œ ìˆ˜ì •
 	@Override
 	public void updateCover(Cover cover) {
 		coverMapper.updateCover(cover);
 		
 	}
 
-	//¼Ò°³ »èÁ¦
+	//ì†Œê°œ ì‚­ì œ
 	@Override
 	public void deleteCover(int covNo) {
 		coverMapper.deleteCover(covNo);
 		
 	}
+
 
 }

@@ -3,8 +3,9 @@
 	rel="stylesheet">
 <link href="/farmstory/resources/assets/css/main.css" rel="stylesheet">
 
+
 <!-- AddOn/Plugin CSS -->
-<link href="/farmstory/resources/assets/css/blue.css" rel="stylesheet"
+<link href="/farmstory/resources/assets/css/farmstory.css" rel="stylesheet"
 	title="Color">
 <link href="/farmstory/resources/assets/css/owl.carousel.css"
 	rel="stylesheet">
@@ -27,9 +28,11 @@
 <!-- Icons/Glyphs -->
 <link href="/farmstory/resources/assets/fonts/fontello.css"
 	rel="stylesheet">
+<link href="/farmstory/resources/assets/fonts/godo.css"
+	rel="stylesheet">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="/farmstory/resources/assets/images/favicon.ico">
+<link rel="shortcut icon" href="/farmstory/resources/assets/images/farmstory-favicon.ico">
 
 <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
 <!--[if lt IE 9]>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -24,87 +25,115 @@ public class CoverController {
 	@Qualifier("coverService")
 	private CoverService coverService;
 	
-	   //¼Ò°³ ¸ñ·Ï
+	   //ì†Œê°œ ëª©ë¡
 		@GetMapping(value= "/cover_list.action")
 	    public String showcoverlistview(Model model){
 			
-			List<Cover> CoverList = coverService.viewCoverList();
+			List<Cover> coverList = coverService.viewCoverList();
 			
-			model.addAllAttributes(CoverList);
+			model.addAttribute("coverList", coverList);
 			
 			return "cover/cover_list";
 			
 		}
 
-	  //¼Ò°³ ¾²±â
+		  
+		  //ì†Œê°œ ì†Œë¹„ì ë³´ê¸°
+		  
+		  @GetMapping(value="/cover_detail.action")
+		  public String showcoverdetail(
+					Model model) {
+			        
+			  //List<Cover> coverList = coverService.findCoverBycovNo();
+			  //List<Cover> coverList = coverService.viewCoverList();
+			  List<Cover> coverList = coverService.viewTop3CoverList();
+		      
+		      model.addAttribute("coverList", coverList);
+		      
+			  return "cover/cover_detail";
+			  
+		  }
+		
+	  //ì†Œê°œ ì“°ê¸°
 	  @GetMapping(value="/cover_write.action")
 	  public String showcoverwrite() {
 		  
-		  return "cover/coverwrite";
+		  return "cover/cover_write";
 		  
 	  }
 
 	  @PostMapping(value="/cover_write.action")
 	  public String coverwrite(
-			  MultipartHttpServletRequest req,
+			  MultipartHttpServletRequest req, //íŒŒì¼ ì—…ë¡œë“œê°€ í¬í•¨ëœ ê²½ìš° ì‚¬ìš©í•˜ëŠ” HttpServletRequest ê°ì²´
 			  Cover cover) {
 		
 
-			//form ÅÂ±×ÀÇ <input type="file" name="cover_image" ÀÇ ÆÄÀÏÀ» ÀĞ¾î¼­ º¯¼ö¿¡ ÀúÀå
+		    //form íƒœê·¸ì˜ <input type="file" name="travelnote_image" ì˜ íŒŒì¼ì„ ì½ì–´ì„œ ë³€ìˆ˜ì— ì €ì¥
 			MultipartFile coverImage = req.getFile("cover_image");
 			
-			//ÆÄÀÏÀ» ÀúÀåÇÒ µğ·ºÅÍ¸® °æ·Î
+			//íŒŒì¼ì„ ì €ì¥í•  ë””ë ‰í„°ë¦¬ ê²½ë¡œ
 			String uploadPath = 
 				req.getServletContext().getRealPath("/resources/upload-image/cover-info");
 		
-			//¾÷·ÎµåÇÑ ÆÄÀÏÀÇ ¿ø·¡ ÀÌ¸§
+			//ì—…ë¡œë“œí•œ íŒŒì¼ì˜ ì›ë˜ ì´ë¦„
 			String fileName = coverImage.getOriginalFilename();
 			
-			//ÆÄÀÏ¿¡ µğ·ºÅÍ¸® °æ·Î°¡ ºÙ¾îÀÖ´Â °æ¿ì µğ·ºÅÍ¸® °æ·Î Á¦°Å (internet explorer ¶§¹®¿¡)
+			//íŒŒì¼ì— ë””ë ‰í„°ë¦¬ ê²½ë¡œê°€ ë¶™ì–´ìˆëŠ” ê²½ìš° ë””ë ‰í„°ë¦¬ ê²½ë¡œ ì œê±° (internet explorer ë•Œë¬¸ì—)
 			//C:\a\b\c.png -> c.png
 			if (fileName.contains("\\")) {
 				fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
 			}
 			
-			//ÆÄÀÏÀÌ¸§À» °íÀ¯ÇÏ°Ô ¸¸µå´Â ÀÛ¾÷
+			//íŒŒì¼ì´ë¦„ì„ ê³ ìœ í•˜ê²Œ ë§Œë“œëŠ” ì‘ì—…
 			fileName = Util.getUniqueFileName(fileName);
 					
 			try {
-				//ÀÓ½ÃÆÄÀÏ ¶Ç´Â ¸Ş¸ğ¸®¿¡¼­ ¸ñÀûÁö °æ·Î·Î ÆÄÀÏÀ» ÀÌµ¿ (ÀúÀå)
+				//ì„ì‹œíŒŒì¼ ë˜ëŠ” ë©”ëª¨ë¦¬ì—ì„œ ëª©ì ì§€ ê²½ë¡œë¡œ íŒŒì¼ì„ ì´ë™ (ì €ì¥)
 				coverImage.transferTo(new File(uploadPath, fileName));
-				//¿øº»ÀÌ¹ÌÁö¿¡ ´ëÇØ ÀÛÀº »çÀÌÁîÀÇ ÀÌ¹ÌÁö¸¦ ¸¸µå´Â ÀÛ¾÷
+				//ì›ë³¸ì´ë¯¸ì§€ì— ëŒ€í•´ ì‘ì€ ì‚¬ì´ì¦ˆì˜ ì´ë¯¸ì§€ë¥¼ ë§Œë“œëŠ” ì‘ì—…
 				Util.makeThumbnail(uploadPath, fileName, 150, 150);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
 			
-			//½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ ÀÌ¸§À» VO¿¡ ÀúÀå
+			//ì‹¤ì œ ì €ì¥ëœ íŒŒì¼ ì´ë¦„ì„ VOì— ì €ì¥
 			cover.setCovImg(fileName);
 		  
-		  
+			//ë°ì´í„°ì— ë‚´ìš©ì„ ì…ë ¥í•˜ëŠ” êµ¬ë¶„
 		  coverService.writecover(cover);
 		  
-		  return "redirect:coverlist";
-		  
-	  }
-	  
-	  //¼Ò°³ º¸±â
-	  
-	  @GetMapping(value="/cover_detail.action")
-	  public String showcoverdetail(
-			  @RequestParam(defaultValue="-1") int covNo,
-				Model model) {
-		        
-	      List<Cover> cover = coverService.findCoverBycovNo(covNo);
-	      
-	      model.addAttribute("cover", cover);
-		  
-		  return "cover/coverdetail";
+		  return "redirect:cover_list.action";
 		  
 	  }
 
 	  
-	  //¼Ò°³ ¼öÁ¤
+	  //ì†Œê°œ ê´€ë¦¬ì ë³´ê¸°
+	  @GetMapping(value="/cover_detailm.action")
+	  public String showcovermdetail(
+			  @RequestParam(defaultValue="-1") int covNo,
+				Model model) {
+		        
+	      Cover cover = coverService.findCoverBycovNom(covNo);
+	      
+	      model.addAttribute("cover", cover);
+		  
+		  return "cover/cover_detailm";
+		  
+	  }
+	  
+	  @GetMapping(value="/ajax_cover_detailm.action")
+	  @ResponseBody
+	  public Cover showajaxcovermdetail(
+			  @RequestParam(defaultValue="-1") int covNo) {
+		        
+	      Cover cover = coverService.findCoverBycovNom(covNo);
+	      
+		  return cover;
+		  
+	  }
+	  
+	  
+	  //ì†Œê°œ ìˆ˜ì •
 	  
 	  @GetMapping(value="/cover_update.action")
 	  public String showcoverupdate(@RequestParam(value="covNo", defaultValue="-1") int covNo,
@@ -119,59 +148,60 @@ public class CoverController {
 			
 			System.out.println(covNo);
 			
-			List<Cover> cover = coverService.findCoverBycovNo(covNo);
+			Cover cover = coverService.findCoverBycovNom(covNo);
 			
 			model.addAttribute("cover", cover);
-		return "cover/coverupdate";
+		return "cover/cover_update";
 		  
 	  }
 	  
-	  @PostMapping(value="/coverupdate.action")
+	  @PostMapping(value="/cover_update.action")
 	  public String coverupdate(
 			  MultipartHttpServletRequest req,
 			  Cover cover) {
 		
-			//form ÅÂ±×ÀÇ <input type="file" name="cover_image" ÀÇ ÆÄÀÏÀ» ÀĞ¾î¼­ º¯¼ö¿¡ ÀúÀå
+		    //form íƒœê·¸ì˜ <input type="file" name="travelnote_image" ì˜ íŒŒì¼ì„ ì½ì–´ì„œ ë³€ìˆ˜ì— ì €ì¥
 			MultipartFile coverImage = req.getFile("cover_image");
 			
-			//ÆÄÀÏÀ» ÀúÀåÇÒ µğ·ºÅÍ¸® °æ·Î
+			//íŒŒì¼ì„ ì €ì¥í•  ë””ë ‰í„°ë¦¬ ê²½ë¡œ
 			String uploadPath = 
 				req.getServletContext().getRealPath("/resources/upload-image/cover-info");
 		
-			//¾÷·ÎµåÇÑ ÆÄÀÏÀÇ ¿ø·¡ ÀÌ¸§
+			//ì—…ë¡œë“œí•œ íŒŒì¼ì˜ ì›ë˜ ì´ë¦„
 			String fileName = coverImage.getOriginalFilename();
 			
-			//ÆÄÀÏ¿¡ µğ·ºÅÍ¸® °æ·Î°¡ ºÙ¾îÀÖ´Â °æ¿ì µğ·ºÅÍ¸® °æ·Î Á¦°Å (internet explorer ¶§¹®¿¡)
+			///íŒŒì¼ì— ë””ë ‰í„°ë¦¬ ê²½ë¡œê°€ ë¶™ì–´ìˆëŠ” ê²½ìš° ë””ë ‰í„°ë¦¬ ê²½ë¡œ ì œê±° (internet explorer ë•Œë¬¸ì—)
 			//C:\a\b\c.png -> c.png
 			if (fileName.contains("\\")) {
 				fileName = fileName.substring(fileName.lastIndexOf("\\") + 1);
 			}
 			
-			//ÆÄÀÏÀÌ¸§À» °íÀ¯ÇÏ°Ô ¸¸µå´Â ÀÛ¾÷
+			//íŒŒì¼ì´ë¦„ì„ ê³ ìœ í•˜ê²Œ ë§Œë“œëŠ” ì‘ì—…
 			fileName = Util.getUniqueFileName(fileName);
 					
 			try {
-				//ÀÓ½ÃÆÄÀÏ ¶Ç´Â ¸Ş¸ğ¸®¿¡¼­ ¸ñÀûÁö °æ·Î·Î ÆÄÀÏÀ» ÀÌµ¿ (ÀúÀå)
+				//ì„ì‹œíŒŒì¼ ë˜ëŠ” ë©”ëª¨ë¦¬ì—ì„œ ëª©ì ì§€ ê²½ë¡œë¡œ íŒŒì¼ì„ ì´ë™ (ì €ì¥)
 				coverImage.transferTo(new File(uploadPath, fileName));
-				//¿øº»ÀÌ¹ÌÁö¿¡ ´ëÇØ ÀÛÀº »çÀÌÁîÀÇ ÀÌ¹ÌÁö¸¦ ¸¸µå´Â ÀÛ¾÷
+				//ì›ë³¸ì´ë¯¸ì§€ì— ëŒ€í•´ ì‘ì€ ì‚¬ì´ì¦ˆì˜ ì´ë¯¸ì§€ë¥¼ ë§Œë“œëŠ” ì‘ì—…
 				Util.makeThumbnail(uploadPath, fileName, 150, 150);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
 			
-			//½ÇÁ¦ ÀúÀåµÈ ÆÄÀÏ ÀÌ¸§À» VO¿¡ ÀúÀå
+			//ì‹¤ì œ ì €ì¥ëœ íŒŒì¼ ì´ë¦„ì„ VOì— ì €ì¥
 			cover.setCovImg(fileName);
-		  
+		
+		//ë°ì´í„°ì— ë‚´ìš©ì„ ì…ë ¥í•˜ëŠ” êµ¬ë¶„
 		coverService.modifyCoverInfo(cover);
 		
-		return "redirect:cover_detail.action?covNo="+ cover.getCovNo();
+		return "redirect:cover_detailm.action?covNo="+ cover.getCovNo();
 	  }
 	  
-	  //¼Ò°³ »èÁ¦
+	  //ì†Œê°œ ì‚­ì œ
 	  
-	  @GetMapping(value="/coverdelete.action")
+	  @GetMapping(value="/cover_delete.action")
 	  public String showcoverdelete(
-			  @RequestParam(value="covNo", defaultValue="-1") String covNo) {
+			  @RequestParam( defaultValue="-1") int covNo) {
 			
 			coverService.deleteCoverInfo(covNo);
 		return "redirect:cover_list.action";

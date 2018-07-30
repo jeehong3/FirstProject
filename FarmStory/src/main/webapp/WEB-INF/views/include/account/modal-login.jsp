@@ -73,3 +73,21 @@
 		</div>
 	</div>
 </div>
+
+<div id="checkedLogin" class="modal fade" role="dialog">
+	<div id="modal-dialog-login-checkId" class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">&nbsp;<i class="icon-login-1"></i>&nbsp;로그인 오류</h4>
+			</div>
+			<div class="modal-body" align="center">
+				<h4>로그인 하신 후 이용해주세요.</h4>
+			</div>
+			<div class="modal-footer">
+				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
+			</div>
+		</div>
+	</div>
+</div>
