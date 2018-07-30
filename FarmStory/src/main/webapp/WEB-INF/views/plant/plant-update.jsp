@@ -173,7 +173,7 @@
 								<!-- /.row -->
 								<br>
 								<h4>등록된 사진들</h4>
-								<div class="oldImageFiles">
+								<div id="oldImageFiles">
 									<div id="owl-popular-posts"
 										class="owl-carousel owl-item-gap-sm">
 										<c:forEach var="oldImages" items="${ oldImages }"

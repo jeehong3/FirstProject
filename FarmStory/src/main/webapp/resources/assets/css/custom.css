@@ -4,15 +4,13 @@
 
 /* Insert your own styles in here! */
 
-/* ==== Fonts-NotoSansKR : Start ============================= */
+/* ==== Fonts-Godo : Start ============================= */
 
 body, main, h1, h2, h4, .btn{
 	font-family: 'godoM';
 }
 
-/* ==== Fonts-NotoSansKR : End ============================= */
-
-
+/* ==== Fonts-Godo : End ============================= */
 
 /* ==== Header : Start ============================= */
 #welcome {

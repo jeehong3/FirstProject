@@ -5,38 +5,40 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ko">
 <head>
 <!-- Meta -->
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>운영게시판</title>
+<title>Farm Story - Customer Center</title>
 
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('button[id^=noticeDelete]').on(
-				'click',
-				function(event) {
-					event.preventDefault();
-					var noticeNo = $(this).attr('data-noticeNo')
-					$('#noticeModal a#processNotice').attr(
-							'href',
-							'/farmstory/board/notice_delete.action?noticeNo='
-									+ noticeNo);
-					$('#noticeModal').modal('show');
+<style type="text/css">
+#noticeSection {
+	padding-top: 40px;
+}
 
-				});
+#noticeTitle, #suggestTitle {
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
 
-	});
-</script>
+#noticeForm, #suggestForm {
+	padding-top: 20px;
+}
+
+#suggestSection {
+    padding: 5px 0px 5px 5px;
+    margin-top: 5px;
+    border-top: 2px solid #efefef;
+    font-size: 12px;
+}
+</style>
 </head>
 
 <body>
@@ -50,24 +52,11 @@
 
 	<!-- ============================================================= MAIN ============================================================= -->
 
-	<main>
-		
-		<div class="container inner-bottom">
-			<div class="row">
-				<div class="col-sm-12 portfolio">
-					
-					<ul class="filter text-center">
-						<li><a href="#" data-filter=".공지사항">공지 사항</a></li>
-						<li><a href="#" data-filter=".건의사항">건의 사항</a></li>
-					</ul><!-- /.filter -->
-				</div>
-			</div>
-		</div>					
-	<!-- ============================================================= SECTION – HERO ============================================================= -->
+	<main> <!-- ============================================================= SECTION – HERO ============================================================= -->
 	<div class=".notice">
 		<div class="light-bg img-bg img-bg-softer"
 			style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
-			<div class="container inner">
+			<div id="noticeTitle" class="container inner">
 				<div class="row">
 					<div class="col-md-8 center-block text-center">
 						<header>
@@ -82,111 +71,169 @@
 		</div>
 
 		<!-- ============================================================= SECTION – HERO : END ============================================================= -->
-		
-	
-	<!-- ============================================================= SECTION – MAP ============================================================= -->
 
-	<div class="recentActivitySection">
-		<div class="container">
 
-			<div class="row">
-				<div class="col-xs-12 ">
-					<div class="recentActivityContent bg-ash">
+		<!-- ============================================================= SECTION – MAP ============================================================= -->
 
-						<div class="table-responsive" data-pattern="priority-columns">
-							<table class="table listingsTable">
-								<tr class="rowItem">
-									<td align="center"><b>게시자</b></td>
-									<td align="center"><b>제목</b></td>
-									<td align="center"><b>날짜</b></td>
-									<c:if
-										test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-										<td align="center"><b>삭제</b></td>
-									</c:if>
-								</tr>
+		<div id="noticeSection" class="recentActivitySection">
+			<div class="container inner">
 
-								<c:forEach var="notice" items="${ notices }">
-									<c:if
-										test="${ notice.memberId eq 'ADMIN' or notice.memberId eq 'admin'}">
-										<tr class="rowItem">
-											<td class="dateTd" align="center">${ notice.memberId }</td>
+				<div class="row">
+					<div class="col-xs-12 ">
+						<div class="recentActivityContent bg-ash">
 
-											<td class="packageTd">
-												<ul class="list-inline listingsInfo">
-													<li>
-														<h4>
-															<a id="search-content" data-toggle="collapse"
-																data-target="#contentSearch${ notice.noticeNo}">${ notice.noticeTitle}</a>
-														</h4> <%
- 	pageContext.setAttribute("newLineChar", "\n");
- %>
-														<h4 id="contentSearch${ notice.noticeNo }"
-															class="collapse">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
-													</li>
-												</ul>
-											</td>
+							<div class="table-responsive" data-pattern="priority-columns">
+								<table class="table listingsTable">
+									<tr class="rowItem">
+										<td align="center"><b>게시자</b></td>
+										<td align="center"><b>제목</b></td>
+										<td align="center"><b>날짜</b></td>
+										<c:if
+											test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+											<td align="center"><b>삭제</b></td>
+										</c:if>
+									</tr>
 
-											<td class="bookingTd">
-												<ul class="list-inline listingsInfo text-left">
-													<li><fmt:formatDate value="${ notice.noticeDate }"
-															var="noticeDate" pattern="yyyy-MM-dd" />
-														<h4 style="margin-left: 110px; font-size: 17px">${noticeDate}</h4>
-													</li>
-												</ul>
-											</td>
-											<c:if
-												test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-												<td class="bookingTd">
-													<ul class="list-inline listingsInfo text-left">
+									<c:forEach var="notice" items="${ notices }">
+										<c:if
+											test="${ notice.memberId eq 'ADMIN' or notice.memberId eq 'admin'}">
+											<tr class="rowItem">
+												<td class="dateTd" align="center">${ notice.memberId }</td>
+
+												<td class="packageTd">
+													<ul class="list-inline listingsInfo">
 														<li>
-															<button id="noticeDelete${notice.noticeNo}"
-																style="margin-left: 100px;"
-																data-noticeNo="${notice.noticeNo}">처리</button>
+															<h4>
+																<a id="search-content" data-toggle="collapse"
+																	data-target="#contentSearch${ notice.noticeNo}" style="margin-left: 60px; font-size: 17px">${ notice.noticeTitle}</a>
+															</h4> <%pageContext.setAttribute("newLineChar", "\n");%>
+															<h4 id="contentSearch${ notice.noticeNo }"
+																class="collapse" style="margin-left: 60px;">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
 														</li>
 													</ul>
 												</td>
-											</c:if>
-										</tr>
-									</c:if>
-								</c:forEach>
-							</table>
+
+												<td class="bookingTd">
+													<ul class="list-inline listingsInfo text-left">
+														<li><fmt:formatDate value="${ notice.noticeDate }"
+																var="noticeDate" pattern="yyyy-MM-dd" />
+															<h4 style="margin-left: 110px; font-size: 17px">${noticeDate}</h4>
+														</li>
+													</ul>
+												</td>
+												<c:if
+													test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+													<td class="bookingTd">
+														<ul class="list-inline listingsInfo text-left">
+															<li>
+																<button id="noticeDelete${notice.noticeNo}"
+																	style="margin-left: 100px;"
+																	data-noticeNo="${notice.noticeNo}">처리</button>
+															</li>
+														</ul>
+													</td>
+												</c:if>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</table>
+							</div>
+
 						</div>
-
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<c:forEach var="notice" items="${ notices }">
+			<div class="modal fade bookingModal modalBook " id="noticeModal"
+				tabindex="-1">
+				<div class="modal-dialog" align="center">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">처리하시겠습니까?</h4>
+						</div>
+						<div class="modal-dialog-login">
+							<a id="processNotice" class="btn buttonCustomPrimary1"
+								href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글
+								삭제</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
 	</div>
+<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+					
+	<div id="suggestSection" class="container inner">
+		<div class="row">
 
-	<c:forEach var="notice" items="${ notices }">
-		<div class="modal fade bookingModal modalBook " id="noticeModal"
-			tabindex="-1">
-			<div class="modal-dialog" align="center">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-hidden="true">&times;</button>
-						<h4 class="modal-title">처리하시겠습니까?</h4>
-					</div>
-					<div class="modal-dialog-login">
-						<a id="processNotice" class="btn buttonCustomPrimary1"
-							href="/farmstory/baord/notice_delete.action?noticeNo=${ notice.noticeNo }">게시글
-							삭제</a>
-					</div>
-				</div>
+			<div class="col-md-8 inner-right inner-bottom-md">
+
+				<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
+
+				<section id="contact-form">
+					<form id="noticeForm" class="forms11"
+						action="notice_insert.action" method="post">
+						<h2>공지사항 작성</h2>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<h4>게시자</h4>
+								<input type="text" name="memberId" value="${ loginuser.memId }"
+									class="form-control" readonly="readonly">
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+
+						<div class="row">
+							<div class="col-sm-6">
+								<h4>제목</h4>
+								<input type="text" name="noticeTitle" class="form-control"
+									placeholder="제목을 적어주세요." required="required">
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+
+						<div class="row">
+							<div class="col-sm-12">
+								<h4>내용</h4>
+								<textarea name="noticeContent" class="form-control"
+									placeholder="내용을 적어주세요"></textarea>
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+
+						<button type="submit" class="btn btn-default btn-submit111">공지사항 등록</button>
+
+					</form>
+
+					<div id="response"></div>
+
+				</section>
+
+				<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
+
 			</div>
+			<!-- ./col -->
+
 		</div>
-	</c:forEach> 
-</div>
+		<!-- /.row -->
+	</div>
+	<!-- ============================================================= SECTION – MAP : END ============================================================= -->
+</c:if>
 
-<!-- ============================================================= SECTION – MAP : END ============================================================= -->
-
-
+<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 	<!-- ============================================================= SECTION – HERO ============================================================= -->
-<div class="건의사항">
-	<section class="light-bg img-bg img-bg-softer"
+	<div class="건의사항">
+		<section class="light-bg img-bg img-bg-softer"
 			style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
-			<div class="container inner">
+			<div id="suggestTitle" class="container inner">
 				<div class="row">
 					<div class="col-md-8 center-block text-center">
 						<header>
@@ -200,242 +247,80 @@
 			</div>
 		</section>
 
-	<!-- ============================================================= SECTION – HERO : END ============================================================= -->
+		<!-- ============================================================= SECTION – HERO : END ============================================================= -->
 
-	<div class="container inner">
-		<div class="row">
+		<div class="container inner">
+			<div class="row">
 
-			<div class="col-md-8 inner-right inner-bottom-md">
+				<div class="col-md-8 inner-right inner-bottom-md">
 
-				<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
-
-				<section id="contact-form">
-					<c:if
-						test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-						<h2>공지사항 작성</h2>
-					</c:if>
-					<c:if test="${not empty loginuser and loginuser.memType eq 'USER'}">
+					<!-- ============================================================= SECTION – CONTACT FORM ============================================================= -->
+					
+					<section id="contact-form">
 						<h2>건의사항 작성</h2>
-					</c:if>
+						<form id="suggestForm" class="forms11"
+							action="notice_insert.action" method="post">
 
-					<form id="contactform1" class="forms11"
-						action="notice_insert.action" method="post">
-
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="memberId" value="${ loginuser.memId }"
-									class="form-control" readonly="readonly">
+							<div class="row">
+								<div class="col-sm-6">
+									<h4>아이디</h4>
+									<input type="text" name="memberId" value="${ loginuser.memId }"
+										class="form-control" readonly="readonly">
+								</div>
+								<!-- /.col -->
 							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
+							<!-- /.row -->
 
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="email" value="${ loginuser.memEmail }"
-									class="form-control" readonly="readonly">
+							<div class="row">
+								<div class="col-sm-6">
+									<h4>이메일</h4>
+									<input type="email" value="${ loginuser.memEmail }"
+										class="form-control" readonly="readonly">
+								</div>
+								<!-- /.col -->
 							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
+							<!-- /.row -->
 
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="noticeTitle" class="form-control"
-									placeholder="제목을 적어주세요." required="required">
+							<div class="row">
+								<div class="col-sm-6">
+									<h4>제목</h4>
+									<input type="text" name="noticeTitle" class="form-control"
+										placeholder="제목을 적어주세요." required="required">
+								</div>
+								<!-- /.col -->
 							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
+							<!-- /.row -->
 
-						<div class="row">
-							<div class="col-sm-12">
-								<textarea name="noticeContent" class="form-control"
-									placeholder="내용을 적어주세요"></textarea>
+							<div class="row">
+								<div class="col-sm-12">
+									<h4>내용</h4>
+									<textarea name="noticeContent" class="form-control"
+										placeholder="내용을 적어주세요"></textarea>
+								</div>
+								<!-- /.col -->
 							</div>
-							<!-- /.col -->
-						</div>
-						<!-- /.row -->
+							<!-- /.row -->
 
-						<button type="submit" class="btn btn-default btn-submit111">작성
-							내용 보내기</button>
+							<button type="submit" class="btn btn-default btn-submit111">작성
+								내용 보내기</button>
 
-					</form>
+						</form>
 
-					<div id="response"></div>
+						<div id="response"></div>
 
-				</section>
+					</section>
 
-				<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
+					<!-- ============================================================= SECTION – CONTACT FORM : END ============================================================= -->
+
+				</div>
+				<!-- ./col -->
 
 			</div>
-			<!-- ./col -->
-
-			<div class="col-md-4">
-
-				<!-- ============================================================= SECTION – CONTACT NAMES ============================================================= -->
-
-				<section id="contact-names"
-					class="light-bg inner-xs inner-left-xs inner-right-xs">
-
-					<h3 class="team-headline sidelines text-center">
-						<span>Contact names</span>
-					</h3>
-
-					<div class="row thumbs gap-md text-center">
-
-						<div class="col-sm-6 thumb">
-							<figure class="member">
-
-								<div class="member-image">
-
-									<div class="text-overlay">
-										<div class="info">
-											<ul class="social">
-												<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-												<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-												<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-											</ul>
-											<!-- /.social -->
-										</div>
-										<!-- /.info -->
-									</div>
-									<!-- /.text-overlay -->
-
-									<img src="/farmstory/resources/images/art/human03.jpg">
-
-								</div>
-								<!-- /.member-image -->
-
-								<figcaption class="member-details bordered no-top-border">
-									<h3>
-										Chris Cavill <span>Creative Director</span>
-									</h3>
-								</figcaption>
-
-							</figure>
-						</div>
-						<!-- /.col -->
-
-						<div class="col-sm-6 thumb">
-							<figure class="member">
-
-								<div class="member-image">
-
-									<div class="text-overlay">
-										<div class="info">
-											<ul class="social">
-												<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-												<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-												<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-											</ul>
-											<!-- /.social -->
-										</div>
-										<!-- /.info -->
-									</div>
-									<!-- /.text-overlay -->
-
-									<img src="/farmstory/resources/images/art/human01.jpg">
-
-								</div>
-								<!-- /.member-image -->
-
-								<figcaption class="member-details bordered no-top-border">
-									<h3>
-										Amber Jones <span>Marketing Director</span>
-									</h3>
-								</figcaption>
-
-							</figure>
-						</div>
-						<!-- /.col -->
-
-					</div>
-					<!-- /.row -->
-
-					<div class="row thumbs gap-md text-center">
-
-						<div class="col-sm-6 thumb last-bottom">
-							<figure class="member">
-
-								<div class="member-image">
-
-									<div class="text-overlay">
-										<div class="info">
-											<ul class="social">
-												<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-												<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-												<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-											</ul>
-											<!-- /.social -->
-										</div>
-										<!-- /.info -->
-									</div>
-									<!-- /.text-overlay -->
-
-									<img src="/farmstory/resources/images/art/human05.jpg">
-
-								</div>
-								<!-- /.member-image -->
-
-								<figcaption class="member-details bordered no-top-border">
-									<h3>
-										Sophie Adams <span>Technical Director</span>
-									</h3>
-								</figcaption>
-
-							</figure>
-						</div>
-						<!-- /.col -->
-
-						<div class="col-sm-6 thumb last-bottom">
-							<figure class="member">
-
-								<div class="member-image">
-
-									<div class="text-overlay">
-										<div class="info">
-											<ul class="social">
-												<li><a href="#"><i class="icon-s-facebook"></i></a></li>
-												<li><a href="#"><i class="icon-s-gplus"></i></a></li>
-												<li><a href="#"><i class="icon-s-twitter"></i></a></li>
-											</ul>
-											<!-- /.social -->
-										</div>
-										<!-- /.info -->
-									</div>
-									<!-- /.text-overlay -->
-
-									<img src="/farmstory/resources/images/art/human04.jpg">
-
-								</div>
-								<!-- /.member-image -->
-
-								<figcaption class="member-details bordered no-top-border">
-									<h3>
-										Toby Evans <span>Senior Designer</span>
-									</h3>
-								</figcaption>
-
-							</figure>
-						</div>
-						<!-- /.col -->
-
-					</div>
-					<!-- /.row -->
-
-				</section>
-
-				<!-- ============================================================= SECTION – CONTACT NAMES : END ============================================================= -->
-
-			</div>
-			<!-- /.col -->
-
+			<!-- /.row -->
 		</div>
-		<!-- /.row -->
+		<!-- /.container -->
 	</div>
-	<!-- /.container --> 
-	</div>
+</c:if>	
 	</main>
 
 	<!-- ============================================================= MAIN : END ============================================================= -->
@@ -443,18 +328,25 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
-	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 
-	<!-- JavaScripts placed at the end of the document so the pages load faster -->
+	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
+	<script type="text/javascript">
+		$(function() {
+			$('button[id^=noticeDelete]').on(
+					'click',
+					function(event) {
+						event.preventDefault();
+						var noticeNo = $(this).attr('data-noticeNo')
+						$('#noticeModal a#processNotice').attr(
+								'href',
+								'/farmstory/board/notice_delete.action?noticeNo='
+										+ noticeNo);
+						$('#noticeModal').modal('show');
 
+					});
 
-
-
-	<!-- For demo purposes – can be removed on production -->
-
-
-
-	<!-- For demo purposes – can be removed on production : End -->
+		});
+	</script>
 </body>
 </html>

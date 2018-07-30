@@ -60,7 +60,7 @@
 						varStatus="status">
 						<div class="item">
 							<figure>
-							<%-- 	<figcaption class="text-overlay">
+							 	<figcaption class="text-overlay">
 									<div class="info">
 										<h4>${ myFlowerpots.plaName }</h4>
 										<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
@@ -68,7 +68,7 @@
 											data-index="${ status.index }">삭제</a>
 									</div>
 									<!-- /.info -->
-								</figcaption> --%>
+								</figcaption>
 								<img
 									src="/farmstory/resources/upload-image/plant-info/${ myFlowerpots.pliImg }"
 									alt="">

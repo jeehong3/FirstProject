@@ -90,9 +90,8 @@
 
 							<ul class="dropdown-menu">
 								<li><a href="/farmstory/diary_book_list.action">다이어리 북</a></li>
-								<li><a href="/farmstory/diary_write.action">다이어리 쓰기</a></li>
 								<li><a href="/farmstory/plant_regist.action">나의 화분 등록 하기</a></li>
-								<li><a href="/farmstory/my_flowerpot_list.action">나의 등록 화분</a></li>
+								<li><a href="/farmstory/my_flowerpot_list.action">나의 화분</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 
@@ -112,12 +111,6 @@
 
 						<li class="dropdown"><a href="/farmstory/board/notice_list.action" class="dropdown-toggle"
 							data-toggle="dropdown">고객센터</a>
-
-							<ul class="dropdown-menu">
-								<li><a href="/farmstory/board/notice_list.action">공지사항</a></li>
-								<li><a href="#">문의함</a></li>
-							</ul> <!-- /.dropdown-menu --></li>
-						<!-- /.dropdown -->
 
 						<c:if test="${not empty loginuser }">
 							<li class="dropdown pull-right searchbox"><a href="#"
