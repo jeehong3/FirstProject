@@ -37,5 +37,17 @@ public class MySqlAccountDao implements AccountDao {
 		
 		return accountMapper.selectMemberByPw(userInputId);
 	}
+
+	@Override
+	public Account signInMoblie(String id, String password) {
+		
+		HashMap<String, Object> params = new HashMap<>();
+		params.put("id", id);
+		params.put("password", password);
+		
+		Account account = accountMapper.signInMoblie(params);
+		
+		return account;
+	}
 	
 }

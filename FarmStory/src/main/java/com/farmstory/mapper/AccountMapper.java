@@ -11,4 +11,8 @@ public interface AccountMapper {
 	Account selectMember(HashMap<String, Object> params);
 	
 	String selectMemberByPw(String userInputId);
+
+	Account signInMoblie(HashMap<String, Object> params);
+
+
 }

@@ -30,5 +30,10 @@
 		WHERE MEM_ID = #{userInputId}
 	</select>
 	
-	
+	<select id="signInMoblie" parameterType="hashmap" resultType="Account">
+		SELECT MEM_ID memId, MEM_PW memPw
+		FROM MEMBER
+		WHERE MEM_ID = #{id} AND MEM_PW = #{password}
+	</select>
+
 </mapper>  

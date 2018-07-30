@@ -1,5 +1,7 @@
 package com.farmstory.service;
 
+import java.util.List;
+
 import com.farmstory.common.Util;
 import com.farmstory.dao.AccountDao;
 import com.farmstory.vo.Account;
@@ -36,6 +38,13 @@ public class AccountServiceImpl implements AccountService {
 	public String findMemberByPw(String userInputId) {
 		
 		return accountDao.selectMemberByPw(userInputId);
+	}
+
+	@Override
+	public Account signInMoblie(String id, String password) {
+		
+		Account account = accountDao.signInMoblie(id, password);
+		return account;	
 	}
 
 }

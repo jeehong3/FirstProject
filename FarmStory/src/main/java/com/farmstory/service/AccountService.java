@@ -1,5 +1,7 @@
 package com.farmstory.service;
 
+import java.util.List;
+
 import com.farmstory.vo.Account;
 
 public interface AccountService {
@@ -10,4 +12,7 @@ public interface AccountService {
 
 	String findMemberByPw(String userInputId);
 
+	Account signInMoblie(String id, String password);
+
+	
 }

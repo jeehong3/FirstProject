@@ -10,4 +10,6 @@ public interface AccountDao {
 
 	String selectMemberByPw(String userInputId);
 
+	Account signInMoblie(String id, String password);
+
 }

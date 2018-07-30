@@ -5,14 +5,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.farmstory.common.Util;
 import com.farmstory.service.AccountService;
 import com.farmstory.vo.Account;
+
 
 @Controller
 public class AccountController {
@@ -70,6 +71,20 @@ public class AccountController {
 		return "redirect:/home.action";
 	}
 	
-	
+	@GetMapping(value = "msignin.action")
+	@ResponseBody
+	public Account signInMoblie(String id, String password){
+		
+		System.out.printf(id);
+		System.out.printf(password);
+		
+		String hashedPw = Util.getHashedString(password, "SHA-256");
+		Account account = accountService.signInMoblie(id, hashedPw);
+		
+		// 객체를 반환하고 @ResponseBody를 설정한 경우
+		// 이 객체를 JSON 문자열로 자동 변환 -> JacksonMapper				
+		return account;
+		
+	}
 
 }
