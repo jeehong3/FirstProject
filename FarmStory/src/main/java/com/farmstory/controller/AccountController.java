@@ -1,10 +1,12 @@
 package com.farmstory.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -71,7 +73,9 @@ public class AccountController {
 		return "redirect:/home.action";
 	}
 	
-	@GetMapping(value = "msignin.action")
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 모바일 회원관리 시작	
+	
+	@GetMapping(value = "/msignin.action")
 	@ResponseBody
 	public Account signInMoblie(String id, String password){
 		
@@ -86,5 +90,18 @@ public class AccountController {
 		return account;
 		
 	}
+	
+	@GetMapping(value = "/msignup.action")
+	@ResponseBody
+	public String mSignUp(Account account, BindingResult br) {
+		
+		System.out.println(account.getMemEmail());
+		
+		accountService.registerMember(account);
+						
+		return "success";
+	}
+	
+	
 
 }

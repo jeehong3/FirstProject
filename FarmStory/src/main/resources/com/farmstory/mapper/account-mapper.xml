@@ -35,5 +35,7 @@
 		FROM MEMBER
 		WHERE MEM_ID = #{id} AND MEM_PW = #{password}
 	</select>
+	
+
 
 </mapper>  
