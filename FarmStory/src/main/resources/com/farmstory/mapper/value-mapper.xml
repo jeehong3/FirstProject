@@ -13,19 +13,19 @@
 		<result column="PLV_VAL" property="plvVal" />
 	</resultMap>
 
-	<select id="selectValues" parameterType="String"
+	<select id="selectValues" parameterType="plantVal"
 		resultMap="plantVal">
 		SELECT DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d %H:%i') PLV_DATETIME, PLV_TYPE, PLV_VAL
 		FROM PLANT_VAL
-		WHERE DATE(PLV_DATETIME) = #{ PlvDateTime }
+		WHERE DATE(PLV_DATETIME) = #{ plvDateTime } AND REG_POTNO = #{ regPotNo }
 		ORDER BY PLV_DATETIME DESC
 	</select>
 
-	<select id="selectDayValues" parameterType="String"
+	<select id="selectDayValues" parameterType="plantVal"
 		resultMap="plantVal">
 		SELECT DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d') PLV_DATETIME, PLV_TYPE, AVG(PLV_VAL) PLV_VAL
 		FROM PLANT_VAL
-		WHERE DATE(PLV_DATETIME) BETWEEN DATE_ADD(#{ PlvDateTime }, INTERVAL - 6 DAY) AND #{ PlvDateTime }
+		WHERE DATE(PLV_DATETIME) BETWEEN DATE_ADD(#{ plvDateTime }, INTERVAL - 6 DAY) AND REG_POTNO = #{ regPotNo }
 		GROUP BY DATE_FORMAT(PLV_DATETIME, '%Y-%m-%d'), PLV_TYPE
 		ORDER BY PLV_DATETIME DESC
 	</select>

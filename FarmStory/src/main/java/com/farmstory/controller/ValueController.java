@@ -27,24 +27,53 @@ public class ValueController {
 	private ValueService valueService;
 	
 	@GetMapping(value = "/findTime.action")
-	public String findValue(PlantVal plantVal, Model model) {
+	public String findValue(PlantVal plantVal, Model model, String regPotNo) {
 		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ("yyyy-MM-dd", Locale.KOREA);
 		Date currentTime = new Date ();
 		String date = mSimpleDateFormat.format (currentTime);
 		plantVal.setPlvDateTime(date);
-		ArrayList<PlantVal> vals = valueService.findValues(plantVal.getPlvDateTime());
+		plantVal.setRegPotNo(regPotNo);
+		ArrayList<PlantVal> vals = valueService.findValues(plantVal);
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
+		model.addAttribute("regPotNo", regPotNo);
 		return "diary/time";
 	}
 	
 	@PostMapping(value = "/findTime.action")
-	public String findValue(String date, PlantVal plantVal, Model model) {
+	public String findValue(String date, PlantVal plantVal, Model model, String regPotNo) {
 		plantVal.setPlvDateTime(date);
-		ArrayList<PlantVal> vals = valueService.findValues(plantVal.getPlvDateTime());
+		plantVal.setRegPotNo(regPotNo);
+		ArrayList<PlantVal> vals = valueService.findValues(plantVal);
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
+		model.addAttribute("regPotNo", regPotNo);
 		return "diary/time";
+	}
+	
+	@GetMapping(value = "/findDay.action")
+	public String findDayValue(PlantVal plantVal, Model model, String regPotNo) {
+		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ("yyyy-MM-dd", Locale.KOREA);
+		Date currentTime = new Date ();
+		String date = mSimpleDateFormat.format (currentTime);
+		plantVal.setPlvDateTime(date);
+		plantVal.setRegPotNo(regPotNo);
+		ArrayList<PlantVal> vals = valueService.findDayValues(plantVal);
+		model.addAttribute("vals", vals);
+		model.addAttribute("date", date);
+		model.addAttribute("regPotNo", regPotNo);
+		return "diary/day";
+	}
+	
+	@PostMapping(value = "/findDay.action")
+	public String findDayValue(String date, PlantVal plantVal, Model model, String regPotNo) {
+		plantVal.setPlvDateTime(date);
+		plantVal.setRegPotNo(regPotNo);
+		ArrayList<PlantVal> vals = valueService.findDayValues(plantVal);
+		model.addAttribute("vals", vals);
+		model.addAttribute("date", date);
+		model.addAttribute("regPotNo", regPotNo);
+		return "diary/day";
 	}
 	
 	@GetMapping(value = "/mFindTime.action")
@@ -52,28 +81,7 @@ public class ValueController {
 	public ArrayList<PlantVal> mfindValue(String date, PlantVal plantVal, Model model) {
 		System.out.println(date);
 		plantVal.setPlvDateTime(date);
-		ArrayList<PlantVal> vals = valueService.findValues(plantVal.getPlvDateTime());
+		ArrayList<PlantVal> vals = valueService.findValues(plantVal);
 		return vals;
-	}
-	
-	@GetMapping(value = "/findDay.action")
-	public String findDayValue(PlantVal plantVal, Model model) {
-		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ("yyyy-MM-dd", Locale.KOREA);
-		Date currentTime = new Date ();
-		String date = mSimpleDateFormat.format (currentTime);
-		plantVal.setPlvDateTime(date);
-		ArrayList<PlantVal> vals = valueService.findDayValues(plantVal.getPlvDateTime());
-		model.addAttribute("vals", vals);
-		model.addAttribute("date", date);
-		return "diary/day";
-	}
-	
-	@PostMapping(value = "/findDay.action")
-	public String findDayValue(String date, PlantVal plantVal, Model model) {
-		plantVal.setPlvDateTime(date);
-		ArrayList<PlantVal> vals = valueService.findDayValues(plantVal.getPlvDateTime());
-		model.addAttribute("vals", vals);
-		model.addAttribute("date", date);
-		return "diary/day";
 	}
 }

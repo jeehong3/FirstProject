@@ -1,7 +1,6 @@
 package com.farmstory.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.farmstory.mapper.ValueMapper;
 import com.farmstory.vo.PlantVal;
@@ -15,13 +14,13 @@ public class MySqlValueDao implements ValueDao {
 	}
 
 	@Override
-	public ArrayList<PlantVal> findValues(String plvDateTime) {
-		return valueMapper.selectValues(plvDateTime);
+	public ArrayList<PlantVal> findValues(PlantVal plantVal) {
+		return valueMapper.selectValues(plantVal);
 	}
 
 	@Override
-	public ArrayList<PlantVal> findDayValues(String plvDateTime) {
-		return valueMapper.selectDayValues(plvDateTime);
+	public ArrayList<PlantVal> findDayValues(PlantVal plantVal) {
+		return valueMapper.selectDayValues(plantVal);
 	}
 
 	

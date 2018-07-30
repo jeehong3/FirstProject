@@ -1,7 +1,6 @@
 package com.farmstory.service;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.farmstory.dao.ValueDao;
 import com.farmstory.vo.PlantVal;
@@ -15,13 +14,13 @@ public class ValueServiceImpl implements ValueService {
 	}
 
 	@Override
-	public ArrayList<PlantVal> findValues(String plvDateTime) {
-		return valueDao.findValues(plvDateTime);
+	public ArrayList<PlantVal> findValues(PlantVal plantVal) {
+		return valueDao.findValues(plantVal);
 	}
 
 	@Override
-	public ArrayList<PlantVal> findDayValues(String plvDateTime) {
-		return valueDao.findDayValues(plvDateTime);
+	public ArrayList<PlantVal> findDayValues(PlantVal plantVal) {
+		return valueDao.findDayValues(plantVal);
 	}
 
 

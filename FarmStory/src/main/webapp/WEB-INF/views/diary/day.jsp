@@ -21,7 +21,7 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<i class="fa fa-bar-chart-o fa-fw"></i> 나의 화분 정보
+			<i class="fa fa-bar-chart-o fa-fw"></i> 나의 화분 정보 <br>
 			<div class="pull-right">
 				<div class="btn-group">
 					<button type="button"
@@ -30,8 +30,8 @@
 						기간선택 <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu pull-right" role="menu">
-						<li><a href="findTime.action">실시간</a></li>
-						<li><a href="findDay.action">일간</a></li>
+						<li><a href="findTime.action?regPotNo=${ regPotNo }">실시간</a></li>
+						<li><a href="findDay.action?regPotNo=${ regPotNo }">일간</a></li>
 					</ul>
 				</div>
 			</div>
@@ -41,6 +41,7 @@
 			<div class="row">
 				<div style="width: 50%">
 					<form id="frm" action="findDay.action" method="post">
+						화분 번호 : ${ regPotNo } <input type="hidden" name="regPotNo" value=${ regPotNo }>
 						&emsp;&nbsp;날짜 입력: <input type="date" id="date" name="date"
 							value=${ date }> <input type="submit" value="전송">
 					</form>

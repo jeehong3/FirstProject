@@ -21,7 +21,7 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<i class="fa fa-bar-chart-o fa-fw"></i> 나의 화분 정보
+			<i class="fa fa-bar-chart-o fa-fw"></i> 나의 화분 정보 <br>
 			<div class="pull-right">
 				<div class="btn-group">
 					<button type="button"
@@ -30,8 +30,8 @@
 						기간선택 <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu pull-right" role="menu">
-						<li><a href="findTime.action">실시간</a></li>
-						<li><a href="findDay.action">일간</a></li>
+						<li><a href="findTime.action?regPotNo=${ regPotNo }">실시간</a></li>
+						<li><a href="findDay.action?regPotNo=${ regPotNo }">일간</a></li>
 					</ul>
 				</div>
 			</div>
@@ -40,13 +40,15 @@
 		<div class="panel-body">
 			<div class="row">
 				<div style="width: 50%">
+					&emsp;&nbsp;화분 번호 : ${ regPotNo } <br>
 					<form id="frm" action="findTime.action" method="post">
+						<input type="hidden" name="regPotNo" value=${ regPotNo }>
 						&emsp;&nbsp;날짜 입력: <input type="date" id="date" name="date"
 							value=${ date }> <input type="submit" value="전송">
 					</form>
 				</div>
 				<br>
-				
+
 				<div class="col-lg-4">
 					<div class="table-responsive" style="width: 200%">
 						<div id="graphDiv1"></div>
@@ -68,7 +70,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						
+
 						<div id="graphDiv2"></div>
 						<table class="table table-bordered table-hover table-striped">
 							<thead>
@@ -88,7 +90,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						
+
 						<div id="graphDiv3"></div>
 						<table class="table table-bordered table-hover table-striped">
 							<thead>
@@ -108,7 +110,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						
+
 						<div id="graphDiv4"></div>
 						<table class="table table-bordered table-hover table-striped">
 							<thead>
