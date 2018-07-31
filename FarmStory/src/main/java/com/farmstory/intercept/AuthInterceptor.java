@@ -31,6 +31,10 @@ public class AuthInterceptor implements HandlerInterceptor{
 			redirect = false;
 		}
 		
+		if(url.contains("mFindAlarms.action")) {
+			redirect = true;
+		}
+		
 		if (!redirect) {
 			// 로그인 하지 않는 경우 메인 페이지로 이동시킨다.
 			response.sendRedirect("/farmstory/home.action?checkedLogin=empty");

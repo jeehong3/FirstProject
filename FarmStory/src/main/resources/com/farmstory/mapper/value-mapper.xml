@@ -31,7 +31,7 @@
 		ORDER BY PLV_DATETIME DESC
 	</select>
 	
-	<select id="selectAlarms" parameterType="String" resultType="alarm">
+	<select id="selectAlarms" parameterType="String" resultType="Alarm">
 		SELECT A.MEM_ID memberId, A.REG_POTNO regPotNo, A.VAL_TYPE valType
 		FROM ALARM A
 		WHERE A.CHECK = 0 AND A.MEM_ID = #{ id }
