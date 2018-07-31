@@ -1,7 +1,5 @@
 package com.farmstory.service;
 
-import java.util.List;
-
 import com.farmstory.vo.Account;
 
 public interface AccountService {

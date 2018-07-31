@@ -1,7 +1,8 @@
 package com.farmstory.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.farmstory.common.Util;
 import com.farmstory.service.AccountService;
 import com.farmstory.vo.Account;
-
 
 @Controller
 public class AccountController {
@@ -61,6 +61,7 @@ public class AccountController {
 					mav.addObject("loginCheck", loginCheck);
 				}
 			}
+
 		return mav;
 	}
 	

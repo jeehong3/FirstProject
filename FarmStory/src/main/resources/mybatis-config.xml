@@ -19,6 +19,7 @@
 		<typeAlias type="com.farmstory.vo.PlantImg" alias="PlantImg"/> 
 		<typeAlias type="com.farmstory.vo.Cover" alias="Cover"/>
 		<typeAlias type="com.farmstory.vo.Notice" alias="Notice"/>
+		<typeAlias type="com.farmstory.vo.Alarm" alias="Alarm"/>
 	</typeAliases>
 
 	<environments default="development">
