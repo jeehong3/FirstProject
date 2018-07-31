@@ -44,17 +44,18 @@
 
 	<main> <!-- ============================================================= SECTION – HERO ============================================================= -->
 
-	<section id="hero" class="light-bg img-bg img-bg-softer"
-		style="background-image: url(assets/images/art/image-background04.jpg);">
-		<div class="container inner">
+<section class="light-bg img-bg img-bg-softer" style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+		<div id="registerTitle" class="container inner">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-8 center-block text-center aos-init aos-animate" data-aos="fade-up">
 					<header>
-						<h1>스마트팜-소개 수정</h1>
-						<p>스마트팜-소개 부분을 수정합니다.</p>
+						<h1>팜스토리 소개 수정 (관리자모드)</h1>
+						<p>팜스토리에 대해서 소개 수정합니다.</p>
 					</header>
 				</div>
+				<!-- /.col -->
 			</div>
+			<!-- ./row -->
 		</div>
 	</section>
 	<div class="container inner">
@@ -75,6 +76,7 @@
 
 						<div class="row">
 							<div class="col-sm-6">
+							<h4>제목 입력</h4>
 								<input type="text" name="covTitle" class="form-control"
 									value="${cover.covTitle }"  placeholder="제목을 입력해주세요">
 							</div>
@@ -85,6 +87,7 @@
 						<div class="row">
 							<div id="addImage">
 								<div class="col-sm-6">
+								    <h4>그림 파일 등록</h4>
 									<input type="file" name="cover_image" id="file" class="form-control">
 								</div>
 								<!-- /.col -->
@@ -96,11 +99,14 @@
 						<%////////////////////////////////////////////////// %>
 						<!-- 왼쪽 소개내용 -->
 						<div class="row">
+							<div style="padding-left:7px;margin-left:7px">
 						  <div class="col-sm-20">
+						  <h4>왼쪽 소개 내용 작성</h4>
 								<textarea name="covLcontent" id="leftSmartEditor"
 									class="form-control">${cover.covLcontent}</textarea>
 							</div>
 							<!-- /.col -->
+							</div>
 						</div>
 						
 						<div class="row">
@@ -110,11 +116,14 @@
 						<%////////////////////////////////////////////////// %>
 						<!-- 오른쪽 소개내용 -->
 						<div class="row">
+							<div style="padding-left:7px;margin-left:7px">
 						  <div class="col-sm-20">
+						  <h4>오른쪽 소개 내용 작성</h4>
 								<textarea name="covRcontent" id="rightSmartEditor"
 									class="form-control">${cover.covRcontent}</textarea>
 							</div>
 							<!-- /.col -->
+							</div>
 						</div>
 						
 						<div class="row">
@@ -124,7 +133,7 @@
 						<!-- /.row -->
 
 						<button id="savebutton" class="btn btn-submit">등록하기</button>
-                        <button id="listbutton" class="btn btn-submit">리스트이동</button>
+                        <button id="listbutton" class="btn">리스트이동</button>
 					</form>
 
 					<div id="response"></div>
@@ -137,31 +146,7 @@
 
 				<!-- ============================================================= SECTION – CONTACTS ============================================================= -->
 
-				<section id="contacts" class="inner-top-md inner-bottom-sm">
 
-					<h2>Contacts</h2>
-					<p>
-						Magnis modipsae voloratati andigen daepeditem quiate re aut labor.
-						<br>Laceaque eictemperum quiae sitiorem rest non restibusaes.
-					</p>
-
-					<div class="row">
-						<div class="col-sm-6">
-							<h3>REEN</h3>
-							<ul class="contacts">
-								<li><i class="icon-location contact"></i> 84 Street, City,
-									State 24813</li>
-								<li><i class="icon-mobile contact"></i> +00 (123) 456 78 90</li>
-								<li><a href="mailto:info@reen.com"><i
-										class="icon-mail-1 contact"></i> info@reen.com</a></li>
-							</ul>
-							<!-- /.contacts -->
-						</div>
-						<!-- /.col -->
-					</div>
-					<!-- /.row -->
-
-				</section>
 
 				<!-- ============================================================= SECTION – CONTACTS : END ============================================================= -->
 
@@ -180,7 +165,6 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 
-	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
 
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 
@@ -244,13 +228,10 @@
 								"UPDATE_CONTENTS_FIELD", []);
 						editor_object.getById["rightSmartEditor"].exec(
 								"UPDATE_CONTENTS_FIELD", []);
-                        }
-
-                        }else(){
-                        	event.preventDefault();
-    						event.stopPropagation();
-                        	
-                        } 
+					} else {
+                    	event.preventDefault();
+						event.stopPropagation();
+                    } 
 			        
 			        //폼 submit
 			       $("#update-form").submit();

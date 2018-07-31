@@ -18,6 +18,13 @@
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
+		<style type="text/css">
+		.main-img {
+			border: 1px solid #888888;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+				rgba(0, 0, 0, 0.19);
+		}
+		</style>
 	</head>
 	
 	<body>
@@ -75,7 +82,7 @@
 								<h1 class="fadeInDown-1 light-color">나만의 다이어리로 남기세요</h1>
 								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요.</p>
 								<div class="fadeInDown-3">
-									<a href="/farmstory/diary_write.action" class="btn btn-large">다이어리 쓰기</a>
+									<a href="/farmstory/diary_book_list.action" class="btn btn-large">다이어리 쓰기</a>
 								</div><!-- /.fadeIn -->
 								
 							</div><!-- /.caption -->
@@ -96,13 +103,13 @@
 					<div class="row">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
 							<h2>어떻게 키워야 할까?</h2>
-							<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut reporemni aut labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu ptatemp dolupta oreprerum tibusam. Eumenis et consent accullignis dentibea autem inisita posae volor conecus resto explabo.</p>
-							<a href="#" class="txt-btn">Check out the functions</a>
+							<br><p>미세먼지가 습격이 많은 요즘.<br>공기정화식물을 키우고 싶으시나요?<br>어떻게 키워야하는지 정보를 보고 가세요.<br>팜스토리가 보다 쉽게 키울 수 있게 도와드릴게요.</p>
+							<a href="/farmstory/plant_list.action" class="txt-btn">식물 정보 보기</a>
 						</div><!-- /.col -->
 						
 					</div><!-- /.row -->
@@ -110,13 +117,13 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 col-sm-push-6 inner-left-xs">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 col-sm-pull-6 inner-top-xs inner-right-xs">
 							<h2>구매한 화분을 등록해볼까?</h2>
-							<p>Magnis modipsae que lib voloratati andigen daepeditem quiate es reporemus aut labor. Laceaque quiae sitiorem rest non restibusaes dem tumquam core posae volor remped modis volor. Doloreiur quia commolu ptatemp dolupta oreprerum tibusam eumenis et consent accullignis lib dentibea autem inisita. Conecus iure posae volor remped modis aut accabora incim resto explabo eictemperum quiae sitiorem.</p>
-							<a href="#" class="txt-btn">Visit the showroom</a>
+							<br><p>언제 물을 줘야하는지, 햇빛은 언제 받았는지,<br>혹시 화분이 넘어졌는지,<br>스마트 화분이 당신의 식물을 보다 쉽게 키울 수 있게 도와줄거예요.<br>이제 구매한 화분을 등록해 보세요.</p>
+							<a href="/farmstory/plant_regist.action" class="txt-btn">나의 화분 등록하기</a>
 						</div><!-- /.col -->
 						
 					</div><!-- /.row -->
@@ -124,13 +131,13 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
 							<h2>이제 생육 일기를 써보자!</h2>
-							<p>Magnis modipsae que lib voloratati andigen daepeditem quiate ut reporemni aut labor. Laceaque quiae sitiorem rest non restibusaes es tumquam core posae volor remped modis volor. Doloreiur qui commolu ptatemp dolupta oreprerum tibusam emnis et consent accullignis.</p>
-							<a href="#" class="txt-btn">Learn more about it</a>
+							<br><p>사람도 식물도 사랑을 줘야 행복해져요.<br>하루하루 관심을 갖고 사랑을 듬뿍 주세요~<br>사랑의 기록을 남겨보세요~</p>
+							<a href="/farmstory/my_flowerpot_list.action" class="txt-btn">다이어리 북 만들기</a>
 						</div><!-- /.col -->
 						
 					</div><!-- /.row -->

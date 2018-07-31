@@ -29,8 +29,8 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 	
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, int dibNo) {
-		List<Diary> diary = diaryDao.findDiary(from, to, memId, dibNo);
+	public List<Diary> findDiary(int from, int to, String memId, int dibNo, String diaTitle) {
+		List<Diary> diary = diaryDao.findDiary(from, to, memId, dibNo, diaTitle);
 		for (Diary d : diary) {
 			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
 			d.setAttachment(attachments);
@@ -121,5 +121,8 @@ public class DiaryServiceImpl implements DiaryService{
 		return diaryInfo;
 	}
 
-
+	@Override
+	public void deleteDiary(int dibNo) {
+		diaryDao.deleteDiaryBook(dibNo);
+	}
 }

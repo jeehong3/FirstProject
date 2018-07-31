@@ -20,7 +20,7 @@
 
 	<!-- 여기서 DIA_NO를 조회 -->
 	<select id="findDiary" parameterType="hashmap" resultType="Diary">
-		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIB_NO dibNo,
+		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle, D.DIB_NO dibNo,
 		D.DIA_CONTENT diaContent, D.MEM_ID memId
 		FROM DIARY D
 		JOIN MEMBER M
@@ -91,7 +91,7 @@
 	</update>
 	
 	<select id="findDiaryCategory" parameterType="String" resultType="Diary">
-	SELECT D.DIA_TITLE diaTitle,D.MEM_ID memId, D.DIA_CATEGORY diaCategory, D.DIA_BOOKNAME diaBookName
+	SELECT D.DIA_TITLE diaTitle, D.MEM_ID memId, D.DIA_CATEGORY diaCategory, D.DIA_BOOKNAME diaBookName
 		FROM DIARY D
 		JOIN MEMBER M
 		ON D.MEM_ID = M.MEM_ID
@@ -121,6 +121,8 @@
 	WHERE DIB_NO = #{dibNo}
 	</select>
 	
-	
+	<delete id="deleteDiaryBook" parameterType="int">
+	DELETE FROM DIARY_BOOK WHERE DIB_NO = #{dibNo}
+	</delete>
 	
 </mapper>  

@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Farm Story - My Diary</title>
+<title>FARM STORY - My Diary</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
@@ -49,7 +49,7 @@
 			<div class="row">
 				<div class="col-md-8 center-block text-center">
 					<header>
-						<h1>화분 다이어리 쓰기</h1>
+						<h1>화분 일기 쓰기</h1>
 						<p>내가 키우는 식물의 생육일기를 써보세요.</p>
 					</header>
 				</div>
@@ -70,8 +70,6 @@
 
 				<section id="diary-form-section">
 
-					<h2>다이어리 등록</h2>
-					<br>
 					<form id="diary-form" action="diary_write.action" method="post"
 						enctype="multipart/form-data">
 

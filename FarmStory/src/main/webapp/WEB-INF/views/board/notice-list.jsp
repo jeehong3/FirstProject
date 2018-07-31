@@ -85,9 +85,9 @@
 							<div class="table-responsive" data-pattern="priority-columns">
 								<table class="table listingsTable">
 									<tr class="rowItem">
-										<td align="center"><b>게시자</b></td>
-										<td align="center"><b>제목</b></td>
-										<td align="center"><b>날짜</b></td>
+										<td align="center" style="word-break:break-all" ><b>게시자</b></td>
+										<td align="center" style="word-break:break-all" ><b>제목</b></td>
+										<td align="center" style="word-break:break-all" ><b>날짜</b></td>
 										<c:if
 											test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 											<td align="center"><b>삭제</b></td>

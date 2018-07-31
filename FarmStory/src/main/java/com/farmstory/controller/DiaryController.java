@@ -54,7 +54,7 @@ public class DiaryController {
 	
 	@PostMapping(value = "/diary_write.action")
 	public String diary_write(MultipartHttpServletRequest req, Diary diary, Model model,
-			String memId) {
+			String memId, int dibNo) {
 		
 		diary.setMemId(memId);
 		//이미지 삽입
@@ -89,7 +89,7 @@ public class DiaryController {
 				diaryService.writeDiary(diary);
 				//registPlantService.registPlant(registplant);
 			
-				return "redirect:/diary_book_list.action";
+				return "redirect:/diary_list.action?dibNo=" + dibNo;
 	}
 	//다이어리 북 리스트
 	/*@GetMapping(value = "/diary_book_list.action")
@@ -112,7 +112,8 @@ public class DiaryController {
 	@GetMapping(value = "/diary_list.action")
 	public String diary_list(Model model, HttpSession session,
 			@RequestParam(value = "pageno", defaultValue = "1") int pageNo,
-			@RequestParam(value = "dibNo", defaultValue = "1") int dibNo) {
+			@RequestParam(value = "dibNo", defaultValue = "1") int dibNo,String diaName,
+			String plaName, String diaCategory, String diaTitle) {
 		
 		String memId = ((Account)session.getAttribute("loginuser")).getMemId();
 		
@@ -127,24 +128,20 @@ public class DiaryController {
 		int pagerSize = 5; //번호로 표시할 페이지 목록
 		String linkUrl = "diary_list.action";
 		//////////////////////////////////////////////////////////////////////////////
-		List<Diary> diary = diaryService.findDiary(from, to, memId, dibNo);
+		List<Diary> diary = diaryService.findDiary(from, to, memId, dibNo, diaTitle);
 		int dataCount = diaryService.getCount();
 		
 		ThePager pager = new ThePager(dataCount, pageNo, pageSize, pagerSize, linkUrl);
 		
 		List<DiaryImg> diaryAllImg = diaryService.findDiaryAllImg(memId, dibNo);
 	
-		//SimpleDateFormat diaDate = new SimpleDateFormat("dd-MMM-yyyy", new Locale("en", "US"));
-		
-		//ArrayList<RegistPlant> myFlowerpots = registPlantService.findRegistFlowerpotByMemId(memId);
-		//model.addAttribute("myFlowerpots", myFlowerpots);
-		
 		model.addAttribute("diaries", diary);
 		model.addAttribute("pager", pager);
 		model.addAttribute("diaryAllImg", diaryAllImg);
 		model.addAttribute("memId", memId);
-	
-		
+		model.addAttribute("diaName", diaName);
+		model.addAttribute("plaName", plaName);
+		model.addAttribute("diaCategory", diaCategory);
 		return "diary/diary_list";
 	}
 	
@@ -332,7 +329,12 @@ public class DiaryController {
 			diaryService.writeDiaryBook(diaryBook);
 		}
 		
-		return "home";
+		return "redirect:diary_book_list.action";
 	}
 	
+	@GetMapping(value = "/diary_book_delete.action")
+	public String diary_book_delete(int dibNo) {
+		diaryService.deleteDiary(dibNo);
+		return "redirect:diary_book_list.action";
+	}
 }

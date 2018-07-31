@@ -11,7 +11,7 @@ public interface DiaryService {
 
 	void writeDiary(Diary diary);
 
-	List<Diary> findDiary(int from, int to, String memId, int dibNo);
+	List<Diary> findDiary(int from, int to, String memId, int dibNo, String diaTitle);
 
 	List<DiaryImg> findDiaryAllImg(String memId, int dibNo);
 
@@ -38,5 +38,7 @@ public interface DiaryService {
 	List<DiaryBook> findDiaryBookListByMemId(String memId);
 
 	DiaryBook findDiaryBookInfo(int dibNo);
+
+	void deleteDiary(int dibNo);
 
 }
