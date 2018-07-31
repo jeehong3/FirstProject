@@ -77,7 +77,7 @@
 				</div>
 			</section>
 </div> 
-<c:if test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+<c:if test="${not empty loginuser}">
 		<div id="noticeSection" class="recentActivitySection">
 			<div class="container">
 
@@ -99,7 +99,7 @@
 
 									<c:forEach var="notice" items="${ notices }">
 										<c:if
-											test="${ notice.memberType eq 'USER'}">
+											test="${ notice.memberId eq loginuser.memId}">
 											<tr class="rowItem">
 												<td class="dateTd" align="center">${ notice.memberName }</td>
 
