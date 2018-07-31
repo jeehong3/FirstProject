@@ -28,13 +28,12 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName) {
+	public List<Diary> findDiary(int from, int to, String memId, int dibNo) {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("from", from);
 		params.put("to", to);
 		params.put("memId", memId);
-		params.put("diaTitle", diaTitle);
-		params.put("diaBookName", diaBookName);
+		params.put("dibNo", dibNo);
 		//List<Diary> diary = diaryMapper.findDiary(from, to, memId);
 		//return diary;
 		
@@ -48,10 +47,10 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryAllImg(String memId, String diaBookName) {
+	public List<DiaryImg> findDiaryAllImg(String memId, int dibNo) {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("memId", memId);
-		params.put("diaBookName", diaBookName);
+		params.put("dibNo", dibNo);
 		return diaryMapper.findDiaryAllImg(params);
 		//List<DiaryImg> diaryAllImg = diaryMapper.findDiaryAllImg(memId, diaBookName);
 		//return diaryAllImg;
@@ -111,6 +110,18 @@ public class MySqlDiaryDao implements DiaryDao{
 	public DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook) {
 		
 		return diaryMapper.selectPlantInfoForInsertDirayBook(diaryBook);
+	}
+	
+	@Override
+	public List<DiaryBook> selectDiaryBookListByMemId(String memId) {
+		
+		return diaryMapper.selectDiaryBookListByMemId(memId);
+	}
+
+	@Override
+	public DiaryBook selectDiaryBookInfo(int dibNo) {
+		DiaryBook diaryInfo = diaryMapper.selectDiaryBookInfo(dibNo);
+		return diaryInfo;
 	}
 
 

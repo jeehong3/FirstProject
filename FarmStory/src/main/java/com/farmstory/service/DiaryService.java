@@ -11,9 +11,9 @@ public interface DiaryService {
 
 	void writeDiary(Diary diary);
 
-	List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName);
+	List<Diary> findDiary(int from, int to, String memId, int dibNo);
 
-	List<DiaryImg> findDiaryAllImg(String memId, String diaBookName);
+	List<DiaryImg> findDiaryAllImg(String memId, int dibNo);
 
 	int getCount();
 
@@ -34,5 +34,9 @@ public interface DiaryService {
 	void writeDiaryBook(DiaryBook diaryBook);
 
 	DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook);
+
+	List<DiaryBook> findDiaryBookListByMemId(String memId);
+
+	DiaryBook findDiaryBookInfo(int dibNo);
 
 }

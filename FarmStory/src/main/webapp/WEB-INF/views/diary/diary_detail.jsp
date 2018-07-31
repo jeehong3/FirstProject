@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -44,49 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div id="accordion" class="panel-group">
-						<div class="panel panel-default">
-
-							<div class="panel-heading">
-								<h4 class="panel-title">
-									<a class="panel-toggle" data-toggle="collapse"
-										data-parent="#accordion" href="#content"> <span>Popular
-											posts</span>
-									</a>
-								</h4>
-							</div>
-							<!-- /.panel-heading -->
-
-							<div id="content" class="panel-collapse collapse in">
-								<div class="panel-body">
-									<div id="owl-popular-posts"
-										class="owl-carousel owl-item-gap-sm">
-										<c:forEach var="diaryAllImg" items="${ diaryAllImg }">
-											<div class="item">
-												<a href="/farmstory/diary_detail.action?diaNo=${ diaryAllImg.diaNo }">
-													<figure>
-														<figcaption class="text-overlay">
-															<div class="info">
-																<h4>Vintage Bicycles</h4>
-																<p>Interactive</p>
-															</div>
-															<!-- /.info -->
-														</figcaption>
-														<img
-															src="/farmstory/resources/upload-image/diary-info/${diaryAllImg.diiImg}"
-															alt="">
-													</figure>
-												</a>
-											</div>
-											<!-- /.item -->
-										</c:forEach>
-									</div>
-									<!-- /.owl-carousel -->
-								</div>
-								<!-- /.panel-body -->
-							</div>
-							<!-- /.content -->
-
-						</div>
+						<div class="panel panel-default"></div>
 						<!-- /.panel -->
 					</div>
 					<!-- /.accordion -->
@@ -107,35 +65,6 @@
 		<div
 			class="container inner-top-sm inner-bottom classic-blog no-sidebar">
 
-			<div class="row inner-bottom-xs">
-				<div class="col-sm-12">
-					<ul class="format-filter text-center">
-						<li><a class="active" href="#" data-filter="*" title="All"
-							data-rel="tooltip" data-placement="top"><i class="icon-th"></i></a></li>
-						<li><a href="#" data-filter=".format-standard"
-							title="Standard" data-rel="tooltip" data-placement="top"><i
-								class="icon-edit"></i></a></li>
-						<li><a href="#" data-filter=".format-image" title="Image"
-							data-rel="tooltip" data-placement="top"><i
-								class="icon-picture-1"></i></a></li>
-						<li><a href="#" data-filter=".format-gallery" title="Gallery"
-							data-rel="tooltip" data-placement="top"><i
-								class="icon-picture"></i></a></li>
-						<li><a href="#" data-filter=".format-video" title="Video"
-							data-rel="tooltip" data-placement="top"><i
-								class="icon-video-1"></i></a></li>
-						<li><a href="#" data-filter=".format-audio" title="Audio"
-							data-rel="tooltip" data-placement="top"><i
-								class="icon-music-1"></i></a></li>
-						<li><a href="#" data-filter=".format-quote" title="Quote"
-							data-rel="tooltip" data-placement="top"><i class="icon-quote"></i></a></li>
-						<li><a href="#" data-filter=".format-link" title="Link"
-							data-rel="tooltip" data-placement="top"><i class="icon-popup"></i></a></li>
-					</ul>
-					<!-- /.format-filter -->
-				</div>
-				<!-- /.col -->
-			</div>
 			<!-- /.row -->
 
 			<div class="row">
@@ -147,9 +76,9 @@
 
 							<div class="date-wrapper">
 								<div class="date">
-									<span class="day"><c:set var="diaDate" value="<%= new java.util.Date() %>" />
-										<fmt:formatDate value="${ diaDate }" type="date" pattern="MM-dd" />
-										</span>
+									<span class="day"><c:set var="diaDate"
+											value="<%=new java.util.Date()%>" /> <fmt:formatDate
+											value="${ diaDate }" type="date" pattern="MM-dd" /> </span>
 									<!-- <span class="month">May</span> -->
 								</div>
 								<!-- /.date -->
@@ -200,8 +129,7 @@
 
 					</div>
 					<!-- /.posts -->
-					<br>
-					<br>
+					<br><br><br>
 					<div align="center">
 						<button id="updateButton" class="btn btn-submit">수정하기</button>
 						&nbsp;&nbsp;&nbsp; <a id="deleteButton" class="btn btn-submit">삭제하기</a>
@@ -227,13 +155,14 @@
 						</h4>
 					</div>
 					<div class="modal-footer">
-						<a href="/farmstory/diary_delete.action?diaNo=${ diary.diaNo }" class="btn">확인</a>&nbsp;&nbsp;&nbsp;
-						<a class="btn" data-dismiss="modal" aria-hidden="true">취소</a>
+						<a href="/farmstory/diary_delete.action?diaNo=${ diary.diaNo }"
+							class="btn">확인</a>&nbsp;&nbsp;&nbsp; <a class="btn"
+							data-dismiss="modal" aria-hidden="true">취소</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="updateModal" class="modal fade" role="dialog">
 			<div id="modal-dialog-logout" class="modal-dialog">
 				<!-- Modal content-->
@@ -246,8 +175,9 @@
 						</h4>
 					</div>
 					<div class="modal-footer">
-						<a href="/farmstory/diary_update.action?diaNo=${ diary.diaNo }" class="btn">확인</a>&nbsp;&nbsp;&nbsp;
-						<a class="btn" data-dismiss="modal" aria-hidden="true">취소</a>
+						<a href="/farmstory/diary_update.action?diaNo=${ diary.diaNo }"
+							class="btn">확인</a>&nbsp;&nbsp;&nbsp; <a class="btn"
+							data-dismiss="modal" aria-hidden="true">취소</a>
 					</div>
 				</div>
 			</div>
@@ -272,24 +202,20 @@
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
 	<script type="text/javascript">
-	$(function() {
-		$('#deleteButton').on(
-				'click',
-				function(event) {
-					event.preventDefault();
-					$('#deleteModal').modal('show');
-					
-				});
-		
-		$('#updateButton').on(
-				'click',
-				function(event) {
-					event.preventDefault();
-					$('#updateModal').modal('show');
-					
-				});
-	});
-</script>
+		$(function() {
+			$('#deleteButton').on('click', function(event) {
+				event.preventDefault();
+				$('#deleteModal').modal('show');
+
+			});
+
+			$('#updateButton').on('click', function(event) {
+				event.preventDefault();
+				$('#updateModal').modal('show');
+
+			});
+		});
+	</script>
 	<!-- For demo purposes – can be removed on production : End -->
 </body>
 </html>

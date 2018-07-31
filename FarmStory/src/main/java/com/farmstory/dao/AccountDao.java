@@ -13,5 +13,4 @@ public interface AccountDao {
 	Account signInMoblie(String id, String password);
 
 
-
 }

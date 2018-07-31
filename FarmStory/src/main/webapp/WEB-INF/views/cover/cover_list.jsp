@@ -33,7 +33,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript">
 	$(function() { //jQuery의 main 함수
-		$('#write').on('click', function(event) {
+		$('#writebtn').on('click', function(event) {
 			<c:choose>
 				<c:when test="${ADMIN}">
 				alert('관리자만 글을 작성할 수 있습니다.');
@@ -46,7 +46,7 @@
 		});
 	});
 	$(function(){
-		$('#list').on('click',function(event){
+		$('#listbtn').on('click',function(event){
 			location.href ='/farmstory/cover_detail.action'
 		});
 	});
@@ -66,18 +66,20 @@
 
 	<section id="portfolio">
 
-		<div class="container inner">
+<section class="light-bg img-bg img-bg-softer" style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+		<div id="registerTitle" class="container inner">
 			<div class="row">
-				<div class="col-md-8 col-sm-9 center-block text-center">
-					<header class="notoSansKR medium">
-						<h2>스마트팜 소개 목록</h2>
-						<p id="plant-sub-title">스마트팜 소개 목록입니다..</p>
+				<div class="col-md-8 center-block text-center aos-init aos-animate" data-aos="fade-up">
+					<header>
+						<h1>팜스토리 소개 목록 (관리자모드)</h1>
+						<p>팜스토리에 대해서 소개 목록으로 관리합니다.</p>
 					</header>
 				</div>
 				<!-- /.col -->
 			</div>
-			<!-- /.row -->
+			<!-- ./row -->
 		</div>
+	</section>
 		<!-- /.container -->
 
 		<div class="container inner-bottom notoSansKR">
@@ -110,9 +112,14 @@
 					</table>
 
 
-					<a id="write" href="#">소개 등록</a> <input
+					<div style="text-align: center">
+					<!-- <a id="write" href="#">소개 등록</a> <input
 						type="hidden" value="test" />
-					<a id="list" href="#">소개 목록</a>
+					<a id="list" href="#">소개 목록</a> -->
+					<button id="writebtn" class="btn btn-submit">등록하기</button><input
+						type="hidden" value="test" />
+					<button id="listbtn" class="btn btn-submit">리스트이동</button>
+					</div>
 					
 				</div>
 				<!-- /.col -->
@@ -133,7 +140,7 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 
-	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
+
 
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 

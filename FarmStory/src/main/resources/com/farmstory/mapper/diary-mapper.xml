@@ -6,26 +6,26 @@
 <mapper namespace="com.farmstory.mapper.DiaryMapper">
 
 	<insert id="insertDiary" parameterType="Diary">
-		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID, DIA_CATEGORY, DIA_BOOKNAME, REG_POTNO)
-		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId}, #{diaCategory}, #{diaBookName}, #{regPotNo})
+		INSERT INTO DIARY (DIA_DATE, DIA_TITLE, DIA_CONTENT, MEM_ID, DIB_NO)
+		VALUES (#{diaDate}, #{diaTitle}, #{diaContent}, #{memId}, #{dibNo})
 		<selectKey resultType="int" keyProperty="diaNo" order="AFTER">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
 
 	<insert id="insertDiaryImage" parameterType="DiaryImg">
-		INSERT INTO DIARY_IMG (DII_IMG, DIA_NO)
-		VALUES (#{diiImg}, #{diaNo})
+		INSERT INTO DIARY_IMG (DII_IMG, DIA_NO, DIB_NO)
+		VALUES (#{diiImg}, #{diaNo}, #{dibNo})
 	</insert>
 
 	<!-- 여기서 DIA_NO를 조회 -->
 	<select id="findDiary" parameterType="hashmap" resultType="Diary">
-		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIA_TITLE diaTitle, D.DIA_CATEGORY diaCategory
+		SELECT D.DIA_NO diaNo, D.DIA_DATE diaDate, D.DIB_NO dibNo,
 		D.DIA_CONTENT diaContent, D.MEM_ID memId
 		FROM DIARY D
 		JOIN MEMBER M
 		ON D.MEM_ID = M.MEM_ID
-		WHERE D.MEM_ID = #{memId}
+		WHERE D.MEM_ID = #{memId} AND D.DIB_NO = #{dibNo}
 		<if test='diaTitle != null and diaTitle != ""'>
 			AND D.DIA_TITLE LIKE CONCAT('%', #{ diaTitle }, '%')
 		</if>
@@ -45,12 +45,12 @@
 		WHERE D.DIA_NO = #{diaNo}
 	</select>
 
-	<select id="findDiaryAllImg" parameterType="String" resultType="DiaryImg">
-		SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId
+	<select id="findDiaryAllImg" parameterType="hashmap" resultType="DiaryImg">
+		SELECT I.DIA_NO diaNo, I.DII_IMG diiImg, D.MEM_ID memId, D.DIB_NO dibNo
 		FROM DIARY_IMG I
 		JOIN DIARY D
 		ON I.DIA_NO = D.DIA_NO
-		WHERE D.MEM_ID = #{memId}
+		WHERE D.MEM_ID = #{memId} AND D.DIB_NO = #{dibNo}
 	</select>
 
 	<select id="selectCount" resultType="int">
@@ -98,15 +98,29 @@
 		WHERE D.MEM_ID = #{memId}	
 	</select>
 	
-	<insert id="insertDiaryBook" parameterType="DiaryBook">
-	INSERT INTO DIARY_BOOK (DIA_NAME, REG_POTNO, PLA_NAME, MEM_ID)
-	VELUES (#{diaName}, #{regPotNo}, #{plaName}, #{memId})
-	</insert>
-	
 	<select id="selectPlantInfoForInsertDirayBook" resultType="DiaryBook">
 	SELECT PLA_NAME plaName, PLA_TYPE plaType
 	FROM PLANT
 	WHERE PLA_NO = #{plaNo}
 	</select>
+	
+	<insert id="insertDiaryBook" parameterType="DiaryBook">
+	INSERT INTO DIARY_BOOK (DIA_NAME, REG_POTNO, PLA_NAME, MEM_ID, DIB_IMG, DIA_CATEGORY)
+	VALUES (#{diaName}, #{regPotNo}, #{plaName}, #{memId}, #{dibImg}, #{diaCategory})
+	</insert>
+	
+	<select id="selectDiaryBookListByMemId" resultType="DiaryBook">
+	SELECT DIB_NO dibNo, DIA_NAME diaName, REG_POTNO regPotNo, PLA_NAME plaName, MEM_ID memId, DIB_IMG dibImg, DIA_CATEGORY diaCategory
+	FROM DIARY_BOOK
+	WHERE MEM_ID = #{memId}
+	</select>
+	
+	<select id="selectDiaryBookInfo" parameterType="int" resultType="DiaryBook">
+	SELECT DIB_NO dibNo, DIA_NAME diaName, REG_POTNO regPotNo, PLA_NAME plaName, DIA_CATEGORY diaCategory
+	FROM DIARY_BOOK
+	WHERE DIB_NO = #{dibNo}
+	</select>
+	
+	
 	
 </mapper>  

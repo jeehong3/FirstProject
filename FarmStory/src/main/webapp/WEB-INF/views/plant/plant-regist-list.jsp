@@ -71,7 +71,8 @@
 									<div class="info">
 										<h4>${ myFlowerpots.plaName }</h4>
 										<p>화분 번호 : ${ myFlowerpots.regPotNo }</p>
-										<a class="btn">수정</a> <a class="btn deletePotBtn"
+										<!-- <a class="btn">수정</a> -->
+										<a class="btn deletePotBtn"
 											data-index="${ status.index }">삭제</a>
 									</div>
 									<!-- /.info -->
@@ -125,7 +126,7 @@
 			var index = $(this).data("index");
 			var regPotNo = $("#myPotNo" + index).val();
 
-			if (confirm("지금까지 작성한 다이어리도 함께 삭제 됩니다. 정말로 삭제하시겠습니까?")) {
+			if (confirm("정말로 삭제하시겠습니까?")) {
 				$.ajax({
 					"url" : "/farmstory/my_flowerpot_delete.action",
 					"method" : "GET",

@@ -34,7 +34,7 @@
 <script type="text/javascript">
 
 	$(function() { //jQuery의 main 함수
-		$('#update').on('click',function(event) {
+		$('#updatebtn').on('click',function(event) {
 							<c:choose>
 							<c:when test="${ADMIN}">
 							alert('관리자만 글을 작성할 수 있습니다.');
@@ -47,12 +47,12 @@
 						});
 	});
 	$(function() {
-		$('#list').on('click', function(event) {
+		$('#listbtn').on('click', function(event) {
 			location.href = '/farmstory/cover_list.action'
 		});
 	});
 	$(function() {
-		$('#delete')
+		$('#deletebtn')
 				.on('click',function(event) {
 							<c:choose>
 							<c:when test="${ADMIN}">
@@ -81,43 +81,62 @@
 
 	<section id="portfolio">
 
-		<div class="container inner">
+<section class="light-bg img-bg img-bg-softer" style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+		<div id="registerTitle" class="container inner">
 			<div class="row">
-				<div class="col-md-8 col-sm-9 center-block text-center">
-					<header class="notoSansKR medium">
-						<h2>스마트팜 소개 보기</h2>
-						<p id="plant-sub-title">스마트팜을 봅니다.</p>
+				<div class="col-md-8 center-block text-center aos-init aos-animate" data-aos="fade-up">
+					<header>
+						<h1>팜스토리 소개  상세보기(관리자모드)</h1>
+						<p>팜스토리에 대해서 소개 리스트 목록 중 상세하게 봅니다.(관리자모드)</p>
 					</header>
 				</div>
 				<!-- /.col -->
 			</div>
-			<!-- /.row -->
+			<!-- ./row -->
 		</div>
+	</section>
 		<!-- /.container -->
 
 		<div class="container inner-bottom notoSansKR">
 			<div class="row">
 				<div class="col-sm-12 portfolio">
 
-					<table class="table listingsTable" style="border-radius: 30px">
-							<tr style="background-color: white; height: 30px">
-								<td colspan="2">${ cover.covTitle }</td>
-							</tr>
-							<tr style="background-color: white; height: 30px">
-								<td colspan="2"><img
-									src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
-									style="width: 934px; height: 354px"></td>
-							</tr>
-							<tr style="background-color: white; height: 30px">
-								<td>${cover.covLcontent}</td>
-								<td>${cover.covRcontent}</td>
-					</table>
-					<!-- <input id="trnWriter" type="button" value="여행기 등록" style="width:300px;height:25px" /> -->
-					<a id="update" href="#">글수정</a> 
-					<a id="list" href="#">목록보기</a> 
-					<a id="delete" href="#">삭제</a>
-						<input type="hidden" value="test" />
+					<div class="tab-content active" id="tab-5"
+						style="display: block; position: static; visibility: visible;">
 
+						<div class="row">
+							<div
+								class="col-md-8 col-sm-6 col-xs-8 center-block text-center"
+								data-aos="fade-up">
+								<figure>
+									<img
+									src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
+									style="width: 700px; height: 450px">
+								</figure>
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+
+						<div class="row">
+							<div
+								class="col-sm-8 center-block text-left aos-init aos-animate"
+								data-aos="fade-up">
+								<h3>${ cover.covTitle }</h3>
+								<p >${cover.covLcontent}</p>
+								<p >${cover.covRcontent}</p>
+							</div>
+							<!-- /.col -->
+						</div>
+						<!-- /.row -->
+
+					</div>
+
+					<div style="text-align: center">
+						<button id="updatebtn" class="btn btn-submit" >글수정</button>
+						<button id="listbtn" class="btn btn-submit" >목록보기</button>
+						<button id="deletebtn" class="btn btn-submit" >삭제</button>
+					</div>
 				</div>
 				<!-- /.col -->
 			</div>
@@ -137,7 +156,6 @@
 
 	<!-- ============================================================= FOOTER ============================================================= -->
 
-	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
 
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 

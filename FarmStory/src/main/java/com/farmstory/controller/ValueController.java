@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.farmstory.service.ValueService;
+import com.farmstory.vo.Alarm;
 import com.farmstory.vo.PlantVal;
 
 @Controller
@@ -78,10 +79,21 @@ public class ValueController {
 	
 	@GetMapping(value = "/mFindTime.action")
 	@ResponseBody
-	public ArrayList<PlantVal> mfindValue(String date, PlantVal plantVal, Model model) {
+	public ArrayList<PlantVal> mFindValue(String date, PlantVal plantVal, Model model, String regPotNo) {
 		System.out.println(date);
+		System.out.println(regPotNo);
 		plantVal.setPlvDateTime(date);
+		plantVal.setRegPotNo(regPotNo);
 		ArrayList<PlantVal> vals = valueService.findValues(plantVal);
 		return vals;
+	}
+	
+	@GetMapping(value = "/mFindAlarms.action")
+	@ResponseBody
+	public ArrayList<Alarm> mFindAlarms(String id) {
+		
+		ArrayList<Alarm> alarms = valueService.findAlarms(id);
+
+		return alarms;
 	}
 }
