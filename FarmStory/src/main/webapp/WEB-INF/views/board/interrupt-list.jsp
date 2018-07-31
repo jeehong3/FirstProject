@@ -98,8 +98,53 @@
 									</tr>
 
 									<c:forEach var="notice" items="${ notices }">
+									<!-- 사용자가 볼 때의 내용 -->
 										<c:if
-											test="${ notice.memberId eq loginuser.memId}">
+											test="${ notice.memberId eq loginuser.memId and loginuser.memType eq 'USER' }">
+											<tr class="rowItem">
+												<td class="dateTd" align="center">${ notice.memberName }</td>
+
+												<td class="packageTd">
+													<ul class="list-inline listingsInfo">
+														<li>
+															<h4>
+																<a id="search-content" data-toggle="collapse"
+																	data-target="#contentSearch${ notice.noticeNo }"
+																	style="margin-left: 80px; font-size: 17px">${ notice.noticeTitle}</a>
+															</h4> <%
+ 	pageContext.setAttribute("newLineChar", "\n");
+ %>
+															<h4 id="contentSearch${ notice.noticeNo }"
+																class="collapse" style="margin-left: 80px;">${fn:replace( notice.noticeContent, newLineChar, "<br/>")}</h4>
+														</li>
+													</ul>
+												</td>
+
+												<td class="bookingTd">
+													<ul class="list-inline listingsInfo text-left">
+														<li><fmt:formatDate value="${ notice.noticeDate }"
+																var="noticeDate" pattern="yyyy-MM-dd" />
+															<h4 style="margin-left: 230px; font-size: 17px">${noticeDate}</h4>
+														</li>
+													</ul>
+												</td>
+												<c:if
+													test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
+													<td class="bookingTd">
+														<ul class="list-inline listingsInfo text-left">
+															<li>
+																<button id="noticeDelete${notice.noticeNo}"
+																	style="margin-left: 100px;"
+																	data-noticeNo="${notice.noticeNo}">삭제</button>
+															</li>
+														</ul>
+													</td>
+												</c:if>
+											</tr>
+										</c:if>
+										<!-- 관리자가 볼 때의 내용 -->
+										<c:if
+											test="${ notice.memberType eq 'USER' and loginuser.memType eq 'ADMIN' }">
 											<tr class="rowItem">
 												<td class="dateTd" align="center">${ notice.memberName }</td>
 
