@@ -265,7 +265,7 @@ public class DiaryController {
 		
 		String memId = ((Account) session.getAttribute("loginuser")).getMemId();
 		
-		List<DiaryBook> diaryBookList = diaryService.findDirayBookListByMemId(memId);
+		List<DiaryBook> diaryBookList = diaryService.findDiaryBookListByMemId(memId);
 		
 		model.addAttribute("diaryBookList", diaryBookList);
 		

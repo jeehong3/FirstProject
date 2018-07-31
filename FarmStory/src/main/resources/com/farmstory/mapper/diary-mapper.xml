@@ -109,7 +109,7 @@
 	VALUES (#{diaName}, #{regPotNo}, #{plaName}, #{memId}, #{dibImg}, #{diaCategory})
 	</insert>
 	
-	<select id="selectDirayBookListByMemId" resultType="DiaryBook">
+	<select id="selectDiaryBookListByMemId" resultType="DiaryBook">
 	SELECT DIB_NO dibNo, DIA_NAME diaName, REG_POTNO regPotNo, PLA_NAME plaName, MEM_ID memId, DIB_IMG dibImg, DIA_CATEGORY diaCategory
 	FROM DIARY_BOOK
 	WHERE MEM_ID = #{memId}

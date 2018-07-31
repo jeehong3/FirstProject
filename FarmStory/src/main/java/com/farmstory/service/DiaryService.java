@@ -35,7 +35,7 @@ public interface DiaryService {
 
 	DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook);
 
-	List<DiaryBook> findDirayBookListByMemId(String memId);
+	List<DiaryBook> findDiaryBookListByMemId(String memId);
 
 	DiaryBook findDiaryBookInfo(int dibNo);
 

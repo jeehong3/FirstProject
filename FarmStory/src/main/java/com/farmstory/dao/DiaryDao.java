@@ -39,7 +39,7 @@ public interface DiaryDao {
 
 	DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook);
 
-	List<DiaryBook> selectDirayBookListByMemId(String memId);
+	List<DiaryBook> selectDiaryBookListByMemId(String memId);
 
 	DiaryBook selectDiaryBookInfo(int dibNo);
 

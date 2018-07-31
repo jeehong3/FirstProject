@@ -113,9 +113,9 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 	
 	@Override
-	public List<DiaryBook> selectDirayBookListByMemId(String memId) {
+	public List<DiaryBook> selectDiaryBookListByMemId(String memId) {
 		
-		return diaryMapper.selectDirayBookListByMemId(memId);
+		return diaryMapper.selectDiaryBookListByMemId(memId);
 	}
 
 	@Override

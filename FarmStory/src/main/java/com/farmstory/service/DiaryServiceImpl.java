@@ -110,9 +110,9 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 	
 	@Override
-	public List<DiaryBook> findDirayBookListByMemId(String memId){
+	public List<DiaryBook> findDiaryBookListByMemId(String memId){
 		
-		return diaryDao.selectDirayBookListByMemId(memId);
+		return diaryDao.selectDiaryBookListByMemId(memId);
 	}
 
 	@Override
