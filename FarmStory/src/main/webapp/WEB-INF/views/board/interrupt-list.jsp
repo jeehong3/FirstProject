@@ -88,9 +88,9 @@
 							<div class="table-responsive" data-pattern="priority-columns">
 								<table class="table listingsTable">
 									<tr class="rowItem">
-										<td align="center"><b>게시자</b></td>
-										<td align="center"><b>제목</b></td>
-										<td align="center"><b>날짜</b></td>
+										<td align="center" style="word-break:break-all" ><b>게시자</b></td>
+										<td align="center" style="word-break:break-all"><b>제목</b></td>
+										<td align="center" style="word-break:break-all"><b>날짜</b></td>
 										<c:if
 											test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
 											<td align="center"><b>삭제</b></td>
@@ -102,12 +102,12 @@
 										<c:if
 											test="${ notice.memberId eq loginuser.memId and loginuser.memType eq 'USER' }">
 											<tr class="rowItem">
-												<td class="dateTd" align="center">${ notice.memberName }</td>
+												<td style="word-break:break-all" class="dateTd" align="center">${ notice.memberName }</td>
 
 												<td class="packageTd">
 													<ul class="list-inline listingsInfo">
 														<li>
-															<h4>
+															<h4 style="word-break:break-all">
 																<a id="search-content" data-toggle="collapse"
 																	data-target="#contentSearch${ notice.noticeNo }"
 																	style="margin-left: 80px; font-size: 17px">${ notice.noticeTitle}</a>
@@ -120,7 +120,7 @@
 													</ul>
 												</td>
 
-												<td class="bookingTd">
+												<td style="word-break:break-all" class="bookingTd">
 													<ul class="list-inline listingsInfo text-left">
 														<li><fmt:formatDate value="${ notice.noticeDate }"
 																var="noticeDate" pattern="yyyy-MM-dd" />
@@ -130,11 +130,11 @@
 												</td>
 												<c:if
 													test="${not empty loginuser and loginuser.memType eq 'ADMIN'}">
-													<td class="bookingTd">
+													<td style="word-break:break-all" class="bookingTd">
 														<ul class="list-inline listingsInfo text-left">
 															<li>
 																<button id="noticeDelete${notice.noticeNo}"
-																	style="margin-left: 100px;"
+																	style="margin-left: 100px;word-break:break-all"
 																	data-noticeNo="${notice.noticeNo}">삭제</button>
 															</li>
 														</ul>
