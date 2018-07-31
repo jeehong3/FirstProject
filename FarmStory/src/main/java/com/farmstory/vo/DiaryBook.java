@@ -2,20 +2,27 @@ package com.farmstory.vo;
 
 public class DiaryBook {
 
-	private int diaNo;
+	private int dibNo;
 	private String diaName;
 	private String regPotNo;
 	private int plaNo;
 	private String plaName;
 	private String plaType;
 	private String memId;
+	private String dibImg;
+	private String diaCategory;
 	
-	
-	public int getDiaNo() {
-		return diaNo;
+	public String getDibImg() {
+		return dibImg;
 	}
-	public void setDiaNo(int diaNo) {
-		this.diaNo = diaNo;
+	public void setDibImg(String dibImg) {
+		this.dibImg = dibImg;
+	}
+	public String getDiaCategory() {
+		return diaCategory;
+	}
+	public void setDiaCategory(String diaCategory) {
+		this.diaCategory = diaCategory;
 	}
 	public String getDiaName() {
 		return diaName;
@@ -52,6 +59,12 @@ public class DiaryBook {
 	}
 	public void setMemId(String memId) {
 		this.memId = memId;
+	}
+	public int getDibNo() {
+		return dibNo;
+	}
+	public void setDibNo(int dibNo) {
+		this.dibNo = dibNo;
 	}
 	
 }

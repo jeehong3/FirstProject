@@ -45,5 +45,9 @@ public interface DiaryMapper {
 	void insertDiaryBook(DiaryBook diaryBook);
 	
 	DiaryBook selectPlantInfoForInsertDirayBook(DiaryBook diaryBook);
+	
+	List<DiaryBook> selectDiaryBookListByMemId(String memId);
+	
+	DiaryBook selectDiaryBookInfo(int dibNo);
 
 }
