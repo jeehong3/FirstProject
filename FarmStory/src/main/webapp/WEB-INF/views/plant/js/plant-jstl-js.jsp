@@ -102,8 +102,8 @@
 							   "oldImgIdx" : oldImgIdx,
 							   "plaNo" : plaNo},
 					"success" : function(data, status, xhr) {
-						$("div#oldImageFiles").load("/farmstory/plant_refresh_old_img.action?plaNo=" + plaNo);
-						//location.href = "/farmstory/plant_update.action?plaNo=" + plaNo;
+						//$("div#oldImageFiles").load("/farmstory/plant_refresh_old_img.action?plaNo=" + plaNo);
+						location.href = "/farmstory/plant_update.action?plaNo=" + plaNo;
 						//alert("[" + index + "]" + "번 사진이 삭제되었습니다.");
 						
 					},
