@@ -37,7 +37,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 		
 		if (!redirect) {
 			// 로그인 하지 않는 경우 메인 페이지로 이동시킨다.
-			response.sendRedirect("/farmstory/home.action?checkedLogin=empty");
+			response.sendRedirect("/farmstory/home.action?checkedLogin=empty&returnUrl=" + request.getRequestURI());
 		}
 		// true를 반환하면 요청이 중단된다.
 		return redirect;

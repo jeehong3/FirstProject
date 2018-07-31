@@ -2,6 +2,7 @@ package com.farmstory.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,14 +35,20 @@ public class AccountController {
 	}
 	
 	@PostMapping(value = "/login.action")
-	public ModelAndView loginMember(String userInputId, String userInputPw, HttpSession session, Account account, ModelAndView mav) {
+	public ModelAndView loginMember(String userInputId, String userInputPw, HttpSession session, Account account, ModelAndView mav,
+			HttpServletRequest request, @RequestParam(required = false)String returnUrl) {
+		
 		
 		account = accountService.findMember(userInputId, userInputPw);
 			
 			
 			if (account != null) { // 아이디와 비밀번호가 일치하면 session에 저장한다.
 				session.setAttribute("loginuser", account);
-				mav.setViewName("home");
+				//mav.setViewName("home");
+				if (returnUrl.startsWith("/farmstory")) {
+					returnUrl = returnUrl.replaceAll("/farmstory", "");
+				}
+				mav.setViewName("redirect:" + returnUrl);
 			} else { // 아이디와 비밀번호가 일치하지 않으면 실행된다.
 				
 				// 전달받은 아이디로 비밀번호를 DB에서 찾아온다.
@@ -61,7 +69,9 @@ public class AccountController {
 					mav.addObject("loginCheck", loginCheck);
 				}
 			}
-
+			
+			
+				
 		return mav;
 	}
 	

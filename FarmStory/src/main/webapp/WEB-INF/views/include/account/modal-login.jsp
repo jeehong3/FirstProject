@@ -13,6 +13,7 @@
 			</div>
 			<div class="modal-body">
 				<form id="loginForm" method="post" action="/farmstory/login.action">
+					<input type="hidden" name="returnUrl" value="${ param.returnUrl }">
 					<div class="form-group">
 						<input id="inputId" type="text" class="form-control bg-ash" name="userInputId"
 							placeholder="아이디를 입력해주세요." required>
