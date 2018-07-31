@@ -12,21 +12,9 @@ public class Diary {
 	private String diaContent;
 	private String regPotNo;
 	private String memId;
-	private String diaCategory;
-	private String diaBookName;
+	private int dibNo;
 	
-	public String getDiaBookName() {
-		return diaBookName;
-	}
-	public void setDiaBookName(String diaBookName) {
-		this.diaBookName = diaBookName;
-	}
-	public String getDiaCategory() {
-		return diaCategory;
-	}
-	public void setDiaCategory(String diaCategory) {
-		this.diaCategory = diaCategory;
-	}
+	
 	public String getMemId() {
 		return memId;
 	}
@@ -71,6 +59,12 @@ public class Diary {
 	}
 	public void setRegPotNo(String regPotNo) {
 		this.regPotNo = regPotNo;
+	}
+	public int getDibNo() {
+		return dibNo;
+	}
+	public void setDibNo(int dibNo) {
+		this.dibNo = dibNo;
 	}
 	
 	

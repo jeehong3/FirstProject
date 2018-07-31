@@ -23,13 +23,14 @@ public class DiaryServiceImpl implements DiaryService{
 		List<DiaryImg> imgAttachments = diary.getAttachment();
 		for (DiaryImg attachment : imgAttachments) {
 			attachment.setDiaNo(diary.getDiaNo());
+			attachment.setDibNo(diary.getDibNo());
 			diaryDao.insertDiaryImage(attachment);
 		}
 	}
 	
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName) {
-		List<Diary> diary = diaryDao.findDiary(from, to, memId, diaTitle, diaBookName);
+	public List<Diary> findDiary(int from, int to, String memId, int dibNo) {
+		List<Diary> diary = diaryDao.findDiary(from, to, memId, dibNo);
 		for (Diary d : diary) {
 			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
 			d.setAttachment(attachments);
@@ -38,9 +39,9 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryAllImg(String memId, String bookName) {
+	public List<DiaryImg> findDiaryAllImg(String memId, int dibNo) {
 		
-		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId, bookName);
+		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId, dibNo);
 		return diaryAllImg;
 	}
 
@@ -96,9 +97,6 @@ public class DiaryServiceImpl implements DiaryService{
 		}
 		return diary;
 	}
-
-
-
 	
 	@Override
 	public void writeDiaryBook(DiaryBook diaryBook) {
@@ -109,6 +107,18 @@ public class DiaryServiceImpl implements DiaryService{
 	public DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook) {
 		
 		return diaryDao.findPlantInfoForInsertDirayBook(diaryBook);
+	}
+	
+	@Override
+	public List<DiaryBook> findDirayBookListByMemId(String memId){
+		
+		return diaryDao.selectDirayBookListByMemId(memId);
+	}
+
+	@Override
+	public DiaryBook findDiaryBookInfo(int dibNo) {
+		DiaryBook diaryInfo = diaryDao.selectDiaryBookInfo(dibNo);
+		return diaryInfo;
 	}
 
 

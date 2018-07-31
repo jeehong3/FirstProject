@@ -7,6 +7,7 @@ public class DiaryImg {
 	private int diiNo;
 	private int diaNo;
 	private String diiImg;
+	private int dibNo;
 	
 	public int getDiiNo() {
 		return diiNo;
@@ -25,6 +26,12 @@ public class DiaryImg {
 	}
 	public void setDiiImg(String diiImg) {
 		this.diiImg = diiImg;
+	}
+	public int getDibNo() {
+		return dibNo;
+	}
+	public void setDibNo(int dibNo) {
+		this.dibNo = dibNo;
 	}
 	
 	

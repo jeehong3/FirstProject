@@ -79,28 +79,23 @@
 						<div class="row">
 							<div class="col-sm-6">
 							<h4>식물 이름</h4>
-								<input type="text" name="" class="form-control" value="${ plaName }" readonly="readonly">
+								<input type="text" name="" class="form-control" value="${ diaryBookInfo.plaName }" readonly="readonly">
 							</div>
 							<div class="col-sm-6">
 							<h4>화분 번호</h4>
-								<input type="text" name="" class="form-control" value="${ regPotNo }" readonly="readonly">
+								<input type="text" name="" class="form-control" value="${ diaryBookInfo.regPotNo }" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<h4>다이어리 책 이름</h4>
-								<input type="text" name="diaBookName" class="form-control"
-									placeholder="다이어리의 이름을 입력해주세요">
+								<input type="text" name="" value="${ diaryBookInfo.diaName }" class="form-control"
+									readonly="readonly">
 							</div>
 							<div class="col-sm-6">
 							<h4>카테고리</h4>
-							<select class="select" name="diaCategory">
-								<option value="꽃">꽃</option>
-								<option value="관엽식물">관엽 식물</option>
-								<option value="활엽식물">활엽 식물</option>
-								<option value="란">란</option>
-							</select>
+								<input type="text" name="" class="form-control" value="${ diaryBookInfo.diaCategory }" readonly="readonly">
 							</div>
 						</div>	
 						<div class="row">	
@@ -140,6 +135,7 @@
 						</div>
 						<!-- /.row -->
 						
+						<input type="hidden" name="dibNo" value="${ diaryBookInfo.dibNo }">
 						<input type="hidden" name="memId" value="${loginuser.memId}">
 						<button id="savebutton" class="btn btn-submit pull-right">등록하기</button>
 						<a id="addImageBtn" class="btn btn-submit pull-right">이미지 추가</a>

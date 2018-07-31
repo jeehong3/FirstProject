@@ -79,23 +79,23 @@
 						<div class="row">
 							<div class="col-sm-6">
 							<h4>식물 이름</h4>
-								<input type="text" name="" class="form-control" value="${ plantInfo.plaName }" readonly="readonly">
+								<input type="text" name="plaName" class="form-control" value="${ plantInfo.plaName }" readonly="readonly">
 							</div>
 							<div class="col-sm-6">
 							<h4>화분 번호</h4>
-								<input type="text" name="" class="form-control" value="${ regPotNo }" readonly="readonly">
+								<input type="text" name="regPotNo" class="form-control" value="${ regPotNo }" readonly="readonly">
 							</div>
 							<!-- /.col -->
 						</div>
 						<div class="row">
 							<div class="col-sm-6">
 								<h4>다이어리 책 이름</h4>
-								<input type="text" name="diaBookName" class="form-control"
+								<input type="text" name="diaName" class="form-control"
 									placeholder="다이어리의 이름을 입력해주세요">
 							</div>
 							<div class="col-sm-6">
 							<h4>카테고리</h4>
-								<input type="text" name="" class="form-control" value="${ plantInfo.plaType }" readonly="readonly">
+								<input type="text" name="diaCategory" class="form-control" value="${ plantInfo.plaType }" readonly="readonly">
 							</div>
 						</div>	
 						
@@ -103,14 +103,14 @@
 							<div id="addImage">
 								<div class="col-sm-12">
 								<h4>표지 사진 선택</h4>
-									<input type="file" name="diaryBooKImg" id="file"
+									<input type="file" name="diaryBookImg" id="file"
 										class="form-control"><br>
 								</div>
 								<!-- /.col -->
 							</div>
 						</div>
 						<!-- /.row -->
-						
+						<input type="hidden" name="plaNo" value="${ plaNo }">
 						<button id="submitbutton" class="btn btn-submit pull-right">다이어리 만들기</button>
 
 					</form>

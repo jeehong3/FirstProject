@@ -13,11 +13,11 @@ public interface DiaryDao {
 
 	void insertDiaryImage(DiaryImg attachment);
 
-	List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName);
+	List<Diary> findDiary(int from, int to, String memId, int dibNo);
 
 	List<DiaryImg> findDiaryImg(int diaNo);
 
-	List<DiaryImg> findDiaryAllImg(String memId, String diaBookName);
+	List<DiaryImg> findDiaryAllImg(String memId, int dibNo);
 
 	int selectCount();
 
@@ -38,6 +38,10 @@ public interface DiaryDao {
 	void insertDiaryBook(DiaryBook diaryBook);
 
 	DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook);
+
+	List<DiaryBook> selectDirayBookListByMemId(String memId);
+
+	DiaryBook selectDiaryBookInfo(int dibNo);
 
 
 }
