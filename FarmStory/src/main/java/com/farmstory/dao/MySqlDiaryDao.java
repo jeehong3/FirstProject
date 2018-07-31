@@ -28,12 +28,13 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, int dibNo) {
+	public List<Diary> findDiary(int from, int to, String memId, int dibNo, String diaTitle) {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("from", from);
 		params.put("to", to);
 		params.put("memId", memId);
 		params.put("dibNo", dibNo);
+		params.put("diaTitle", diaTitle);
 		//List<Diary> diary = diaryMapper.findDiary(from, to, memId);
 		//return diary;
 		
@@ -122,6 +123,11 @@ public class MySqlDiaryDao implements DiaryDao{
 	public DiaryBook selectDiaryBookInfo(int dibNo) {
 		DiaryBook diaryInfo = diaryMapper.selectDiaryBookInfo(dibNo);
 		return diaryInfo;
+	}
+
+	@Override
+	public void deleteDiaryBook(int dibNo) {
+		diaryMapper.deleteDiaryBook(dibNo);
 	}
 
 

@@ -13,7 +13,7 @@ public interface DiaryDao {
 
 	void insertDiaryImage(DiaryImg attachment);
 
-	List<Diary> findDiary(int from, int to, String memId, int dibNo);
+	List<Diary> findDiary(int from, int to, String memId, int dibNo, String diaTitle);
 
 	List<DiaryImg> findDiaryImg(int diaNo);
 
@@ -42,6 +42,8 @@ public interface DiaryDao {
 	List<DiaryBook> selectDiaryBookListByMemId(String memId);
 
 	DiaryBook selectDiaryBookInfo(int dibNo);
+
+	void deleteDiaryBook(int dibNo);
 
 
 }

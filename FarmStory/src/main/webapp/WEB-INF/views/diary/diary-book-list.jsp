@@ -73,9 +73,6 @@
 						<li><a href="#" data-filter=".관엽식물">관엽식물</a></li>
 						<li><a href="#" data-filter=".활엽식물">활엽식물</a></li>
 						<li><a href="#" data-filter=".란">란</a></li>
-						<!-- <li><a href="#" data-filter=".관엽식물">관엽 식물</a></li>
-								<li><a href="#" data-filter=".활엽식물">활엽 식물</a></li>
-								<li><a href="#" data-filter=".란">란</a></li> -->
 					</ul>
 					<!-- /.filter -->
 
@@ -86,7 +83,8 @@
 								<figure>
 									<div class="icon-overlay icn-link">
 										<a
-											href="/farmstory/diary_list.action?dibNo=${diaryBook.dibNo}"><img
+											href="/farmstory/diary_list.action?dibNo=${diaryBook.dibNo}&diaName=${diaryBook.diaName}&
+													plaName=${diaryBook.plaName}&diaCategory=${diaryBook.diaCategory}"><img
 											src="/farmstory/resources/upload-image/diary-book-cover/${diaryBook.dibImg}"
 											alt=""></a>
 									</div>
@@ -95,12 +93,18 @@
 										<div class="info">
 											<h4>
 												<a
-													href="/farmstory/diary_list.action?dibNo=${diaryBook.dibNo}">
+													href="/farmstory/diary_list.action?dibNo=${diaryBook.dibNo}&diaName=${diaryBook.diaName}&
+													plaName=${diaryBook.plaName}&diaCategory=${diaryBook.diaCategory}">
 													${ diaryBook.diaName }</a>
 											</h4>
 											<p>${ diaryBook.plaName }</p>
-											<a href="/farmstory/diary_write.action?dibNo=${diaryBook.dibNo}" class="btn">일기 쓰기</a>
-											<a href="#" class="btn bookDeleteModal" data-bookNo="${diaryBook.dibNo}">책 버리기</a>
+											<a
+												href="/farmstory/diary_write.action?dibNo=${diaryBook.dibNo}"
+												class="btn">일기 쓰기</a> <a
+												href="/farmstory/diary_book_delete.action?dibNo=${diaryBook.dibNo}"
+												class="btn bookDel"
+												onclick="return confirm('[ ${ diaryBook.diaName } ] 다이어리를 삭제하시겠습니까?')"
+												data-dibNo="${diaryBook.dibNo}">책 버리기</a>
 										</div>
 										<!-- /.info -->
 									</figcaption>
@@ -115,25 +119,6 @@
 				<!-- /.col -->
 			</div>
 			<!-- /.row -->
-			<div id="bookDeleteModal" class="modal fade" role="dialog">
-				<div id="modal-dialog-logout" class="modal-dialog">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						<div class="modal-body" align="center">
-							<h4>${loginuser.memName}&nbsp;님&nbsp;<br>북을 삭제하시겠습니까?
-							</h4>
-						</div>
-						<div class="modal-footer">
-							<a href="/farmstory/diary_delete.action?diaNo=${ diary.diaNo }"
-								class="btn">확인</a>&nbsp;&nbsp;&nbsp; <a class="btn"
-								data-dismiss="modal" aria-hidden="true">취소</a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<!-- /.container -->
@@ -155,15 +140,6 @@
 	<!-- ============================================================= JAVASCRIPT ============================================================= -->
 
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
-	<script type="text/javascript">
-		$(function() {
-			$('a.bookDeleteModal').on('click', function(event) {
-				event.preventDefault();
-				$('#bookDeleteModal').modal('show');
-
-			});
-		});
-	</script>
 
 	<!-- ============================================================= JAVASCRIPT : END ============================================================= -->
 

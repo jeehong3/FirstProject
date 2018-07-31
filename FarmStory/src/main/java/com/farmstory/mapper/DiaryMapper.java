@@ -50,4 +50,6 @@ public interface DiaryMapper {
 	
 	DiaryBook selectDiaryBookInfo(int dibNo);
 
+	void deleteDiaryBook(int dibNo);
+
 }
