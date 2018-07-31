@@ -22,7 +22,9 @@ public class NoticeController {
 	@Autowired
 	@Qualifier("noticeService")
 	private NoticeService noticeService;
-
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	// 공지사항 컨트롤러
+	////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = "/notice_list.action", method = GET)
 	String listBoard(Model model) {
 		List<Notice> notices = noticeService.listBoard();
@@ -40,6 +42,28 @@ public class NoticeController {
 	String deleteBoard(int noticeNo) {
 		noticeService.deleteBoard(noticeNo);
 		return "redirect:notice_list.action";
+	}
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	// 문의함 컨트롤러
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping(value = "/interrupt_list.action", method = GET)
+	String listBoard2(Model model) {
+		List<Notice> notices = noticeService.listBoard();
+		model.addAttribute("notices",notices);
+		return "board/interrupt-list";
+	}
+	
+	@RequestMapping(value = "/interrupt_insert.action", method=POST)
+	String insertBoard2(Notice not, HttpSession session) {
+		noticeService.insertBoard(not);
+		return "redirect:interrupt_list.action";
+	}
+	
+	@RequestMapping(value = "/interrupt_delete.action",method = GET)
+	String deleteBoard2(int noticeNo) {
+		noticeService.deleteBoard(noticeNo);
+		return "redirect:interrupt_list.action";
 	}
 
 }

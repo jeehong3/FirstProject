@@ -9,4 +9,13 @@
 		INSERT INTO PLANT_VAL (REG_POTNO, PLV_TYPE, PLV_VAL) VALUES (#{regPotNo}, #{plvType}, #{plvVal})
 	</insert>
 	
-</mapper>  
+	<insert id="writeAlarm" parameterType="PlantVal">
+		<selectKey resultType="String" keyProperty="memberId"
+			order="BEFORE">
+			SELECT MEM_ID memberId FROM REGISTPLANT WHERE REG_POTNO = #{regPotNo}
+		</selectKey>
+		INSERT INTO ALARM ( MEM_ID, REG_POTNO )
+		VALUES
+		( #{memberId}, #{regPotNo} )
+	</insert>
+</mapper> 

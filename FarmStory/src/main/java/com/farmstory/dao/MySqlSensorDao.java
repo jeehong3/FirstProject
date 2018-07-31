@@ -17,7 +17,7 @@ public class MySqlSensorDao implements SensorDao{
 	public void writeAlarm(PlantVal plantVal) {
 		sensorMapper.writeAlarm(plantVal);
 	}
-	
+	 
 	
 
 }
