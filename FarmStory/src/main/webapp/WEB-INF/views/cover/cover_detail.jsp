@@ -36,20 +36,20 @@
 		
 		<!-- ============================================================= SECTION – HERO ============================================================= -->
 	
-		<section id="hero" class="light-bg img-bg-bottom img-bg-softer" style="background-image: url(/farmstory/resources/assets/images/art/slider03.jpg);">
-			<div class="container inner">
-				
-				<div class="row">
-					<div class="col-md-8 col-sm-9">
-						<header>
-							<h1>팜스토리 소개</h1>
-							<p>팜스토리를 소개 합니다.</p>
-						</header>
-					</div><!-- /.col -->
-				</div><!-- ./row -->
-				
-			</div><!-- /.container -->
-		</section>
+<section class="light-bg img-bg img-bg-softer" style="background-image: url(/farmstory/resources/assets/images/art/image-background04.jpg);">
+		<div id="registerTitle" class="container inner">
+			<div class="row">
+				<div class="col-md-8 center-block text-center aos-init aos-animate" data-aos="fade-up">
+					<header>
+						<h1>팜스토리 소개 </h1>
+						<p>팜스토리에 대해서 소개 합니다.</p>
+					</header>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- ./row -->
+		</div>
+	</section>
 		
 		<!-- ============================================================= SECTION – HERO : END ============================================================= -->
 		
@@ -162,7 +162,7 @@
 	
 	<!-- ============================================================= FOOTER ============================================================= -->
 	
-	<jsp:include page="/WEB-INF/views/include/footer/public-footer.jsp" />
+	
 	
 	<!-- ============================================================= FOOTER : END ============================================================= -->
 	
