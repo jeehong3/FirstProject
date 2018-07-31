@@ -14,6 +14,7 @@
 		<typeAlias type="com.farmstory.vo.RegistPlant" alias="RegistPlant"/>
 		<typeAlias type="com.farmstory.vo.Diary" alias="Diary"/>
 		<typeAlias type="com.farmstory.vo.DiaryImg" alias="DiaryImg"/>
+		<typeAlias type="com.farmstory.vo.DiaryBook" alias="DiaryBook"/>
 		<typeAlias type="com.farmstory.vo.Plant" alias="Plant"/>
 		<typeAlias type="com.farmstory.vo.PlantImg" alias="PlantImg"/> 
 		<typeAlias type="com.farmstory.vo.Cover" alias="Cover"/>

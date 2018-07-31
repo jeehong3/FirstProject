@@ -10,7 +10,7 @@ public class Diary {
 	private Date diaDate;
 	private String diaTitle;
 	private String diaContent;
-	private int regPotNo;
+	private String regPotNo;
 	private String memId;
 	private String diaCategory;
 	private String diaBookName;
@@ -66,10 +66,10 @@ public class Diary {
 	public void setDiaContent(String diaContent) {
 		this.diaContent = diaContent;
 	}
-	public int getRegPotNo() {
+	public String getRegPotNo() {
 		return regPotNo;
 	}
-	public void setRegPotNo(int regPotNo) {
+	public void setRegPotNo(String regPotNo) {
 		this.regPotNo = regPotNo;
 	}
 	

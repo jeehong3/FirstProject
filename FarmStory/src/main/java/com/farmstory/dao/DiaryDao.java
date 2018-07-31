@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
+import com.farmstory.vo.DiaryBook;
 import com.farmstory.vo.DiaryImg;
 
 public interface DiaryDao {
@@ -12,11 +13,11 @@ public interface DiaryDao {
 
 	void insertDiaryImage(DiaryImg attachment);
 
-	List<Diary> findDiary(int from, int to, String memId, String diaTitle);
+	List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName);
 
 	List<DiaryImg> findDiaryImg(int diaNo);
 
-	List<DiaryImg> findDiaryAllImg(String memId);
+	List<DiaryImg> findDiaryAllImg(String memId, String diaBookName);
 
 	int selectCount();
 
@@ -33,6 +34,10 @@ public interface DiaryDao {
 	void updateDiary(Diary diary);
 
 	List<Diary> findDiaryCategory(String memId);
+
+	void insertDiaryBook(DiaryBook diaryBook);
+
+	DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook);
 
 
 }

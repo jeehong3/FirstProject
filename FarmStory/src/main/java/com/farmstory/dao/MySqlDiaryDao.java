@@ -6,6 +6,7 @@ import java.util.List;
 import com.farmstory.mapper.DiaryMapper;
 import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
+import com.farmstory.vo.DiaryBook;
 import com.farmstory.vo.DiaryImg;
 
 public class MySqlDiaryDao implements DiaryDao{
@@ -27,12 +28,13 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, String diaTitle) {
+	public List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName) {
 		HashMap<String, Object> params = new HashMap<>();
 		params.put("from", from);
 		params.put("to", to);
 		params.put("memId", memId);
 		params.put("diaTitle", diaTitle);
+		params.put("diaBookName", diaBookName);
 		//List<Diary> diary = diaryMapper.findDiary(from, to, memId);
 		//return diary;
 		
@@ -46,9 +48,13 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryAllImg(String memId) {
-		List<DiaryImg> diaryAllImg = diaryMapper.findDiaryAllImg(memId);
-		return diaryAllImg;
+	public List<DiaryImg> findDiaryAllImg(String memId, String diaBookName) {
+		HashMap<String, Object> params = new HashMap<>();
+		params.put("memId", memId);
+		params.put("diaBookName", diaBookName);
+		return diaryMapper.findDiaryAllImg(params);
+		//List<DiaryImg> diaryAllImg = diaryMapper.findDiaryAllImg(memId, diaBookName);
+		//return diaryAllImg;
 	}
 
 	@Override
@@ -94,6 +100,17 @@ public class MySqlDiaryDao implements DiaryDao{
 	public List<Diary> findDiaryCategory(String memId) {
 		List<Diary> diary = diaryMapper.findDiaryCategory(memId);
 		return diary;
+	}
+
+	@Override
+	public void insertDiaryBook(DiaryBook diaryBook) {
+		diaryMapper.insertDiaryBook(diaryBook);
+	}
+	
+	@Override
+	public DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook) {
+		
+		return diaryMapper.selectPlantInfoForInsertDirayBook(diaryBook);
 	}
 
 

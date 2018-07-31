@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Farm Story - My Diary</title>
+<title>FARM STORY - My Diary</title>
 
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
@@ -49,8 +49,8 @@
 			<div class="row">
 				<div class="col-md-8 center-block text-center">
 					<header>
-						<h1>화분 다이어리 쓰기</h1>
-						<p>내가 키우는 식물의 생육일기를 써보세요.</p>
+						<h1>다이어리 책 만들기</h1>
+						<p>내가 키우는 식물의 생육일기 다이어리 책을 만들어보세요.</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -70,16 +70,16 @@
 
 				<section id="diary-form-section">
 
-					<h2>다이어리 등록</h2>
+					<h2>다이어리 책 등록</h2>
 					<br>
-					<form id="diary-form" action="diary_write.action" method="post"
+					<form id="diary-book-form" action="diary_book_write.action" method="post"
 						enctype="multipart/form-data">
 
 
 						<div class="row">
 							<div class="col-sm-6">
 							<h4>식물 이름</h4>
-								<input type="text" name="" class="form-control" value="${ plaName }" readonly="readonly">
+								<input type="text" name="" class="form-control" value="${ plantInfo.plaName }" readonly="readonly">
 							</div>
 							<div class="col-sm-6">
 							<h4>화분 번호</h4>
@@ -95,44 +95,15 @@
 							</div>
 							<div class="col-sm-6">
 							<h4>카테고리</h4>
-							<select class="select" name="diaCategory">
-								<option value="꽃">꽃</option>
-								<option value="관엽식물">관엽 식물</option>
-								<option value="활엽식물">활엽 식물</option>
-								<option value="란">란</option>
-							</select>
+								<input type="text" name="" class="form-control" value="${ plantInfo.plaType }" readonly="readonly">
 							</div>
 						</div>	
-						<div class="row">	
-							<div class="col-sm-6">
-								<h4>일기 제목</h4>
-								<input type="text" name="diaTitle" class="form-control"
-									placeholder="일기 제목을 입력해주세요">
-							</div>
-							<div class="col-sm-6">
-								<h4>날짜 선택</h4>
-								<input type="date" name="diaDate" class="form-control"
-									placeholder="날짜를 입력해주세요">
-							</div>
-							<!-- /.col -->
-						</div>
-
-						<!-- /.row -->
-						<br>
-						<div class="row">
-							<div class="col-sm-12">
-							<h4>일기 쓰기</h4>
-								<textarea name="diaContent" id="smarteditor"
-									class="form-control"></textarea>
-							</div>
-							<!-- /.col -->
-						</div>
 						
 						<div class="row">
 							<div id="addImage">
 								<div class="col-sm-12">
-								<h4>사진 선택</h4>
-									<input type="file" name="diiImage1" id="file"
+								<h4>표지 사진 선택</h4>
+									<input type="file" name="diaryBooKImg" id="file"
 										class="form-control"><br>
 								</div>
 								<!-- /.col -->
@@ -140,9 +111,7 @@
 						</div>
 						<!-- /.row -->
 						
-						<input type="hidden" name="memId" value="${loginuser.memId}">
-						<button id="savebutton" class="btn btn-submit pull-right">등록하기</button>
-						<a id="addImageBtn" class="btn btn-submit pull-right">이미지 추가</a>
+						<button id="submitbutton" class="btn btn-submit pull-right">다이어리 만들기</button>
 
 					</form>
 
@@ -172,56 +141,20 @@
 
 	<!-- JavaScripts placed at the end of the document so the pages load faster -->
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
-	<script type="text/javascript"
-		src="/farmstory/resources/navereditor/js/HuskyEZCreator.js"
-		charset="utf-8"></script>
 	<script type='text/javascript'>
 		$(function() {
 
-			//전역변수선언
-			var editor_object = [];
-
-			nhn.husky.EZCreator
-					.createInIFrame({
-						oAppRef : editor_object,
-						elPlaceHolder : "smarteditor",
-						sSkinURI : "/farmstory/resources/navereditor/SmartEditor2Skin.html",
-						htParams : {
-							// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-							bUseToolbar : true,
-							// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-							bUseVerticalResizer : true,
-							// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-							bUseModeChanger : true,
-						}
-					});
 
 			//전송버튼 클릭이벤트
-			$("#savebutton").click(
+			$("#submitbutton").click(
 					function(event) {
 
 						event.preventDefault();
 						event.stopPropagation();
-
-						//id가 smarteditor인 textarea에 에디터에서 대입
-						editor_object.getById["smarteditor"].exec(
-								"UPDATE_CONTENTS_FIELD", []);
-
-						// 이부분에 에디터 validation 검증
-
 						//폼 submit
-						$("#diary-form").submit();
+						$("#diary-book-form").submit();
 					});
 
-			$('#addImageBtn')
-					.on(
-							'click',
-							function(event) {
-								event.preventDefault();
-								event.stopPropagation();
-								var add = $("<div class='col-sm-12'><input type='file' class='form-control' id='file' name='diiImage1'><br></div>");
-								$('#addImage').append(add);
-							});
 		});
 	</script>
 

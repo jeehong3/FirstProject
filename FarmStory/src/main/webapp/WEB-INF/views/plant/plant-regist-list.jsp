@@ -70,7 +70,7 @@
 								<figcaption class="text-overlay">
 									<div class="info">
 										<h4>${ myFlowerpots.plaName }</h4>
-										<p>제품 번호 : ${ myFlowerpots.regPotNo }</p>
+										<p>화분 번호 : ${ myFlowerpots.regPotNo }</p>
 										<a class="btn">수정</a> <a class="btn deletePotBtn"
 											data-index="${ status.index }">삭제</a>
 									</div>
@@ -81,8 +81,8 @@
 									alt="">
 							</figure>
 							<a id="myDiaryBtn"
-								href="/farmstory/diary_write.action?regPotNo=${ myFlowerpots.regPotNo }&plaName=${ myFlowerpots.plaName }"
-								class="btn">다이어리 쓰기</a> <a id="flowerPotInfoBtn"
+								href="/farmstory/diary_book_write.action?regPotNo=${ myFlowerpots.regPotNo }&plaNo=${ myFlowerpots.plaNo }"
+								class="btn">다이어리 만들기</a> <a id="flowerPotInfoBtn"
 								href="/farmstory/value/findTime.action?regPotNo=${ myFlowerpots.regPotNo }"
 								class="btn">화분정보 보기</a>
 						</div>

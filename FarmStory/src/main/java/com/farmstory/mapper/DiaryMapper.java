@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
+import com.farmstory.vo.DiaryBook;
 import com.farmstory.vo.DiaryImg;
 
 public interface DiaryMapper {
@@ -16,8 +17,10 @@ public interface DiaryMapper {
 	List<Diary> findDiary(HashMap<String, Object> params);
 
 	List<DiaryImg> findDiaryImg(int diaNo);
+	
+	List<DiaryImg> findDiaryAllImg(HashMap<String, Object> params);
 
-	List<DiaryImg> findDiaryAllImg(String memId);
+	//List<DiaryImg> findDiaryAllImg(String memId, String diaBookName);
 
 	int selectCount();
 
@@ -38,5 +41,9 @@ public interface DiaryMapper {
 	List<Diary> findDiaryMonth(String memId);
 
 	List<Diary> findDiaryCategory(String memId);
+	
+	void insertDiaryBook(DiaryBook diaryBook);
+	
+	DiaryBook selectPlantInfoForInsertDirayBook(DiaryBook diaryBook);
 
 }

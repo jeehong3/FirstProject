@@ -32,7 +32,7 @@
 	
 	<select id="selectRegistFlowerpotByMemId" resultType="RegistPlant">
 		SELECT R.REG_POTNO regPotNo, R.MEM_ID memId,
-			   P.PLA_NAME plaName, I.PLI_IMG pliImg
+			   P.PLA_NAME plaName, I.PLI_IMG pliImg, R.PLA_NO plaNo
 		FROM REGISTPLANT R
 		JOIN PLANT P
 		ON R.PLA_NO = P.PLA_NO

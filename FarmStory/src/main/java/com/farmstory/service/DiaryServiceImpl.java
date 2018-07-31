@@ -5,6 +5,7 @@ import java.util.List;
 import com.farmstory.dao.DiaryDao;
 import com.farmstory.vo.Account;
 import com.farmstory.vo.Diary;
+import com.farmstory.vo.DiaryBook;
 import com.farmstory.vo.DiaryImg;
 
 public class DiaryServiceImpl implements DiaryService{
@@ -27,8 +28,8 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 	
 	@Override
-	public List<Diary> findDiary(int from, int to, String memId, String diaTitle) {
-		List<Diary> diary = diaryDao.findDiary(from, to, memId, diaTitle);
+	public List<Diary> findDiary(int from, int to, String memId, String diaTitle, String diaBookName) {
+		List<Diary> diary = diaryDao.findDiary(from, to, memId, diaTitle, diaBookName);
 		for (Diary d : diary) {
 			List<DiaryImg> attachments = diaryDao.findDiaryImg(d.getDiaNo());
 			d.setAttachment(attachments);
@@ -37,9 +38,9 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 
 	@Override
-	public List<DiaryImg> findDiaryAllImg(String memId) {
+	public List<DiaryImg> findDiaryAllImg(String memId, String bookName) {
 		
-		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId);
+		List<DiaryImg> diaryAllImg = diaryDao.findDiaryAllImg(memId, bookName);
 		return diaryAllImg;
 	}
 
@@ -94,6 +95,20 @@ public class DiaryServiceImpl implements DiaryService{
 			d.setAttachment(attachments);
 		}
 		return diary;
+	}
+
+
+
+	
+	@Override
+	public void writeDiaryBook(DiaryBook diaryBook) {
+		diaryDao.insertDiaryBook(diaryBook);
+	}
+	
+	@Override
+	public DiaryBook findPlantInfoForInsertDirayBook(DiaryBook diaryBook) {
+		
+		return diaryDao.findPlantInfoForInsertDirayBook(diaryBook);
 	}
 
 
