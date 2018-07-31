@@ -18,6 +18,13 @@
 		<!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 		<jsp:include page="/WEB-INF/views/include/style/public-style.jsp"/>
 		
+		<style type="text/css">
+		.main-img {
+			border: 1px solid #888888;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+				rgba(0, 0, 0, 0.19);
+		}
+		</style>
 	</head>
 	
 	<body>
@@ -75,7 +82,7 @@
 								<h1 class="fadeInDown-1 light-color">나만의 다이어리로 남기세요</h1>
 								<p class="fadeInDown-2 light-color">팜스토리와 함께 생육 일기를 써보세요.</p>
 								<div class="fadeInDown-3">
-									<a href="/farmstory/diary_write.action" class="btn btn-large">다이어리 쓰기</a>
+									<a href="/farmstory/diary_book_list.action" class="btn btn-large">다이어리 쓰기</a>
 								</div><!-- /.fadeIn -->
 								
 							</div><!-- /.caption -->
@@ -96,7 +103,7 @@
 					<div class="row">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content1.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
@@ -110,7 +117,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 col-sm-push-6 inner-left-xs">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content2.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 col-sm-pull-6 inner-top-xs inner-right-xs">
@@ -124,7 +131,7 @@
 					<div class="row inner-top-md">
 						
 						<div class="col-sm-6 inner-right-xs text-right">
-							<figure><img src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
+							<figure><img class="main-img" src="/farmstory/resources/assets/images/main/main-content3.jpg" alt=""></figure>
 						</div><!-- /.col -->
 						
 						<div class="col-sm-6 inner-top-xs inner-left-xs">
