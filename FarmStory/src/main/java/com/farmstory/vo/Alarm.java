@@ -1,13 +1,12 @@
 package com.farmstory.vo;
 
-//건의사항 정보를 DB에 저장하기 위한 vo 객체
 public class Alarm {
 
-	private int alarmNo;
-	private String memberId;
-	private String regPotNo;
-	private int check;
-	private String valType;
+	private int alarmNo; // ARM_NO
+	private String memberId; // MEM_ID
+	private String regPotNo; // REG_POTNO
+	private int check; // CHECK
+	private String valType; // VAL_TYPE
 	
 	public int getAlarmNo() {
 		return alarmNo;
