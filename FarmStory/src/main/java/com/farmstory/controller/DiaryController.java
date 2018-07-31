@@ -42,14 +42,14 @@ public class DiaryController {
 	@Qualifier(value="registPlantService")
 	private RegistPlantService registPlantService;
 	
-	@GetMapping(value = "/diary_book_write.action")
+	/*@GetMapping(value = "/diary_book_write.action")
 	public String diary_book_write(Model model,String diaBookName, String diaPlant, String diaCategory, String regPotNo) {
 		model.addAttribute("diaBookName", diaBookName);
 		model.addAttribute("diaPlant", diaPlant);
 		model.addAttribute("diaCategory", diaCategory);
 		model.addAttribute("regPotNo", regPotNo);
 			return "diary/diary_book_write";
-	}
+	}*/
 	
 	@PostMapping(value = "/diary_write.action")
 	public String diary_write(MultipartHttpServletRequest req, Diary diary, Model model,
@@ -91,7 +91,7 @@ public class DiaryController {
 				return "redirect:/diary_book_list.action";
 	}
 	//다이어리 북 리스트
-	@GetMapping(value = "/diary_book_list.action")
+	/*@GetMapping(value = "/diary_book_list.action")
 	public String diary_list(Model model, HttpSession session) {
 		
 		String memId = ((Account)session.getAttribute("loginuser")).getMemId();
@@ -106,7 +106,7 @@ public class DiaryController {
 		model.addAttribute("memId", memId);
 		
 		return "diary/diary-book-list";
-	}
+	}*/
 	//북에 대한 리스트
 	@GetMapping(value = "/diary_list.action")
 	public String diary_list(Model model, HttpSession session,
