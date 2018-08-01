@@ -70,8 +70,8 @@
 							<li class="date">생육 적정 온도 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinTem } <sup>o</sup>C ~ 최대 ${ plant.plaMaxTem } <sup>o</sup>C</li>
 							<li class="categories">생육 적정 수분량 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinHum } % ~
 								최대 ${ plant.plaMaxHum } %</li>
-							<li class="client">생육 적정 조도 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinLux }Lux ~
-								최대 ${ plant.plaMaxLux }Lux</li>
+							<li class="client">생육 적정 조도 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinLux } Lux ~
+								최대 ${ plant.plaMaxLux } Lux</li>
 						</ul>
 						<!-- /.item-details -->
 					</header>

@@ -15,9 +15,17 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Cover List</title>
+	<title>FARM STORY - Introduce</title>
 	
 	<jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
+	
+	<style type="text/css">
+	.introImg {
+		border: 0px solid #888888;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+			rgba(0, 0, 0, 0.19);
+	}
+	</style>
 	
 </head>
 
@@ -81,9 +89,9 @@
 									<c:if test="${ empty cover.covLcontent and not empty cover.covRcontent }">
 										<div class="col-md-5 col-md-offset-1 col-sm-6 inner-right-xs">
 												<figure>
-												<img
+												<img class="introImg"
 													src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
-													style="width: 270px; height: 350px">
+													style="width: 350px; height: 350px">
 											</figure>
 										</div><!-- /.col -->
 										
@@ -98,9 +106,9 @@
 									<c:if test="${ not empty cover.covLcontent and not empty cover.covRcontent }">
 										<div class="col-md-4 col-md-push-3 col-md-offset-1 col-sm-6 inner-left-xs inner-right-xs aos-init aos-animate" data-aos="fade-up">
 											<figure>
-												<img
+												<img class="introImg"
 													src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
-													style="width: 270px; height: 350px">
+													style="width: 300px; height: 350px">
 											</figure>
 										</div><!-- /.col -->
 
@@ -124,9 +132,9 @@
 									<c:if test="${ not empty cover.covLcontent and empty cover.covRcontent }">
 										<div class="col-md-5 col-md-push-5 col-md-offset-1 col-sm-6 col-sm-push-6 inner-left-xs">
 												<figure>
-													<img
+													<img class="introImg"
 														src="/farmstory/resources/upload-image/cover-info/${cover.covImg}"
-														style="width: 270px; height: 350px">
+														style="width: 350px; height: 350px">
 												</figure>
 											</div><!-- /.col -->
 											
