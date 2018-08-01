@@ -170,14 +170,14 @@
 
 						<form id="frm" action="findTime.action" method="post">
 						<input type="hidden" name="regPotNo" value=${ regPotNo }>
-						<h4>검색 날짜 선택</h4>
-						<br><input type="date" id="date" name="date" value=${ date }>
+						<h4>검색할 날짜 선택</h4>
+						<input type="date" id="date" name="date" value=${ date }>
 							<input class="btn" type="submit" value="선택한 날짜 정보 보기">
 						</form>
 						<button type="button"
-						class="btn btn-xs dropdown-toggle pull-right"
+						class="btn btn-xs dropdown-toggle"
 						data-toggle="dropdown">
-						기간선택 <span class="caret"></span>
+						검색할 기간 선택 <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu" role="menu">
 						<li><a href="findTime.action?regPotNo=${ regPotNo }">실시간</a></li>

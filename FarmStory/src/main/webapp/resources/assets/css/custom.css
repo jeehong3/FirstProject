@@ -32,7 +32,7 @@ body, main, h1, h2, h4, .btn, span {
 /* ==== Header : End ============================= */
 
 /* ==== Register & Login & Logout Modal : Start ============================= */
-#modal-header-register, #modal-header-login, #modal-header-logout, #modal-header-login-checkId, #modal-header-login-checkPw, #modal-header-delete{
+.modal-header {
 	border-top: 6px solid #7abb29;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
@@ -40,8 +40,7 @@ body, main, h1, h2, h4, .btn, span {
 	padding: 10px 20px;
 	font-family: 'godoM';
 }
-
-#modal-title-register, #modal-title-login, #modal-title-logout, #modal-title-login-checkId, #modal-title-login-checkPw, #modal-title-delete {
+.modal-title{
 	font-family: 'godoM';
 	color: #7abb29;
 }
@@ -52,19 +51,19 @@ body, main, h1, h2, h4, .btn, span {
 	box-shadow: none;
 }
 
-#modal-footer-register, #modal-footer-login, #modal-footer-logout, #modal-footer-login-checkId, #modal-footer-login-checkPw, #modal-footer-delete {
+.modal-footer {
 	padding: 10px 0px;
 	border-top: 0;
 	text-align: center;
 }
 
-#modal-dialog-register {
+.modal-dialog {
 	width: 350px;
 	height: 600px;
 	font-family: 'godoM';
 }
 
-#modal-body-register, #modal-body-login, #modal-body-logout, #modal-body-delete {
+.modal-body {
 	padding: 10px 20px;
 	font-family: 'godoM';
 }

@@ -19,6 +19,12 @@
 <!-- Core CSS & AddOn/Plugin CSS & Custom CSS & Fonts & Icons/Glyphs & Favicon -->
 <jsp:include page="/WEB-INF/views/include/style/public-style.jsp" />
 
+<style type="text/css">
+.detailVal{
+	font-size: 15px;
+}
+</style>
+
 </head>
 
 <body>
@@ -60,13 +66,12 @@
 						<h2>${ plant.plaName }</h2>
 						<p class="text-small">${ plant.plaContent }</p>
 
-						<ul class="item-details inner-top-xs outer-top-xs border-top">
-							<li class="date">생육 적정 온도 : 최소 ${ plant.plaMinTem } ~ 최대 ${ plant.plaMaxTem }</li>
-							<li class="categories">생육 적정 습도 : 최소 ${ plant.plaMinHum } ~
-								최대 ${ plant.plaMaxHum }</li>
-							<li class="client">생육 적정 조도 : 최소 ${ plant.plaMinLux } ~ 최대
-								${ plant.plaMaxLux }</li>
-							<li class="url"><a href="http://demo.fuviz.com/reen">demo.fuviz.com/reen</a></li>
+						<ul class="item-details inner-top-xs outer-top-xs border-top detailVal">
+							<li class="date">생육 적정 온도 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinTem } <sup>o</sup>C ~ 최대 ${ plant.plaMaxTem } <sup>o</sup>C</li>
+							<li class="categories">생육 적정 수분량 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinHum } % ~
+								최대 ${ plant.plaMaxHum } %</li>
+							<li class="client">생육 적정 조도 : <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;최소 ${ plant.plaMinLux }Lux ~
+								최대 ${ plant.plaMaxLux }Lux</li>
 						</ul>
 						<!-- /.item-details -->
 					</header>
@@ -87,16 +92,16 @@
 						<div id="modal-dialog-delete" class="modal-dialog">
 							<!-- Modal content-->
 							<div class="modal-content">
-								<div class="modal-header">
+								<div id="modal-header-delete" class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">
+									<h4 id="modal-title-delete" class="modal-title">
 										&nbsp;<i class="icon-login-1"></i>&nbsp;확인 메시지
 									</h4>
 								</div>
-								<div class="modal-body" align="center">
+								<div id="modal-body-delete" class="modal-body" align="center">
 									<h4>[ ${plant.plaName} ]<br>정보를 삭제하시겠습니까?</h4>
 								</div>
-								<div class="modal-footer">
+								<div id="modal-footer-delete" class="modal-footer">
 									<a id="deleteInfoBtn" class="btn deleteConfirm" data-dismiss="modal"
 										aria-hidden="true">삭제</a>
 									<a class="btn deleteConfirm" data-dismiss="modal"
@@ -128,8 +133,7 @@
 							<div class="panel-heading text-center">
 								<h4 class="panel-title">
 									<a class="panel-toggle collapsed" data-toggle="collapse"
-										data-parent="#accordion" href="#content"> <span>More
-											works</span>
+										data-parent="#accordion" href="#content"> <span>다른 식물 정보 보기</span>
 									</a>
 								</h4>
 							</div>
@@ -193,41 +197,6 @@
 
 	<!-- ============================================================= SECTION â MORE WORKS : END ============================================================= -->
 
-
-	<!-- ============================================================= SECTION â SHARE ============================================================= -->
-
-	<section id="share" class="light-bg">
-		<div class="container">
-
-			<div class="col-sm-4 reset-padding">
-				<a href="#" class="btn-share-md">
-					<p class="name">Facebook</p> <i class="icon-s-facebook"></i>
-					<p class="counter">1080</p>
-				</a>
-			</div>
-			<!-- /.col -->
-
-			<div class="col-sm-4 reset-padding">
-				<a href="#" class="btn-share-md">
-					<p class="name">Twitter</p> <i class="icon-s-twitter"></i>
-					<p class="counter">1263</p>
-				</a>
-			</div>
-			<!-- /.col -->
-
-			<div class="col-sm-4 reset-padding">
-				<a href="#" class="btn-share-md">
-					<p class="name">Google +</p> <i class="icon-s-gplus"></i>
-					<p class="counter">963</p>
-				</a>
-			</div>
-			<!-- /.col -->
-
-		</div>
-		<!-- /.container -->
-	</section>
-
-	<!-- ============================================================= SECTION â SHARE : END ============================================================= -->
 
 	</main>
 

@@ -83,9 +83,9 @@
 							</figure>
 							<a id="myDiaryBtn"
 								href="/farmstory/diary_book_write.action?regPotNo=${ myFlowerpots.regPotNo }&plaNo=${ myFlowerpots.plaNo }"
-								class="btn">다이어리 만들기</a> <a id="flowerPotInfoBtn"
-								href="/farmstory/value/findTime.action?regPotNo=${ myFlowerpots.regPotNo }"
-								class="btn">화분정보 보기</a>
+								class="btn">다이어리 만들기</a>
+								<!-- <a id="flowerPotInfoBtn"  class="btn" data-toggle="modal" data-target="#modal-value">화분정보 보기</a> -->
+								<a id="flowerPotInfoBtn" href="/farmstory/value/findTime.action?regPotNo=${ myFlowerpots.regPotNo }" class="btn" >화분정보 보기</a>
 						</div>
 						<input id="myPotNo${ status.index }" type="hidden" name="regPotNo"
 							value="${ myFlowerpots.regPotNo }">
@@ -97,12 +97,11 @@
 			<!-- /.row -->
 		</div>
 		<!-- /.container -->
-
-
+	<jsp:include page="/WEB-INF/views/include/modal.jsp"/> 
+	
 	</section>
 
 	<!-- ============================================================= SECTION â LATEST WORKS : END ============================================================= -->
-
 
 	</main>
 
@@ -143,8 +142,11 @@
 				});
 
 			}
-
 		});
+		
+		$("a.deletePotBtn").on("click", function(event) {
+			
+		}
 	</script>
 </body>
 </html>
