@@ -36,7 +36,7 @@ public class AccountController {
 	
 	@PostMapping(value = "/login.action")
 	public ModelAndView loginMember(String userInputId, String userInputPw, HttpSession session, Account account, ModelAndView mav,
-			HttpServletRequest request, @RequestParam(required = false)String returnUrl) {
+			HttpServletRequest request, @RequestParam(defaultValue = "/home.action")String returnUrl) {
 		
 		
 		account = accountService.findMember(userInputId, userInputPw);
