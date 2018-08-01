@@ -30,7 +30,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 			// false를 반환하여 메인 페이지로 이동시킨다.
 			redirect = false;
 		}
-		
+		// 모바일은 알림 서비스를 위해 예외처리한다.
 		if(url.contains("mFindAlarms.action")) {
 			redirect = true;
 		}

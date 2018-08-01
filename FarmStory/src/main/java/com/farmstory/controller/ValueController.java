@@ -38,7 +38,7 @@ public class ValueController {
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
 		model.addAttribute("regPotNo", regPotNo);
-		return "diary/time";
+		return "diary/time-val";
 	}
 	
 	@PostMapping(value = "/findTime.action")
@@ -49,7 +49,7 @@ public class ValueController {
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
 		model.addAttribute("regPotNo", regPotNo);
-		return "diary/time";
+		return "diary/time-val";
 	}
 	
 	@GetMapping(value = "/findDay.action")
@@ -63,7 +63,7 @@ public class ValueController {
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
 		model.addAttribute("regPotNo", regPotNo);
-		return "diary/day";
+		return "diary/day-val";
 	}
 	
 	@PostMapping(value = "/findDay.action")
@@ -74,7 +74,7 @@ public class ValueController {
 		model.addAttribute("vals", vals);
 		model.addAttribute("date", date);
 		model.addAttribute("regPotNo", regPotNo);
-		return "diary/day";
+		return "diary/day-val";
 	}
 	
 	@GetMapping(value = "/mFindTime.action")
