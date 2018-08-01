@@ -155,7 +155,7 @@
 										<ul class="isotope items col-4">
 											<c:forEach var="plantInfos" items="${ plantInfos }">
 												<li class="item thumb ${ plantInfos.plaType }"><a
-													href="portfolio-post.html">
+													href="/farmstory/plant_detail.action?plaNo=${ plantInfos.plaNo }">
 														<figure>
 															<figcaption class="text-overlay">
 																<div class="info">
