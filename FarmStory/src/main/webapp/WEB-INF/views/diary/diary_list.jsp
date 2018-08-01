@@ -49,7 +49,8 @@
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<a class="panel-toggle" data-toggle="collapse"
-										data-parent="#accordion" href="#content"> <span>다이어리 갤러리</span>
+										data-parent="#accordion" href="#content"> <span>다이어리
+											갤러리</span>
 									</a>
 								</h4>
 							</div>
@@ -62,12 +63,13 @@
 										<c:forEach var="diaryAllImg" items="${ diaryAllImg }">
 											<div class="item">
 												<a
-													href="/farmstory/diary_detail.action?diaNo=${ diaryAllImg.diaNo }">
+													href="/farmstory/diary_detail.action?diaNo=${ diaryAllImg.diaNo }&diaName=${diaName}&
+												plaName=${plaName}&diaCategory=${diaCategory}">
 													<figure>
 														<figcaption class="text-overlay">
 															<div class="info">
-																<h4>Vintage Bicycles</h4>
-																<p>Interactive</p>
+																<<h4>이미지 클릭!</h4>
+																<p>다이어리를 볼 수 있어요</p>
 															</div>
 															<!-- /.info -->
 														</figcaption>
@@ -79,8 +81,6 @@
 											</div>
 											<!-- /.item -->
 										</c:forEach>
-
-
 									</div>
 									<!-- /.owl-carousel -->
 								</div>
@@ -146,16 +146,15 @@
 			<div class="row">
 				<div class="col-md-9 inner-right-sm">
 					<div class="posts sidemeta">
-						<c:forEach var="diary" items="${ diaries }" varStatus="status">
+						<c:forEach var="diary" items="${ diaries }">
 							<div>
-								<%-- <c:forEach var="diaryMonth" items="${ diaryMonth }"> --%>
 								<div
 									class="post <fmt:formatDate value="${diary.diaDate}" type="date" pattern="MM" />">
 									<div class="date-wrapper">
 										<div class="date">
 											<span class="day"><c:set var="diaDate"
-													value="<%=new java.util.Date()%>" /> <fmt:formatDate
-													value="${diary.diaDate}" type="date" pattern="MM-dd" /> </span>
+													value="<%=new java.util.Date()%>" /><fmt:setLocale value="en_us"/><fmt:formatDate
+													value="${diary.diaDate}" type="date" pattern="MM-dd" /></span>
 											<!-- <span class="month">May</span> -->
 										</div>
 										<!-- /.date -->
@@ -185,7 +184,8 @@
 
 										<h2 class="post-title">
 											<a
-												href="/farmstory/diary_detail.action?diaNo=${ diary.diaNo }">${ diary.diaTitle }</a>
+												href="/farmstory/diary_detail.action?diaNo=${ diary.diaNo }&diaName=${diaName}&
+												plaName=${plaName}&diaCategory=${diaCategory}">${ diary.diaTitle }</a>
 										</h2>
 
 										<ul class="meta">
@@ -195,13 +195,12 @@
 										</ul>
 										<!-- /.meta -->
 										<a
-											href="/farmstory/diary_detail.action?diaNo=${ diary.diaNo }"
+											href="/farmstory/diary_detail.action?diaNo=${ diary.diaNo }&diaName=${diaName}&
+												plaName=${plaName}&diaCategory=${diaCategory}"
 											class="btn">더보기</a>
 
 									</div>
-									<!-- /.post-content -->
 								</div>
-								<%-- </c:forEach> --%>
 							</div>
 							<!-- /.post -->
 						</c:forEach>
@@ -223,7 +222,8 @@
 											</c:when>
 											<c:otherwise>
 												<a
-													href="${ pager.linkUrl }?pageno=${ pager.currentPage - 1 }&memId=${ loginuser.memId }"
+													href="${ pager.linkUrl }?pageno=${ pager.currentPage - 1 }&memId=${ loginuser.memId }&dibNo=${diaries[0].dibNo}&diaName=${ diaName }&
+													plaName=${ plaName }&diaCategory=${ diaCategory }"
 													aria-label="Previous"> <span aria-hidden="true">
 														<i class="fa fa-long-arrow-left" aria-hidden="true"></i>Prev
 												</span>
@@ -238,15 +238,16 @@
 											</c:when>
 											<c:otherwise>
 												<li><a
-													href="${ pager.linkUrl }?pageno=${ idx }&memId=${ loginuser.memId }">${ idx }</a></li>
+													href="${ pager.linkUrl }?pageno=${ idx }&memId=${ loginuser.memId }&dibNo=${diaries[0].dibNo}&diaName=${ diaName }&
+													plaName=${ plaName }&diaCategory=${ diaCategory }">${ idx }</a></li>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
-
 									<li><c:choose>
 											<c:when test="${ pager.currentPage < pager.pageCount }">
 												<a
-													href="${ pager.linkUrl }?pageno=${ pager.currentPage + 1 }&memId=${ loginuser.memId }"
+													href="${ pager.linkUrl }?pageno=${ pager.currentPage + 1 }&memId=${ loginuser.memId }&dibNo=${diaries[0].dibNo}&diaName=${ diaName }&
+													plaName=${ plaName }&diaCategory=${ diaCategory }"
 													aria-label="Next">
 											</c:when>
 											<c:otherwise>
@@ -260,22 +261,18 @@
 						</div>
 					</div>
 					<!-- /.pagination -->
-
 				</div>
-
 				<!-- /.col -->
-
 				<aside class="col-md-3">
-
 					<div class="sidebox widget">
 						<h4>Random Posts</h4>
-
 						<div class="row thumbs gap-xs">
 							<c:forEach var="diaryAllImg" end="3" items="${ diaryAllImg }">
 								<div class="col-xs-6 thumb">
 									<figure class="icon-overlay icn-link">
 										<a
-											href="/farmstory/diary_detail.action?diaNo=${ diaryAllImg.diaNo }">
+											href="/farmstory/diary_detail.action?diaNo=${ diaryAllImg.diaNo }&diaName=${diaName}&
+												plaName=${plaName}&diaCategory=${diaCategory}">
 											<img
 											src="/farmstory/resources/upload-image/diary-info/${diaryAllImg.diiImg}"
 											alt="">
@@ -291,8 +288,12 @@
 
 					<div class="sidebox widget">
 						<h4>다이어리 검색</h4>
-						<form action="/farmstory/diary_list.action" id="search"
+						<form action="/farmstory/diary_list.action" id="search-form"
 							class="navbar-form search" role="search">
+							<input name="dibNo" type="hidden" value="${diaries[0].dibNo}">
+							<input name="diaName" type="hidden" value="${ diaName }">
+							<input name="plaName" type="hidden" value="${ plaName }">
+							<input name="diaCategory" type="hidden" value="${ diaCategory }">
 							<input id="diaTitle" name="diaTitle" type="search"
 								class="form-control" placeholder="제목으로 검색해보세요!">
 							<button id="titleSearch"
@@ -360,38 +361,16 @@
 	<jsp:include page="/WEB-INF/views/include/javascript/public-js.jsp" />
 	<script type="text/javascript">
 		$(function() {
-			$('#titleSearch')
-					.on(
-							'click',
-							function(event) {
-								var diaTitle = $('#diaTitle').val();
-								if (diaTitle == '') {
-									alert('검색할 제목을 입력하세요.');
-									return;
-								}
-								location.href = '/farmstory/diary_list.action?diaTitle='
-										+ diaTitle;
+			$('#titleSearch').on('click', function(event) {
+				var diaTitle = $('#diaTitle').val();
+				if (diaTitle == '') {
+					alert('검색할 제목을 입력하세요.');
+					return;
+				}
+				//location.href = '/farmstory/diary_list.action?diaTitle=' + diaTitle;
+				$('#search-form').submit();
 
-							});
-
-			/* $('#monthSearchForm a[id=monthSearch]').on(
-					'click',
-					function(event) {
-						event.preventDefault();
-						//var data = $("#monthSearchForm").serialize();
-						$.ajax({
-							"url" : "diaryMonthCheck.action",
-							"data" : {
-								"data" : data
-							},
-							"success" : function(data, status, xhr) {
-								alert("검색 성공");
-							},
-							"error" : function(request, status, error) {
-								alert("검색 실패");
-							}
-						});
-					}); */
+			});
 
 			/* $('#review')
 			.on(

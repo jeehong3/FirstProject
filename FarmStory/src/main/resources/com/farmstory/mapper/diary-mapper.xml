@@ -53,8 +53,9 @@
 		WHERE D.MEM_ID = #{memId} AND D.DIB_NO = #{dibNo}
 	</select>
 
-	<select id="selectCount" resultType="int">
+	<select id="selectCount" parameterType="hashmap" resultType="int">
 		SELECT COUNT(*) FROM DIARY
+		WHERE MEM_ID = #{memId} AND DIB_NO = #{dibNo}
 	</select>
 	
 	<select id="findDiaryByDiaryNo" parameterType="String" resultType="Diary">
@@ -124,5 +125,6 @@
 	<delete id="deleteDiaryBook" parameterType="int">
 	DELETE FROM DIARY_BOOK WHERE DIB_NO = #{dibNo}
 	</delete>
+
 	
 </mapper>  

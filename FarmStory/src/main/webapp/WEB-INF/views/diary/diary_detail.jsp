@@ -111,12 +111,10 @@
 								<h2 class="post-title">
 									<a href="blog-post.html">${ diary.diaTitle }</a>
 								</h2>
-
 								<ul class="meta">
-									<li class="categories"><a href="#">Identity</a>, <a
-										href="#">Graphic Design</a></li>
-									<li class="comments"><a href="#">24</a></li>
-									<li class="likes"><a href="#">73</a></li>
+									<li class=""><a href="#">${diaName}</a></li>
+									<li class=""><a href="#">${plaName}</a></li>
+									<li class=""><a href="#">${diaCategory}</a></li>
 								</ul>
 								<!-- /.meta -->
 

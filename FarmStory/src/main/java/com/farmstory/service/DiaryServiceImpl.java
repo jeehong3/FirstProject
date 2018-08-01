@@ -46,8 +46,8 @@ public class DiaryServiceImpl implements DiaryService{
 	}
 
 	@Override
-	public int getCount() {
-		int count = diaryDao.selectCount();
+	public int getCount(String memId, int dibNo) {
+		int count = diaryDao.selectCount(memId, dibNo);
 		return count;
 	}
 
@@ -125,4 +125,5 @@ public class DiaryServiceImpl implements DiaryService{
 	public void deleteDiary(int dibNo) {
 		diaryDao.deleteDiaryBook(dibNo);
 	}
+
 }

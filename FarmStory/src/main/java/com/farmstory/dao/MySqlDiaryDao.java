@@ -58,9 +58,13 @@ public class MySqlDiaryDao implements DiaryDao{
 	}
 
 	@Override
-	public int selectCount() {
-		int count = diaryMapper.selectCount();
-		return count;
+	public int selectCount(String memId, int dibNo) {
+		HashMap<String, Object> params = new HashMap<>();
+		params.put("memId", memId);
+		params.put("dibNo", dibNo);
+		return diaryMapper.selectCount(params);
+		//int count = diaryMapper.selectCount(memId, dibNo);
+		//return count;
 	}
 
 	@Override

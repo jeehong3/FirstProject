@@ -123,13 +123,13 @@ public class DiaryController {
 		
 		//mysql 사용시
 		int from = pageNo * pageSize - pageSize;
-		int to = from + pageSize;
+		//int to = from + pageSize;
 		
 		int pagerSize = 5; //번호로 표시할 페이지 목록
 		String linkUrl = "diary_list.action";
 		//////////////////////////////////////////////////////////////////////////////
-		List<Diary> diary = diaryService.findDiary(from, to, memId, dibNo, diaTitle);
-		int dataCount = diaryService.getCount();
+		List<Diary> diary = diaryService.findDiary(from, pageSize, memId, dibNo, diaTitle);
+		int dataCount = diaryService.getCount(memId, dibNo);
 		
 		ThePager pager = new ThePager(dataCount, pageNo, pageSize, pagerSize, linkUrl);
 		
@@ -147,7 +147,8 @@ public class DiaryController {
 	
 	@GetMapping(value = "/diary_detail.action")
 	public String diary_detail(
-			@RequestParam(value = "diaNo") String diaNo, Model model, HttpSession session) {
+			@RequestParam(value = "diaNo") String diaNo, Model model, HttpSession session,
+			String diaName, String plaName, String diaCategory) {
 		
 		String memId = ((Account)session.getAttribute("loginuser")).getMemId();
 		Diary diary = diaryService.findDiaryByDiaryNo(diaNo);
@@ -155,6 +156,9 @@ public class DiaryController {
 		//List<DiaryImg> diaryAllImg = diaryService.findDiaryAllImg(memId);
 		model.addAttribute("diary", diary);
 		model.addAttribute("diaryImg", diaryImg);
+		model.addAttribute("diaName", diaName);
+		model.addAttribute("plaName", plaName);
+		model.addAttribute("diaCategory", diaCategory);
 		//model.addAttribute("diaryAllImg", diaryAllImg);
 		
 		return "diary/diary_detail";
@@ -261,9 +265,7 @@ public class DiaryController {
 			@RequestParam(value = "plaNo", defaultValue = "-1") int plaNo) {
 		
 		String memId = ((Account) session.getAttribute("loginuser")).getMemId();
-		
 		List<DiaryBook> diaryBookList = diaryService.findDiaryBookListByMemId(memId);
-		
 		model.addAttribute("diaryBookList", diaryBookList);
 		
 		return "diary/diary-book-list";
@@ -337,4 +339,5 @@ public class DiaryController {
 		diaryService.deleteDiary(dibNo);
 		return "redirect:diary_book_list.action";
 	}
+	
 }

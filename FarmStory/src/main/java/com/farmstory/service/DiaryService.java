@@ -15,7 +15,7 @@ public interface DiaryService {
 
 	List<DiaryImg> findDiaryAllImg(String memId, int dibNo);
 
-	int getCount();
+	int getCount(String memId, int dibNo);
 
 	Diary findDiaryByDiaryNo(String diaNo);
 
@@ -40,5 +40,6 @@ public interface DiaryService {
 	DiaryBook findDiaryBookInfo(int dibNo);
 
 	void deleteDiary(int dibNo);
+
 
 }

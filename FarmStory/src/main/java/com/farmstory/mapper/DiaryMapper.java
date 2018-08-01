@@ -21,8 +21,7 @@ public interface DiaryMapper {
 	List<DiaryImg> findDiaryAllImg(HashMap<String, Object> params);
 
 	//List<DiaryImg> findDiaryAllImg(String memId, String diaBookName);
-
-	int selectCount();
+	int selectCount(HashMap<String, Object> params);
 
 	Diary findDiaryByDiaryNo(String diaNo);
 
@@ -51,5 +50,6 @@ public interface DiaryMapper {
 	DiaryBook selectDiaryBookInfo(int dibNo);
 
 	void deleteDiaryBook(int dibNo);
+
 
 }

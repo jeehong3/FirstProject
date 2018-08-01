@@ -19,7 +19,7 @@ public interface DiaryDao {
 
 	List<DiaryImg> findDiaryAllImg(String memId, int dibNo);
 
-	int selectCount();
+	int selectCount(String memId, int dibNo);
 
 	Diary findDiaryByDiaryNo(String diaNo);
 
