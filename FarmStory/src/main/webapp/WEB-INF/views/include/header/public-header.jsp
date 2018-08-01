@@ -112,7 +112,7 @@
 							data-toggle="dropdown">다이어리</a>
 							
 							<ul class="dropdown-menu">
-								<li><a href="/farmstory/diary_book_list.action">나의 다이어리 북</a></li>
+								<li><a href="/farmstory/diary_book_list.action">나의 다이어리 책</a></li>
 							</ul> <!-- /.dropdown-menu --></li>
 						<!-- /.dropdown -->
 

@@ -45,8 +45,8 @@
 			<div class="row">
 				<div class="col-md-8 center-block text-center">
 					<header>
-						<h1>나의 다이어리 북</h1>
-						<p>화분마다 다이어리 북을 만들 수 있어요.</p>
+						<h1>나의 다이어리 책</h1>
+						<p>화분마다 다이어리 책을 만들 수 있어요.</p>
 					</header>
 				</div>
 				<!-- /.col -->
@@ -104,7 +104,7 @@
 												href="/farmstory/diary_book_delete.action?dibNo=${diaryBook.dibNo}"
 												class="btn bookDel"
 												onclick="return confirm('[ ${ diaryBook.diaName } ] 다이어리를 삭제하시겠습니까?')"
-												data-dibNo="${diaryBook.dibNo}">책 버리기</a>
+												data-dibNo="${diaryBook.dibNo}">책 지우기</a>
 										</div>
 										<!-- /.info -->
 									</figcaption>

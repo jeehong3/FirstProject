@@ -70,8 +70,6 @@
 
 				<section id="diary-form-section">
 
-					<h2>다이어리 책 등록</h2>
-					<br>
 					<form id="diary-book-form" action="diary_book_write.action" method="post"
 						enctype="multipart/form-data">
 
