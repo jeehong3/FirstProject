@@ -146,9 +146,9 @@
 										<ul class="filter text-center">
 											<li><a href="#" data-filter="*" class="active">전체</a></li>
 											<li><a href="#" data-filter=".꽃">꽃</a></li>
-											<li><a href="#" data-filter=".관엽식물">관엽 식물</a></li>
-											<li><a href="#" data-filter=".활엽식물">활엽 식물</a></li>
-											<li><a href="#" data-filter=".란">란</a></li>
+											<li><a href="#" data-filter=".관엽식물">관엽식물</a></li>
+											<li><a href="#" data-filter=".허브">허브</a></li>
+											<li><a href="#" data-filter=".다육">다육</a></li>
 										</ul>
 										<!-- /.filter -->
 

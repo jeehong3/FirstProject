@@ -10,9 +10,7 @@ public class HomeController {
 	
 	
 	@GetMapping(value = {"/" , "/home.action"})
-	public String showHome(@RequestParam(required = false)String checkedLogin, Model model) {
-		
-		model.addAttribute("checkedLogin", checkedLogin);
+	public String showHome() {
 		
 		return "home";
 	}

@@ -12,5 +12,9 @@ public interface AccountDao {
 
 	Account signInMoblie(String id, String password);
 
+	int selectMemberIdByMemId(String memId);
+
+	int selectMemberEmailByMemEmail(String memEmail);
+
 
 }

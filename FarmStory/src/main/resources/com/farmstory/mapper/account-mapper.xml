@@ -36,6 +36,16 @@
 		WHERE MEM_ID = #{id} AND MEM_PW = #{password}
 	</select>
 	
-
-
+	<select id="selectMemberIdByMemId" resultType="int">
+		SELECT COUNT(MEM_ID)
+		FROM MEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
+	
+	<select id="selectMemberEmailByMemEmail" resultType="int">
+		SELECT COUNT(MEM_EMAIL)
+		FROM MEMBER
+		WHERE MEM_EMAIL = #{memEmail}
+	</select>
+	
 </mapper>  

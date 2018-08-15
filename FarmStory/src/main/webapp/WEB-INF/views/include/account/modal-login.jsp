@@ -12,8 +12,8 @@
 				<h4 class="modal-title">&nbsp;<i class="icon-login-1"></i>&nbsp;로그인</h4>
 			</div>
 			<div class="modal-body">
-				<form id="loginForm" method="post" action="/farmstory/login.action">
-					<input type="hidden" name="returnUrl" value="${ param.returnUrl }">
+				<form id="loginForm" method="get" >
+					<input id="returnUrl" type="hidden" name="returnUrl" value="${ param.returnUrl }">
 					<div class="form-group">
 						<input id="inputId" type="text" class="form-control bg-ash" name="userInputId"
 							placeholder="아이디를 입력해주세요." required>
@@ -37,6 +37,7 @@
 	</div>
 </div>
 
+
 <!-- ================= Login Check Modal ===================================== -->
 
 <div id="wrongId" class="modal fade" role="dialog">
@@ -51,7 +52,7 @@
 				<h4>아이디를 찾을 수 없습니다.</h4>
 			</div>
 			<div class="modal-footer">
-				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
+				<a class="btn" data-dismiss="modal" >확인</a>
 			</div>
 		</div>
 	</div>
@@ -69,7 +70,7 @@
 				<h4>비밀번호를 잘못 입력했습니다.</h4>
 			</div>
 			<div class="modal-footer">
-				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
+				<a class="btn" data-dismiss="modal" >확인</a>
 			</div>
 		</div>
 	</div>
@@ -87,7 +88,7 @@
 				<h4>로그인 하신 후 이용해주세요.</h4>
 			</div>
 			<div class="modal-footer">
-				<a class="btn wrongConfirm" data-dismiss="modal" aria-hidden="true">확인</a>
+				<a class="btn callLoginModal" data-dismiss="modal">확인</a>
 			</div>
 		</div>
 	</div>

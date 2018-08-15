@@ -96,7 +96,7 @@
 										<br>
 										<h4>간략 설명</h4>
 										<input type="text" name="plaSimple" class="form-control"
-											placeholder="식물의 간략한 정보를 입력해 주세요.">
+											placeholder="식물의 간략한 정보를 입력해주세요.">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -106,7 +106,7 @@
 									<div class="col-sm-12">
 										<h4>상세 설명</h4>
 										<textarea name="plaContent" class="form-control"
-											placeholder="식물의 상세한 정보를 입력해 주세요."></textarea>
+											placeholder="식물의 상세한 정보를 입력해주세요."></textarea>
 									</div>
 									<!-- /.col -->
 								</div>
@@ -118,14 +118,14 @@
 										<h6>최소 온도</h6>
 										<input type="number" name="plaMinTem"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 온도</h6>
 										<input type="number" name="plaMaxTem"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -137,14 +137,14 @@
 										<h6>최소 습도</h6>
 										<input type="number" name="plaMinHum"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 습도</h6>
 										<input type="number" name="plaMaxHum"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 								</div>
@@ -156,14 +156,14 @@
 										<h6>최소 조도</h6>
 										<input type="number" name="plaMinLux"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 									<div class="col-sm-6">
 										<h6>최대 조도</h6>
 										<input type="number" name="plaMaxLux"
 											class="form-control inputNumberKey"
-											placeholder="숫자만 입력해 주세요.">
+											placeholder="숫자만 입력해주세요.">
 									</div>
 									<!-- /.col -->
 								</div>

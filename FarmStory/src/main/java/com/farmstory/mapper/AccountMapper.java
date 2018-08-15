@@ -14,7 +14,8 @@ public interface AccountMapper {
 
 	Account signInMoblie(HashMap<String, Object> params);
 
-
-
+	int selectMemberIdByMemId(String memId);
+	
+	int selectMemberEmailByMemEmail(String memEmail);
 
 }

@@ -50,6 +50,17 @@ public class MySqlAccountDao implements AccountDao {
 		return account;
 	}
 
+	@Override
+	public int selectMemberIdByMemId(String memId) {
+		
+		return accountMapper.selectMemberIdByMemId(memId);
+	}
+	
+	@Override
+	public int selectMemberEmailByMemEmail(String memEmail) {
+		
+		return accountMapper.selectMemberEmailByMemEmail(memEmail);
+	}
 
 	
 }

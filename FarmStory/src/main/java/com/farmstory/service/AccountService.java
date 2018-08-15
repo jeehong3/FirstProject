@@ -8,11 +8,13 @@ public interface AccountService {
 
 	Account findMember(String userInputId, String userInputPw);
 
-	String findMemberByPw(String userInputId);
+	String findMemberByPw(String userInputId, String userInputPw);
 
 	Account signInMoblie(String id, String password);
 
-	
+	boolean findMemberIdByMemId(String memId);
+
+	boolean findMemberEmailByMemEmail(String memEmail);
 
 	
 }

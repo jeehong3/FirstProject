@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<style type="text/css">
+input.error, textarea.error{
+  border:1px dashed red;
+}
+label.error{
+  display:block;
+  color:red;
+  font-size: 13px;
+}
+</style>
+
 <div id="register" class="modal fade" role="dialog">
 	<div class="modal-dialog ">
 		<!-- Modal content-->
@@ -10,9 +21,9 @@
 				<h4 class="modal-title">&nbsp;<i class="icon-user-1"></i>&nbsp;회원 가입</h4>
 			</div>
 			<div class="modal-body">
-				<form id="registerForm" method="post" action="/farmstory/register.action">
+				<form id="registerForm" method="post" >
 					<div class="form-group">
-						<input type="text" class="form-control bg-ash" name="memId"
+						<input type="text" class="form-control " name="memId"
 							placeholder="아이디를 입력해주세요." required>
 					</div>
 					<div class="form-group">
@@ -29,18 +40,39 @@
 					</div>
 					<div class="form-group">
 						<input type="text" class="form-control bg-ash" name="memPhone"
-							placeholder="휴대전화 번호를 알려주세요." required>
+							placeholder="휴대전화번호를 알려주세요." required>
 					</div>
-					<button id="registerBtn" class="btn btn-default">가입하기</button>
+					
+					<button type="submit" class="btn btn-default">가입하기</button>
 				</form>
 			</div>
 			<div class="modal-footer">
 				<div class="haveAccount">
 					<p class="modalChange">
-						이미 계정이 있으신가요?&nbsp;&nbsp;&nbsp;<a id="callLoginModal" data-dismiss="modal"
+						이미 계정이 있으신가요?&nbsp;&nbsp;&nbsp;<a class="callLoginModal" data-dismiss="modal"
 							aria-hidden="true">로그인</a>
 					</p>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ================= Register Success Modal ===================================== -->
+
+<div id="registerSuccess" class="modal fade" role="dialog">
+	<div id="modal-dialog-logout" class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" >
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">&nbsp;<i class="icon-user-1"></i>&nbsp;회원가입 성공</h4>
+			</div>
+			<div class="modal-body" align="center">
+				<h4>회원가입이 완료되었습니다.<div>로그인 해주세요.</div></h4>
+			</div>
+			<div class="modal-footer">
+				<a class="btn callLoginModal" data-dismiss="modal" >로그인 하러가기</a>
 			</div>
 		</div>
 	</div>
